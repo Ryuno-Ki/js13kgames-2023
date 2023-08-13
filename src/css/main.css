@@ -1,0 +1,19 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	display: grid;
+	min-height: 95vh;
+	place-items: center;
+}
+
+section {
+	max-width: 60ch;
+}
+
+p {
+	margin: 0 0 1em 0;
+}
