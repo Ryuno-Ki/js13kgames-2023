@@ -1,0 +1,15 @@
+{
+  "name": "js13kgames-2023",
+  "version": "0.1.0",
+  "description": "Topic is 13th Century.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+		"js13kgames",
+		"13th century"
+	],
+  "author": "André Jaenisch",
+  "license": "AGPL-3.0-or-later"
+}
