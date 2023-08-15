@@ -1,5 +1,7 @@
 export const initialState = {
   activeScene: 'title-section',
+  activeMonth: 1,
+  activeYear: 1250,
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
@@ -92,6 +94,7 @@ export const initialState = {
       }
     }
   },
+  history: [],
   title: '',
   volume: 0
 }

@@ -1,3 +1,4 @@
+import { monthMeter } from './components/month-meter.js'
 import { sectionTitle } from './components/scenes/title.js'
 import { sectionSettings } from './components/scenes/settings.js'
 import { sectionAbout } from './components/scenes/about.js'
@@ -11,6 +12,7 @@ import { draw } from './render.js'
 import { add } from './registry.js'
 
 export function init () {
+  add('month-meter', monthMeter)
   add('title-section', sectionTitle)
   add('settings-section', sectionSettings)
   add('about-section', sectionAbout)
