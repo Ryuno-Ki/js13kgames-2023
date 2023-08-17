@@ -26,6 +26,23 @@ export const initialState = {
         ware: 'wool',
         amount: 10
       }]
+    },
+		wismar: {
+      name: 'Wismar',
+      demand: [{
+        ware: 'honey',
+        amount: 10
+      }, {
+        ware: 'salt',
+        amount: 5
+      }],
+      supply: [{
+        ware: 'salt',
+        amount: 8
+      }, {
+        ware: 'wool',
+        amount: 4
+      }]
     }
   },
   scenes: {
