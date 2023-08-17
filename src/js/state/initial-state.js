@@ -27,7 +27,7 @@ export const initialState = {
         amount: 10
       }]
     },
-		wismar: {
+    wismar: {
       name: 'Wismar',
       demand: [{
         ware: 'honey',
@@ -137,6 +137,13 @@ export const initialState = {
       }
     }
   },
+  ships: [{
+    name: 'Marie',
+    type: 'kogge',
+    position: 'lubeck',
+    docked: true,
+    costs: 5
+  }],
   history: [],
   title: '',
   volume: 0
