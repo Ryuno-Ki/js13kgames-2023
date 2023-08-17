@@ -1,50 +1,47 @@
 export const initialState = {
-  activeCity: 'lubeck',
+  activeCity: 'Lübeck',
   activeScene: 'title-section',
   activeMonth: 1,
   activeYear: 1250,
-  cities: {
-    lubeck: {
-      name: 'Lübeck',
-      demand: [{
-        ware: 'honey',
-        amount: 10
-      }, {
-        ware: 'salt',
-        amount: 5
-      }, {
-        ware: 'wool',
-        amount: 3
-      }],
-      supply: [{
-        ware: 'honey',
-        amount: 5
-      }, {
-        ware: 'salt',
-        amount: 2
-      }, {
-        ware: 'wool',
-        amount: 10
-      }]
-    },
-    wismar: {
-      name: 'Wismar',
-      demand: [{
-        ware: 'honey',
-        amount: 10
-      }, {
-        ware: 'salt',
-        amount: 5
-      }],
-      supply: [{
-        ware: 'salt',
-        amount: 8
-      }, {
-        ware: 'wool',
-        amount: 4
-      }]
-    }
-  },
+  cities: [{
+    name: 'Lübeck',
+    demand: [{
+      ware: 'honey',
+      amount: 10
+    }, {
+      ware: 'salt',
+      amount: 5
+    }, {
+      ware: 'wool',
+      amount: 3
+    }],
+    supply: [{
+      ware: 'honey',
+      amount: 5
+    }, {
+      ware: 'salt',
+      amount: 2
+    }, {
+      ware: 'wool',
+      amount: 10
+    }]
+  }, {
+    name: 'Wismar',
+    demand: [{
+      ware: 'honey',
+      amount: 10
+    }, {
+      ware: 'salt',
+      amount: 5
+    }],
+    supply: [{
+      ware: 'salt',
+      amount: 8
+    }, {
+      ware: 'wool',
+      amount: 4
+    }]
+  }],
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
@@ -140,7 +137,7 @@ export const initialState = {
   ships: [{
     name: 'Marie',
     type: 'kogge',
-    position: 'lubeck',
+    position: 'Lübeck',
     docked: true,
     costs: 5
   }],
