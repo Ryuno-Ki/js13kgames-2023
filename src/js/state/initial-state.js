@@ -34,6 +34,7 @@ export const initialState = {
       ware: 'salt',
       amount: 5
     }],
+    // warehouse = Kontor
     supply: [{
       ware: 'salt',
       amount: 8
