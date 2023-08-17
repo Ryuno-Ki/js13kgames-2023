@@ -1,6 +1,6 @@
-export function sendShip ({ ship, from, to }) {
+export function sendShipAction ({ ship, from, to }) {
   return {
-    type: 'SEND_SHIP',
+    type: 'SEND_SHIP_ACTION',
     payload: {
       ship,
       from,

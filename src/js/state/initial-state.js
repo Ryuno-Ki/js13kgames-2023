@@ -1,6 +1,7 @@
 export const initialState = {
-  activeCity: 'Lübeck',
+  activeCity: null,
   activeScene: 'title-section',
+  activeView: 'sea',
   activeMonth: 1,
   activeYear: 1250,
   cities: [{

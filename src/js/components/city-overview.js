@@ -34,7 +34,8 @@ export function cityOverview (targetElement, state) {
       ['ul', [], {}, '', city.demand.map((s) => [
         'li', [], {}, `${s.ware}: ${s.amount}`
       ])]
-    ]]
+    ]],
+    ['button', [], { type: 'button', 'data-view': 'sea' }, 'See other city']
   ]))
   return element
 }

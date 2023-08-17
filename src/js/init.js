@@ -1,5 +1,6 @@
 import { cityOverview } from './components/city-overview.js'
 import { monthMeter } from './components/month-meter.js'
+import { sea } from './components/sea.js'
 
 import { sectionTitle } from './components/scenes/title.js'
 import { sectionSettings } from './components/scenes/settings.js'
@@ -17,6 +18,7 @@ import { add } from './registry.js'
 export function init () {
   add('city-overview', cityOverview)
   add('month-meter', monthMeter)
+  add('sea', sea)
   add('title-section', sectionTitle)
   add('settings-section', sectionSettings)
   add('about-section', sectionAbout)
