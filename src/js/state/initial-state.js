@@ -1,7 +1,33 @@
 export const initialState = {
+  activeCity: 'lubeck',
   activeScene: 'title-section',
   activeMonth: 1,
   activeYear: 1250,
+  cities: {
+    lubeck: {
+      name: 'Lübeck',
+      demand: [{
+        ware: 'honey',
+        amount: 10
+      }, {
+        ware: 'salt',
+        amount: 5
+      }, {
+        ware: 'wool',
+        amount: 3
+      }],
+      supply: [{
+        ware: 'honey',
+        amount: 5
+      }, {
+        ware: 'salt',
+        amount: 2
+      }, {
+        ware: 'wool',
+        amount: 10
+      }]
+    }
+  },
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
