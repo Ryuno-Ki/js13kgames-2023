@@ -44,6 +44,7 @@ export const initialState = {
       amount: 4
     }]
   }],
+  itineraries: [],
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
@@ -140,7 +141,7 @@ export const initialState = {
     name: 'Marie',
     type: 'kogge',
     position: 'Lübeck',
-    docked: true,
+    moored: true,
     costs: 5
   }],
   history: [],

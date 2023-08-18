@@ -1,24 +1,40 @@
 export function sendShipReducer (state, payload) {
-  let activeCity = state.activeCity
   let ships = state.ships
+  let itineraries = state.itineraries
 
   const ship = state.ships
-    .filter((ship) => ship.docked)
+    .filter((ship) => ship.moored)
     .filter((ship) => ship.position === payload.from)
     .find((ship) => ship.name === payload.ship)
 
   if (ship) {
-    activeCity = payload.to
+    itineraries = [
+      ...itineraries,
+      {
+        from: payload.from,
+        to: payload.to,
+        ship: payload.ship,
+        departed: {
+          month: state.activeMonth,
+          year: state.activeYear
+        }
+      }
+    ]
     ships = state.ships.map((s) => {
+      if (s.name !== payload.ship) {
+        return s
+      }
+
       return {
         ...s,
-        position: payload.to
+        moored: false,
+        position: null
       }
     })
   }
 
   return Object.assign({}, state, {
-    activeCity,
+    itineraries,
     ships
   })
 }

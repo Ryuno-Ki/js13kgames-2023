@@ -6,7 +6,7 @@ export function cityOverview (targetElement, state) {
   const destinations = state.cities.filter((city) => city.name !== state.activeCity)
   const ships = state.ships
     .filter((ship) => ship.position === state.activeCity)
-    .filter((ship) => ship.docked)
+    .filter((ship) => ship.moored)
 
   element.innerHTML = ''
   element.appendChild(el('div', [], {}, '', [
