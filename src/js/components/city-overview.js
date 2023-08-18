@@ -25,16 +25,8 @@ export function cityOverview (targetElement, state) {
         ]]
       ]
     ]),
-    ['div', [], {}, 'Supply', [
-      ['ul', [], {}, '', city.supply.map((s) => [
-        'li', [], {}, `${s.ware}: ${s.amount}`
-      ])]
-    ]],
-    ['div', [], {}, 'Demand', [
-      ['ul', [], {}, '', city.demand.map((s) => [
-        'li', [], {}, `${s.ware}: ${s.amount}`
-      ])]
-    ]],
+    ['div', [], { 'data-component': 'market', 'data-type': 'Supply', 'data-wares': JSON.stringify(city.supply) }],
+    ['div', [], { 'data-component': 'market', 'data-type': 'Demand', 'data-wares': JSON.stringify(city.demand) }],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'See other city']
   ]))
   return element
