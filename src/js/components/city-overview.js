@@ -11,7 +11,7 @@ export function cityOverview (targetElement, state) {
   element.innerHTML = ''
   element.appendChild(el('div', [], {}, '', [
     ['div', [], {}, city.name],
-    ['div', [], { 'data-component': 'docks', 'data-destinations': JSON.stringify(destinations), 'data-ships': JSON.stringify(ships) }],
+    ['div', [], { 'data-component': 'docks', 'data-destinations': JSON.stringify(destinations), 'data-ships': JSON.stringify(ships), 'data-warehouse': JSON.stringify(city.supply) }],
     ['div', [], { 'data-component': 'market', 'data-type': 'Supply', 'data-wares': JSON.stringify(city.supply) }],
     ['div', [], { 'data-component': 'market', 'data-type': 'Demand', 'data-wares': JSON.stringify(city.demand) }],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'See other city']

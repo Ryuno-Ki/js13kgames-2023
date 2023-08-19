@@ -3,12 +3,31 @@ import { el } from './el.js'
 export function docks (targetElement, state) {
   const destinations = JSON.parse(targetElement.getAttribute('data-destinations'))
   const ships = JSON.parse(targetElement.getAttribute('data-ships'))
+  const warehouse = JSON.parse(targetElement.getAttribute('data-warehouse'))
   const element = targetElement.cloneNode(true)
   element.innerHTML = ''
 
   element.appendChild(el('div', [], {}, '', [
     ...ships.map((ship) => [
       'div', [], {}, ship.name, [
+        ['div', [], {}, 'Load', [
+          ['ul', [], {}, '', [
+            ...warehouse.map((ware) => [
+              'li', [], {}, '', [
+                ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware, [
+                  ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.amount, step: 1, value: ware.amount, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }]
+                ]]
+              ]
+            ])
+          ]]
+        ]],
+        ['div', [], {}, 'Unload', [
+          ['ul', [], {}, '', [
+            ...ship.cargo.map((ware) => [
+              'li', [], { 'data-load': 'unload' }, `${ware.ware}: ${ware.quantity}`
+            ])
+          ]]
+        ]],
         ['div', [], {}, '', [
           ['label', [], { forId: 'destination' }],
           ['select', [], { id: 'destination', 'data-ship': ship.name }, '', [

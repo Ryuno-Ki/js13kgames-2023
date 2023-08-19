@@ -143,7 +143,9 @@ export const initialState = {
     position: 'Lübeck',
     moored: true,
     costs: 5,
-    cargo: []
+    cargo: [],
+    // 80 - 200t
+    maxFreightWeight: 10
   }],
   history: [],
   title: '',
