@@ -1,4 +1,5 @@
 import { cityOverview } from './components/city-overview.js'
+import { docks } from './components/docks.js'
 import { market } from './components/market.js'
 import { monthMeter } from './components/month-meter.js'
 import { sea } from './components/sea.js'
@@ -18,6 +19,7 @@ import { add } from './registry.js'
 
 export function init () {
   add('city-overview', cityOverview)
+  add('docks', docks)
   add('market', market)
   add('month-meter', monthMeter)
   add('sea', sea)

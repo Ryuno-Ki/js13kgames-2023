@@ -142,7 +142,8 @@ export const initialState = {
     type: 'kogge',
     position: 'Lübeck',
     moored: true,
-    costs: 5
+    costs: 5,
+    cargo: []
   }],
   history: [],
   title: '',

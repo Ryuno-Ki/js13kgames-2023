@@ -11,20 +11,7 @@ export function cityOverview (targetElement, state) {
   element.innerHTML = ''
   element.appendChild(el('div', [], {}, '', [
     ['div', [], {}, city.name],
-    ...ships.map((ship) => [
-      'div', [], {}, ship.name, [
-        ['div', [], {}, '', [
-          ['label', [], { forId: 'destination' }],
-          ['select', [], { id: 'destination', 'data-ship': ship.name }, '', [
-            ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
-            ],
-            ...destinations.map((destination) => [
-              'option', [], { value: destination.name }, 'to ' + destination.name
-            ])
-          ]]
-        ]]
-      ]
-    ]),
+    ['div', [], { 'data-component': 'docks', 'data-destinations': JSON.stringify(destinations), 'data-ships': JSON.stringify(ships) }],
     ['div', [], { 'data-component': 'market', 'data-type': 'Supply', 'data-wares': JSON.stringify(city.supply) }],
     ['div', [], { 'data-component': 'market', 'data-type': 'Demand', 'data-wares': JSON.stringify(city.demand) }],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'See other city']
