@@ -1,5 +1,5 @@
 export function unloadShipReducer (state, payload) {
-	let cities = state.cities
+  let cities = state.cities
   let ships = state.ships
 
   const ship = state.ships
@@ -41,29 +41,29 @@ export function unloadShipReducer (state, payload) {
       }
     })
 
-		cities = state.cities.map((city) => {
-			if (city.name !== payload.city) {
-				return city
-			}
+    cities = state.cities.map((city) => {
+      if (city.name !== payload.city) {
+        return city
+      }
 
-			return {
-				...city,
-				supply: city.supply.map((ware) => {
-					if (ware.ware !== payload.ware) {
-						return ware
-					}
+      return {
+        ...city,
+        supply: city.supply.map((ware) => {
+          if (ware.ware !== payload.ware) {
+            return ware
+          }
 
-					return {
-						...ware,
-						amount: Number(ware.amount) + Number(payload.quantity)
-					}
-				})
-			}
-		})
+          return {
+            ...ware,
+            amount: Number(ware.amount) + Number(payload.quantity)
+          }
+        })
+      }
+    })
   }
 
   return Object.assign({}, state, {
-		cities,
+    cities,
     ships
   })
 }

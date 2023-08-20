@@ -2,14 +2,15 @@ import { el } from './el.js'
 
 export function monthMeter (targetElement, state) {
   const element = targetElement.cloneNode(true)
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
-  const activeMonth = state.activeMonth - 1
-  const month = `${months[activeMonth]} ${state.activeYear}`
+  const month = targetElement.getAttribute('data-month')
+  const activeMonth = targetElement.getAttribute('data-active-month')
 
   element.innerHTML = ''
   element.appendChild(el('div', [], {}, '', [
     ['meter', [], { min: 0, max: 11, value: activeMonth }],
-    ['div', [], {}, month]
+    ['div', [], {}, month, [
+      ['button', [], { type: 'button', 'data-action': 'next-month' }, 'Next month']
+    ]]
   ]))
   return element
 }

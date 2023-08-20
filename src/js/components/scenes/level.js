@@ -6,11 +6,14 @@ export function sectionLevel (targetElement, state) {
 
   if (state.activeScene === 'level-section') {
     const view = getViewFromState(state)
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+    const activeMonth = state.activeMonth - 1
+    const month = `${months[activeMonth]} ${state.activeYear}`
 
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'Level'],
       view,
-      ['div', [], { 'data-component': 'month-meter' }],
+      ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'win-section' }, 'Win'],
         ['button', ['action'], { 'data-scene': 'game-over-section' }, 'GameOver']

@@ -2,7 +2,7 @@ export function loadShipAction ({ city, ship, ware, quantity }) {
   return {
     type: 'LOAD_SHIP_ACTION',
     payload: {
-			city,
+      city,
       ship,
       ware,
       quantity

@@ -1,4 +1,5 @@
 import { initialState } from '../initial-state.js'
+import { forwardToNextMonthReducer } from './forward-to-next-month.js'
 import { loadShipReducer } from './load-ship.js'
 import { sendShipReducer } from './send-ship.js'
 import { switchToCityReducer } from './switch-to-city.js'
@@ -10,6 +11,10 @@ export function reducer (state, action) {
   if (typeof state === 'undefined') return initialState
   const type = action.type
   const payload = action.payload
+
+  if (type === 'FORWARD_TO_NEXT_MONTH_ACTION') {
+    return forwardToNextMonthReducer(state, payload)
+  }
 
   if (type === 'LOAD_SHIP_ACTION') {
     return loadShipReducer(state, payload)

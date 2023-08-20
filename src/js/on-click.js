@@ -1,4 +1,5 @@
 import store from './state/store.js'
+import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { loadShipAction } from './state/actions/load-ship.js'
 import { sendShipAction } from './state/actions/send-ship.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
@@ -8,6 +9,10 @@ import { unloadShipAction } from './state/actions/unload-ship.js'
 
 async function onClick (event) {
   const target = event.target
+
+  if (target.dataset.action) {
+    return store.dispatch(forwardToNextMonthAction())
+  }
 
   if (target.dataset.city) {
     return store.dispatch(switchToCityAction(target.dataset.city))

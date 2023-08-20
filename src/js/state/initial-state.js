@@ -146,11 +146,11 @@ export const initialState = {
     cargo: [],
     // 80 - 200t
     maxFreightWeight: 10
-		// speed: 3 - 6 kn = sea miles / hour.
-		// 1 sea mile = 1852 m
+    // speed: 3 - 6 kn = sea miles / hour.
+    // 1 sea mile = 1852 m
   }],
-	// Nef with 60 - 100t
-	// evtl. auch Knorr
+  // Nef with 60 - 100t
+  // evtl. auch Knorr
   history: [],
   title: '',
   volume: 0
