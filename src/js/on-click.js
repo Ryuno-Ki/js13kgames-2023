@@ -1,9 +1,10 @@
 import store from './state/store.js'
 import { loadShipAction } from './state/actions/load-ship.js'
+import { sendShipAction } from './state/actions/send-ship.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
-import { sendShipAction } from './state/actions/send-ship.js'
+import { unloadShipAction } from './state/actions/unload-ship.js'
 
 async function onClick (event) {
   const target = event.target
@@ -39,12 +40,16 @@ async function onInput (event) {
     const city = store.getState().activeCity
     const ship = target.dataset.ship
     const ware = target.dataset.ware
-    const quantity = target.value
+    const quantity = target.value - 0
     return store.dispatch(loadShipAction({ city, ship, ware, quantity }))
   }
 
   if (target.dataset.load === 'unload') {
-		// TODO: implement
+    const city = store.getState().activeCity
+    const ship = target.dataset.ship
+    const ware = target.dataset.ware
+    const quantity = target.value - 0
+    return store.dispatch(unloadShipAction({ city, ship, ware, quantity }))
   }
 }
 

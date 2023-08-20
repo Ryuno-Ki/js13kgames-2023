@@ -1,4 +1,4 @@
-export function loadShipReducer (state, payload) {
+export function unloadShipReducer (state, payload) {
 	let cities = state.cities
   let ships = state.ships
 
@@ -23,7 +23,7 @@ export function loadShipReducer (state, payload) {
 
           return {
             ware: payload.ware,
-            quantity: Number(w.quantity) + Number(payload.quantity)
+            quantity: w.quantity - payload.quantity
           }
         })
       } else {
@@ -55,7 +55,7 @@ export function loadShipReducer (state, payload) {
 
 					return {
 						...ware,
-						amount: ware.amount - payload.quantity
+						amount: Number(ware.amount) + Number(payload.quantity)
 					}
 				})
 			}

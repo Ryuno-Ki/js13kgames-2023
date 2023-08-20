@@ -139,14 +139,18 @@ export const initialState = {
   },
   ships: [{
     name: 'Marie',
-    type: 'kogge',
+    type: 'cog',
     position: 'Lübeck',
     moored: true,
     costs: 5,
     cargo: [],
     // 80 - 200t
     maxFreightWeight: 10
+		// speed: 3 - 6 kn = sea miles / hour.
+		// 1 sea mile = 1852 m
   }],
+	// Nef with 60 - 100t
+	// evtl. auch Knorr
   history: [],
   title: '',
   volume: 0
