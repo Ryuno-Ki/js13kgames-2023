@@ -3,8 +3,6 @@ import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
-import { onChange } from './on-change.js'
-import { onInput } from './on-input.js'
 
 /**
  * Click event handler
@@ -32,14 +30,5 @@ export async function onClick (event) {
 
   if (target.dataset.view) {
     return store.dispatch(switchToViewAction(target.dataset.view))
-  }
-}
-
-export function registerEventListeners () {
-  document.body.addEventListener('change', onChange)
-  document.body.addEventListener('click', onClick)
-  document.body.addEventListener('input', onInput)
-  window.onerror = (e) => {
-    document.body.appendChild(document.createTextNode(e.message))
   }
 }
