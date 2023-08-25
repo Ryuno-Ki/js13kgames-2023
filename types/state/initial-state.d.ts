@@ -1,133 +1,161 @@
-export namespace initialState {
-    let activeScene: string;
-    namespace scenes {
-        let id: string;
-        let predictableActionArguments: boolean;
-        let preserveActionOrder: boolean;
-        let initial: string;
-        namespace states {
-            namespace Title {
-                let component: string;
-                let name: string;
-                namespace on {
-                    namespace navigateToNewGame {
-                        let target: string;
-                    }
-                    namespace navigateToSettings {
-                        let target_1: string;
-                        export { target_1 as target };
-                    }
-                    namespace navigateToAbout {
-                        let target_2: string;
-                        export { target_2 as target };
-                    }
-                }
-            }
-            namespace Settings {
-                let component_1: string;
-                export { component_1 as component };
-                let name_1: string;
-                export { name_1 as name };
-                export namespace on_1 {
-                    namespace navigateToTitle {
-                        let target_3: string;
-                        export { target_3 as target };
-                    }
-                }
-                export { on_1 as on };
-            }
-            namespace About {
-                let component_2: string;
-                export { component_2 as component };
-                let name_2: string;
-                export { name_2 as name };
-                export namespace on_2 {
-                    export namespace navigateToTitle_1 {
-                        let target_4: string;
-                        export { target_4 as target };
-                    }
-                    export { navigateToTitle_1 as navigateToTitle };
-                }
-                export { on_2 as on };
-            }
-            namespace NewGame {
-                let component_3: string;
-                export { component_3 as component };
-                let name_3: string;
-                export { name_3 as name };
-                export namespace on_3 {
-                    export namespace navigateToTitle_2 {
-                        let target_5: string;
-                        export { target_5 as target };
-                    }
-                    export { navigateToTitle_2 as navigateToTitle };
-                    export namespace navigateToWorld {
-                        let target_6: string;
-                        export { target_6 as target };
-                    }
-                }
-                export { on_3 as on };
-            }
-            namespace Level {
-                let component_4: string;
-                export { component_4 as component };
-                let name_4: string;
-                export { name_4 as name };
-                export namespace on_4 {
-                    namespace navigateToWin {
-                        let target_7: string;
-                        export { target_7 as target };
-                    }
-                    namespace navigateToGameOver {
-                        let target_8: string;
-                        export { target_8 as target };
-                    }
-                }
-                export { on_4 as on };
-            }
-            namespace World {
-                let component_5: string;
-                export { component_5 as component };
-                let name_5: string;
-                export { name_5 as name };
-                export namespace on_5 {
-                    namespace navigateToLevel {
-                        let target_9: string;
-                        export { target_9 as target };
-                    }
-                }
-                export { on_5 as on };
-            }
-            namespace Win {
-                let component_6: string;
-                export { component_6 as component };
-                let name_6: string;
-                export { name_6 as name };
-                export namespace on_6 {
-                    export namespace navigateToTitle_3 {
-                        let target_10: string;
-                        export { target_10 as target };
-                    }
-                    export { navigateToTitle_3 as navigateToTitle };
-                }
-                export { on_6 as on };
-            }
-            namespace GameOver {
-                let component_7: string;
-                export { component_7 as component };
-                let name_7: string;
-                export { name_7 as name };
-                export namespace on_7 {
-                    export namespace navigateToTitle_4 {
-                        let target_11: string;
-                        export { target_11 as target };
-                    }
-                    export { navigateToTitle_4 as navigateToTitle };
-                }
-                export { on_7 as on };
-            }
-        }
-    }
-    let title: string;
-    let volume: number;
-}
+/**
+ * @typedef {'honey' | 'salt' | 'wool'} Ware
+ */
+/**
+ * @typedef {object} CityDemand
+ * @property {Ware} ware
+ * @property {number} quantity
+ */
+/**
+ * @typedef {object} CitySupply
+ * @property {Ware} ware
+ * @property {number} quantity
+ */
+/**
+ * @typedef {'Lübeck' | 'Wismar'} CityName
+ */
+/**
+ * @typedef {object} City
+ * @property {CityName} name
+ * @property {Array<CityDemand>} demand
+ * @property {Array<CitySupply>} supply
+ */
+/**
+ * @typedef {object} HistoryEntry
+ * @todo Define properties
+ */
+/**
+ * @typedef {object} Itinerary
+ * @todo Add properties
+ */
+/**
+ * @typedef { 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 } Month
+ */
+/**
+ * @typedef {'about-section' | 'game-over-section' | 'level-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section'} Scene
+ * @todo Move to scenes components
+ */
+/**
+ * @typedef {'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World'} SceneName
+ * @todo Move to scenes components
+ */
+/**
+ * @typedef {object} SceneStateTargetMapping
+ * @property {SceneName} target
+ */
+/**
+ * @typedef {object} SceneStateMapping
+ * @property {Scene} component
+ * @property {string} name
+ * @property {Object.<string, SceneStateTargetMapping>} on
+ */
+/**
+ * @typedef {object} Scenes
+ * @property {string} id
+ * @property {Scene} initial
+ * @property {boolean} predictableActionArguments
+ * @property {boolean} preserveActionOrder
+ * @property {Object.<SceneName, SceneStateMapping>} states
+ */
+/**
+ * @typedef {object} ShipCargo
+ * @todo Define properties
+ */
+/**
+ * @typedef {'cog'} ShipType
+ * @todo Define more ship types
+ */
+/**
+ * @typedef {object} Ship
+ * @property {Array<ShipCargo>} cargo
+ * @property {number} costs
+ * @property {number} maxFreightWeight
+ * @property {boolean} moored
+ * @property {string} name
+ * @property {CityName | null} position
+ * @property {ShipType} type
+ */
+/**
+ * @typedef {'sea'} View
+ * @todo Define all views
+ */
+/**
+ * @typedef {object} State
+ * @property {CityName | null} activeCity
+ * @property {Month} activeMonth
+ * @property {Scene} activeScene
+ * @property {View} activeView
+ * @property {number} activeYear
+ * @property {Array<City>} cities
+ * @property {Array<HistoryEntry>} history
+ * @property {Array<Itinerary>} itineraries
+ * @property {Scenes} scenes
+ * @property {Array<Ship>} ships
+ * @property {string} title
+ * @property {number} volume
+*/
+/** @type {State} */
+export const initialState: State;
+export type Ware = 'honey' | 'salt' | 'wool';
+export type CityDemand = {
+    ware: Ware;
+    quantity: number;
+};
+export type CitySupply = {
+    ware: Ware;
+    quantity: number;
+};
+export type CityName = 'Lübeck' | 'Wismar';
+export type City = {
+    name: CityName;
+    demand: Array<CityDemand>;
+    supply: Array<CitySupply>;
+};
+export type HistoryEntry = object;
+export type Itinerary = object;
+export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
+export type SceneName = 'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World';
+export type SceneStateTargetMapping = {
+    target: SceneName;
+};
+export type SceneStateMapping = {
+    component: Scene;
+    name: string;
+    on: {
+        [x: string]: SceneStateTargetMapping;
+    };
+};
+export type Scenes = {
+    id: string;
+    initial: Scene;
+    predictableActionArguments: boolean;
+    preserveActionOrder: boolean;
+    states: any;
+};
+export type ShipCargo = object;
+export type ShipType = 'cog';
+export type Ship = {
+    cargo: Array<ShipCargo>;
+    costs: number;
+    maxFreightWeight: number;
+    moored: boolean;
+    name: string;
+    position: CityName | null;
+    type: ShipType;
+};
+export type View = 'sea';
+export type State = {
+    activeCity: CityName | null;
+    activeMonth: Month;
+    activeScene: Scene;
+    activeView: View;
+    activeYear: number;
+    cities: Array<City>;
+    history: Array<HistoryEntry>;
+    itineraries: Array<Itinerary>;
+    scenes: Scenes;
+    ships: Array<Ship>;
+    title: string;
+    volume: number;
+};
