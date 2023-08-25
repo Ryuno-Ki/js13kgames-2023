@@ -36,8 +36,11 @@ export async function onClick (event) {
   }
 }
 
-async function onInput (event) {
-  const target = event.target
+export async function onInput (event) {
+  const target = /** @type {HTMLInputElement} */(event.target)
+  if (!target) {
+    return
+  }
 
   if (target.dataset.load === 'load') {
     const city = store.getState().activeCity
