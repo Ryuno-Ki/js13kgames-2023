@@ -10,6 +10,7 @@
     "lint": "yarn run lint:js && yarn run lint:md",
     "lint:js": "eslint ./src",
     "lint:md": "markdownlint --ignore ./node_modules --ignore ./lib **/*.md",
+    "lint:test": "eslint ./test",
     "posttest": "yarn run tsd",
     "prebuild": "yarn test",
     "prepare": "husky install",
