@@ -7,8 +7,17 @@ import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
 import { unloadShipAction } from './state/actions/unload-ship.js'
 
+/**
+ * Click event handler
+ *
+ * @argument {MouseEvent} event
+ */
 export async function onClick (event) {
-  const target = event.target
+  const target = /** @type {HTMLElement} */(event.target)
+
+  if (!target) {
+    return
+  }
 
   if (target.dataset.action) {
     return store.dispatch(forwardToNextMonthAction())
