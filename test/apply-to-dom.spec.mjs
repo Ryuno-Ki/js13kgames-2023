@@ -8,6 +8,10 @@ chai.use(sinonChai)
 const { expect } = chai
 
 describe('applyToDOM', () => {
+	afterEach(() => {
+		sinon.restore()
+	})
+
 	it('should remove a DOM node if it is not present in the virtual DOM', () => {
 		// Arrange
 		const parentNode = document.createElement('div')
