@@ -36,7 +36,7 @@
  */
 
 /**
- * @typedef { 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 } Month
+ * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
  */
 
 /**
@@ -118,7 +118,7 @@ export const initialState = {
   activeCity: null,
   activeScene: 'title-section',
   activeView: 'sea',
-  activeMonth: 1,
+  activeMonth: '1',
   activeYear: 1250,
   cities: [{
     name: 'Lübeck',
