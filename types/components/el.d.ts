@@ -8,6 +8,7 @@
  * @argument {Object<string, *>} attributes
  * @argument {string} text
  * @argument {Array<*>} children
+ * @returns {HTMLElement}
  */
 export function el(name: string, classList?: Array<string>, attributes?: {
     [x: string]: any;
