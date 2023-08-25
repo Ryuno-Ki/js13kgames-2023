@@ -17,6 +17,10 @@ import { registerEventListeners } from './on-click.js'
 import { draw } from './render.js'
 import { add } from './registry.js'
 
+/**
+ * Entry point to the game. Registers components and event listeners before
+ * triggering the render loop.
+ */
 export function init () {
   add('city-overview', cityOverview)
   add('docks', docks)
@@ -31,6 +35,7 @@ export function init () {
   add('world-section', sectionWorldselection)
   add('win-section', sectionWin)
   add('game-over-section', sectionGameOver)
+
   registerEventListeners()
   draw()
 }
