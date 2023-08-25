@@ -8,6 +8,10 @@ chai.use(sinonChai)
 const { expect } = chai
 
 describe('init', () => {
+	afterEach(() => {
+		sinon.restore()
+	})
+
 	it('should initialise the game', () => {
 		// Arrange
 		sinon.spy(window, 'requestAnimationFrame')
