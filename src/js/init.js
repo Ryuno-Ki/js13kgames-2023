@@ -14,7 +14,7 @@ import { sectionWin } from './components/scenes/win.js'
 import { sectionGameOver } from './components/scenes/game-over.js'
 
 import { registerEventListeners } from './register-event-listeners.js'
-import { draw } from './render.js'
+import { draw } from './draw.js'
 import { add } from './registry.js'
 
 /**
