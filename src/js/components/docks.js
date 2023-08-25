@@ -1,7 +1,7 @@
 import { el } from './el.js'
 
 /**
- * Component to display the docks a city.
+ * Component to display the docks in a city.
  *
  * @argument {HTMLElement} targetElement
  * @argument {import('../state/initial-state.js').State} state
