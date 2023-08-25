@@ -5,6 +5,7 @@ import { el } from './el.js'
  *
  * @argument {HTMLElement} targetElement
  * @argument {import('../state/initial-state.js').State} state
+ * @returns {HTMLElement}
  */
 export function cityOverview (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
