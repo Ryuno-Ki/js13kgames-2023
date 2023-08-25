@@ -2,7 +2,7 @@ import chai from 'chai'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import { onInput } from '../src/js/on-click.js'
+import { onInput } from '../src/js/on-input.js'
 import { loadShipAction } from '../src/js/state/actions/load-ship.js'
 import { unloadShipAction } from '../src/js/state/actions/unload-ship.js'
 import store from '../src/js/state/store.js'
@@ -11,14 +11,17 @@ chai.use(sinonChai)
 const { expect } = chai
 
 describe('onInput', () => {
+	beforeEach(() => {
+		store.dispatch(undefined)
+	})
+
 	afterEach(() => {
 		sinon.restore()
 	})
 
 	it('should dispatch to load a ship', () => {
 		// Arrange
-		// FIXME: The city is a side effect by another test. No good.
-		const city = 'Munich'
+		const city = null
 		const ship = 'Santa Maria'
 		const quantity = 42
 		const ware = 'potatoes'
@@ -44,8 +47,7 @@ describe('onInput', () => {
 
 	it('should dispatch to unload a ship', () => {
 		// Arrange
-		// FIXME: The city is a side effect by another test. No good.
-		const city = 'Munich'
+		const city = null
 		const ship = 'Santa Maria'
 		const quantity = 42
 		const ware = 'potatoes'
