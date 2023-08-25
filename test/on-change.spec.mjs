@@ -10,6 +10,10 @@ chai.use(sinonChai)
 const { expect } = chai
 
 describe('onChange', () => {
+	beforeEach(() => {
+		store.dispatch(undefined)
+	})
+
 	afterEach(() => {
 		sinon.restore()
 	})

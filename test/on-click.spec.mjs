@@ -13,6 +13,10 @@ chai.use(sinonChai)
 const { expect } = chai
 
 describe('onClick', () => {
+	beforeEach(() => {
+		store.dispatch(undefined)
+	})
+
 	afterEach(() => {
 		sinon.restore()
 	})
