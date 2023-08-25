@@ -7,7 +7,7 @@ import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
 import { unloadShipAction } from './state/actions/unload-ship.js'
 
-async function onClick (event) {
+export async function onClick (event) {
   const target = event.target
 
   if (target.dataset.action) {

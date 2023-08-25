@@ -6,6 +6,7 @@ global.document = dom.window.document
 
 global.window = {
   ...dom.window,
+  Event: dom.window.Event,
   localStorage: {
     getItem: () => null,
     setItem: () => {}
