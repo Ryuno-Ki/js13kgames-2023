@@ -36,13 +36,14 @@ export async function onClick (event) {
   }
 }
 
-async function onChange (event) {
+export async function onChange (event) {
   const target = event.target
-  document.body.appenChild(document.createTextNode(target.outerHTML))
+
   if (target.id === 'destination') {
     const ship = target.dataset.ship
     const from = store.getState().activeCity
     const to = target.value
+
     return store.dispatch(sendShipAction({ ship, from, to }))
   }
 }
