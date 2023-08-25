@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
 import { sendShipAction } from '../src/js/state/actions/send-ship.js'
-import { onChange } from '../src/js/on-click.js'
+import { onChange } from '../src/js/on-change.js'
 import store from '../src/js/state/store.js'
 
 chai.use(sinonChai)

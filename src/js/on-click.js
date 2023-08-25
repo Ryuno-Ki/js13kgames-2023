@@ -1,11 +1,11 @@
 import store from './state/store.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { loadShipAction } from './state/actions/load-ship.js'
-import { sendShipAction } from './state/actions/send-ship.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
 import { unloadShipAction } from './state/actions/unload-ship.js'
+import { onChange } from './on-change.js'
 
 /**
  * Click event handler
@@ -33,18 +33,6 @@ export async function onClick (event) {
 
   if (target.dataset.view) {
     return store.dispatch(switchToViewAction(target.dataset.view))
-  }
-}
-
-export async function onChange (event) {
-  const target = event.target
-
-  if (target.id === 'destination') {
-    const ship = target.dataset.ship
-    const from = store.getState().activeCity
-    const to = target.value
-
-    return store.dispatch(sendShipAction({ ship, from, to }))
   }
 }
 
