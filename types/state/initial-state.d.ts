@@ -59,7 +59,8 @@
  */
 /**
  * @typedef {object} ShipCargo
- * @todo Define properties
+ * @property {Ware} ware
+ * @property {number} quantity
  */
 /**
  * @typedef {'cog'} ShipType
@@ -133,7 +134,10 @@ export type Scenes = {
     preserveActionOrder: boolean;
     states: any;
 };
-export type ShipCargo = object;
+export type ShipCargo = {
+    ware: Ware;
+    quantity: number;
+};
 export type ShipType = 'cog';
 export type Ship = {
     cargo: Array<ShipCargo>;

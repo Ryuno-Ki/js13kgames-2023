@@ -72,7 +72,8 @@
 
 /**
  * @typedef {object} ShipCargo
- * @todo Define properties
+ * @property {Ware} ware
+ * @property {number} quantity
  */
 
 /**
