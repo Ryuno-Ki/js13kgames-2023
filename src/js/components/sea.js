@@ -1,7 +1,14 @@
 import { el } from './el.js'
 
+/**
+ * Component to display the Baltic sea with all cities.
+ *
+ * @argument {HTMLElement} targetElement
+ * @argument {import('../state/initial-state.js').State} state
+ * @returns {HTMLElement}
+ */
 export function sea (targetElement, state) {
-  const element = targetElement.cloneNode(true)
+  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
   // TODO: Filter for reachable cities later here

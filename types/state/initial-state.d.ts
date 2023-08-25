@@ -26,7 +26,12 @@
  */
 /**
  * @typedef {object} Itinerary
- * @todo Add properties
+ * @property {CityName} from
+ * @property {CityName} to
+ * @property {string} ship
+ * @property {object} departed
+ * @property {Month} departed.month
+ * @property {number} departed.year
  */
 /**
  * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
@@ -113,7 +118,15 @@ export type City = {
     supply: Array<CitySupply>;
 };
 export type HistoryEntry = object;
-export type Itinerary = object;
+export type Itinerary = {
+    from: CityName;
+    to: CityName;
+    ship: string;
+    departed: {
+        month: Month;
+        year: number;
+    };
+};
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
 export type SceneName = 'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World';

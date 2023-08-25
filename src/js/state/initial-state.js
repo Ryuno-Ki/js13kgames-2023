@@ -32,7 +32,12 @@
 
 /**
  * @typedef {object} Itinerary
- * @todo Add properties
+ * @property {CityName} from
+ * @property {CityName} to
+ * @property {string} ship
+ * @property {object} departed
+ * @property {Month} departed.month
+ * @property {number} departed.year
  */
 
 /**
