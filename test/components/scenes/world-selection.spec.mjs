@@ -7,36 +7,51 @@ import store from '../../../src/js/state/store.js'
 chai.use(chaiDom)
 const { expect } = chai
 
-describe('sectionWorldselection', () => {
-	beforeEach(() => {
-		store.dispatch(undefined)
-	})
+describe('sectionWorldselection', function () {
+  beforeEach(async function () {
+		await store.dispatch({ type: 'RESET', payload: {} })
+  })
 
-	describe('when world-selection is not the active scene', () => {
-		it('should be empty', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+  describe('when world-selection is not the active scene', function () {
+    it('should be empty', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const worldSelectionScene = sectionWorldselection(targetElement, state)
+      // Act
+      const worldSelectionScene = sectionWorldselection(targetElement, state)
 
-			// Assert
-			expect(worldSelectionScene).to.have.empty.html
-		})
-	})
+      // Assert
+      expect(worldSelectionScene).to.have.empty.html
+    })
+  })
 
-	describe('when world-selection is the active scene', () => {
-		it('should link to the level scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = Object.assign({}, store.getState(), { activeScene: 'world-section' })
+  describe('when world-selection is the active scene', function () {
+    it('should allow for selecting the scenario', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'world-section' })
 
-			// Act
-			const worldSelectionScene = sectionWorldselection(targetElement, state)
+      // Act
+      const worldSelectionScene = sectionWorldselection(targetElement, state)
 
-			// Assert
-			expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
-		})
-	})
+      // Assert
+      expect(worldSelectionScene).to.have.descendant('select#level-scenario')
+      expect(worldSelectionScene).to.have.descendant('option[value=""][checked="checked"]')
+      expect(worldSelectionScene).to.have.descendant('option[value="free-play"]')
+      expect(worldSelectionScene).to.have.descendant('option[value="tutorial"]')
+    })
+
+    it('should link to the level scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'world-section' })
+
+      // Act
+      const worldSelectionScene = sectionWorldselection(targetElement, state)
+
+      // Assert
+      expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
+    })
+  })
 })

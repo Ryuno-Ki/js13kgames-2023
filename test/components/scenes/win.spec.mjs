@@ -7,36 +7,36 @@ import store from '../../../src/js/state/store.js'
 chai.use(chaiDom)
 const { expect } = chai
 
-describe('sectionWin', () => {
-	beforeEach(() => {
-		store.dispatch(undefined)
-	})
+describe('sectionWin', function () {
+  beforeEach(async function () {
+		await store.dispatch({ type: 'RESET', payload: {} })
+  })
 
-	describe('when win is not the active scene', () => {
-		it('should be empty', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+  describe('when win is not the active scene', function () {
+    it('should be empty', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const winScene = sectionWin(targetElement, state)
+      // Act
+      const winScene = sectionWin(targetElement, state)
 
-			// Assert
-			expect(winScene).to.have.empty.html
-		})
-	})
+      // Assert
+      expect(winScene).to.have.empty.html
+    })
+  })
 
-	describe('when win is the active scene', () => {
-		it('should link to the title scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = Object.assign({}, store.getState(), { activeScene: 'win-section' })
+  describe('when win is the active scene', function () {
+    it('should link to the title scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'win-section' })
 
-			// Act
-			const winScene = sectionWin(targetElement, state)
+      // Act
+      const winScene = sectionWin(targetElement, state)
 
-			// Assert
-			expect(winScene).to.have.descendant('button.action[data-scene="title-section"]')
-		})
-	})
+      // Assert
+      expect(winScene).to.have.descendant('button.action[data-scene="title-section"]')
+    })
+  })
 })

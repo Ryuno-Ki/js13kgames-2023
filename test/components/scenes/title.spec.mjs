@@ -7,60 +7,60 @@ import store from '../../../src/js/state/store.js'
 chai.use(chaiDom)
 const { expect } = chai
 
-describe('sectionTitle', () => {
-	beforeEach(() => {
-		store.dispatch(undefined)
-	})
+describe('sectionTitle', function () {
+  beforeEach(async function () {
+		await store.dispatch({ type: 'RESET', payload: {} })
+  })
 
-	describe('when title is not the active scene', () => {
-		it('should be empty', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = Object.assign({}, store.getState(), { activeScene: 'about-section' })
+  describe('when title is not the active scene', function () {
+    it('should be empty', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'about-section' })
 
-			// Act
-			const titleScene = sectionTitle(targetElement, state)
+      // Act
+      const titleScene = sectionTitle(targetElement, state)
 
-			// Assert
-			expect(titleScene).to.have.empty.html
-		})
-	})
+      // Assert
+      expect(titleScene).to.have.empty.html
+    })
+  })
 
-	describe('when title is the active scene', () => {
-		it('should link to the new-game scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+  describe('when title is the active scene', function () {
+    it('should link to the new-game scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const titleScene = sectionTitle(targetElement, state)
+      // Act
+      const titleScene = sectionTitle(targetElement, state)
 
-			// Assert
-			expect(titleScene).to.have.descendant('button[data-scene="new-game-section"]')
-		})
+      // Assert
+      expect(titleScene).to.have.descendant('button[data-scene="new-game-section"]')
+    })
 
-		it('should link to the settings scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+    it('should link to the settings scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const titleScene = sectionTitle(targetElement, state)
+      // Act
+      const titleScene = sectionTitle(targetElement, state)
 
-			// Assert
-			expect(titleScene).to.have.descendant('button[data-scene="settings-section"]')
-		})
+      // Assert
+      expect(titleScene).to.have.descendant('button[data-scene="settings-section"]')
+    })
 
-		it('should link to the about scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+    it('should link to the about scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const titleScene = sectionTitle(targetElement, state)
+      // Act
+      const titleScene = sectionTitle(targetElement, state)
 
-			// Assert
-			expect(titleScene).to.have.descendant('button[data-scene="about-section"]')
-		})
-	})
+      // Assert
+      expect(titleScene).to.have.descendant('button[data-scene="about-section"]')
+    })
+  })
 })

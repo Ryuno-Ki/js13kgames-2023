@@ -7,73 +7,73 @@ import store from '../../src/js/state/store.js'
 chai.use(chaiDom)
 const { expect } = chai
 
-describe('cityOverview', () => {
-	beforeEach(() => {
-		store.dispatch(undefined)
-	})
+describe('cityOverview', function () {
+  beforeEach(async function () {
+		await store.dispatch({ type: 'RESET', payload: {} })
+  })
 
-	it('should render the unchanged element in case the city is not to be found', () => {
-		// Arrange
-		const targetElement = document.createElement('div')
-		const state = store.getState()
+  it('should render the unchanged element in case the city is not to be found', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = store.getState()
 
-		// Act
-		const cityOverviewComponent = cityOverview(targetElement, state)
+    // Act
+    const cityOverviewComponent = cityOverview(targetElement, state)
 
-		// Assert
-		expect(cityOverviewComponent).not.to.equal(targetElement)
-		expect(cityOverviewComponent).not.to.contain.text([ 'Lübeck' ])
-	})
+    // Assert
+    expect(cityOverviewComponent).not.to.equal(targetElement)
+    expect(cityOverviewComponent).not.to.contain.text(['Lübeck'])
+  })
 
-	it('should display the name of the city', () => {
-		// Arrange
-		const targetElement = document.createElement('div')
-		const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+  it('should display the name of the city', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
 
-		// Act
-		const cityOverviewComponent = cityOverview(targetElement, state)
+    // Act
+    const cityOverviewComponent = cityOverview(targetElement, state)
 
-		// Assert
-		expect(cityOverviewComponent).not.to.equal(targetElement)
-		expect(cityOverviewComponent).to.contain.text([ 'Lübeck' ])
-	})
+    // Assert
+    expect(cityOverviewComponent).not.to.equal(targetElement)
+    expect(cityOverviewComponent).to.contain.text(['Lübeck'])
+  })
 
-	it('should display a navigation to the docks', () => {
-		// Arrange
-		const targetElement = document.createElement('div')
-		const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+  it('should display a navigation to the docks', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
 
-		// Act
-		const cityOverviewComponent = cityOverview(targetElement, state)
+    // Act
+    const cityOverviewComponent = cityOverview(targetElement, state)
 
-		// Assert
-		expect(cityOverviewComponent).not.to.equal(targetElement)
-		expect(cityOverviewComponent).to.have.descendant('[data-component="docks"]')
-	})
+    // Assert
+    expect(cityOverviewComponent).not.to.equal(targetElement)
+    expect(cityOverviewComponent).to.have.descendant('[data-component="docks"]')
+  })
 
-	it('should display a navigation to the market', () => {
-		// Arrange
-		const targetElement = document.createElement('div')
-		const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+  it('should display a navigation to the market', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
 
-		// Act
-		const cityOverviewComponent = cityOverview(targetElement, state)
+    // Act
+    const cityOverviewComponent = cityOverview(targetElement, state)
 
-		// Assert
-		expect(cityOverviewComponent).not.to.equal(targetElement)
-		expect(cityOverviewComponent).to.have.descendant('[data-component="market"]')
-	})
+    // Assert
+    expect(cityOverviewComponent).not.to.equal(targetElement)
+    expect(cityOverviewComponent).to.have.descendant('[data-component="market"]')
+  })
 
-	it('should display a navigation to the sea', () => {
-		// Arrange
-		const targetElement = document.createElement('div')
-		const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+  it('should display a navigation to the sea', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
 
-		// Act
-		const cityOverviewComponent = cityOverview(targetElement, state)
+    // Act
+    const cityOverviewComponent = cityOverview(targetElement, state)
 
-		// Assert
-		expect(cityOverviewComponent).not.to.equal(targetElement)
-		expect(cityOverviewComponent).to.have.descendant('button[data-view="sea"]')
-	})
+    // Assert
+    expect(cityOverviewComponent).not.to.equal(targetElement)
+    expect(cityOverviewComponent).to.have.descendant('button[data-view="sea"]')
+  })
 })

@@ -7,51 +7,51 @@ import store from '../../../src/js/state/store.js'
 chai.use(chaiDom)
 const { expect } = chai
 
-describe('sectionSettings', () => {
-	beforeEach(() => {
-		store.dispatch(undefined)
-	})
+describe('sectionSettings', function () {
+  beforeEach(async function () {
+		await store.dispatch({ type: 'RESET', payload: {} })
+  })
 
-	describe('when settings is not the active scene', () => {
-		it('should be empty', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = store.getState()
+  describe('when settings is not the active scene', function () {
+    it('should be empty', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = store.getState()
 
-			// Act
-			const settingsScene = sectionSettings(targetElement, state)
+      // Act
+      const settingsScene = sectionSettings(targetElement, state)
 
-			// Assert
-			expect(settingsScene).to.have.empty.html
-		})
-	})
+      // Assert
+      expect(settingsScene).to.have.empty.html
+    })
+  })
 
-	describe('when settings is the active scene', () => {
-		it('should allow to choose colour preference', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = Object.assign({}, store.getState(), { activeScene: 'settings-section' })
+  describe('when settings is the active scene', function () {
+    it('should allow to choose colour preference', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'settings-section' })
 
-			// Act
-			const settingsScene = sectionSettings(targetElement, state)
+      // Act
+      const settingsScene = sectionSettings(targetElement, state)
 
-			// Assert
-			expect(settingsScene).to.have.descendant('select#color-preference')
-			expect(settingsScene).to.have.descendant('option[value="system"]')
-			expect(settingsScene).to.have.descendant('option[value="light"]')
-			expect(settingsScene).to.have.descendant('option[value="dark"]')
-		})
+      // Assert
+      expect(settingsScene).to.have.descendant('select#color-preference')
+      expect(settingsScene).to.have.descendant('option[value="system"]')
+      expect(settingsScene).to.have.descendant('option[value="light"]')
+      expect(settingsScene).to.have.descendant('option[value="dark"]')
+    })
 
-		it('should link to the title scene', () => {
-			// Arrange
-			const targetElement = document.createElement('section')
-			const state = Object.assign({}, store.getState(), { activeScene: 'settings-section' })
+    it('should link to the title scene', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'settings-section' })
 
-			// Act
-			const settingsScene = sectionSettings(targetElement, state)
+      // Act
+      const settingsScene = sectionSettings(targetElement, state)
 
-			// Assert
-			expect(settingsScene).to.have.descendant('button[data-scene="title-section"]')
-		})
-	})
+      // Assert
+      expect(settingsScene).to.have.descendant('button[data-scene="title-section"]')
+    })
+  })
 })
