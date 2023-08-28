@@ -1,13 +1,20 @@
 import { el } from '../el.js'
 
+/**
+ * Component to display the level.
+ *
+ * @argument {HTMLElement} targetElement
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {HTMLElement}
+ */
 export function sectionLevel (targetElement, state) {
-  const element = targetElement.cloneNode(true)
+  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
   if (state.activeScene === 'level-section') {
     const view = getViewFromState(state)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
-    const activeMonth = state.activeMonth - 1
+    const activeMonth = Number(state.activeMonth) - 1
     const month = `${months[activeMonth]} ${state.activeYear}`
 
     element.appendChild(el('div', [], {}, '', [
@@ -24,6 +31,13 @@ export function sectionLevel (targetElement, state) {
   return element
 }
 
+/**
+ * Helper function to map active view to a component tree.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {Array<*>}
+ */
 function getViewFromState (state) {
   const view = state.activeView
 
