@@ -27,6 +27,21 @@ describe('sectionSettings', () => {
 	})
 
 	describe('when settings is the active scene', () => {
+		it('should allow to choose colour preference', () => {
+			// Arrange
+			const targetElement = document.createElement('section')
+			const state = Object.assign({}, store.getState(), { activeScene: 'settings-section' })
+
+			// Act
+			const settingsScene = sectionSettings(targetElement, state)
+
+			// Assert
+			expect(settingsScene).to.have.descendant('select#color-preference')
+			expect(settingsScene).to.have.descendant('option[value="system"]')
+			expect(settingsScene).to.have.descendant('option[value="light"]')
+			expect(settingsScene).to.have.descendant('option[value="dark"]')
+		})
+
 		it('should link to the title scene', () => {
 			// Arrange
 			const targetElement = document.createElement('section')
