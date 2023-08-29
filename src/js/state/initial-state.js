@@ -31,16 +31,6 @@
  */
 
 /**
- * @typedef {object} Itinerary
- * @property {CityName} from
- * @property {CityName} to
- * @property {string} ship
- * @property {object} departed
- * @property {Month} departed.month
- * @property {number} departed.year
- */
-
-/**
  * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
  */
 
@@ -82,6 +72,14 @@
  */
 
 /**
+ * @typedef {object} ShipItinerary
+ * @property {CityName} from
+ * @property {CityName} to
+ * @property {Month} month
+ * @property {number} year
+ */
+
+/**
  * @typedef {'cog'} ShipType
  * @todo Define more ship types
  */
@@ -90,6 +88,7 @@
  * @typedef {object} Ship
  * @property {Array<ShipCargo>} cargo
  * @property {number} costs
+ * @property {ShipItinerary | null} itinerary
  * @property {number} maxFreightWeight
  * @property {boolean} moored
  * @property {string} name
@@ -110,7 +109,6 @@
  * @property {number} activeYear
  * @property {Array<City>} cities
  * @property {Array<HistoryEntry>} history
- * @property {Array<Itinerary>} itineraries
  * @property {Scenes} scenes
  * @property {Array<Ship>} ships
  * @property {string} title
@@ -164,7 +162,6 @@ export const initialState = {
       quantity: 4
     }]
   }],
-  itineraries: [],
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
@@ -262,6 +259,7 @@ export const initialState = {
     type: 'cog',
     position: 'Lübeck',
     moored: true,
+    itinerary: null,
     costs: 5,
     cargo: [],
     // 80 - 200t

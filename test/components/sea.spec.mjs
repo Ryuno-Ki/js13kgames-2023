@@ -40,15 +40,17 @@ describe('sea', function () {
 
   it('should render a list of sailing ships', function () {
     // Arrange
-    const itineraries = {
-      itineraries: [{
-        ship: 'Marie',
+    const ships = [{
+      name: 'Marie',
+      moored: false,
+      position: null,
+      itinerary: {
         from: 'Lübeck',
         to: 'Wismar'
-      }]
-    }
+      }
+    }]
     const targetElement = document.createElement('div')
-    const state = Object.assign({}, store.getState(), itineraries)
+    const state = Object.assign({}, store.getState(), { ships })
 
     // Act
     const seaComponent = sea(targetElement, state)

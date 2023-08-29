@@ -14,6 +14,7 @@ export function sea (targetElement, state) {
   // TODO: Filter for reachable cities later here
   const cities = state.cities
   const mooredShips = state.ships.filter((ship) => ship.moored)
+  const sailingShips = state.ships.filter((ship) => !ship.moored)
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], {}, 'Where do you want to go?'],
@@ -34,8 +35,8 @@ export function sea (targetElement, state) {
       ]],
       ['div', [], {}, 'sailing:', [
         ['ul', [], {}, '', [
-          ...state.itineraries.map((itinerary) => [
-            'li', [], {}, `${itinerary.ship} from ${itinerary.from} to ${itinerary.to}`
+          ...sailingShips.map((ship) => [
+            'li', [], {}, `${ship.name} from ${ship.itinerary.from} to ${ship.itinerary.to}`
           ])
         ]]
       ]]
