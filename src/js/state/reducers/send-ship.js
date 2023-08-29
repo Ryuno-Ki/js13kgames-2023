@@ -1,6 +1,12 @@
+/**
+ * Reducer to compute the transition of a ship from one city to another
+ *
+ * @argument {import('../initial-state.js').State} state
+ * @argument {import('../actions/send-ship.js').SEND_SHIP_ACTION['payload']} payload
+ * @returns {import('../initial-state.js').State}
+ */
 export function sendShipReducer (state, payload) {
   let ships = state.ships
-  let itineraries = state.itineraries
 
   const ship = state.ships
     .filter((ship) => ship.moored)
@@ -8,18 +14,6 @@ export function sendShipReducer (state, payload) {
     .find((ship) => ship.name === payload.ship)
 
   if (ship) {
-    itineraries = [
-      ...itineraries,
-      {
-        from: payload.from,
-        to: payload.to,
-        ship: payload.ship,
-        departed: {
-          month: state.activeMonth,
-          year: state.activeYear
-        }
-      }
-    ]
     ships = state.ships.map((s) => {
       if (s.name !== payload.ship) {
         return s
@@ -27,6 +21,12 @@ export function sendShipReducer (state, payload) {
 
       return {
         ...s,
+        itinerary: {
+          from: payload.from,
+          to: payload.to,
+          month: Number(state.activeMonth),
+          year: state.activeYear
+        },
         moored: false,
         position: null
       }
@@ -34,7 +34,6 @@ export function sendShipReducer (state, payload) {
   }
 
   return Object.assign({}, state, {
-    itineraries,
     ships
   })
 }
