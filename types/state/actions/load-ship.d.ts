@@ -7,7 +7,6 @@
  * @property {import('../initial-state.js').Ware} LOAD_SHIP_ACTION.payload.ware
  * @property {number} LOAD_SHIP_ACTION.payload.quantity
  */
-
 /**
  * Action creator to load a ship in a city with quantity of a ware.
  *
@@ -18,14 +17,18 @@
  * @argument {number} payload.quantity
  * @returns {LOAD_SHIP_ACTION}
  */
-export function loadShipAction ({ city, ship, ware, quantity }) {
-  return {
-    type: 'LOAD_SHIP_ACTION',
+export function loadShipAction({ city, ship, ware, quantity }: {
+    city: import('../initial-state.js').CityName;
+    ship: string;
+    ware: import('../initial-state.js').Ware;
+    quantity: number;
+}): LOAD_SHIP_ACTION;
+export type LOAD_SHIP_ACTION = {
+    type: 'LOAD_SHIP_ACTION';
     payload: {
-      city,
-      ship,
-      ware,
-      quantity
-    }
-  }
-}
+        city: import('../initial-state.js').CityName;
+        ship: string;
+        ware: import('../initial-state.js').Ware;
+        quantity: number;
+    };
+};
