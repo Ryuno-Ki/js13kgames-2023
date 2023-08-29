@@ -21,7 +21,7 @@ describe('onInput', function () {
 
   it('should dispatch to load a ship', function () {
     // Arrange
-    const city = null
+    const city = 'Costa Rica'
     const ship = 'Santa Maria'
     const quantity = 42
     const ware = 'potatoes'
@@ -47,7 +47,7 @@ describe('onInput', function () {
 
   it('should dispatch to unload a ship', function () {
     // Arrange
-    const city = null
+    const city = 'Costa Rica'
     const ship = 'Santa Maria'
     const quantity = 42
     const ware = 'potatoes'

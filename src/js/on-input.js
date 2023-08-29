@@ -14,7 +14,7 @@ export async function onInput (event) {
   }
 
   if (target.dataset.load === 'load') {
-    const city = store.getState().activeCity
+    const city = target.dataset.city
     const ship = target.dataset.ship
     const ware = target.dataset.ware
     const quantity = Number(target.value)
@@ -22,7 +22,7 @@ export async function onInput (event) {
   }
 
   if (target.dataset.load === 'unload') {
-    const city = store.getState().activeCity
+    const city = target.dataset.city
     const ship = target.dataset.ship
     const ware = target.dataset.ware
     const quantity = Number(target.value)

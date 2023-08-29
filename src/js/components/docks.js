@@ -15,6 +15,7 @@ export function docks (targetElement, state) {
   const maybeShips = element.getAttribute('data-ships')
   const maybeWarehouse = element.getAttribute('data-warehouse')
 
+  const city = state.activeCity
   const destinations = /** @type {Array<import('../state/initial-state.js').City>} */(JSON.parse(maybeDestinations || '[]'))
   const ships = /** @type {Array<import('../state/initial-state.js').Ship>} */(JSON.parse(maybeShips || '[]'))
   const warehouse = /** @type {Array<import('../state/initial-state.js').CitySupply>} */(JSON.parse(maybeWarehouse || '[]'))
@@ -28,7 +29,7 @@ export function docks (targetElement, state) {
               'li', [], {}, '', [
                 ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
                 ['span', [], {}, '0'],
-                ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }],
+                ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }],
                 ['span', [], {}, ware.quantity]
               ]
             ])
@@ -40,7 +41,7 @@ export function docks (targetElement, state) {
               'li', [], {}, '', [
                 ['label', [], { for: `${ship.name}-unload-${ware.ware}` }, ware.ware],
                 ['span', [], {}, '0'],
-                ['input', [], { id: `${ship.name}-unload-${ware.ware}`, name: `${ship.name}-unload-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-load': 'unload', 'data-ship': ship.name, 'data-ware': ware.ware }],
+                ['input', [], { id: `${ship.name}-unload-${ware.ware}`, name: `${ship.name}-unload-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'unload', 'data-ship': ship.name, 'data-ware': ware.ware }],
                 ['span', [], {}, ware.quantity]
               ]
             ])
