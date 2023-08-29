@@ -5,13 +5,4 @@
  * @argument {import('../actions/switch-to-city.js').SWITCH_TO_CITY_ACTION['payload']} payload
  * @returns {import('../initial-state.js').State}
  */
-export function switchToCityReducer (state, payload) {
-  const activeView = 'city'
-  // TODO: Validate for eligible city once flag is introduced
-  const activeCity = payload.city
-
-  return Object.assign({}, state, {
-    activeCity,
-    activeView
-  })
-}
+export function switchToCityReducer(state: import('../initial-state.js').State, payload: import('../actions/switch-to-city.js').SWITCH_TO_CITY_ACTION['payload']): import('../initial-state.js').State;
