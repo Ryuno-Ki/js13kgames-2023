@@ -98,8 +98,7 @@
  */
 
 /**
- * @typedef {'sea'} View
- * @todo Define all views
+ * @typedef {'city' | 'sea'} View
  */
 
 /**

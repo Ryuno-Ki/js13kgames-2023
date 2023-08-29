@@ -82,8 +82,7 @@
  * @property {ShipType} type
  */
 /**
- * @typedef {'sea'} View
- * @todo Define all views
+ * @typedef {'city' | 'sea'} View
  */
 /**
  * @typedef {object} State
@@ -161,7 +160,7 @@ export type Ship = {
     position: CityName | null;
     type: ShipType;
 };
-export type View = 'sea';
+export type View = 'city' | 'sea';
 export type State = {
     activeCity: CityName | null;
     activeMonth: Month;
