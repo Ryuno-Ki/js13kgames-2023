@@ -6,7 +6,6 @@
  * @property {string} SEND_SHIP_ACTION.payload.ship
  * @property {import('../initial-state.js').CityName} SEND_SHIP_ACTION.payload.to
  */
-
 /**
  * Action creator to send a ship from a city to another.
  *
@@ -16,13 +15,16 @@
  * @argument {import('../initial-state.js').CityName} payload.to
  * @returns {SEND_SHIP_ACTION}
  */
-export function sendShipAction ({ ship, from, to }) {
-  return {
-    type: 'SEND_SHIP_ACTION',
+export function sendShipAction({ ship, from, to }: {
+    from: import('../initial-state.js').CityName;
+    ship: string;
+    to: import('../initial-state.js').CityName;
+}): SEND_SHIP_ACTION;
+export type SEND_SHIP_ACTION = {
+    type: 'SEND_SHIP_ACTION';
     payload: {
-      ship,
-      from,
-      to
-    }
-  }
-}
+        from: import('../initial-state.js').CityName;
+        ship: string;
+        to: import('../initial-state.js').CityName;
+    };
+};
