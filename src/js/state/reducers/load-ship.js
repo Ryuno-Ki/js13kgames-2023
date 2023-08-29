@@ -1,3 +1,11 @@
+/**
+ * Reducer to compute the cargo of a ship and update the city's warehouse.
+ *
+ * @argument {import('../initial-state.js').State} state
+ * @argument {import('../actions/load-ship.js').LOAD_SHIP_ACTION['payload']} payload
+ * @returns {import('../initial-state.js').State}
+ * @todo Think about check on payload.ware in city.supply before loading
+ */
 export function loadShipReducer (state, payload) {
   let cities = state.cities
   let ships = state.ships
@@ -55,7 +63,7 @@ export function loadShipReducer (state, payload) {
 
           return {
             ...ware,
-            amount: ware.amount - payload.quantity
+            quantity: ware.quantity - payload.quantity
           }
         })
       }
