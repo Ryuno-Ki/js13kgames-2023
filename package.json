@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rollup -c",
     "commit-msg": "commitlint -e",
-    "lint": "yarn run lint:js && yarn run lint:md",
+    "lint": "yarn run lint:js && yarn run lint:md && yarn run lint:test",
     "lint:js": "eslint ./src",
     "lint:md": "markdownlint --ignore ./node_modules --ignore ./lib **/*.md",
     "lint:test": "eslint ./test",
