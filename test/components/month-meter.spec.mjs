@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('monthMeter', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   // I haven't thought about how I want to handle missing data for this component.

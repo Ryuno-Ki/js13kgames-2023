@@ -11,7 +11,7 @@ const { expect } = chai
 
 describe('onChange', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   afterEach(function () {

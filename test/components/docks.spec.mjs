@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('docks', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   it('should render the unchanged element in case passed data is empty', function () {

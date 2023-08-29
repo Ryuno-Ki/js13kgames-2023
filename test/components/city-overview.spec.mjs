@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('cityOverview', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   it('should render the unchanged element in case the city is not to be found', function () {

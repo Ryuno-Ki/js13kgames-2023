@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('sectionLevel', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   describe('when level is not the active scene', function () {

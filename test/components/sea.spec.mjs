@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('sea', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   it('should render a button for each city', function () {

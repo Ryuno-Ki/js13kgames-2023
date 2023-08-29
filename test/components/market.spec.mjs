@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('market', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   it('should render an empty list in case passed data is empty', function () {

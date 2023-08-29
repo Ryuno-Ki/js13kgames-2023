@@ -9,7 +9,7 @@ const { expect } = chai
 
 describe('sectionAbout', function () {
   beforeEach(async function () {
-		await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch({ type: 'RESET', payload: {} })
   })
 
   describe('when about is not the active scene', function () {
