@@ -1,3 +1,10 @@
+/**
+ * Reducer to compute the stock of a warehouse and update the cargo of a ship.
+ *
+ * @argument {import('../initial-state.js').State} state
+ * @argument {import('../actions/unload-ship.js').UNLOAD_SHIP_ACTION['payload']} payload
+ * @returns {import('../initial-state.js').State}
+ */
 export function unloadShipReducer (state, payload) {
   let cities = state.cities
   let ships = state.ships
@@ -26,11 +33,6 @@ export function unloadShipReducer (state, payload) {
             quantity: w.quantity - payload.quantity
           }
         })
-      } else {
-        cargo = cargo.concat([{
-          ware: payload.ware,
-          quantity: Number(payload.quantity)
-        }])
       }
 
       cargo = cargo.filter((w) => w.quantity > 0)
@@ -55,7 +57,7 @@ export function unloadShipReducer (state, payload) {
 
           return {
             ...ware,
-            amount: Number(ware.amount) + Number(payload.quantity)
+            quantity: Number(ware.quantity) + Number(payload.quantity)
           }
         })
       }
