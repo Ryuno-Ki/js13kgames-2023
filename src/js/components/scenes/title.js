@@ -1,4 +1,3 @@
-import '../../../css/components/scenes/title.css'
 import { el } from '../el.js'
 
 /**

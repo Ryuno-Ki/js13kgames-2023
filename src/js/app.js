@@ -1,4 +1,3 @@
-import '../css/main.css'
 import { init } from './init.js'
 
 function app () {

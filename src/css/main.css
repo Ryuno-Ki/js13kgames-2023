@@ -1,3 +1,5 @@
+@import './components/scenes/title.css';
+
 html,
 body {
 	margin: 0;

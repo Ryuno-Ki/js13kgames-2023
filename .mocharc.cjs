@@ -6,5 +6,8 @@ module.exports = {
 	'forbid-pending': true,
 	parallel: true,
 	recursive: true,
+	require: [
+		'./test/require.js'
+	],
 	reporter: 'nyan',
 };
