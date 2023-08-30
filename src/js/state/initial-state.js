@@ -26,6 +26,14 @@
  */
 
 /**
+ * @typedef {Record<CityName, number>} CityDistance
+ */
+
+/**
+ * @typedef {Record<CityName, CityDistance>} Distances
+ */
+
+/**
  * @typedef {object} HistoryEntry
  * @todo Define properties
  */
@@ -53,7 +61,7 @@
  * @typedef {object} SceneStateMapping
  * @property {Scene} component
  * @property {string} name
- * @property {Object.<string, SceneStateTargetMapping>} on
+ * @property {Record<string, SceneStateTargetMapping>} on
  */
 
 /**
@@ -62,7 +70,7 @@
  * @property {Scene} initial
  * @property {boolean} predictableActionArguments
  * @property {boolean} preserveActionOrder
- * @property {Object.<SceneName, SceneStateMapping>} states
+ * @property {Record<SceneName, SceneStateMapping>} states
  */
 
 /**
@@ -108,6 +116,7 @@
  * @property {View} activeView
  * @property {number} activeYear
  * @property {Array<City>} cities
+ * @property {Distances} distances
  * @property {Array<HistoryEntry>} history
  * @property {Scenes} scenes
  * @property {Array<Ship>} ships
@@ -153,14 +162,6 @@ export const initialState = {
       ware: 'salt',
       quantity: 5
     }],
-    distances: {
-      Lübeck: {
-        Wismar: 2
-      },
-      Wismar: {
-        Lübeck: 1
-      }
-    },
     // warehouse = Kontor
     supply: [{
       ware: 'salt',
@@ -170,6 +171,18 @@ export const initialState = {
       quantity: 4
     }]
   }],
+  distances: {
+    Lübeck: {
+      // Hooray to TypeScript!
+      Lübeck: 0,
+      Wismar: 2
+    },
+    Wismar: {
+      Lübeck: 1,
+      // Hooray to TypeScript!
+      Wismar: 0
+    }
+  },
   scenes: {
     id: 'XState definition for scenes',
     predictableActionArguments: true,
