@@ -153,6 +153,14 @@ export const initialState = {
       ware: 'salt',
       quantity: 5
     }],
+    distances: {
+      Lübeck: {
+        Wismar: 2
+      },
+      Wismar: {
+        Lübeck: 1
+      }
+    },
     // warehouse = Kontor
     supply: [{
       ware: 'salt',
