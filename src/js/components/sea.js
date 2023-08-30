@@ -34,14 +34,28 @@ export function sea (targetElement, state) {
         ]]
       ]],
       ['div', [], {}, 'sailing:', [
-        ['ul', [], {}, '', [
-          ...sailingShips.map((ship) => [
-            'li', [], {}, `${ship.name} from ${ship.itinerary.from} to ${ship.itinerary.to}`
-          ])
-        ]]
+        ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
       ]]
     ]]
   ]))
 
   return element
+}
+
+/**
+ * Helper function because TypeScript.
+ *
+ * @private
+ * @argument {Array<import('../state/initial-state.js').Ship>} ships
+ * @returns {Array<*>}
+ */
+function mapSailingShipsToElement (ships) {
+  return ships.map((ship) => {
+    if (ship.itinerary === null) {
+      console.warn(`${ship.name} is sailing but has invalid data structure`)
+      return []
+    }
+
+    return ['li', [], {}, `${ship.name} from ${ship.itinerary.from} to ${ship.itinerary.to}`]
+  })
 }
