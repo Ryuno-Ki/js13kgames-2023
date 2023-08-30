@@ -14,17 +14,17 @@ export async function onInput (event) {
   }
 
   if (target.dataset.load === 'load') {
-    const city = target.dataset.city
-    const ship = target.dataset.ship
-    const ware = target.dataset.ware
+    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
+    const ship = target.dataset.ship || 'The Flying Dutchman'
+    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.ware)
     const quantity = Number(target.value)
     return store.dispatch(loadShipAction({ city, ship, ware, quantity }))
   }
 
   if (target.dataset.load === 'unload') {
-    const city = target.dataset.city
-    const ship = target.dataset.ship
-    const ware = target.dataset.ware
+    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
+    const ship = target.dataset.ship || 'The Flying Dutchman'
+    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.ware)
     const quantity = Number(target.value)
 
     return store.dispatch(unloadShipAction({ city, ship, ware, quantity }))
