@@ -15,7 +15,7 @@ export async function onChange (event) {
 
   if (target.id === 'destination') {
     const ship = target.dataset.ship || 'The Flying Dutchman'
-    const from = store.getState().activeCity
+    const from = /** @type {import('./state/initial-state.js').CityName} */(store.getState().activeCity)
     const to = /** @type {import('./state/initial-state.js').CityName} */(target.value)
 
     return store.dispatch(sendShipAction({ ship, from, to }))
