@@ -3,15 +3,13 @@
  * @property {'UPDATE_SHIPS_ACTION'} UPDATE_SHIPS_ACTION.type
  * @property {object} UPDATE_SHIPS_ACTION.payload
  */
-
 /**
  * Action creator to update the position of all ships.
  *
  * @returns {UPDATE_SHIPS_ACTION}
  */
-export function updateShipsAction () {
-  return {
-    type: 'UPDATE_SHIPS_ACTION',
-    payload: {}
-  }
-}
+export function updateShipsAction(): UPDATE_SHIPS_ACTION;
+export type UPDATE_SHIPS_ACTION = {
+    type: 'UPDATE_SHIPS_ACTION';
+    payload: object;
+};
