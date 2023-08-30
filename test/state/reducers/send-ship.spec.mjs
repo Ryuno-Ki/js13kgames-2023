@@ -57,7 +57,7 @@ describe('sendShipReducer', function () {
       expect(newState.ships[shipIndex].itinerary).to.shallowDeepEqual({
         from: 'Lübeck',
         to: 'Wismar',
-        month: Number(state.activeMonth),
+        month: state.activeMonth,
         year: state.activeYear
       })
     })
