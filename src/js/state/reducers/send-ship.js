@@ -24,7 +24,7 @@ export function sendShipReducer (state, payload) {
         itinerary: {
           from: payload.from,
           to: payload.to,
-          month: Number(state.activeMonth),
+          month: state.activeMonth,
           year: state.activeYear
         },
         moored: false,
