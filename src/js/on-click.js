@@ -4,8 +4,6 @@ import { updateShipsAction } from './state/actions/update-ships.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
-import { onChange } from './on-change.js'
-import { onInput } from './on-input.js'
 
 /**
  * Click event handler
@@ -26,14 +24,17 @@ export async function onClick (event) {
   }
 
   if (target.dataset.city) {
-    return store.dispatch(switchToCityAction(target.dataset.city))
+    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
+    return store.dispatch(switchToCityAction(city))
   }
 
   if (target.dataset.scene) {
-    return store.dispatch(switchToSceneAction(target.dataset.scene))
+    const scene = /** @type {import('./state/initial-state.js').Scene} */(target.dataset.scene)
+    return store.dispatch(switchToSceneAction(scene))
   }
 
   if (target.dataset.view) {
-    return store.dispatch(switchToViewAction(target.dataset.view))
+    const view = /** @type {import('./state/initial-state.js').View} */(target.dataset.view)
+    return store.dispatch(switchToViewAction(view))
   }
 }
