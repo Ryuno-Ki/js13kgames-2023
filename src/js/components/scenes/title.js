@@ -1,3 +1,4 @@
+import '../../../css/components/scenes/title.css'
 import { el } from '../el.js'
 
 /**
@@ -13,9 +14,10 @@ export function sectionTitle (targetElement, state) {
 
   if (state.activeScene === 'title-section') {
     element.appendChild(el('div', [], {}, '', [
-      ['h1', [], {}, 'The Baltic League'],
+      // The glyphs are messed up in boeticher. Workaround …
+      ['h1', [], {}, 'thE BALtiC LEAGuE'],
       ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'new-game-section' }, 'NewGame'],
+        ['button', ['action'], { 'data-scene': 'new-game-section' }, 'New Game'],
         ['button', ['action'], { 'data-scene': 'settings-section' }, 'Settings'],
         ['button', ['action'], { 'data-scene': 'about-section' }, 'About']
       ]]

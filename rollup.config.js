@@ -1,4 +1,5 @@
 import css from 'rollup-plugin-css-only';
+import fonts from 'rollup-plugin-bundle-fonts';
 import htmlTemplate from 'rollup-plugin-generate-html-template';
 import importAssertions from 'rollup-plugin-import-assertions';
 import json from '@rollup/plugin-json';
@@ -26,11 +27,13 @@ const plugins = process.env.NODE_ENV === 'development'
 		importAssertions(),
 		json({ namedExports: false }),
 		css({ output: 'main.css' }),
+		fonts({ fontTargetDir: ['./public'], cssBundleDir: ['./public'] }),
 		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
 	] : [
 		importAssertions(),
 		json({ namedExports: false }),
 		css({ output: 'main.css' }),
+		fonts({ fontTargetDir: ['./public'], cssBundleDir: ['./public'] }),
 		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
 		terser(),
 		license({ banner: LICENSE_HEADER }),
