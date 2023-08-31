@@ -59,7 +59,7 @@ describe('sectionWorldselection', function () {
       it('should link to the level scene', function () {
       // Arrange
         const targetElement = document.createElement('section')
-				const state = Object.assign({}, store.getState(), { activeScene: 'world-section', activeScenario: 'tutorial' })
+        const state = Object.assign({}, store.getState(), { activeScene: 'world-section', activeScenario: 'tutorial' })
 
         // Act
         const worldSelectionScene = sectionWorldselection(targetElement, state)
