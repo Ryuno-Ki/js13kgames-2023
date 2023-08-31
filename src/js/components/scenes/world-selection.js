@@ -14,11 +14,18 @@ export function sectionWorldselection (targetElement, state) {
   if (state.activeScene === 'world-section') {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'World'],
-      ['label', [], { for: 'level-scenario' }, 'Choose your scenario'],
-      ['select', [], { id: 'level-scenario' }, '', [
-        ['option', [], { value: '', checked: 'checked' }, 'Please choose'],
-        ['option', [], { value: 'tutorial' }, 'Learn the ropes'],
-        ['option', [], { value: 'free-play' }, 'Sail away']
+      ['fieldset', [], {}, '', [
+        ['legend', [], {}, 'Scenarios'],
+        ['div', [], {}, '', [
+          ['label', [], { for: 'level-scenario' }, 'Choose your scenario']
+        ]],
+        ['div', [], {}, '', [
+          ['select', [], { id: 'level-scenario' }, '', [
+            ['option', [], { value: '', checked: 'checked' }, 'Please choose'],
+            ['option', [], { value: 'tutorial' }, 'Learn the ropes'],
+            ['option', [], { value: 'free-play' }, 'Sail away']
+          ]]
+        ]]
       ]],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'level-section' }, 'Level']
