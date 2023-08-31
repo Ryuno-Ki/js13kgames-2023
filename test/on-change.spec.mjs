@@ -5,6 +5,7 @@ import sinonChai from 'sinon-chai'
 import { resetAction } from '../src/js/state/actions/reset.js'
 import { sendShipAction } from '../src/js/state/actions/send-ship.js'
 import { setColorPreferenceAction } from '../src/js/state/actions/set-color-preference.js'
+import { setLevelScenarioAction } from '../src/js/state/actions/set-level-scenario.js'
 import { onChange } from '../src/js/on-change.js'
 import store from '../src/js/state/store.js'
 
@@ -36,6 +37,24 @@ describe('onChange', function () {
     // Assert
     expect(store.dispatch).to.have.been.calledOnce
     expect(store.dispatch).to.have.been.calledWith(setColorPreferenceAction(color))
+  })
+
+  it('should set the chosen level scenario', function () {
+    // Arrange
+    const event = new window.Event('change')
+    const scenario = 'free-play'
+    const target = document.createElement('input')
+    target.setAttribute('id', 'level-scenario')
+    target.setAttribute('value', scenario)
+    target.addEventListener('change', onChange)
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    target.dispatchEvent(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledOnce
+    expect(store.dispatch).to.have.been.calledWith(setLevelScenarioAction(scenario))
   })
 
   it('should dispatch to send a ship', function () {
