@@ -15,6 +15,10 @@
 	width: 100%;
 }
 
+[data-component="new-game-section"] p {
+	font-size: 1.5em;
+}
+
 [data-component="new-game-section"] button {
 	font-size: 2em;
 }

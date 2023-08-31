@@ -23,6 +23,7 @@ export function sectionNewgame (targetElement, state) {
           ['input', [], { id: 'playername', type: 'text', max: '64' }]
         ]]
       ]],
+      ['p', [], {}, greetPlayer(state)],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title'],
         ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World']
@@ -31,4 +32,21 @@ export function sectionNewgame (targetElement, state) {
   }
 
   return element
+}
+
+/**
+ * Greet the player if a name was entered.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {string}
+ */
+function greetPlayer (state) {
+  const { playername } = state
+
+  if (playername) {
+    return `I greet you, ${playername}.`
+  }
+
+  return ''
 }
