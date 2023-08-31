@@ -14,7 +14,7 @@ export function sectionAbout (targetElement, state) {
   if (state.activeScene === 'about-section') {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'About'],
-      ['p', [], {}, 'This game was developed entirely by myself, ', [
+      ['p', [], {}, 'This game was developed entirely by me, ', [
         ['a', [], { href: 'https://jaenis.ch/' }, 'André Jaenisch']
       ]],
       ['p', [], {}, 'It is licensed under ', [
@@ -27,7 +27,7 @@ export function sectionAbout (targetElement, state) {
 				['a', [], { href: 'https://velvetyne.fr/fonts/boeticher/' }, 'Velvetyne Type Foundry']
 			]],
       ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Title']
+        ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
       ]]
     ]))
   }
