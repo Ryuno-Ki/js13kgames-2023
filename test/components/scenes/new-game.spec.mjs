@@ -52,7 +52,7 @@ describe('sectionNewgame', function () {
       expect(newGameScene).to.have.descendant('button[data-scene="title-section"]')
     })
 
-    it('should link to the world scene', function () {
+    it('should not link to the world scene', function () {
       // Arrange
       const targetElement = document.createElement('section')
       const state = Object.assign({}, store.getState(), { activeScene: 'new-game-section' })
@@ -61,7 +61,33 @@ describe('sectionNewgame', function () {
       const newGameScene = sectionNewgame(targetElement, state)
 
       // Assert
-      expect(newGameScene).to.have.descendant('button[data-scene="world-section"]')
+      expect(newGameScene).not.to.have.descendant('button[data-scene="world-section"]')
+    })
+
+    describe('when playername was entered', function () {
+      it('should show the sanitised player name', function () {
+      // Arrange
+        const targetElement = document.createElement('section')
+        const state = Object.assign({}, store.getState(), { activeScene: 'new-game-section', playername: 'Christoph' })
+
+        // Act
+        const newGameScene = sectionNewgame(targetElement, state)
+
+        // Assert
+        expect(newGameScene).to.contain.text('Christoph')
+      })
+
+      it('should link to the world scene', function () {
+      // Arrange
+        const targetElement = document.createElement('section')
+        const state = Object.assign({}, store.getState(), { activeScene: 'new-game-section', playername: 'Christoph' })
+
+        // Act
+        const newGameScene = sectionNewgame(targetElement, state)
+
+        // Assert
+        expect(newGameScene).to.have.descendant('button[data-scene="world-section"]')
+      })
     })
   })
 })

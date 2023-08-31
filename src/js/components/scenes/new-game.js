@@ -24,10 +24,7 @@ export function sectionNewgame (targetElement, state) {
         ]]
       ]],
       ['p', [], {}, greetPlayer(state)],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title'],
-        ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World']
-      ]]
+      ['div', ['actions'], {}, '', showActionButtons(state)]
     ]))
   }
 
@@ -49,4 +46,26 @@ function greetPlayer (state) {
   }
 
   return ''
+}
+
+/**
+ * Only allow to move forward once a playername was entered.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {Array<*>}
+ */
+function showActionButtons (state) {
+  const { playername } = state
+
+  if (playername.trim()) {
+    return [
+      ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title'],
+      ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World']
+    ]
+  }
+
+  return [
+    ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
+  ]
 }
