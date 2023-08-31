@@ -14,11 +14,18 @@ export function sectionNewgame (targetElement, state) {
   if (state.activeScene === 'new-game-section') {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'New game'],
-      ['label', [], { for: 'playername' }, 'How do you want to be known?'],
-      ['input', [], { id: 'playername', type: 'text', max: '64' }],
+      ['fieldset', [], {}, '', [
+        ['legend', [], {}, 'Player name'],
+        ['div', [], {}, '', [
+          ['label', [], { for: 'playername' }, 'How do you want to be known?']
+        ]],
+        ['div', [], {}, '', [
+          ['input', [], { id: 'playername', type: 'text', max: '64' }]
+        ]]
+      ]],
       ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Title'],
-        ['button', ['action'], { 'data-scene': 'world-section' }, 'World']
+        ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title'],
+        ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World']
       ]]
     ]))
   }
