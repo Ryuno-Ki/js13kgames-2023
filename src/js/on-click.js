@@ -1,4 +1,5 @@
 import store from './state/store.js'
+import { checkOnWinConditionAction } from './state/actions/check-on-win-condition.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { updateShipsAction } from './state/actions/update-ships.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
@@ -20,6 +21,7 @@ export async function onClick (event) {
   if (target.dataset.action) {
     await store.dispatch(forwardToNextMonthAction())
     await store.dispatch(updateShipsAction())
+    await store.dispatch(checkOnWinConditionAction())
     return
   }
 

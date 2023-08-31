@@ -1,15 +1,19 @@
 import chai from 'chai'
+import chaiAsPromised from 'chai-as-promised'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
 import { onClick } from '../src/js/on-click.js'
+import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
 import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../src/js/state/actions/switch-to-view.js'
+import { updateShipsAction } from '../src/js/state/actions/update-ships.js'
 import store from '../src/js/state/store.js'
 
+chai.use(chaiAsPromised)
 chai.use(sinonChai)
 const { expect } = chai
 
@@ -22,6 +26,28 @@ describe('onClick', function () {
     sinon.restore()
   })
 
+  it('should work', async function () {
+    // Arrange
+    const event = {
+      target: {
+        dataset: {
+          action: 'next-month'
+        }
+      }
+    }
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    await onClick(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledThrice
+    expect(store.dispatch).to.have.been.calledWith(forwardToNextMonthAction())
+    expect(store.dispatch).to.have.been.calledWith(updateShipsAction())
+    expect(store.dispatch).to.have.been.calledWith(checkOnWinConditionAction())
+  })
+
+  // See https://stackoverflow.com/a/24068018
   it('should dispatch to forward to the next month', function () {
     // Arrange
     const event = new window.Event('click')
@@ -35,8 +61,10 @@ describe('onClick', function () {
     target.dispatchEvent(event)
 
     // Assert
-    expect(store.dispatch).to.have.been.calledOnce
-    expect(store.dispatch).to.have.been.calledWith(forwardToNextMonthAction())
+    // I _thought_ I could check on call count of the spy here but the test
+    // only sees the first invocation. So instead I separate the callback tests
+    // from the event listener one.
+    expect(store.dispatch).to.have.been.called
   })
 
   it('should dispatch to switch to a city', function () {
