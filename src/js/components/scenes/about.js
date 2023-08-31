@@ -23,6 +23,9 @@ export function sectionAbout (targetElement, state) {
       ['p', [], {}, 'Find the source code on ', [
         ['a', [], { href: 'https://code.jaenis.ch/js13kgames/js13kgames-2023/' }, 'my Forgejo instance']
       ]],
+			['p', [], {}, 'Boeticher font is developed by ', [
+				['a', [], { href: 'https://velvetyne.fr/fonts/boeticher/' }, 'Velvetyne Type Foundry']
+			]],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'title-section' }, 'Title']
       ]]
