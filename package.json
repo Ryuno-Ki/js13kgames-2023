@@ -6,21 +6,19 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-		"bundle:css": "postcss ./src/css/main.css --output ./public/main.css",
+    "bundle:css": "postcss ./src/css/main.css --output ./public/main.css",
     "commit-msg": "commitlint -e",
     "lint": "yarn run lint:js && yarn run lint:md && yarn run lint:test",
     "lint:js": "eslint ./src",
     "lint:md": "markdownlint --ignore ./node_modules --ignore ./lib **/*.md",
     "lint:test": "eslint ./test",
-		"postbuild": "yarn run bundle:css",
-    "posttest": "yarn run tsd",
+    "postbuild": "yarn run bundle:css",
     "prebuild": "yarn test",
     "prepare": "husky install",
     "pre-commit": "yarn run types && yarn run lint && yarn run test",
     "test": "mocha",
     "test:coverage": "c8 yarn test",
     "tsc": "tsc",
-    "tsd": "tsd",
     "types": "tsc --noEmit false --emitDeclarationOnly true"
   },
   "repository": "https://code.jaenis.ch/js13kgames/js13kgames-2023.git",
@@ -78,7 +76,6 @@
     "sinon": "15.2.0",
     "sinon-chai": "3.7.0",
     "standard": "17.1.0",
-    "tsd": "0.28.1",
     "typescript": "5.2.2",
     "zip-dir": "2.0.0"
   }
