@@ -43,7 +43,7 @@ describe('sectionWorldselection', function () {
       expect(worldSelectionScene).to.have.descendant('option[value="tutorial"]')
     })
 
-    it('should link to the level scene', function () {
+    it('should not link to the level scene', function () {
       // Arrange
       const targetElement = document.createElement('section')
       const state = Object.assign({}, store.getState(), { activeScene: 'world-section' })
@@ -52,7 +52,21 @@ describe('sectionWorldselection', function () {
       const worldSelectionScene = sectionWorldselection(targetElement, state)
 
       // Assert
-      expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
+      expect(worldSelectionScene).not.to.have.descendant('button.action[data-scene="level-section"]')
+    })
+
+    describe('when a choice was made', function () {
+      it('should link to the level scene', function () {
+      // Arrange
+        const targetElement = document.createElement('section')
+				const state = Object.assign({}, store.getState(), { activeScene: 'world-section', activeScenario: 'tutorial' })
+
+        // Act
+        const worldSelectionScene = sectionWorldselection(targetElement, state)
+
+        // Assert
+        expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
+      })
     })
   })
 })

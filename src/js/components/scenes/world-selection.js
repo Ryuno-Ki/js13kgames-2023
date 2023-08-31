@@ -27,11 +27,26 @@ export function sectionWorldselection (targetElement, state) {
           ]]
         ]]
       ]],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'level-section' }, 'Level']
-      ]]
+      ['div', ['actions'], {}, '', showActionButtons(state)]
     ]))
   }
 
   return element
+}
+
+/**
+ * Helper function to only show the action button once a choice was made.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {Array<*>}
+ */
+function showActionButtons (state) {
+  if (state.activeScenario) {
+    return [
+      ['button', ['action'], { 'data-scene': 'level-section' }, 'Level']
+    ]
+  }
+
+  return []
 }
