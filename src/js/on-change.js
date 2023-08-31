@@ -1,5 +1,6 @@
 import store from './state/store.js'
 import { sendShipAction } from './state/actions/send-ship.js'
+import { setColorPreferenceAction } from './state/actions/set-color-preference.js'
 
 /**
  * Event listener on change events.
@@ -11,6 +12,11 @@ export async function onChange (event) {
 
   if (!target) {
     return
+  }
+
+  if (target.id === 'color-preference') {
+    const color = /** @type {import('./state/initial-state.js').Color} */(target.value)
+    return store.dispatch(setColorPreferenceAction(color))
   }
 
   if (target.id === 'destination') {
