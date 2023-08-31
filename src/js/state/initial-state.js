@@ -123,6 +123,7 @@
  * @property {Array<City>} cities
  * @property {Distances} distances
  * @property {Array<HistoryEntry>} history
+ * @property {string} playername
  * @property {Scenes} scenes
  * @property {Array<Ship>} ships
  * @property {string} title
@@ -297,6 +298,7 @@ export const initialState = {
   // Nef with 60 - 100t
   // evtl. auch Knorr
   history: [],
+  playername: '',
   title: '',
   volume: 0
 }
