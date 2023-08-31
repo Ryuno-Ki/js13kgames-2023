@@ -1,9 +1,12 @@
+import json from '@rollup/plugin-json';
+import terser from '@rollup/plugin-terser';
+
 import fonts from 'rollup-plugin-bundle-fonts';
 import htmlTemplate from 'rollup-plugin-generate-html-template';
 import importAssertions from 'rollup-plugin-import-assertions';
-import json from '@rollup/plugin-json';
-import terser from '@rollup/plugin-terser';
 import license from 'rollup-plugin-license';
+import sizes from 'rollup-plugin-sizes';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 const LICENSE_HEADER = `My entry to js13kgames 2023 - 13th Century.
 Copyright (C) 2023	André Jaenisch
@@ -27,6 +30,8 @@ const plugins = process.env.NODE_ENV === 'development'
 		json({ namedExports: false }),
 		fonts({ fontTargetDir: ['./public'], cssBundleDir: ['./public'] }),
 		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
+		sizes({ details: true }),
+		visualizer(),
 	] : [
 		importAssertions(),
 		json({ namedExports: false }),
@@ -34,6 +39,8 @@ const plugins = process.env.NODE_ENV === 'development'
 		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
 		terser(),
 		license({ banner: LICENSE_HEADER }),
+		sizes({ details: true }),
+		visualizer(),
 	];
 
 const client = {
