@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "bundle:css": "postcss ./src/css/main.css --output ./public/main.css",
+    "bundle:css": "postcss ./src/css/index.css --output ./public/app.css",
     "commit-msg": "commitlint -e",
     "lint": "yarn run lint:js && yarn run lint:md && yarn run lint:test",
     "lint:js": "eslint ./src",

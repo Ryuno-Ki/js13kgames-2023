@@ -39,7 +39,7 @@ const plugins = process.env.NODE_ENV === 'development'
 const client = {
 	input: './src/js/app.js',
 	output: {
-		file: './public/client.js',
+		file: './public/app.js',
 		format: 'iife',
 		name: 'myname',
 	},
