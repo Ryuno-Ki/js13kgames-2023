@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiDom from 'chai-dom'
 
 import { sectionTitle } from '../../../src/js/components/scenes/title.js'
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 
 chai.use(chaiDom)
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('sectionTitle', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   describe('when title is not the active scene', function () {

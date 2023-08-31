@@ -4,6 +4,7 @@ import sinonChai from 'sinon-chai'
 
 import { onClick } from '../src/js/on-click.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
+import { resetAction } from '../src/js/state/actions/reset.js'
 import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../src/js/state/actions/switch-to-view.js'
@@ -14,7 +15,7 @@ const { expect } = chai
 
 describe('onClick', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   afterEach(function () {

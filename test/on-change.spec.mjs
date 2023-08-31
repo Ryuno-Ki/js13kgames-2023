@@ -2,6 +2,7 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
+import { resetAction } from '../src/js/state/actions/reset.js'
 import { sendShipAction } from '../src/js/state/actions/send-ship.js'
 import { onChange } from '../src/js/on-change.js'
 import store from '../src/js/state/store.js'
@@ -11,7 +12,7 @@ const { expect } = chai
 
 describe('onChange', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   afterEach(function () {

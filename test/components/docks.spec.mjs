@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiDom from 'chai-dom'
 
 import { docks } from '../../src/js/components/docks.js'
+import { resetAction } from '../../src/js/state/actions/reset.js'
 import store from '../../src/js/state/store.js'
 
 chai.use(chaiDom)
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('docks', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   it('should render the unchanged element in case passed data is empty', function () {

@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiDom from 'chai-dom'
 
 import { monthMeter } from '../../src/js/components/month-meter.js'
+import { resetAction } from '../../src/js/state/actions/reset.js'
 import store from '../../src/js/state/store.js'
 
 chai.use(chaiDom)
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('monthMeter', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   // I haven't thought about how I want to handle missing data for this component.

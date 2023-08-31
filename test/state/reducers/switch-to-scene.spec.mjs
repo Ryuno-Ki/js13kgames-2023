@@ -1,11 +1,12 @@
 import { expect } from 'chai'
 
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 import { switchToSceneReducer } from '../../../src/js/state/reducers/switch-to-scene.js'
 
 describe('switchToSceneReducer', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   it('should update the active scene', function () {

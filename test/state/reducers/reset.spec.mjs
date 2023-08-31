@@ -1,6 +1,7 @@
 import chai from 'chai'
 import chaiDeepEqual from 'chai-better-shallow-deep-equal'
 
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 import { resetReducer } from '../../../src/js/state/reducers/reset.js'
 
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('resetReducer', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   it('should reset the state to initial', function () {

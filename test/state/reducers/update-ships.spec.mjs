@@ -1,6 +1,7 @@
 import chai from 'chai'
 import chaiDeepEqual from 'chai-better-shallow-deep-equal'
 
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 import { updateShipsReducer } from '../../../src/js/state/reducers/update-ships.js'
 
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('updateShipsReducer', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   describe('if ship is moored', function () {

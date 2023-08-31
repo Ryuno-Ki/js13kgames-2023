@@ -1,5 +1,6 @@
 import chai from 'chai'
 
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 import { forwardToNextMonthReducer } from '../../../src/js/state/reducers/forward-to-next-month.js'
 
@@ -7,7 +8,7 @@ const { expect } = chai
 
 describe('forwardToNextMonthReducer', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   it('should update the activeMonth of the state', function () {

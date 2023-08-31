@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiDom from 'chai-dom'
 
 import { sectionAbout } from '../../../src/js/components/scenes/about.js'
+import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
 
 chai.use(chaiDom)
@@ -9,7 +10,7 @@ const { expect } = chai
 
 describe('sectionAbout', function () {
   beforeEach(async function () {
-    await store.dispatch({ type: 'RESET', payload: {} })
+    await store.dispatch(resetAction())
   })
 
   describe('when about is not the active scene', function () {
