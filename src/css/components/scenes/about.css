@@ -16,9 +16,6 @@
 }
 
 [data-component="about-section"] button {
-	background: none;
-	border: none;
-	box-shadow: none;
 	font-size: 2em;
 }
 

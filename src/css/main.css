@@ -23,7 +23,11 @@ p {
 }
 
 button {
+	background: none;
+	border: none;
+	box-shadow: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 body {

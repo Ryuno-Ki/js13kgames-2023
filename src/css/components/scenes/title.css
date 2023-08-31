@@ -19,9 +19,20 @@
 }
 
 [data-component="title-section"] .action {
-	background: none;
-	border: none;
-	cursor: pointer;
 	font-size: 1.5em;
-	text-decoration: underline;
+}
+
+[data-component="title-section"] [data-scene="new-game-section"]::before {
+	display: inline;
+	content: "🆕";
+}
+
+[data-component="title-section"] [data-scene="settings-section"]::before {
+	display: inline;
+	content: "⚙️";
+}
+
+[data-component="title-section"] [data-scene="about-section"]::before {
+	display: inline;
+	content: "🤔";
 }
