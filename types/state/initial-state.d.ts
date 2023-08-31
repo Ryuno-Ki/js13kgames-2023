@@ -1,4 +1,7 @@
 /**
+ * @typedef {'dark' | 'light' | 'system'} Color
+ */
+/**
  * @typedef {'honey' | 'salt' | 'wool'} Ware
  */
 /**
@@ -92,6 +95,7 @@
 /**
  * @typedef {object} State
  * @property {CityName | null} activeCity
+ * @property {Color} activeColor
  * @property {Month} activeMonth
  * @property {Scene} activeScene
  * @property {View} activeView
@@ -106,6 +110,7 @@
 */
 /** @type {State} */
 export const initialState: State;
+export type Color = 'dark' | 'light' | 'system';
 export type Ware = 'honey' | 'salt' | 'wool';
 export type CityDemand = {
     ware: Ware;
@@ -166,6 +171,7 @@ export type Ship = {
 export type View = 'city' | 'sea';
 export type State = {
     activeCity: CityName | null;
+    activeColor: Color;
     activeMonth: Month;
     activeScene: Scene;
     activeView: View;
