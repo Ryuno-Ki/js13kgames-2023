@@ -63,6 +63,9 @@
  * @property {Record<SceneName, SceneStateMapping>} states
  */
 /**
+ * @typedef {'free-play' | 'tutorial'} Scenario
+ */
+/**
  * @typedef {object} ShipCargo
  * @property {Ware} ware
  * @property {number} quantity
@@ -98,6 +101,7 @@
  * @property {Color} activeColor
  * @property {Month} activeMonth
  * @property {Scene} activeScene
+ * @property {Scenario | null} activeScenario
  * @property {View} activeView
  * @property {number} activeYear
  * @property {Array<City>} cities
@@ -148,6 +152,7 @@ export type Scenes = {
     preserveActionOrder: boolean;
     states: Record<SceneName, SceneStateMapping>;
 };
+export type Scenario = 'free-play' | 'tutorial';
 export type ShipCargo = {
     ware: Ware;
     quantity: number;
@@ -175,6 +180,7 @@ export type State = {
     activeColor: Color;
     activeMonth: Month;
     activeScene: Scene;
+    activeScenario: Scenario | null;
     activeView: View;
     activeYear: number;
     cities: Array<City>;

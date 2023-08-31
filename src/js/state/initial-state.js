@@ -78,6 +78,10 @@
  */
 
 /**
+ * @typedef {'free-play' | 'tutorial'} Scenario
+ */
+
+/**
  * @typedef {object} ShipCargo
  * @property {Ware} ware
  * @property {number} quantity
@@ -118,6 +122,7 @@
  * @property {Color} activeColor
  * @property {Month} activeMonth
  * @property {Scene} activeScene
+ * @property {Scenario | null} activeScenario
  * @property {View} activeView
  * @property {number} activeYear
  * @property {Array<City>} cities
@@ -135,6 +140,7 @@ export const initialState = {
   activeCity: null,
   activeColor: 'system',
   activeScene: 'title-section',
+  activeScenario: null,
   activeView: 'sea',
   activeMonth: '1',
   activeYear: 1250,
