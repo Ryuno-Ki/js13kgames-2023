@@ -28,7 +28,7 @@ export function sectionSettings (targetElement, state) {
         ]]
       ]],
       ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Title']
+        ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
       ]]
     ]))
   }

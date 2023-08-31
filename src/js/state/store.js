@@ -21,10 +21,29 @@ class Store {
   */
   async dispatch (action) {
     this.state = this.reducer(this.state, action)
+    this._applySideEffects(action)
   }
 
+  /**
+   * Return the current state.
+   */
   getState () {
     return this.state
+  }
+
+  /**
+   * Run side effects on certain actions.
+   *
+   * @private
+   * @argument {import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
+   */
+  _applySideEffects (action) {
+    if (action.type === 'SET_COLOR_PREFERENCE_ACTION') {
+      document.body.classList.remove('theme-system')
+      document.body.classList.remove('theme-light')
+      document.body.classList.remove('theme-dark')
+      document.body.classList.add(`theme-${action.payload.color}`)
+    }
   }
 }
 

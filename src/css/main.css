@@ -26,16 +26,31 @@ button {
 	color: inherit;
 }
 
+body {
+	background-color: var(--background-color);
+	color: var(--color);
+}
+
+body.theme-light {
+	--background-color: #eee;
+	--color: #222;
+}
+
+body.theme-dark {
+	--background-color: #222;
+	--color: #eee;
+}
+
 @media only screen and (prefers-color-scheme: light) {
-	body {
-		background-color: #eee;
-		color: #222;
+	:root {
+		--background-color: #eee;
+		--color: #222;
 	}
 }
 
 @media only screen and (prefers-color-scheme: dark) {
-	body {
-		background-color: #222;
-		color: #eee;
+	:root {
+		--background-color: #222;
+		--color: #eee;
 	}
 }

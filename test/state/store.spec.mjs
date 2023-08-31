@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 
+import { setColorPreferenceAction } from '../../src/js/state/actions/set-color-preference.js'
 import store from '../../src/js/state/store.js'
 
 describe('store', function () {
@@ -34,5 +35,18 @@ describe('store', function () {
 
     // Assert
     expect(store).to.respondTo('getState')
+  })
+
+  describe('when color preference is changed', function () {
+    it('should update the document.body', async function () {
+      // Arrange
+      const color = 'dark'
+
+      // Act
+      await store.dispatch(setColorPreferenceAction(color))
+
+      // Assert
+      expect(document.body).to.have.class('theme-dark')
+    })
   })
 })
