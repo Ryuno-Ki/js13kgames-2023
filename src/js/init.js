@@ -8,6 +8,7 @@ import { sectionTitle } from './components/scenes/title.js'
 import { sectionSettings } from './components/scenes/settings.js'
 import { sectionAbout } from './components/scenes/about.js'
 import { sectionNewgame } from './components/scenes/new-game.js'
+import { sectionLoadgame } from './components/scenes/load-game.js'
 import { sectionLevel } from './components/scenes/level.js'
 import { sectionWorldselection } from './components/scenes/world-selection.js'
 import { sectionWin } from './components/scenes/win.js'
@@ -27,10 +28,12 @@ export function init () {
   add('market', market)
   add('month-meter', monthMeter)
   add('sea', sea)
+
   add('title-section', sectionTitle)
   add('settings-section', sectionSettings)
   add('about-section', sectionAbout)
   add('new-game-section', sectionNewgame)
+  add('load-game-section', sectionLoadgame)
   add('level-section', sectionLevel)
   add('world-section', sectionWorldselection)
   add('win-section', sectionWin)
