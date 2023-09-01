@@ -47,7 +47,7 @@
  */
 
 /**
- * @typedef {'about-section' | 'game-over-section' | 'level-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section'} Scene
+ * @typedef {'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section'} Scene
  * @todo Move to scenes components
  */
 
