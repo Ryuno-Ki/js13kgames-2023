@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 
-import { forwardToNextMonthAction } from '../../src/js/state/actions/forward-to-next-month.js'
+import { saveGameAction } from '../../src/js/state/actions/save-game.js'
+import { resetAction } from '../../src/js/state/actions/reset.js'
 import { setColorPreferenceAction } from '../../src/js/state/actions/set-color-preference.js'
 import { setPlayernameAction } from '../../src/js/state/actions/set-playername.js'
 import store from '../../src/js/state/store.js'
@@ -53,7 +54,9 @@ describe('store', function () {
   })
 
   describe('when level scenario is chosen and player forwards to next month', function () {
-    beforeEach(function () {
+    beforeEach(async function () {
+      await store.dispatch(resetAction())
+
       if (window.localStorage.getItem('THE_BALTIC_LEAGUE')) {
         window.localStorage.removeItem('THE_BALTIC_LEAGUE')
       }
@@ -61,10 +64,10 @@ describe('store', function () {
 
     it('should save the current state in localStorage', async function () {
       // Arrange
-      const state = Object.assign({}, store.getState(), { activeMonth: '2' })
+      const state = store.getState()
 
       // Act
-      await store.dispatch(forwardToNextMonthAction())
+      await store.dispatch(saveGameAction())
 
       // Assert
       const snapshot = window.localStorage.getItem('THE_BALTIC_LEAGUE')
@@ -80,10 +83,10 @@ describe('store', function () {
 
       // Act
       await store.dispatch(setPlayernameAction(firstPlay.playername))
-      await store.dispatch(forwardToNextMonthAction())
+      await store.dispatch(saveGameAction())
       await store.dispatch(setPlayernameAction(secondPlay.playername))
-      await store.dispatch(forwardToNextMonthAction())
-      await store.dispatch(forwardToNextMonthAction())
+      await store.dispatch(saveGameAction())
+      await store.dispatch(saveGameAction())
 
       // Assert
       const snapshot = window.localStorage.getItem('THE_BALTIC_LEAGUE')
