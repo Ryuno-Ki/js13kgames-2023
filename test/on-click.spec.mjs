@@ -7,6 +7,7 @@ import { onClick } from '../src/js/on-click.js'
 import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
+import { saveGameAction } from '../src/js/state/actions/save-game.js'
 import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../src/js/state/actions/switch-to-view.js'
@@ -41,9 +42,10 @@ describe('onClick', function () {
     await onClick(event)
 
     // Assert
-    expect(store.dispatch).to.have.been.calledThrice
+    expect(store.dispatch).to.have.been.callCount(4)
     expect(store.dispatch).to.have.been.calledWith(forwardToNextMonthAction())
     expect(store.dispatch).to.have.been.calledWith(updateShipsAction())
+    expect(store.dispatch).to.have.been.calledWith(saveGameAction())
     expect(store.dispatch).to.have.been.calledWith(checkOnWinConditionAction())
   })
 
