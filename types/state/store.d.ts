@@ -28,5 +28,18 @@ declare class Store {
      * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
      */
     private _applySideEffects;
+    /**
+     * Helper method to manipulate the DOM.
+     *
+     * @private
+     * @argument {import('./initial-state.js').Color} color
+     */
+    private _applyColorTheme;
+    /**
+     * Helper method to handle localStorage manipulation.
+     *
+     * @private
+     */
+    private _saveSnapshot;
 }
 import { reducer } from './reducers/index.js';

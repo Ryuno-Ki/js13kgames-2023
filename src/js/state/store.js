@@ -38,12 +38,60 @@ class Store {
    * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
    */
   _applySideEffects (action) {
-    if (action.type === 'SET_COLOR_PREFERENCE_ACTION') {
-      document.body.classList.remove('theme-system')
-      document.body.classList.remove('theme-light')
-      document.body.classList.remove('theme-dark')
-      document.body.classList.add(`theme-${action.payload.color}`)
+    if (action.type === 'FORWARD_TO_NEXT_MONTH_ACTION') {
+      this._saveSnapshot()
     }
+
+    if (action.type === 'SET_COLOR_PREFERENCE_ACTION') {
+      this._applyColorTheme(action.payload.color)
+    }
+  }
+
+  /**
+   * Helper method to manipulate the DOM.
+   *
+   * @private
+   * @argument {import('./initial-state.js').Color} color
+   */
+  _applyColorTheme (color) {
+    document.body.classList.remove('theme-system')
+    document.body.classList.remove('theme-light')
+    document.body.classList.remove('theme-dark')
+    document.body.classList.add(`theme-${color}`)
+  }
+
+  /**
+   * Helper method to handle localStorage manipulation.
+   *
+   * @private
+   */
+  _saveSnapshot () {
+    const state = this.getState()
+    const playername = state.playername
+    const serialisedStorage = window.localStorage.getItem('THE_BALTIC_LEAGUE') || '[]'
+    const storage = /** @type {Array<import('./initial-state.js').State>} */(JSON.parse(serialisedStorage))
+    let snapshot = []
+
+    if (storage.length > 0) {
+      if (storage.find((entry) => entry.playername === playername)) {
+        // Third time => update
+        snapshot = storage.map((entry) => {
+          if (entry.playername !== playername) {
+            return entry
+          }
+
+          return state
+        })
+      } else {
+        // Second time => append
+        snapshot = storage.concat([state])
+      }
+    } else {
+      // First time => create
+      snapshot = [state]
+    }
+
+    window.localStorage.setItem('THE_BALTIC_LEAGUE', JSON.stringify(snapshot))
   }
 }
 
