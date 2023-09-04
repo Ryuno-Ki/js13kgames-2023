@@ -5,6 +5,7 @@ import sinonChai from 'sinon-chai'
 
 import { onClick } from '../src/js/on-click.js'
 import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
+import { deleteGameAction } from '../src/js/state/actions/delete-game.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
 import { loadGameAction } from '../src/js/state/actions/load-game.js'
@@ -48,6 +49,24 @@ describe('onClick', function () {
     expect(store.dispatch).to.have.been.calledWith(updateShipsAction())
     expect(store.dispatch).to.have.been.calledWith(saveGameAction())
     expect(store.dispatch).to.have.been.calledWith(checkOnWinConditionAction())
+  })
+
+  it('should dispatch to delete a game', function () {
+    // Arrange
+    const playername = 'Kolumbus'
+    const event = new window.Event('click')
+    const target = document.createElement('button')
+    target.type = 'button'
+    target.setAttribute('data-playername', playername)
+    target.addEventListener('click', onClick)
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    target.dispatchEvent(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledOnce
+    expect(store.dispatch).to.have.been.calledWith(deleteGameAction(playername))
   })
 
   // See https://stackoverflow.com/a/24068018

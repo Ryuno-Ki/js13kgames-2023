@@ -1,5 +1,6 @@
 import store from './state/store.js'
 import { checkOnWinConditionAction } from './state/actions/check-on-win-condition.js'
+import { deleteGameAction } from './state/actions/delete-game.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { loadGameAction } from './state/actions/load-game.js'
 import { saveGameAction } from './state/actions/save-game.js'
@@ -31,6 +32,11 @@ export async function onClick (event) {
   if (target.dataset.city) {
     const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
     return store.dispatch(switchToCityAction(city))
+  }
+
+  if (target.dataset.playername) {
+    const playername = target.dataset.playername
+    return store.dispatch(deleteGameAction(playername))
   }
 
   if (target.dataset.scene) {
