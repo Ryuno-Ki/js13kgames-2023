@@ -27,6 +27,11 @@
 	content: "🆕";
 }
 
+[data-component="title-section"] [data-scene="load-game-section"]::before {
+	display: inline;
+	content: "📂";
+}
+
 [data-component="title-section"] [data-scene="settings-section"]::before {
 	display: inline;
 	content: "⚙️";

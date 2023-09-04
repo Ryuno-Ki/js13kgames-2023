@@ -17,6 +17,7 @@ export function sectionTitle (targetElement, state) {
       ['h1', [], {}, 'thE BALtiC LEAGuE'],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'new-game-section' }, 'New Game'],
+        ['button', ['action'], { 'data-scene': 'load-game-section' }, 'Load Game'],
         ['button', ['action'], { 'data-scene': 'settings-section' }, 'Settings'],
         ['button', ['action'], { 'data-scene': 'about-section' }, 'About']
       ]]

@@ -1,0 +1,17 @@
+[data-component="load-game-section"] {
+	margin-inline: 1em;
+}
+
+[data-component="load-game-section"] h1 {
+	font-size: 4em;
+	text-align: center;
+}
+
+[data-component="load-game-section"] button {
+	font-size: 2em;
+}
+
+[data-component="load-game-section"] button::before {
+	display: inline;
+	content: "🪢";
+}
