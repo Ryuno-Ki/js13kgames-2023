@@ -25,3 +25,4 @@ This folder serves as a diary along the development process.
 - [31th August 2023](./2023-08-31.md)
 - [01st September 2023](./2023-09-01.md)
 - [02nd September 2023](./2023-09-02.md)
+- [03rd September 2023](./2023-09-03.md)
