@@ -45,24 +45,6 @@
  * @todo Move to scenes components
  */
 /**
- * @typedef {object} SceneStateTargetMapping
- * @property {SceneName} target
- */
-/**
- * @typedef {object} SceneStateMapping
- * @property {Scene} component
- * @property {string} name
- * @property {Record<string, SceneStateTargetMapping>} on
- */
-/**
- * @typedef {object} Scenes
- * @property {string} id
- * @property {Scene} initial
- * @property {boolean} predictableActionArguments
- * @property {boolean} preserveActionOrder
- * @property {Record<SceneName, SceneStateMapping>} states
- */
-/**
  * @typedef {'free-play' | 'tutorial'} Scenario
  */
 /**
@@ -108,7 +90,6 @@
  * @property {Distances} distances
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
- * @property {Scenes} scenes
  * @property {Array<Ship>} ships
  * @property {string} title
  * @property {number} volume
@@ -137,21 +118,6 @@ export type HistoryEntry = object;
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
 export type SceneName = 'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World';
-export type SceneStateTargetMapping = {
-    target: SceneName;
-};
-export type SceneStateMapping = {
-    component: Scene;
-    name: string;
-    on: Record<string, SceneStateTargetMapping>;
-};
-export type Scenes = {
-    id: string;
-    initial: Scene;
-    predictableActionArguments: boolean;
-    preserveActionOrder: boolean;
-    states: Record<SceneName, SceneStateMapping>;
-};
 export type Scenario = 'free-play' | 'tutorial';
 export type ShipCargo = {
     ware: Ware;
@@ -187,7 +153,6 @@ export type State = {
     distances: Distances;
     history: Array<HistoryEntry>;
     playername: string;
-    scenes: Scenes;
     ships: Array<Ship>;
     title: string;
     volume: number;
