@@ -22,7 +22,6 @@ export function sectionLevel (targetElement, state) {
       view,
       ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }],
       ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'win-section' }, 'Win'],
         ['button', ['action'], { 'data-scene': 'game-over-section' }, 'GameOver']
       ]]
     ]))
