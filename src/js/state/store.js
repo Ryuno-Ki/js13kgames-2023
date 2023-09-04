@@ -49,6 +49,14 @@ class Store {
     if (action.type === 'SET_COLOR_PREFERENCE_ACTION') {
       this._applyColorTheme(action.payload.color)
     }
+
+    if (action.type === 'SWITCH_TO_SCENE_ACTION') {
+      this._setDocumentTitle()
+    }
+
+    if (action.type === 'SWITCH_TO_VIEW_ACTION') {
+      this._setDocumentTitle()
+    }
   }
 
   /**
@@ -110,6 +118,44 @@ class Store {
 
     window.localStorage.setItem('THE_BALTIC_LEAGUE', JSON.stringify(snapshot))
   }
+
+	/**
+	 * Helper method to keep the document.title in sync with the game.
+	 *
+	 * @private
+	 */
+	_setDocumentTitle () {
+		const { activeCity, activeScene, activeView } = this.getState()
+		const sceneToTitleMapping = {
+			'about-section': 'About',
+			'game-over-section': 'Game Over',
+			'level-section': '', // Empty on purpose
+			'load-game-section': 'Load Game',
+			'new-game-section': 'New Game',
+			'settings-section': 'Settings',
+			'title-section': '', // Empty on purpose
+			'win-section': 'You Win',
+			'world-section': 'World'
+		}
+		const viewToTitleMapping = {
+			'city': activeCity || 'City',
+			'sea': 'Baltic Sea'
+		}
+
+		let viewTitle = ''
+		if (activeScene === 'level-section') {
+		  viewTitle = viewToTitleMapping[ activeView ]
+		}
+
+		const sceneTitle = sceneToTitleMapping[ activeScene ]
+		const parts = [
+			viewTitle,
+			sceneTitle,
+			'The Baltic League',
+			'js13kgames-2023'
+		]
+		document.title = parts.filter(Boolean).join(' | ')
+	}
 }
 
 const store = new Store(reducer)

@@ -48,5 +48,11 @@ declare class Store {
      * @private
      */
     private _saveSnapshot;
+    /**
+     * Helper method to keep the document.title in sync with the game.
+     *
+     * @private
+     */
+    private _setDocumentTitle;
 }
 import { reducer } from './reducers/index.js';
