@@ -17,7 +17,7 @@ class Store {
    * It's asynchronous because I might need to call out to an API. Not relevant
    * to this game, but I keep the habit.
    *
-   * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-game.js').LOAD_GAME_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/save-game.js').SAVE_GAME_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
+   * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/delete-game.js').DELETE_GAME_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-game.js').LOAD_GAME_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/save-game.js').SAVE_GAME_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
   */
   async dispatch (action) {
     this.state = this.reducer(this.state, action)
@@ -35,9 +35,13 @@ class Store {
    * Run side effects on certain actions.
    *
    * @private
-   * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-game.js').LOAD_GAME_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/save-game.js').SAVE_GAME_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
+   * @argument {import('./actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('./actions/delete-game.js').DELETE_GAME_ACTION | import('./actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('./actions/load-game.js').LOAD_GAME_ACTION | import('./actions/load-ship.js').LOAD_SHIP_ACTION | import('./actions/reset.js').RESET_ACTION | import('./actions/save-game.js').SAVE_GAME_ACTION | import('./actions/send-ship.js').SEND_SHIP_ACTION | import('./actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('./actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('./actions/set-playername.js').SET_PLAYERNAME_ACTION | import('./actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('./actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('./actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('./actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('./actions/update-ships.js').UPDATE_SHIPS_ACTION} action
    */
   _applySideEffects (action) {
+    if (action.type === 'DELETE_GAME_ACTION') {
+      this._deleteSnapshot(action.payload.playername)
+    }
+
     if (action.type === 'SAVE_GAME_ACTION') {
       this._saveSnapshot()
     }
@@ -58,6 +62,19 @@ class Store {
     document.body.classList.remove('theme-light')
     document.body.classList.remove('theme-dark')
     document.body.classList.add(`theme-${color}`)
+  }
+
+  /**
+   * Helper method to remove an entry from localStorage.
+   *
+   * @private
+   * @argument {string} playername
+   */
+  _deleteSnapshot (playername) {
+    const serialisedStorage = window.localStorage.getItem('THE_BALTIC_LEAGUE') || '[]'
+    const storage = /** @type {Array<import('./initial-state.js').State>} */(JSON.parse(serialisedStorage))
+    const snapshot = storage.filter((entry) => entry.playername !== playername)
+    window.localStorage.setItem('THE_BALTIC_LEAGUE', JSON.stringify(snapshot))
   }
 
   /**

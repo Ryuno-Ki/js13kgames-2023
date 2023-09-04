@@ -1,7 +1,8 @@
 import { expect } from 'chai'
 
-import { saveGameAction } from '../../src/js/state/actions/save-game.js'
 import { resetAction } from '../../src/js/state/actions/reset.js'
+import { deleteGameAction } from '../../src/js/state/actions/delete-game.js'
+import { saveGameAction } from '../../src/js/state/actions/save-game.js'
 import { setColorPreferenceAction } from '../../src/js/state/actions/set-color-preference.js'
 import { setPlayernameAction } from '../../src/js/state/actions/set-playername.js'
 import store from '../../src/js/state/store.js'
@@ -92,6 +93,27 @@ describe('store', function () {
       const snapshot = window.localStorage.getItem('THE_BALTIC_LEAGUE')
       expect(snapshot).to.exist
       expect(JSON.parse(snapshot)).to.be.an('Array').and.have.length(2)
+    })
+  })
+
+  describe('when a game is flagged for deletion', function () {
+    it('should only remove that game from localStorage', async function () {
+      // Arrange
+      const firstPlay = Object.assign({}, store.getState(), { playername: 'One' })
+      const secondPlay = Object.assign({}, store.getState(), { playername: 'Two' })
+
+      // Act
+      await store.dispatch(setPlayernameAction(firstPlay.playername))
+      await store.dispatch(saveGameAction())
+      await store.dispatch(setPlayernameAction(secondPlay.playername))
+      await store.dispatch(saveGameAction())
+      await store.dispatch(deleteGameAction(firstPlay.playername))
+
+      // Assert
+      const snapshot = window.localStorage.getItem('THE_BALTIC_LEAGUE')
+      expect(snapshot).to.exist
+      expect(JSON.parse(snapshot)).to.be.an('Array').and.have.length(1)
+      expect(JSON.parse(snapshot)[0]).to.not.have.property('playername', firstPlay.playername)
     })
   })
 })
