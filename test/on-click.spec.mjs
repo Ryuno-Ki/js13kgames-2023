@@ -7,6 +7,7 @@ import { onClick } from '../src/js/on-click.js'
 import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
+import { loadGameAction } from '../src/js/state/actions/load-game.js'
 import { saveGameAction } from '../src/js/state/actions/save-game.js'
 import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
@@ -67,6 +68,24 @@ describe('onClick', function () {
     // only sees the first invocation. So instead I separate the callback tests
     // from the event listener one.
     expect(store.dispatch).to.have.been.called
+  })
+
+  it('should dispatch to load a game', function () {
+    // Arrange
+    const state = store.getState()
+    const event = new window.Event('click')
+    const target = document.createElement('button')
+    target.type = 'button'
+    target.setAttribute('data-state', JSON.stringify(state))
+    target.addEventListener('click', onClick)
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    target.dispatchEvent(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledOnce
+    expect(store.dispatch).to.have.been.calledWith(loadGameAction(state))
   })
 
   it('should dispatch to switch to a city', function () {
