@@ -19,7 +19,8 @@ export function sectionLoadgame (targetElement, state) {
       ['ul', [], {}, '', [
         ...savedGames.map((savedGame) => {
           return ['li', [], {}, savedGame.playername, [
-            ['button', [], { type: 'button', 'data-state': JSON.stringify(savedGame) }, 'Load game']
+            ['button', [], { type: 'button', 'data-state': JSON.stringify(savedGame) }, 'Load game'],
+            ['button', [], { type: 'button', 'data-playername': savedGame.playername }, 'Delete game']
           ]]
         })
       ]],

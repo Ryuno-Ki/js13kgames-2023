@@ -11,6 +11,16 @@
 	font-size: 2em;
 }
 
+[data-component="load-game-section"] [data-state]::before {
+	display: inline;
+	content: "📂";
+}
+
+[data-component="load-game-section"] [data-playername]::before {
+	display: inline;
+	content: "🗑️";
+}
+
 [data-component="load-game-section"] button::before {
 	display: inline;
 	content: "🪢";
