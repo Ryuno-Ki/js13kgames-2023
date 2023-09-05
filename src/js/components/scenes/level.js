@@ -38,23 +38,14 @@ export function sectionLevel (targetElement, state) {
  * @returns {Array<*>}
  */
 function getViewFromState (state) {
-  const view = state.activeView
-
-  if (view === 'sea') {
-    return ['div', [], { 'data-component': 'sea' }]
+  /** @type {Record<import('../../state/initial-state.js').View, Array<*>>} */
+  const viewToComponentMap = {
+    city: ['div', [], { 'data-component': 'city-overview' }],
+    docks: ['div', [], { 'data-component': 'docks' }],
+    sea: ['div', [], { 'data-component': 'sea' }],
+    story: ['div', [], { 'data-component': 'tutorial' }],
+    warehouse: ['div', [], { 'data-component': 'warehouse' }]
   }
 
-  if (view === 'city') {
-    return ['div', [], { 'data-component': 'city-overview' }]
-  }
-
-  if (view === 'docks') {
-    return ['div', [], { 'data-component': 'docks' }]
-  }
-
-  if (view === 'story') {
-    return ['div', [], { 'data-component': 'tutorial' }]
-  }
-
-  return ['div']
+  return viewToComponentMap[state.activeView] || ['div']
 }

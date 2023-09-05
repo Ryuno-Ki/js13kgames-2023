@@ -43,6 +43,16 @@ function getStoryByView (view) {
       'make it home. Now you have to inherit his work. I have trust in you ',
       'you will accomplish it and make him proud. Here allow me to show you ',
       'around. Meet me at the docks.'
+    ].join(''),
+    warehouse: [
+      'Did you make it through? I know, all those pigs on the street are ',
+      "annoying, aren't they? And don't get me started on the smell. But ",
+      "let's talk about business here. I'm going to pay your scribe a year ",
+      'and a month worth of wage. I am curious whether you are as talented ',
+      'as your farther was. In this building you can store your wares in the ',
+      'upper floors. If you can afford it I would suggest to add more levels ',
+      'to it. It might be prudent to stock certain goods.',
+      "Speaking of, why don't you accompany me to the market?"
     ].join('')
   }
 
@@ -51,7 +61,8 @@ function getStoryByView (view) {
     city: ['span'],
     docks: ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse'],
     sea: ['span'],
-    story: ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks']
+    story: ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
+    warehouse: ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market']
   }
 
   const story = viewToStoryMap[view]

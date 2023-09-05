@@ -141,7 +141,8 @@ class Store {
       city: activeCity || 'City',
       docks: `Docks of ${activeCity || 'this city'}`,
       sea: 'Baltic Sea',
-      story: 'Tutorial'
+      story: 'Tutorial',
+      warehouse: `Warehouse of ${activeCity || 'this city'}`
     }
 
     let viewTitle = ''
