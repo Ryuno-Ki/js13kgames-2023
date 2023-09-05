@@ -17,6 +17,7 @@ export function sea (targetElement, state) {
   const sailingShips = state.ships.filter((ship) => !ship.moored)
 
   element.appendChild(el('div', [], {}, '', [
+    ['div', [], { 'data-component': 'tutorial' }],
     ['div', [], {}, 'Where do you want to go?'],
     ['ul', [], {}, '', [
       ...cities.map((city) => [

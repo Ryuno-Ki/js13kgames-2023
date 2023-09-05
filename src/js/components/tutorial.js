@@ -46,7 +46,19 @@ function getStoryByView (view) {
       'fasting period, meat is forbidden. Fish is not. Come, trade goods ',
       'and then come to me and we look at the map of the Baltic Sea together.'
     ].join(''),
-    sea: '',
+    sea: [
+      'Did your father taught you how to read a map? See, we are here. You ',
+      'can buy goods like grain from the surroundings of the city and the ',
+      'region. Seaman have made notes on which way the water flows within ',
+      'the sea. This is important! It will control how fast your ships will ',
+      "get from one city to another. Since most people here can't read or ",
+      'write you will need to plan carefully where do you want to go. After ',
+      'all you are going to travel with them to do your business. Noone of ',
+      'us can be at different places at the same time, right? Here, this map ',
+      "is my parting gift for you. I'm going to see you in a year and a ",
+      "month. Farewell. I wish you always a hand's breadth of water under ",
+      'the keel!'
+    ].join(''),
     story: [
       "It's with great sadness I have to inform you that your father did not ",
       'make it home. Now you have to inherit his work. I have trust in you ',

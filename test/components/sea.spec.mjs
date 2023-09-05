@@ -13,6 +13,19 @@ describe('sea', function () {
     await store.dispatch(resetAction())
   })
 
+  it('should contain a tutorial component', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = store.getState()
+
+    // Act
+    const seaComponent = sea(targetElement, state)
+
+    // Assert
+    expect(seaComponent).not.to.equal(targetElement)
+    expect(seaComponent).to.have.descendant('[data-component="tutorial"]')
+  })
+
   it('should render a button for each city', function () {
     // Arrange
     const targetElement = document.createElement('div')
