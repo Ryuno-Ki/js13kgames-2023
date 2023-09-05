@@ -67,6 +67,20 @@ describe('sectionWorldselection', function () {
         // Assert
         expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
       })
+
+      describe('when picking tutorial', function () {
+        it('should display a content warning', function () {
+          // Arrange
+          const targetElement = document.createElement('section')
+          const state = Object.assign({}, store.getState(), { activeScene: 'world-section', activeScenario: 'tutorial' })
+
+          // Act
+          const worldSelectionScene = sectionWorldselection(targetElement, state)
+
+          // Assert
+          expect(worldSelectionScene).to.have.descendant('p.content-warning')
+        })
+      })
     })
   })
 })

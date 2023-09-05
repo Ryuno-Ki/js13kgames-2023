@@ -27,6 +27,7 @@ export function sectionWorldselection (targetElement, state) {
           ]]
         ]]
       ]],
+      showContentWarning(state),
       ['div', ['actions'], {}, '', showActionButtons(state)]
     ]))
   }
@@ -48,5 +49,20 @@ function showActionButtons (state) {
     ]
   }
 
-  return []
+  return [['span']]
+}
+
+/**
+ * Helper function to show a content warning for tutorial.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').State} state
+ * @returns {Array<*>}
+ */
+function showContentWarning (state) {
+  if (state.activeScenario === 'tutorial') {
+    return ['p', ['content-warning'], {}, 'Content Warning: Death mention.']
+  }
+
+  return ['span']
 }
