@@ -48,5 +48,9 @@ function getViewFromState (state) {
     return ['div', [], { 'data-component': 'city-overview' }]
   }
 
-  return []
+  if (view === 'story') {
+    return ['div', [], { 'data-component': 'tutorial' }]
+  }
+
+  return ['div']
 }

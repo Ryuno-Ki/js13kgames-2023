@@ -28,7 +28,7 @@ describe('sectionLevel', function () {
   })
 
   describe('when level is the active scene', function () {
-    it('should display the sea view', function () {
+    it('should display the tutorial view', function () {
       // Arrange
       const targetElement = document.createElement('section')
       const state = Object.assign({}, store.getState(), { activeScene: 'level-section' })
@@ -40,10 +40,22 @@ describe('sectionLevel', function () {
       expect(levelScene).to.have.descendant('h1')
     })
 
+    it('should show the tutorial view', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'level-section', activeView: 'story' })
+
+      // Act
+      const levelScene = sectionLevel(targetElement, state)
+
+      // Assert
+      expect(levelScene).to.have.descendant('[data-component="tutorial"]')
+    })
+
     it('should show the sea view', function () {
       // Arrange
       const targetElement = document.createElement('section')
-      const state = Object.assign({}, store.getState(), { activeScene: 'level-section' })
+      const state = Object.assign({}, store.getState(), { activeScene: 'level-section', activeView: 'sea' })
 
       // Act
       const levelScene = sectionLevel(targetElement, state)
