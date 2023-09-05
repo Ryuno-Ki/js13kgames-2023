@@ -92,7 +92,7 @@
  */
 
 /**
- * @typedef {'city' | 'sea'} View
+ * @typedef {'city' | 'sea' | 'story'} View
  */
 
 /**
@@ -119,7 +119,7 @@ export const initialState = {
   activeColor: 'system',
   activeScene: 'title-section',
   activeScenario: null,
-  activeView: 'sea',
+  activeView: 'story',
   activeMonth: '1',
   activeYear: 1250,
   cities: [{
