@@ -11,23 +11,9 @@ export function docks (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
-  const { activeCity, cities, ships } = state
-  const city = cities.find((c) => c.name === activeCity)
-
-  if (!city) {
-    console.warn('Did not find city')
-    return element
-  }
-
-  const warehouse = city.supply
-  const destinations = cities.filter((c) => c.name !== activeCity)
-  const mooredShipsInCity = ships
-    .filter((ship) => ship.position === activeCity)
-    .filter((ship) => ship.moored)
-
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ...mapShipsToTree(mooredShipsInCity, city, warehouse, destinations)
+    ...mapShipsToTree(state)
   ]))
 
   return element
@@ -37,18 +23,33 @@ export function docks (targetElement, state) {
  * Helper function to render tree conditionally.
  *
  * @private
- * @argument {Array<import('../state/initial-state.js').Ship>} ships
- * @argument {import('../state/initial-state.js').City} city
- * @argument {Array<import('../state/initial-state.js').CitySupply>} warehouse
- * @argument {Array<import('../state/initial-state.js').City>} destinations
+ * @argument {import('../state/initial-state.js').State} state
  * @returns {Array<*>}
  */
-function mapShipsToTree (ships, city, warehouse, destinations) {
+function mapShipsToTree (state) {
+  const { activeCity, activeMonth, cities, ships } = state
+  const city = cities.find((c) => c.name === activeCity)
+
+  if (!city) {
+    console.warn('Did not find city')
+    return [['span']]
+  }
+
+  const warehouse = city.supply
+  const destinations = cities.filter((c) => c.name !== activeCity)
+  const mooredShipsInCity = ships
+    .filter((ship) => ship.position === activeCity)
+    .filter((ship) => ship.moored)
+
   if (ships.length === 0) {
     return [['p', ['no-ships'], {}, 'No ships here. Perhaps they are sailing?']]
   }
 
-  return ships.map((ship) => [
+  if (['1', '2', '11', '12'].includes(activeMonth)) {
+    return [['p', ['frozen-sea'], {}, 'No ships can depart as long as the sea is frozen.']]
+  }
+
+  return mooredShipsInCity.map((ship) => [
     'div', [], {}, ship.name, [
       ['div', [], {}, 'Load', [
         ['ul', [], {}, '', [

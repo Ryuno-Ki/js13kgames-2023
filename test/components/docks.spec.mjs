@@ -46,6 +46,23 @@ describe('docks', function () {
   })
 
   describe('when ships are available', function () {
+    describe('when the sea is frozen', function () {
+      it('should inform that no ship can depart', function () {
+        // Arrange
+        const targetElement = document.createElement('div')
+        const state = Object.assign({}, store.getState(), { activeMonth: '11' })
+
+        // Act
+        const docksComponent = docks(targetElement, state)
+
+        // Assert
+        expect(docksComponent).not.to.equal(targetElement)
+        expect(docksComponent).not.to.contain.text(['Load'])
+        expect(docksComponent).not.to.contain.text(['Unload'])
+        expect(docksComponent).to.have.descendant('p.frozen-sea')
+      })
+    })
+
     it('should render the load and unload forms', function () {
       // Arrange
       const ships = [{
@@ -55,7 +72,7 @@ describe('docks', function () {
         position: 'Lübeck'
       }]
       const targetElement = document.createElement('div')
-      const state = Object.assign({}, store.getState(), { ships })
+      const state = Object.assign({}, store.getState(), { activeMonth: '5', ships })
 
       // Act
       const docksComponent = docks(targetElement, state)
@@ -84,7 +101,7 @@ describe('docks', function () {
         }]
 
         const targetElement = document.createElement('div')
-        const state = Object.assign({}, store.getState(), { ships, cities })
+        const state = Object.assign({}, store.getState(), { activeMonth: '5', ships, cities })
 
         // Act
         const docksComponent = docks(targetElement, state)
@@ -111,7 +128,7 @@ describe('docks', function () {
         }]
 
         const targetElement = document.createElement('div')
-        const state = Object.assign({}, store.getState(), { ships })
+        const state = Object.assign({}, store.getState(), { activeMonth: '5', ships })
 
         // Act
         const docksComponent = docks(targetElement, state)
@@ -143,7 +160,7 @@ describe('docks', function () {
         }]
 
         const targetElement = document.createElement('div')
-        const state = Object.assign({}, store.getState(), { cities, ships })
+        const state = Object.assign({}, store.getState(), { activeMonth: '5', cities, ships })
 
         // Act
         const docksComponent = docks(targetElement, state)
