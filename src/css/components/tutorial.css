@@ -1,0 +1,4 @@
+[data-component="tutorial"] button::before {
+	display: inline;
+	content: "🛟";
+}
