@@ -13,6 +13,38 @@ describe('docks', function () {
     await store.dispatch(resetAction())
   })
 
+  it('should contain a tutorial component', function () {
+    // Arrange
+    const ships = []
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { ships })
+
+    // Act
+    const docksComponent = docks(targetElement, state)
+
+    // Assert
+    expect(docksComponent).not.to.equal(targetElement)
+    expect(docksComponent).to.have.descendant('[data-component="tutorial"]')
+  })
+
+  describe('when ships are not available', function () {
+    it('should inform that there is nothing to do', function () {
+      // Arrange
+      const ships = []
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { ships })
+
+      // Act
+      const docksComponent = docks(targetElement, state)
+
+      // Assert
+      expect(docksComponent).not.to.equal(targetElement)
+      expect(docksComponent).not.to.contain.text(['Load'])
+      expect(docksComponent).not.to.contain.text(['Unload'])
+      expect(docksComponent).to.have.descendant('p.no-ships')
+    })
+  })
+
   describe('when ships are available', function () {
     it('should render the load and unload forms', function () {
       // Arrange

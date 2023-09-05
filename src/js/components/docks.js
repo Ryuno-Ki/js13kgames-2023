@@ -27,45 +27,63 @@ export function docks (targetElement, state) {
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ...mooredShipsInCity.map((ship) => [
-      'div', [], {}, ship.name, [
-        ['div', [], {}, 'Load', [
-          ['ul', [], {}, '', [
-            ...warehouse.map((ware) => [
-              'li', [], {}, '', [
-                ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
-                ['span', [], {}, '0'],
-                ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }],
-                ['span', [], {}, ware.quantity]
-              ]
-            ])
-          ]]
-        ]],
-        ['div', [], {}, 'Unload', [
-          ['ul', [], {}, '', [
-            ...ship.cargo.map((ware) => [
-              'li', [], {}, '', [
-                ['label', [], { for: `${ship.name}-unload-${ware.ware}` }, ware.ware],
-                ['span', [], {}, '0'],
-                ['input', [], { id: `${ship.name}-unload-${ware.ware}`, name: `${ship.name}-unload-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'unload', 'data-ship': ship.name, 'data-ware': ware.ware }],
-                ['span', [], {}, ware.quantity]
-              ]
-            ])
-          ]]
-        ]],
-        ['div', [], {}, '', [
-          ['label', [], { for: 'destination' }],
-          ['select', [], { id: 'destination', 'data-ship': ship.name }, '', [
-            ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
-            ],
-            ...destinations.map((destination) => [
-              'option', [], { value: destination.name }, `to  ${destination.name}`
-            ])
-          ]]
-        ]]
-      ]
-    ])]
-  ))
+    ...mapShipsToTree(mooredShipsInCity, city, warehouse, destinations)
+  ]))
 
   return element
+}
+
+/**
+ * Helper function to render tree conditionally.
+ *
+ * @private
+ * @argument {Array<import('../state/initial-state.js').Ship>} ships
+ * @argument {import('../state/initial-state.js').City} city
+ * @argument {Array<import('../state/initial-state.js').CitySupply>} warehouse
+ * @argument {Array<import('../state/initial-state.js').City>} destinations
+ * @returns {Array<*>}
+ */
+function mapShipsToTree (ships, city, warehouse, destinations) {
+  if (ships.length === 0) {
+    return [['p', ['no-ships'], {}, 'No ships here. Perhaps they are sailing?']]
+  }
+
+  return ships.map((ship) => [
+    'div', [], {}, ship.name, [
+      ['div', [], {}, 'Load', [
+        ['ul', [], {}, '', [
+          ...warehouse.map((ware) => [
+            'li', [], {}, '', [
+              ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
+              ['span', [], {}, '0'],
+              ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }],
+              ['span', [], {}, ware.quantity]
+            ]
+          ])
+        ]]
+      ]],
+      ['div', [], {}, 'Unload', [
+        ['ul', [], {}, '', [
+          ...ship.cargo.map((ware) => [
+            'li', [], {}, '', [
+              ['label', [], { for: `${ship.name}-unload-${ware.ware}` }, ware.ware],
+              ['span', [], {}, '0'],
+              ['input', [], { id: `${ship.name}-unload-${ware.ware}`, name: `${ship.name}-unload-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'unload', 'data-ship': ship.name, 'data-ware': ware.ware }],
+              ['span', [], {}, ware.quantity]
+            ]
+          ])
+        ]]
+      ]],
+      ['div', [], {}, '', [
+        ['label', [], { for: 'destination' }],
+        ['select', [], { id: 'destination', 'data-ship': ship.name }, '', [
+          ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
+          ],
+          ...destinations.map((destination) => [
+            'option', [], { value: destination.name }, `to  ${destination.name}`
+          ])
+        ]]
+      ]]
+    ]
+  ])
 }
