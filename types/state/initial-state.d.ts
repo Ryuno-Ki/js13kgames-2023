@@ -75,7 +75,7 @@
  * @property {ShipType} type
  */
 /**
- * @typedef {'city' | 'sea' | 'story'} View
+ * @typedef {'city' | 'docks' | 'sea' | 'story'} View
  */
 /**
  * @typedef {object} State
@@ -140,7 +140,7 @@ export type Ship = {
     position: CityName | null;
     type: ShipType;
 };
-export type View = 'city' | 'sea' | 'story';
+export type View = 'city' | 'docks' | 'sea' | 'story';
 export type State = {
     activeCity: CityName | null;
     activeColor: Color;

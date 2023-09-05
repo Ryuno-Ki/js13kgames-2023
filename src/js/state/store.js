@@ -139,6 +139,7 @@ class Store {
     }
     const viewToTitleMapping = {
       city: activeCity || 'City',
+      docks: `Docks of ${activeCity || 'this city'}`,
       sea: 'Baltic Sea',
       story: 'Tutorial'
     }

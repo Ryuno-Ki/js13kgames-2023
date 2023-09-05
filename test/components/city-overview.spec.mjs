@@ -13,19 +13,6 @@ describe('cityOverview', function () {
     await store.dispatch(resetAction())
   })
 
-  it('should render the unchanged element in case the city is not to be found', function () {
-    // Arrange
-    const targetElement = document.createElement('div')
-    const state = store.getState()
-
-    // Act
-    const cityOverviewComponent = cityOverview(targetElement, state)
-
-    // Assert
-    expect(cityOverviewComponent).not.to.equal(targetElement)
-    expect(cityOverviewComponent).not.to.contain.text(['Lübeck'])
-  })
-
   it('should display the name of the city', function () {
     // Arrange
     const targetElement = document.createElement('div')

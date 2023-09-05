@@ -92,7 +92,7 @@
  */
 
 /**
- * @typedef {'city' | 'sea' | 'story'} View
+ * @typedef {'city' | 'docks' | 'sea' | 'story'} View
  */
 
 /**
@@ -115,7 +115,7 @@
 
 /** @type {State} */
 export const initialState = {
-  activeCity: null,
+  activeCity: 'Lübeck',
   activeColor: 'system',
   activeScene: 'title-section',
   activeScenario: null,

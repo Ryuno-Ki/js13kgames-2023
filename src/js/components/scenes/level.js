@@ -48,6 +48,10 @@ function getViewFromState (state) {
     return ['div', [], { 'data-component': 'city-overview' }]
   }
 
+  if (view === 'docks') {
+    return ['div', [], { 'data-component': 'docks' }]
+  }
+
   if (view === 'story') {
     return ['div', [], { 'data-component': 'tutorial' }]
   }
