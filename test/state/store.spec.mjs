@@ -148,6 +148,20 @@ describe('store', function () {
     })
 
     describe('when that scene is level', function () {
+      describe('when the view is story', function () {
+        it('should include Tutorial in the title', async function () {
+        // Arrange
+        // Nothing to prepare
+
+          // Act
+          await store.dispatch(switchToSceneAction('level-section'))
+          await store.dispatch(switchToViewAction('story'))
+
+          // Assert
+          expect(document.title).to.equal('Tutorial | The Baltic League | js13kgames-2023')
+        })
+      })
+
       describe('when the view is sea', function () {
         it('should include Baltic Sea in the title', async function () {
         // Arrange
