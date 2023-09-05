@@ -3,6 +3,7 @@ import { docks } from './components/docks.js'
 import { market } from './components/market.js'
 import { monthMeter } from './components/month-meter.js'
 import { sea } from './components/sea.js'
+import { tutorial } from './components/tutorial.js'
 
 import { sectionTitle } from './components/scenes/title.js'
 import { sectionSettings } from './components/scenes/settings.js'
@@ -28,6 +29,7 @@ export function init () {
   add('market', market)
   add('month-meter', monthMeter)
   add('sea', sea)
+  add('tutorial', tutorial)
 
   add('title-section', sectionTitle)
   add('settings-section', sectionSettings)
