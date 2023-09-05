@@ -26,6 +26,7 @@ export function docks (targetElement, state) {
     .filter((ship) => ship.moored)
 
   element.appendChild(el('div', [], {}, '', [
+    ['div', [], { 'data-component': 'tutorial' }],
     ...mooredShipsInCity.map((ship) => [
       'div', [], {}, ship.name, [
         ['div', [], {}, 'Load', [

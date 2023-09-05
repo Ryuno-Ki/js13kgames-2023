@@ -13,16 +13,35 @@ describe('tutorial', function () {
     await store.dispatch(resetAction())
   })
 
-  it('should explain the functionality', function () {
+  describe('when active view is story', function () {
+    it('should explain the functionality', function () {
     // Arrange
-    const targetElement = document.createElement('div')
-    const state = store.getState()
+      const targetElement = document.createElement('div')
+      const state = store.getState()
 
-    // Act
-    const tutorialComponent = tutorial(targetElement, state)
+      // Act
+      const tutorialComponent = tutorial(targetElement, state)
 
-    // Assert
-    expect(tutorialComponent).not.to.equal(targetElement)
-    expect(tutorialComponent).to.have.descendant('p.story')
+      // Assert
+      expect(tutorialComponent).not.to.equal(targetElement)
+      expect(tutorialComponent).to.have.descendant('p.story')
+      expect(tutorialComponent).to.have.descendant('button[data-view="docks"]')
+    })
+  })
+
+  describe('when active view is docks', function () {
+    it('should explain the functionality', function () {
+      // Arrange
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { activeView: 'docks' })
+
+      // Act
+      const tutorialComponent = tutorial(targetElement, state)
+
+      // Assert
+      expect(tutorialComponent).not.to.equal(targetElement)
+      expect(tutorialComponent).to.have.descendant('p.story')
+      expect(tutorialComponent).to.have.descendant('button[data-view="warehouse"]')
+    })
   })
 })
