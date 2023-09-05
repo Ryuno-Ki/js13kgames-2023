@@ -8,6 +8,11 @@
 	content: "💱";
 }
 
+[data-component="tutorial"] button[data-view="sea"]::before {
+	display: inline;
+	content: "🗺️";
+}
+
 [data-component="tutorial"] button[data-view="warehouse"]::before {
 	display: inline;
 	content: "📦";

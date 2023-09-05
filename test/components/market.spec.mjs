@@ -13,6 +13,19 @@ describe('market', function () {
     await store.dispatch(resetAction())
   })
 
+  it('should contain a tutorial component', function () {
+    // Arrange
+    const targetElement = document.createElement('div')
+    const state = store.getState()
+
+    // Act
+    const marketComponent = market(targetElement, state)
+
+    // Assert
+    expect(marketComponent).not.to.equal(targetElement)
+    expect(marketComponent).to.have.descendant('[data-component="tutorial"]')
+  })
+
   it('should render an empty list in case passed data is empty', function () {
     // Arrange
     const targetElement = document.createElement('div')

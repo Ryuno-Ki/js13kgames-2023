@@ -192,6 +192,21 @@ describe('store', function () {
         })
       })
 
+      describe('when the view is market', function () {
+        it('should include Market of Lübeck in the title', async function () {
+        // Arrange
+        // Nothing to prepare
+
+          // Act
+          await store.dispatch(switchToCityAction('Lübeck'))
+          await store.dispatch(switchToSceneAction('level-section'))
+          await store.dispatch(switchToViewAction('market'))
+
+          // Assert
+          expect(document.title).to.equal('Market of Lübeck | The Baltic League | js13kgames-2023')
+        })
+      })
+
       describe('when the view is sea', function () {
         it('should include Baltic Sea in the title', async function () {
         // Arrange

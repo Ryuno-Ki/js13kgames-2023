@@ -37,6 +37,15 @@ function getStoryByView (view) {
       'Once you are done, set sail to a destination of your choice here. ',
       "Speaking of, let's go to your warehouse next."
     ].join(''),
+    market: [
+      'Quite noisy and loud here, huh? Yeah, people from all around the city ',
+      'convene here to buy and sell their goods. I recommend you to spend ',
+      'some time learning what each city is known for. For example, here in ',
+      'the Northern part of the Holy Roman Empire of the German Nation we ',
+      'are famous for our grain. And the sprats! You know that during the ',
+      'fasting period, meat is forbidden. Fish is not. Come, trade goods ',
+      'and then come to me and we look at the map of the Baltic Sea together.'
+    ].join(''),
     sea: '',
     story: [
       "It's with great sadness I have to inform you that your father did not ",
@@ -60,6 +69,7 @@ function getStoryByView (view) {
   const viewToButtonMap = {
     city: ['span'],
     docks: ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse'],
+    market: ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map'],
     sea: ['span'],
     story: ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
     warehouse: ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market']

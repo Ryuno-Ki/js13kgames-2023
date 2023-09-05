@@ -42,6 +42,7 @@ function getViewFromState (state) {
   const viewToComponentMap = {
     city: ['div', [], { 'data-component': 'city-overview' }],
     docks: ['div', [], { 'data-component': 'docks' }],
+    market: ['div', [], { 'data-component': 'market' }],
     sea: ['div', [], { 'data-component': 'sea' }],
     story: ['div', [], { 'data-component': 'tutorial' }],
     warehouse: ['div', [], { 'data-component': 'warehouse' }]

@@ -13,6 +13,22 @@ describe('tutorial', function () {
     await store.dispatch(resetAction())
   })
 
+  describe('when active view is market', function () {
+    it('should explain the functionality', function () {
+    // Arrange
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { activeView: 'market' })
+
+      // Act
+      const tutorialComponent = tutorial(targetElement, state)
+
+      // Assert
+      expect(tutorialComponent).not.to.equal(targetElement)
+      expect(tutorialComponent).to.have.descendant('p.story')
+      expect(tutorialComponent).to.have.descendant('button[data-view="sea"]')
+    })
+  })
+
   describe('when active view is warehouse', function () {
     it('should explain the functionality', function () {
       // Arrange

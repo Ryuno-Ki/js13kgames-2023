@@ -92,7 +92,7 @@
  */
 
 /**
- * @typedef {'city' | 'docks' | 'sea' | 'story' | 'warehouse'} View
+ * @typedef {'city' | 'docks' | 'market' | 'sea' | 'story' | 'warehouse'} View
  */
 
 /**

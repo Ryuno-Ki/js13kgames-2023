@@ -16,6 +16,7 @@ export function market (targetElement, state) {
   const wares = /** @type {Array<import('../state/initial-state.js').CityDemand | import('../state/initial-state.js').CitySupply>} */(JSON.parse(maybeWares || '[]'))
 
   element.appendChild(el('div', [], {}, type, [
+    ['div', [], { 'data-component': 'tutorial' }],
     ['ul', [], {}, '', wares.map((ware) => [
       'li', [], {}, `${ware.ware}: ${ware.quantity}`
     ])]

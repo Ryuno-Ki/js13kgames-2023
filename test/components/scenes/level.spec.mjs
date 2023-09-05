@@ -64,6 +64,18 @@ describe('sectionLevel', function () {
       expect(levelScene).to.have.descendant('[data-component="sea"]')
     })
 
+    it('should show the market view', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'level-section', activeView: 'market' })
+
+      // Act
+      const levelScene = sectionLevel(targetElement, state)
+
+      // Assert
+      expect(levelScene).to.have.descendant('[data-component="market"]')
+    })
+
     it('should show the warehouse view', function () {
       // Arrange
       const targetElement = document.createElement('section')
