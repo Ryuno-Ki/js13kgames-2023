@@ -13,33 +13,17 @@ describe('docks', function () {
     await store.dispatch(resetAction())
   })
 
-  it('should render the unchanged element in case passed data is empty', function () {
-    // Arrange
-    const targetElement = document.createElement('div')
-    targetElement.setAttribute('data-destinations', JSON.stringify([]))
-    targetElement.setAttribute('data-ships', JSON.stringify([]))
-    targetElement.setAttribute('data-warehouse', JSON.stringify([]))
-    const state = store.getState()
-
-    // Act
-    const docksComponent = docks(targetElement, state)
-
-    // Assert
-    expect(docksComponent).not.to.equal(targetElement)
-  })
-
   describe('when ships are available', function () {
     it('should render the load and unload forms', function () {
       // Arrange
       const ships = [{
         name: 'Santa Maria',
-        cargo: []
+        cargo: [],
+        moored: true,
+        position: 'Lübeck'
       }]
       const targetElement = document.createElement('div')
-      targetElement.setAttribute('data-destinations', JSON.stringify([]))
-      targetElement.setAttribute('data-ships', JSON.stringify(ships))
-      targetElement.setAttribute('data-warehouse', JSON.stringify([]))
-      const state = store.getState()
+      const state = Object.assign({}, store.getState(), { ships })
 
       // Act
       const docksComponent = docks(targetElement, state)
@@ -55,18 +39,20 @@ describe('docks', function () {
         // Arrange
         const ships = [{
           name: 'Santa Maria',
-          cargo: []
+          cargo: [],
+          moored: true,
+          position: 'Lübeck'
         }]
-        const warehouse = [{
-          ware: 'met',
-          quantity: 42
+        const cities = [{
+          name: 'Lübeck',
+          supply: [{
+            ware: 'met',
+            quantity: 42
+          }]
         }]
 
         const targetElement = document.createElement('div')
-        targetElement.setAttribute('data-destinations', JSON.stringify([]))
-        targetElement.setAttribute('data-ships', JSON.stringify(ships))
-        targetElement.setAttribute('data-warehouse', JSON.stringify(warehouse))
-        const state = store.getState()
+        const state = Object.assign({}, store.getState(), { ships, cities })
 
         // Act
         const docksComponent = docks(targetElement, state)
@@ -87,14 +73,13 @@ describe('docks', function () {
           cargo: [{
             ware: 'met',
             quantity: 2
-          }]
+          }],
+          moored: true,
+          position: 'Lübeck'
         }]
 
         const targetElement = document.createElement('div')
-        targetElement.setAttribute('data-destinations', JSON.stringify([]))
-        targetElement.setAttribute('data-ships', JSON.stringify(ships))
-        targetElement.setAttribute('data-warehouse', JSON.stringify([]))
-        const state = store.getState()
+        const state = Object.assign({}, store.getState(), { ships })
 
         // Act
         const docksComponent = docks(targetElement, state)
@@ -110,20 +95,23 @@ describe('docks', function () {
     describe('when destinations are available', function () {
       it('should display a select to choose one', function () {
         // Arrange
-        const destinations = [{
-          name: 'India'
+        const cities = [{
+          name: 'India',
+          supply: []
+        }, {
+          name: 'Lübeck',
+          supply: []
         }]
 
         const ships = [{
           name: 'Santa Maria',
-          cargo: []
+          cargo: [],
+          moored: true,
+          position: 'Lübeck'
         }]
 
         const targetElement = document.createElement('div')
-        targetElement.setAttribute('data-destinations', JSON.stringify(destinations))
-        targetElement.setAttribute('data-ships', JSON.stringify(ships))
-        targetElement.setAttribute('data-warehouse', JSON.stringify([]))
-        const state = store.getState()
+        const state = Object.assign({}, store.getState(), { cities, ships })
 
         // Act
         const docksComponent = docks(targetElement, state)

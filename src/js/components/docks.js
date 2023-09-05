@@ -11,17 +11,22 @@ export function docks (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
-  const maybeDestinations = element.getAttribute('data-destinations')
-  const maybeShips = element.getAttribute('data-ships')
-  const maybeWarehouse = element.getAttribute('data-warehouse')
+  const { activeCity, cities, ships } = state
+  const city = cities.find((c) => c.name === activeCity)
 
-  const city = state.activeCity
-  const destinations = /** @type {Array<import('../state/initial-state.js').City>} */(JSON.parse(maybeDestinations || '[]'))
-  const ships = /** @type {Array<import('../state/initial-state.js').Ship>} */(JSON.parse(maybeShips || '[]'))
-  const warehouse = /** @type {Array<import('../state/initial-state.js').CitySupply>} */(JSON.parse(maybeWarehouse || '[]'))
+  if (!city) {
+    console.warn('Did not find city')
+    return element
+  }
+
+  const warehouse = city.supply
+  const destinations = cities.filter((c) => c.name !== activeCity)
+  const mooredShipsInCity = ships
+    .filter((ship) => ship.position === activeCity)
+    .filter((ship) => ship.moored)
 
   element.appendChild(el('div', [], {}, '', [
-    ...ships.map((ship) => [
+    ...mooredShipsInCity.map((ship) => [
       'div', [], {}, ship.name, [
         ['div', [], {}, 'Load', [
           ['ul', [], {}, '', [
@@ -53,7 +58,7 @@ export function docks (targetElement, state) {
             ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
             ],
             ...destinations.map((destination) => [
-              'option', [], { value: destination.name }, 'to ' + destination.name
+              'option', [], { value: destination.name }, `to  ${destination.name}`
             ])
           ]]
         ]]
