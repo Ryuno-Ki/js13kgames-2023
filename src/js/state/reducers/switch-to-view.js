@@ -9,7 +9,6 @@ export function switchToViewReducer (state, payload) {
   const activeView = payload.view
 
   return Object.assign({}, state, {
-    activeCity,
     activeView
   })
 }

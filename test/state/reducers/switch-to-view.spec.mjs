@@ -22,18 +22,4 @@ describe('switchToViewReducer', function () {
     expect(newState.activeView).to.equal('city')
     expect(newState.activeCity).to.equal('Lübeck')
   })
-
-  it('should reset the activeCity on sea view', function () {
-    // Arrange
-    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
-    const payload = { view: 'sea' }
-
-    // Act
-    const newState = switchToViewReducer(state, payload)
-
-    // Assert
-    expect(newState).not.to.equal(state)
-    expect(newState.activeView).to.equal('sea')
-    expect(newState.activeCity).to.be.null
-  })
 })
