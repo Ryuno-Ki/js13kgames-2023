@@ -27,6 +27,10 @@ export function market (targetElement, state) {
           ['span', [], {}, ware.quantity]
         ]
       ])]
+    ]],
+    ['fieldset', [], {}, '', [
+      ['legend', [], {}, 'Sell'],
+      ['ul', [], {}, '']
     ]]
   ]))
 
