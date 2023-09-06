@@ -26,6 +26,9 @@ export function sectionAbout (targetElement, state) {
       ['p', [], {}, 'Boeticher font is developed by ', [
         ['a', [], { href: 'https://velvetyne.fr/fonts/boeticher/' }, 'Velvetyne Type Foundry']
       ]],
+			['p', [], {}, 'Map of the baltic sea is derived from ', [
+				['a', [], { href: 'https://nrv.de/reviere' }, 'North German regatta club']
+			]],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
       ]]
