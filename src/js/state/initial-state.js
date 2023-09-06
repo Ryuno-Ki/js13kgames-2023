@@ -97,7 +97,7 @@
 
 /**
  * @typedef {object} State
- * @property {CityName | null} activeCity
+ * @property {CityName} activeCity
  * @property {Color} activeColor
  * @property {Month} activeMonth
  * @property {Scene} activeScene

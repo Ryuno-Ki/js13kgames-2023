@@ -79,7 +79,7 @@
  */
 /**
  * @typedef {object} State
- * @property {CityName | null} activeCity
+ * @property {CityName} activeCity
  * @property {Color} activeColor
  * @property {Month} activeMonth
  * @property {Scene} activeScene
@@ -142,7 +142,7 @@ export type Ship = {
 };
 export type View = 'city' | 'docks' | 'market' | 'sea' | 'story' | 'warehouse';
 export type State = {
-    activeCity: CityName | null;
+    activeCity: CityName;
     activeColor: Color;
     activeMonth: Month;
     activeScene: Scene;

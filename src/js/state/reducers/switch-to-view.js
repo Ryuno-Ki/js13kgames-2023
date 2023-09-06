@@ -6,12 +6,7 @@
  * @returns {import('../initial-state.js').State}
  */
 export function switchToViewReducer (state, payload) {
-  let activeCity = state.activeCity
   const activeView = payload.view
-
-  if (payload.view === 'sea') {
-    activeCity = null
-  }
 
   return Object.assign({}, state, {
     activeCity,

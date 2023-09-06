@@ -139,11 +139,11 @@ class Store {
     }
     const viewToTitleMapping = {
       city: activeCity || 'City',
-      docks: `Docks of ${activeCity || 'this city'}`,
-      market: `Market of ${activeCity || 'this city'}`,
+      docks: `Docks of ${activeCity}`,
+      market: `Market of ${activeCity}`,
       sea: 'Baltic Sea',
       story: 'Tutorial',
-      warehouse: `Warehouse of ${activeCity || 'this city'}`
+      warehouse: `Warehouse of ${activeCity}`
     }
 
     let viewTitle = ''
