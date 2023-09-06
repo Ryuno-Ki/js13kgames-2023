@@ -21,8 +21,8 @@ export function cityOverview (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], {}, city.name],
     ['div', [], { 'data-component': 'docks' }],
-    ['div', [], { 'data-component': 'market', 'data-type': 'Supply', 'data-wares': JSON.stringify(city.supply) }],
-    ['div', [], { 'data-component': 'market', 'data-type': 'Demand', 'data-wares': JSON.stringify(city.demand) }],
+    ['div', [], { 'data-component': 'market', 'data-type': 'supply' }],
+    ['div', [], { 'data-component': 'market', 'data-type': 'demand' }],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'See other city']
   ]))
 

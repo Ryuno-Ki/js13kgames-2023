@@ -30,7 +30,6 @@ describe('market', function () {
     // Arrange
     const targetElement = document.createElement('div')
     targetElement.setAttribute('data-type', 'supply')
-    targetElement.setAttribute('data-wares', JSON.stringify([]))
     const state = store.getState()
 
     // Act
@@ -43,14 +42,17 @@ describe('market', function () {
 
   it('should render a list item for each ware', function () {
     // Arrange
-    const wares = [{
-      ware: 'met',
-      quantity: 42
+    const activeCity = 'Lübeck'
+    const cities = [{
+      name: 'Lübeck',
+      supply: [{
+        ware: 'met',
+        quantity: 42
+      }]
     }]
     const targetElement = document.createElement('div')
     targetElement.setAttribute('data-type', 'supply')
-    targetElement.setAttribute('data-wares', JSON.stringify(wares))
-    const state = store.getState()
+    const state = Object.assign({}, store.getState(), { activeCity, cities })
 
     // Act
     const marketComponent = market(targetElement, state)

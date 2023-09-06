@@ -11,9 +11,14 @@ export function market (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
+  const city = state.cities.find((city) => city.name === state.activeCity)
+  if (!city) {
+    console.warn('Could not find city')
+    return element
+  }
+
   const type = /** @type {'demand' | 'supply'} */(element.getAttribute('data-type'))
-  const maybeWares = element.dataset.wares
-  const wares = /** @type {Array<import('../state/initial-state.js').CityDemand | import('../state/initial-state.js').CitySupply>} */(JSON.parse(maybeWares || '[]'))
+  const wares = city[type] || []
 
   element.appendChild(el('div', [], {}, type, [
     ['div', [], { 'data-component': 'tutorial' }],
