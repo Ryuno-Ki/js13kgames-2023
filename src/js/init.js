@@ -24,7 +24,7 @@ import { add } from './registry.js'
  * Entry point to the game. Registers components and event listeners before
  * triggering the render loop.
  */
-export function init () {
+export async function init () {
   add('city-overview', cityOverview)
   add('docks', docks)
   add('market', market)
@@ -44,5 +44,5 @@ export function init () {
   add('game-over-section', sectionGameOver)
 
   registerEventListeners()
-  draw()
+  await draw()
 }

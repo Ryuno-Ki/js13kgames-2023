@@ -12,14 +12,17 @@ describe('init', function () {
     sinon.restore()
   })
 
-  it('should initialise the game', function () {
+  it('should initialise the game', async function () {
     // Arrange
+    const restore = document.body.innerHTML
+    document.body.innerHTML = '<main id="app"></main>'
     sinon.spy(window, 'requestAnimationFrame')
 
     // Act
-    init()
+    await init()
 
     // Assert
     expect(window.requestAnimationFrame).to.have.been.calledOnce
+    document.body.innerHTML = restore
   })
 })
