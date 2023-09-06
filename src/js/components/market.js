@@ -17,9 +17,17 @@ export function market (targetElement, state) {
 
   element.appendChild(el('div', [], {}, type, [
     ['div', [], { 'data-component': 'tutorial' }],
-    ['ul', [], {}, '', wares.map((ware) => [
-      'li', [], {}, `${ware.ware}: ${ware.quantity}`
-    ])]
+    ['fieldset', [], {}, '', [
+      ['legend', [], {}, 'Buy'],
+      ['ul', [], {}, '', wares.map((ware) => [
+        'li', [], {}, '', [
+          ['label', [], { for: ware.ware }, `${ware.ware}: ${ware.quantity}`],
+          ['span', [], {}, '0'],
+          ['input', [], { id: ware.ware, name: ware.ware, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-ware': ware.ware }],
+          ['span', [], {}, ware.quantity]
+        ]
+      ])]
+    ]]
   ]))
 
   return element
