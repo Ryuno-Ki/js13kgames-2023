@@ -29,7 +29,6 @@ describe('market', function () {
   it('should render an empty list in case passed data is empty', function () {
     // Arrange
     const targetElement = document.createElement('div')
-    targetElement.setAttribute('data-type', 'supply')
     const state = store.getState()
 
     // Act
@@ -37,7 +36,7 @@ describe('market', function () {
 
     // Assert
     expect(marketComponent).not.to.equal(targetElement)
-    expect(marketComponent).to.contain.text(['supply'])
+    expect(marketComponent).to.contain.text(['Buy'])
   })
 
   it('should render a list item for each ware', function () {
@@ -51,7 +50,6 @@ describe('market', function () {
       }]
     }]
     const targetElement = document.createElement('div')
-    targetElement.setAttribute('data-type', 'supply')
     const state = Object.assign({}, store.getState(), { activeCity, cities })
 
     // Act
@@ -59,7 +57,7 @@ describe('market', function () {
 
     // Assert
     expect(marketComponent).not.to.equal(targetElement)
-    expect(marketComponent).to.contain.text(['supply'])
+    expect(marketComponent).to.contain.text(['Buy'])
     expect(marketComponent).to.contain.text(['met'])
     expect(marketComponent).to.contain.text(['42'])
   })

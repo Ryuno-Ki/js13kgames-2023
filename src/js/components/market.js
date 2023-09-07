@@ -17,14 +17,11 @@ export function market (targetElement, state) {
     return element
   }
 
-  const type = /** @type {'demand' | 'supply'} */(element.getAttribute('data-type'))
-  const wares = city[type] || []
-
-  element.appendChild(el('div', [], {}, type, [
+  element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Buy'],
-      ['ul', [], {}, '', wares.map((ware) => [
+      ['ul', [], {}, '', city.supply.map((ware) => [
         'li', [], {}, '', [
           ['label', [], { for: ware.ware }, `${ware.ware}: ${ware.quantity}`],
           ['span', [], {}, '0'],
