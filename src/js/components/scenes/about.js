@@ -26,6 +26,9 @@ export function sectionAbout (targetElement, state) {
       ['p', [], {}, 'Boeticher font is developed by ', [
         ['a', [], { href: 'https://velvetyne.fr/fonts/boeticher/' }, 'Velvetyne Type Foundry']
       ]],
+      ['p', [], {}, 'Research was done using ', [
+        ['a', [], { href: 'https://www.geo.de/magazine/geo-epoche/15023-rtkl-geoepoche-nr-82-vorschau-die-hanse' }, 'GEO Epoche Nr. 82']
+      ]],
       ['p', [], {}, 'Map of the baltic sea is derived from ', [
         ['a', [], { href: 'https://nrv.de/reviere' }, 'North German regatta club']
       ]],
