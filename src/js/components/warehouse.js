@@ -12,7 +12,10 @@ export function warehouse (targetElement, state) {
   element.innerHTML = ''
 
   element.appendChild(el('div', [], {}, '', [
-    ['div', [], { 'data-component': 'tutorial' }]
+    ['div', [], { 'data-component': 'tutorial' }],
+    ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
+    ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market'],
+    ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map']
   ]))
 
   return element

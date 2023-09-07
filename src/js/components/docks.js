@@ -13,7 +13,8 @@ export function docks (targetElement, state) {
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ...mapShipsToTree(state)
+    ...mapShipsToTree(state),
+    ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
 
   return element

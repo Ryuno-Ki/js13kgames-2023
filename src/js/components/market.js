@@ -33,7 +33,8 @@ export function market (targetElement, state) {
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Sell'],
       ['ul', [], {}, '']
-    ]]
+    ]],
+    ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
 
   return element

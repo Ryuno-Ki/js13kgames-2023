@@ -41,7 +41,8 @@ export function sea (targetElement, state) {
       ['div', [], {}, 'sailing:', [
         ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
       ]]
-    ]]
+    ]],
+    ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
 
   return element
