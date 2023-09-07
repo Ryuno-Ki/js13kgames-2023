@@ -15,19 +15,17 @@
  * @property {number} quantity
  */
 /**
- * @typedef {'Lübeck' | 'Wismar'} CityName
- */
-/**
- * @typedef {object} City
- * @property {CityName} name
- * @property {Array<CityDemand>} demand
- * @property {Array<CitySupply>} supply
+ * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 /**
  * @typedef {Record<CityName, number>} CityDistance
  */
 /**
- * @typedef {Record<CityName, CityDistance>} Distances
+ * @typedef {object} City
+ * @property {CityName} name
+ * @property {CityDistance} distances
+ * @property {Array<CityDemand>} demand
+ * @property {Array<CitySupply>} supply
  */
 /**
  * @typedef {object} HistoryEntry
@@ -87,7 +85,6 @@
  * @property {View} activeView
  * @property {number} activeYear
  * @property {Array<City>} cities
- * @property {Distances} distances
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
  * @property {Array<Ship>} ships
@@ -106,14 +103,14 @@ export type CitySupply = {
     ware: Ware;
     quantity: number;
 };
-export type CityName = 'Lübeck' | 'Wismar';
+export type CityName = 'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar';
+export type CityDistance = Record<CityName, number>;
 export type City = {
     name: CityName;
+    distances: CityDistance;
     demand: Array<CityDemand>;
     supply: Array<CitySupply>;
 };
-export type CityDistance = Record<CityName, number>;
-export type Distances = Record<CityName, CityDistance>;
 export type HistoryEntry = object;
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
@@ -150,7 +147,6 @@ export type State = {
     activeView: View;
     activeYear: number;
     cities: Array<City>;
-    distances: Distances;
     history: Array<HistoryEntry>;
     playername: string;
     ships: Array<Ship>;

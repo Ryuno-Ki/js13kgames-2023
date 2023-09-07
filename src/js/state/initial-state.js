@@ -19,14 +19,7 @@
  */
 
 /**
- * @typedef {'Lübeck' | 'Wismar'} CityName
- */
-
-/**
- * @typedef {object} City
- * @property {CityName} name
- * @property {Array<CityDemand>} demand
- * @property {Array<CitySupply>} supply
+ * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 
 /**
@@ -34,7 +27,11 @@
  */
 
 /**
- * @typedef {Record<CityName, CityDistance>} Distances
+ * @typedef {object} City
+ * @property {CityName} name
+ * @property {CityDistance} distances
+ * @property {Array<CityDemand>} demand
+ * @property {Array<CitySupply>} supply
  */
 
 /**
@@ -105,7 +102,6 @@
  * @property {View} activeView
  * @property {number} activeYear
  * @property {Array<City>} cities
- * @property {Distances} distances
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
  * @property {Array<Ship>} ships
@@ -123,7 +119,203 @@ export const initialState = {
   activeMonth: '1',
   activeYear: 1250,
   cities: [{
+    name: 'Danzig',
+    distances: {
+      // Hooray to TypeScript!
+      Danzig: 0,
+      Elbing: 1, // against current
+      Greifswald: 2, // with current
+      Hamburg: -1,
+      Kiel: 2, // with current
+      Kopenhagen: 2, // with current
+      Königsberg: 1, // against current
+      Lübeck: 2, // with current
+      Malmö: 2, // with current
+      Nowgorod: 6, // against current
+      Reval: 4, // against current
+      Riga: 4, // against current
+      Rostock: 2, // with current
+      Stockholm: 4, // against current
+      Stralsund: 2, // with current
+      Turku: 4, // against current
+      Visby: 3, // with current
+      Wismar: 2 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Elbing',
+    distances: {
+      Danzig: 1, // with current
+      // Hooray to TypeScript!
+      Elbing: 0,
+      Greifswald: 2, // with current
+      Hamburg: -1,
+      Kiel: 2, // with current
+      Königsberg: 1, // with current
+      Kopenhagen: 2, // with current
+      Lübeck: 2, // with current
+      Malmö: 2, // with current
+      Nowgorod: 6, // against current
+      Reval: 4, // against current
+      Riga: 4, // against current
+      Rostock: 2, // with current
+      Stockholm: 4, // against current
+      Stralsund: 2, // with current
+      Turku: 4, // against current
+      Visby: 3, // with current
+      Wismar: 4 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Greifswald',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      // Hooray to TypeScript!
+      Greifswald: 0,
+      Hamburg: -1,
+      Kiel: 1, // with current
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      Lübeck: 1, // with current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 1, // with current
+      Stockholm: 6, // against current
+      Stralsund: 1, // with current
+      Turku: 6, // against current
+      Visby: 6, // against current
+      Wismar: 1 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Hamburg',
+    distances: {
+      Danzig: -1,
+			Elbing: -1,
+      Greifswald: -1,
+      // Hooray to TypeScript!
+      Hamburg: 0,
+      Kiel: -1,
+      Königsberg: -1,
+      Kopenhagen: -1,
+      Lübeck: 1, // land only
+      Malmö: -1,
+      Nowgorod: -1,
+      Reval: -1,
+      Riga: -1,
+      Rostock: -1,
+      Stockholm: -1,
+      Stralsund: -1,
+      Turku: -1,
+      Visby: -1,
+      Wismar: -1
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Kiel',
+    distances: {
+      Danzig: 4, // againt current
+      Elbing: 4, // against current
+      Greifswald: 2, // against current
+      Hamburg: -1,
+      // Hooray to TypeScript!
+      Kiel: 0,
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      Lübeck: 1, // against current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 1, // against current
+      Stockholm: 6, // against current
+      Stralsund: 1, // against current
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 1 // against current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Königsberg',
+    distances: {
+      Danzig: 1, // with current
+      Elbing: 1, // against current
+      Greifswald: 2, // with current
+      Hamburg: -1,
+      Kiel: 2, // with current
+      // Hooray to TypeScript!
+      Königsberg: 0,
+      Kopenhagen: 2, // with current
+      Lübeck: 2, // with current
+      Malmö: 2, // with current
+      Nowgorod: 6, // against current
+      Reval: 4, // against current
+      Riga: 4, // against current
+      Rostock: 2, // with current
+      Stockholm: 4, // against current
+      Stralsund: 2, // with current
+      Turku: 4, // against current
+      Visby: 3, // with current
+      Wismar: 2 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Kopenhagen',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 2, // against current
+      Hamburg: -1,
+      Königsberg: 4, // against current
+      // Hooray to TypeScript!
+      Kopenhagen: 0,
+      Kiel: 2, // against current
+      Lübeck: 2, // against current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 2, // against current
+      Stockholm: 6, // against current
+      Stralsund: 2, // against current
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 2 // against current
+    },
+    demand: [],
+    supply: []
+  }, {
     name: 'Lübeck',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 2, // against current
+      Hamburg: 1, // land only
+      Kiel: 1, // with current
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      // Hooray to TypeScript!
+      Lübeck: 0,
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 2, // against current
+      Stockholm: 6, // against current
+      Stralsund: 2, // against current
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 2 // against current
+    },
     demand: [{
       ware: 'honey',
       quantity: 10
@@ -145,7 +337,253 @@ export const initialState = {
       quantity: 10
     }]
   }, {
+    name: 'Malmö',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 2, // against current
+      Hamburg: -1,
+      Kiel: 2, // against current
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      Lübeck: 2, // against current
+      // Hooray to TypeScript!
+      Malmö: 0,
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 2, // against current
+      Stockholm: 6, // against current
+      Stralsund: 2, // against current
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 2 // against current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Nowgorod',
+    distances: {
+      Danzig: 3, // with current
+      Elbing: 3, // with current
+      Greifswald: 4, // with current
+      Hamburg: -1,
+      Kiel: 4, // with current
+      Königsberg: 3, // with current
+      Kopenhagen: 4, // with current
+      Lübeck: 4, // with current
+      Malmö: 4, // with current
+      // Hooray to TypeScript!
+      Nowgorod: 0,
+      Reval: 1, // with current
+      Riga: 2, // with current
+      Rostock: 4, // with current
+      Stockholm: 2, // with current
+      Stralsund: 4, // with current
+      Turku: 1, // with current
+      Visby: 2, // with current
+      Wismar: 4 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Reval',
+    distances: {
+      Danzig: 2, // with current
+      Elbing: 2, // with current
+      Greifswald: 4, // with current
+      Hamburg: -1,
+      Kiel: 4, // with current
+      Königsberg: 2, // with current
+      Kopenhagen: 4, // with current
+      Lübeck: 4, // with current
+      Malmö: 4, // with current
+      Nowgorod: 1, // against current
+      // Hooray to TypeScript!
+      Reval: 0,
+      Riga: 1, // with current
+      Rostock: 4, // with current
+      Stockholm: 1, // with current
+      Stralsund: 4, // with current
+      Turku: 1, // with current
+      Visby: 1, // with current
+      Wismar: 4 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Riga',
+    distances: {
+      Danzig: 2, // with current
+      Elbing: 2, // with current
+      Greifswald: 3, // with current
+      Hamburg: -1,
+      Kiel: 3, // with current
+      Königsberg: 2, // with current
+      Kopenhagen: 3, // with current
+      Lübeck: 3, // with current
+      Malmö: 3, // with current
+      Nowgorod: 4, // against current
+      Reval: 2, // against current
+      // Hooray to TypeScript!
+      Riga: 0,
+      Rostock: 3, // with current
+      Stockholm: 2, // with current
+      Stralsund: 3, // with current
+      Turku: 2, // against current
+      Visby: 1, // with current
+      Wismar: 3 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Rostock',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 1, // against current
+      Hamburg: -1,
+      Kiel: 1, // with current
+      Kopenhagen: 1, // with current
+      Königsberg: 4, // against current
+      Lübeck: 1, // with current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      // Hooray to TypeScript!
+      Rostock: 0,
+      Stockholm: 6, // against current
+      Stralsund: 1, // against current
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 2 // against current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Stockholm',
+    distances: {
+      Danzig: 2, // with current
+      Elbing: 2, // with current
+      Greifswald: 3, // with current
+      Hamburg: -1,
+      Kiel: 3, // with current
+      Königsberg: 2, // with current
+      Kopenhagen: 3, // with current
+      Lübeck: 3, // with current
+      Malmö: 3, // with current
+      Nowgorod: 4, // against current
+      Reval: 2, // against current
+      Riga: 4, // against current
+      Rostock: 3, // with current
+      // Hooray to TypeScript!
+      Stockholm: 0,
+      Stralsund: 3, // with current
+      Turku: 2, // against current
+      Visby: 1, // with current
+      Wismar: 3 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Stralsund',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 1, // against current
+      Hamburg: -1,
+      Kiel: 1, // with current
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      Lübeck: 1, // with current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 1, // with current
+      Stockholm: 6, // against current
+      // Hooray to TypeScript!
+      Stralsund: 0,
+      Turku: 8, // against current
+      Visby: 6, // against current
+      Wismar: 1 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Turku',
+    distances: {
+      Danzig: 2, // with current
+      Elbing: 2, // with current
+      Greifswald: 3, // with current
+      Hamburg: -1,
+      Kiel: 4, // with current
+      Königsberg: 2, // with current
+      Kopenhagen: 4, // with current
+      Lübeck: 4, // with current
+      Malmö: 4, // with current
+      Nowgorod: 2, // against current
+      Reval: 2, // against current
+      Riga: 1, // with current
+      Rostock: 4, // with current
+      Stockholm: 1, // with current
+      Stralsund: 4, // with current
+      // Hooray to TypeScript!
+      Turku: 0,
+      Visby: 1, // with current
+      Wismar: 3 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
+    name: 'Visby',
+    distances: {
+      Danzig: 6, // against current
+      Elbing: 6, // against current
+      Greifswald: 3, // with current
+      Hamburg: -1,
+      Kiel: 3, // with current
+      Königsberg: 6, // against current
+      Kopenhagen: 3, // with current
+      Lübeck: 3, // with current
+      Malmö: 3, // with current
+      Nowgorod: 4, // against current
+      Reval: 2, // against current
+      Riga: 2, // against current
+      Rostock: 3, // with current
+      Stockholm: 6, // against current
+      Stralsund: 3, // with current
+      Turku: 2, // against current
+      // Hooray to TypeScript!
+      Visby: 0,
+      Wismar: 3 // with current
+    },
+    demand: [],
+    supply: []
+  }, {
     name: 'Wismar',
+    distances: {
+      Danzig: 4, // against current
+      Elbing: 4, // against current
+      Greifswald: 1, // against current
+      Hamburg: -1,
+      Kiel: 1, // with current
+      Königsberg: 4, // against current
+      Kopenhagen: 1, // with current
+      Lübeck: 1, // with current
+      Malmö: 1, // with current
+      Nowgorod: 8, // against current
+      Reval: 8, // against current
+      Riga: 6, // against current
+      Rostock: 1, // with current
+      Stockholm: 6, // against current
+      Stralsund: 1, // against current
+      Turku: 6, // against current
+      Visby: 6, // against current
+      // Hooray to TypeScript!
+      Wismar: 0
+    },
     demand: [{
       ware: 'honey',
       quantity: 10
@@ -153,7 +591,6 @@ export const initialState = {
       ware: 'salt',
       quantity: 5
     }],
-    // warehouse = Kontor
     supply: [{
       ware: 'salt',
       quantity: 8
@@ -162,18 +599,6 @@ export const initialState = {
       quantity: 4
     }]
   }],
-  distances: {
-    Lübeck: {
-      // Hooray to TypeScript!
-      Lübeck: 0,
-      Wismar: 2
-    },
-    Wismar: {
-      Lübeck: 1,
-      // Hooray to TypeScript!
-      Wismar: 0
-    }
-  },
   ships: [{
     name: 'Marie',
     type: 'cog',
@@ -189,7 +614,43 @@ export const initialState = {
   }],
   // Nef with 60 - 100t
   // evtl. auch Knorr
-  history: [],
+  history: [{
+    year: 1201,
+    month: '6',
+    city: 'Riga'
+  }, {
+    year: 1229,
+    month: '7',
+    city: 'Turku'
+  }, {
+    year: 1230,
+    month: '8',
+    city: 'Reval'
+  }, {
+    year: 1233,
+    month: '4',
+    city: 'Kiel'
+  }, {
+    year: 1234,
+    month: '3',
+    city: 'Stralsund'
+  }, {
+    year: 1237,
+    month: '5',
+    city: 'Elbing'
+  }, {
+    year: 1241,
+    month: '6',
+    city: 'Greifswald'
+  }, {
+    year: 1252,
+    month: '3',
+    city: 'Stockholm'
+  }, {
+    year: 1283,
+    month: '10',
+    city: 'Königsberg'
+  }],
   playername: '',
   title: '',
   volume: 0

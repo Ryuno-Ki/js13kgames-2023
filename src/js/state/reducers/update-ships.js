@@ -17,8 +17,15 @@ export function updateShipsReducer (state, payload) {
       return ship
     }
 
-    const { activeMonth, activeYear, distances } = state
-    const distance = distances[itinerary.from][itinerary.to]
+    const departure = state.cities.find((city) => city.name === itinerary.from)
+
+    if (!departure) {
+      console.warn('Could not find city')
+      return Object.assign({}, state)
+    }
+
+    const { activeMonth, activeYear } = state
+    const distance = departure.distances[itinerary.to]
     let monthOfArrival = Number(itinerary.month) + distance
     let yearOfArrival = itinerary.year
 
