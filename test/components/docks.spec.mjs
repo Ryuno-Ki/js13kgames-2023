@@ -94,6 +94,7 @@ describe('docks', function () {
         }]
         const cities = [{
           name: 'Lübeck',
+          isFounded: true,
           supply: [{
             ware: 'met',
             quantity: 42
@@ -146,9 +147,11 @@ describe('docks', function () {
         // Arrange
         const cities = [{
           name: 'India',
+          isFounded: true,
           supply: []
         }, {
           name: 'Lübeck',
+          isFounded: true,
           supply: []
         }]
 

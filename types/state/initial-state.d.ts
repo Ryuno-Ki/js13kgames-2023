@@ -24,6 +24,7 @@
  * @typedef {object} City
  * @property {CityName} name
  * @property {CityDistance} distances
+ * @property {boolean} isFounded
  * @property {Array<CityDemand>} demand
  * @property {Array<CitySupply>} supply
  */
@@ -108,6 +109,7 @@ export type CityDistance = Record<CityName, number>;
 export type City = {
     name: CityName;
     distances: CityDistance;
+    isFounded: boolean;
     demand: Array<CityDemand>;
     supply: Array<CitySupply>;
 };

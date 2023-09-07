@@ -11,8 +11,7 @@ export function sea (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
-  // TODO: Filter for reachable cities later here
-  const cities = state.cities
+  const cities = state.cities.filter((city) => city.isFounded)
   const mooredShips = state.ships.filter((ship) => ship.moored)
   const sailingShips = state.ships.filter((ship) => !ship.moored)
 

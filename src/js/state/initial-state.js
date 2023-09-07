@@ -30,6 +30,7 @@
  * @typedef {object} City
  * @property {CityName} name
  * @property {CityDistance} distances
+ * @property {boolean} isFounded
  * @property {Array<CityDemand>} demand
  * @property {Array<CitySupply>} supply
  */
@@ -141,6 +142,7 @@ export const initialState = {
       Visby: 3, // with current
       Wismar: 2 // with current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -166,6 +168,7 @@ export const initialState = {
       Visby: 3, // with current
       Wismar: 4 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -191,13 +194,14 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 1 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
     name: 'Hamburg',
     distances: {
       Danzig: -1,
-			Elbing: -1,
+      Elbing: -1,
       Greifswald: -1,
       // Hooray to TypeScript!
       Hamburg: 0,
@@ -216,6 +220,7 @@ export const initialState = {
       Visby: -1,
       Wismar: -1
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -241,6 +246,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 1 // against current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -266,6 +272,7 @@ export const initialState = {
       Visby: 3, // with current
       Wismar: 2 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -291,6 +298,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 2 // against current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -316,6 +324,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 2 // against current
     },
+    isFounded: true,
     demand: [{
       ware: 'honey',
       quantity: 10
@@ -359,6 +368,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 2 // against current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -384,6 +394,7 @@ export const initialState = {
       Visby: 2, // with current
       Wismar: 4 // with current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -409,6 +420,7 @@ export const initialState = {
       Visby: 1, // with current
       Wismar: 4 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -434,6 +446,7 @@ export const initialState = {
       Visby: 1, // with current
       Wismar: 3 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -459,6 +472,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 2 // against current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -484,6 +498,7 @@ export const initialState = {
       Visby: 1, // with current
       Wismar: 3 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -509,6 +524,7 @@ export const initialState = {
       Visby: 6, // against current
       Wismar: 1 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -534,6 +550,7 @@ export const initialState = {
       Visby: 1, // with current
       Wismar: 3 // with current
     },
+    isFounded: false,
     demand: [],
     supply: []
   }, {
@@ -559,6 +576,7 @@ export const initialState = {
       Visby: 0,
       Wismar: 3 // with current
     },
+    isFounded: true,
     demand: [],
     supply: []
   }, {
@@ -584,6 +602,7 @@ export const initialState = {
       // Hooray to TypeScript!
       Wismar: 0
     },
+    isFounded: true,
     demand: [{
       ware: 'honey',
       quantity: 10

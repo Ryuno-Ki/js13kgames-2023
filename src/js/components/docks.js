@@ -36,7 +36,10 @@ function mapShipsToTree (state) {
   }
 
   const warehouse = city.supply
-  const destinations = cities.filter((c) => c.name !== activeCity)
+  const destinations = cities
+    .filter((c) => c.isFounded)
+    .filter((c) => c.name !== activeCity)
+
   const mooredShipsInCity = ships
     .filter((ship) => ship.position === activeCity)
     .filter((ship) => ship.moored)
