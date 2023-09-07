@@ -17,7 +17,7 @@ describe('tutorial', function () {
     it('should explain the functionality', function () {
     // Arrange
       const targetElement = document.createElement('div')
-      const state = Object.assign({}, store.getState(), { activeView: 'market' })
+      const state = Object.assign({}, store.getState(), { activeView: 'market', showTutorial: { market: true } })
 
       // Act
       const tutorialComponent = tutorial(targetElement, state)
@@ -33,7 +33,7 @@ describe('tutorial', function () {
     it('should explain the functionality', function () {
       // Arrange
       const targetElement = document.createElement('div')
-      const state = Object.assign({}, store.getState(), { activeView: 'warehouse' })
+      const state = Object.assign({}, store.getState(), { activeView: 'warehouse', showTutorial: { warehouse: true } })
 
       // Act
       const tutorialComponent = tutorial(targetElement, state)
@@ -65,7 +65,7 @@ describe('tutorial', function () {
     it('should explain the functionality', function () {
       // Arrange
       const targetElement = document.createElement('div')
-      const state = Object.assign({}, store.getState(), { activeView: 'docks' })
+      const state = Object.assign({}, store.getState(), { activeView: 'docks', showTutorial: { docks: true } })
 
       // Act
       const tutorialComponent = tutorial(targetElement, state)

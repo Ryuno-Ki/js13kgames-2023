@@ -11,7 +11,7 @@ export function tutorial (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
-  element.appendChild(el('div', [], {}, '', getStoryByView(state.activeView)))
+  element.appendChild(el('div', [], {}, '', getStoryByView(state)))
 
   return element
 }
@@ -20,10 +20,16 @@ export function tutorial (targetElement, state) {
  * Helper function to map the view to a story.
  *
  * @private
- * @argument {import('../state/initial-state.js').View} view
+ * @argument {import('../state/initial-state.js').State} state
  * @returns {Array<*>}
  */
-function getStoryByView (view) {
+function getStoryByView (state) {
+  const view = state.activeView
+
+  if (!state.showTutorial[view]) {
+    return [['span']]
+  }
+
   /** @type {Record<import('../state/initial-state.js').View, string>} */
   const viewToStoryMap = {
     city: '',

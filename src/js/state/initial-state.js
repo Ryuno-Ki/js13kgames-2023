@@ -105,6 +105,7 @@
  * @property {Array<City>} cities
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
+ * @property {Record<View, boolean>} showTutorial
  * @property {Array<Ship>} ships
  * @property {string} title
  * @property {number} volume
@@ -670,6 +671,14 @@ export const initialState = {
     month: '10',
     city: 'Königsberg'
   }],
+  showTutorial: {
+    city: false,
+    docks: false,
+    market: false,
+    sea: false,
+    story: true,
+    warehouse: false
+  },
   playername: '',
   title: '',
   volume: 0
