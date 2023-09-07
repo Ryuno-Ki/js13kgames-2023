@@ -18,7 +18,7 @@ export function sectionLevel (targetElement, state) {
     const month = `${months[activeMonth]} ${state.activeYear}`
 
     element.appendChild(el('div', [], {}, '', [
-      ['h1', [], {}, 'Level'],
+      ['h1', [], {}, getHeadlineFromView(state.activeView, state.activeCity)],
       view,
       ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }],
       ['div', ['actions'], {}, '', [
@@ -28,6 +28,25 @@ export function sectionLevel (targetElement, state) {
   }
 
   return element
+}
+
+/**
+ * Helper functiom to map active view to headline.
+ *
+ * @private
+ * @argument {import('../../state/initial-state.js').View} view
+ * @returns {string}
+ */
+function getHeadlineFromView (view, city) {
+  const mapViewToHeadline = {
+    docks: `Docks of ${city}`,
+    market: `Market of ${city}`,
+    sea: 'Baltic Sea',
+    story: 'Tutorial',
+    warehouse: `Warehouse of ${city}`
+  }
+
+  return mapViewToHeadline[view]
 }
 
 /**
