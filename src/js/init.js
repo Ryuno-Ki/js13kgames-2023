@@ -2,6 +2,7 @@ import { docks } from './components/docks.js'
 import { market } from './components/market.js'
 import { monthMeter } from './components/month-meter.js'
 import { sea } from './components/sea.js'
+import { seaMap } from './components/sea-map.js'
 import { tutorial } from './components/tutorial.js'
 import { warehouse } from './components/warehouse.js'
 
@@ -28,6 +29,7 @@ export async function init () {
   add('market', market)
   add('month-meter', monthMeter)
   add('sea', sea)
+  add('sea-map', seaMap)
   add('tutorial', tutorial)
   add('warehouse', warehouse)
 
