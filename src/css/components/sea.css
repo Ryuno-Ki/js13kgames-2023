@@ -6,3 +6,35 @@
 	stroke-linejoin: round;
 	stroke-width: 0.5;
 }
+
+[data-component="sea"] .duchy,
+[data-component="sea"] .kingdom,
+[data-component="sea"] .order,
+[data-component="sea"] .republic {
+	stroke: #000000;
+	stroke-width: 0.5;
+}
+
+[data-component="sea"] .lithuania {
+	fill: #a149a1;
+}
+
+[data-component="sea"] .norway {
+	fill: #ff8f64;
+}
+
+[data-component="sea"] .nowgorod {
+	fill: #e5e571;
+}
+
+[data-component="sea"] .order {
+	fill: #81bccf;
+}
+
+[data-component="sea"] .pskow {
+	fill: #e5b041;
+}
+
+[data-component="sea"] .sweden {
+	fill: #d9511f;
+}

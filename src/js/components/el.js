@@ -13,8 +13,17 @@
 export function el (name, classList = [], attributes = {}, text = '', children = []) {
   /** @type {HTMLElement | SVGElement} */
   let element
+  const svgElements = [
+    'circle',
+    'g',
+    'polygon',
+    'polyline',
+    'svg',
+    'text',
+    'tspan'
+  ]
 
-  if (['g', 'polyline', 'svg'].includes(name)) {
+  if (svgElements.includes(name)) {
     element = document.createElementNS('http://www.w3.org/2000/svg', name)
   } else {
     element = document.createElement(name)
