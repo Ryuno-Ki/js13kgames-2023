@@ -17,7 +17,6 @@ export function el (name, classList = [], attributes = {}, text = '', children =
     'circle',
     'g',
     'polygon',
-    'polyline',
     'svg',
     'text',
     'tspan'
@@ -47,21 +46,4 @@ export function el (name, classList = [], attributes = {}, text = '', children =
   })
 
   return element
-}
-
-/**
- * Turn coordinates to a SVG path d value.
- *
- * @argument {Array<Array<number>>} coordinates
- * @returns {string}
- */
-export function mapCoordinatesToPath (coordinates) {
-  if (coordinates.length === 0) {
-    return ''
-  }
-
-  return [
-      `M${coordinates[0].join(',')}`,
-      coordinates.slice(1).map((segment) => `L${segment.join(',')}`).join('')
-  ].join('')
 }

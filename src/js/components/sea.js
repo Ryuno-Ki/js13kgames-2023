@@ -18,63 +18,69 @@ export function sea (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     ['div', [], {}, '', [
-      ['svg', [], { viewBox: '0 0 341 353', xmlns: 'http://www.w3.org/2000/svg' }, '', [
-        ['polygon', ['kingdom', 'norway'], { points: getCoordinatesForBalticSeaMap('norway') }],
-        ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('sweden') }],
-        ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('finnland') }],
-        ['polygon', ['republic', 'nowgorod'], { points: getCoordinatesForBalticSeaMap('nowgorod') }],
-        ['polygon', ['republic', 'pskow'], { points: getCoordinatesForBalticSeaMap('pskow') }],
-        ['polyline', [], { points: getCoordinatesForBalticSeaMap() }],
-        ['polygon', ['teutonic', 'order'], { points: getCoordinatesForBalticSeaMap('order') }],
-        ['polygon', ['grand', 'duchy', 'lithuania'], { points: getCoordinatesForBalticSeaMap('lithuania') }],
-        ['polyline', [], { points: getCoordinatesForBalticSeaMap() }],
-        ['text', [], { x: 35, y: 91 }, '', [
-          ['tspan', [], { x: 35, dy: '1em' }, 'Kingdom'],
-          ['tspan', [], { x: 35, dy: '1em' }, 'of Norway']
+      ['div', ['side-by-side'], {}, '', [
+        ['svg', [], { viewBox: '0 0 341 353', xmlns: 'http://www.w3.org/2000/svg' }, '', [
+          ['polygon', ['kingdom', 'norway'], { points: getCoordinatesForBalticSeaMap('norway') }],
+          ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('sweden') }],
+          ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('finnland') }],
+          ['polygon', ['republic', 'nowgorod'], { points: getCoordinatesForBalticSeaMap('nowgorod') }],
+          ['polygon', ['republic', 'pskow'], { points: getCoordinatesForBalticSeaMap('pskow') }],
+          ['polygon', ['teutonic', 'order'], { points: getCoordinatesForBalticSeaMap('order') }],
+          ['polygon', ['grand', 'duchy', 'lithuania'], { points: getCoordinatesForBalticSeaMap('lithuania') }],
+          ['polygon', ['roman', 'empire'], { points: getCoordinatesForBalticSeaMap('roman') }],
+          // Sealand and Funen belong to kingdom of denmark
+          ['polygon', ['kingdom', 'denmark'], { points: getCoordinatesForBalticSeaMap('denmark') }],
+          ['text', [], { x: 35, y: 91 }, '', [
+            ['tspan', [], { x: 35, dy: '1em' }, 'Kingdom'],
+            ['tspan', [], { x: 35, dy: '1em' }, 'of Norway']
+          ]],
+          ['text', [], { x: 80, y: 151 }, '', [
+            ['tspan', [], { x: 80, dy: '1em' }, 'Kingdom'],
+            ['tspan', [], { x: 80, dy: '1em' }, 'of Sweden']
+          ]],
+          ['text', [], { x: 262, y: 26 }, '', [
+            ['tspan', [], { x: 262, dy: '1em' }, 'Republic of'],
+            ['tspan', [], { x: 262, dy: '1em' }, 'Nowgorod']
+          ]],
+          ['text', [], { x: 262, y: 166 }, '', [
+            ['tspan', [], { x: 262, dy: '1em' }, 'Republic'],
+            ['tspan', [], { x: 262, dy: '1em' }, 'of Pskow']
+          ]],
+          ['text', [], { x: 200, y: 293 }, '', [
+            ['tspan', [], { x: 200, dy: '1em' }, 'Teutonic'],
+            ['tspan', [], { x: 200, dy: '1em' }, 'Order']
+          ]],
+          ['text', [], { x: 255, y: 298 }, '', [
+            ['tspan', [], { x: 255, dy: '1em' }, 'Grand Duchy'],
+            ['tspan', [], { x: 255, dy: '1em' }, 'of Lithuania']
+          ]]
+        // Holy Roman Empire of the German Nation
         ]],
-        ['text', [], { x: 80, y: 151 }, '', [
-          ['tspan', [], { x: 80, dy: '1em' }, 'Kingdom'],
-          ['tspan', [], { x: 80, dy: '1em' }, 'of Sweden']
-        ]],
-        ['text', [], { x: 262, y: 26 }, '', [
-          ['tspan', [], { x: 262, dy: '1em' }, 'Republic of'],
-          ['tspan', [], { x: 262, dy: '1em' }, 'Nowgorod']
-        ]],
-        ['text', [], { x: 262, y: 166 }, '', [
-          ['tspan', [], { x: 262, dy: '1em' }, 'Republic'],
-          ['tspan', [], { x: 262, dy: '1em' }, 'of Pskow']
-        ]],
-        ['text', [], { x: 200, y: 293 }, '', [
-          ['tspan', [], { x: 200, dy: '1em' }, 'Teutonic'],
-          ['tspan', [], { x: 200, dy: '1em' }, 'Order']
-        ]],
-        ['text', [], { x: 255, y: 298 }, '', [
-          ['tspan', [], { x: 255, dy: '1em' }, 'Grand Duchy'],
-          ['tspan', [], { x: 255, dy: '1em' }, 'of Lithuania']
-        ]]
-      ]]
-    ]],
-    ['div', [], {}, 'Where do you want to go?'],
-    ['ul', [], {}, '', [
-      ...cities.map((city) => [
-        'li', [], {}, '', [
-          ['button', [], { type: 'button', 'data-city': city.name }, city.name]
-        ]
-      ])
-    ]],
-    ['div', [], {}, 'Ships', [
-      ['div', [], {}, 'moored in a port:', [
-        ['ul', [], {}, '', [
-          ...mooredShips.map((ship) => [
-            'li', [], {}, `${ship.name} in ${ship.position}`
-          ])
+        ['div', [], {}, '', [
+          ['div', [], {}, 'Where do you want to go?'],
+          ['ul', ['cities'], {}, '', [
+            ...cities.map((city) => [
+              'li', [], {}, '', [
+                ['button', [], { type: 'button', 'data-city': city.name }, city.name]
+              ]
+            ])
+          ]]
         ]]
       ]],
-      ['div', [], {}, 'sailing:', [
-        ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
-      ]]
-    ]],
-    ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
+      ['div', [], {}, 'Ships', [
+        ['div', [], {}, 'moored in a port:', [
+          ['ul', [], {}, '', [
+            ...mooredShips.map((ship) => [
+              'li', [], {}, `${ship.name} in ${ship.position}`
+            ])
+          ]]
+        ]],
+        ['div', [], {}, 'sailing:', [
+          ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
+        ]]
+      ]],
+      ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
+    ]]
   ]))
 
   return element
@@ -102,10 +108,64 @@ function mapSailingShipsToElement (ships) {
  * Helper function to describe the map to be rendered.
  *
  * @private
- * @argument {'finnland' | 'lithuania' | 'norway' | 'nowgorod' | 'order' | 'pskow' | 'sweden'} country
+ * @argument {'denmark' | 'finnland' | 'lithuania' | 'norway' | 'nowgorod' | 'order' | 'pskow' | 'roman' | 'sweden'} country
  * @returns {string}
  */
 function getCoordinatesForBalticSeaMap (country) {
+	if (country === 'denmark') {
+return [
+    [31, 322],
+    [32, 314],
+    [23, 313],
+    [27, 310],
+    [28, 312],
+    [24, 308],
+    [29, 302],
+    [25, 295],
+    [31, 292],
+    [26, 290],
+    [32, 286],
+    [36, 286],
+    [41, 274],
+    [42, 277],
+    [44, 276],
+    [45, 278],
+    [49, 269],
+    [39, 266],
+    [36, 269],
+    [39, 263],
+    [30, 265],
+    [39, 263],
+    [34, 254],
+    [26, 256],
+    [20, 260],
+    [22, 268],
+    [17, 267],
+    [17, 260],
+    [15, 263],
+    [10, 269],
+    [4, 267],
+    [4, 262],
+    [1, 274],
+    [6, 284],
+    [2, 289],
+    [1, 294],
+    [4, 296],
+    [4, 293],
+    [10, 313],
+    [16, 321],
+    [9, 325],
+    [10, 328],
+    [15, 327],
+    [15, 335],
+    [13, 334],
+    [22, 339],
+    [25, 346],
+    [11, 339],
+    [6, 352]
+].join(' ')
+	}
+
   if (country === 'finnland') {
     return [
       [213, 0],
@@ -232,6 +292,24 @@ function getCoordinatesForBalticSeaMap (country) {
     ].join(' ')
   }
 
+  if (country === 'roman') {
+    return [
+      [182, 306],
+      [117, 337],
+      [103, 336],
+      [102, 331],
+      [87, 322],
+      [76, 326],
+      [57, 336],
+      [49, 335],
+      [52, 325],
+      [31, 322],
+      // close-up
+      [31, 350],
+      [182, 350]
+    ].join(' ')
+  }
+
   if (country === 'sweden') {
     return [
       [77, 259],
@@ -269,76 +347,5 @@ function getCoordinatesForBalticSeaMap (country) {
     ].join(' ')
   }
 
-  return [
-    [182, 306],
-    [147, 318],
-    [129, 328],
-    [114, 335],
-    [117, 337],
-    [117, 343],
-    [103, 336],
-    [102, 331],
-    [96, 331],
-    [87, 322],
-    [78, 328],
-    [76, 326],
-    [71, 332],
-    [64, 330],
-    [62, 334],
-    [57, 336],
-    [49, 335],
-    [52, 325],
-    [36, 326],
-    [37, 323],
-    [31, 322],
-    [32, 314],
-    [23, 313],
-    [27, 310],
-    [28, 312],
-    [24, 308],
-    [29, 302],
-    [25, 295],
-    [31, 292],
-    [26, 290],
-    [32, 286],
-    [36, 286],
-    [41, 274],
-    [42, 277],
-    [44, 276],
-    [45, 278],
-    [49, 269],
-    [39, 266],
-    [36, 269],
-    [39, 263],
-    [30, 265],
-    [39, 263],
-    [34, 254],
-    [26, 256],
-    [20, 260],
-    [22, 268],
-    [17, 267],
-    [17, 260],
-    [15, 263],
-    [10, 269],
-    [4, 267],
-    [4, 262],
-    [1, 274],
-    [6, 284],
-    [2, 289],
-    [1, 294],
-    [4, 296],
-    [4, 293],
-    [10, 313],
-    [16, 321],
-    [9, 325],
-    [10, 328],
-    [15, 327],
-    [15, 335],
-    [13, 334],
-    [22, 339],
-    [25, 346],
-    [11, 339],
-    [6, 352]
-  ]
-    .map((point) => point.join(' ')).join(' ')
+	return ''
 }
