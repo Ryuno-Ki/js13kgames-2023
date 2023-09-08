@@ -60,8 +60,8 @@ function showActionButtons (state) {
 
   if (playername.trim()) {
     return [
-      ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title'],
-      ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World']
+      ['button', ['action'], { 'data-scene': 'world-section' }, 'Next to World'],
+      ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
     ]
   }
 

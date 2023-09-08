@@ -24,9 +24,10 @@ export function tutorial (targetElement, state) {
  * @returns {Array<*>}
  */
 function getStoryByView (state) {
+  const { playername, showTutorial } = state
   const view = state.activeView
 
-  if (!state.showTutorial[view]) {
+  if (!showTutorial[view]) {
     return [['span']]
   }
 
@@ -66,6 +67,7 @@ function getStoryByView (state) {
       'the keel!'
     ].join(''),
     story: [
+      `${playername} was it, right? `,
       "It's with great sadness I have to inform you that your father did not ",
       'make it home. Now you have to inherit his work. I have trust in you ',
       'you will accomplish it and make him proud. Here allow me to show you ',
