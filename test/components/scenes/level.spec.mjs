@@ -100,18 +100,6 @@ describe('sectionLevel', function () {
       expect(levelScene).to.have.descendant('[data-component="docks"]')
     })
 
-    it('should show the city view', function () {
-      // Arrange
-      const targetElement = document.createElement('section')
-      const state = Object.assign({}, store.getState(), { activeScene: 'level-section', activeView: 'city' })
-
-      // Act
-      const levelScene = sectionLevel(targetElement, state)
-
-      // Assert
-      expect(levelScene).to.have.descendant('[data-component="city-overview"]')
-    })
-
     it('should display the month-meter', function () {
       // Arrange
       const targetElement = document.createElement('section')

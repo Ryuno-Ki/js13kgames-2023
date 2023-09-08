@@ -39,8 +39,8 @@ export function sectionLevel (targetElement, state) {
  * @returns {string}
  */
 function getHeadlineFromView (view, city) {
+  /** @type {Record<import('../../state/initial-state.js').View, string>} */
   const mapViewToHeadline = {
-    city: 'Level',
     docks: `Docks of ${city}`,
     market: `Market of ${city}`,
     sea: 'Baltic Sea',
@@ -61,7 +61,6 @@ function getHeadlineFromView (view, city) {
 function getViewFromState (state) {
   /** @type {Record<import('../../state/initial-state.js').View, Array<*>>} */
   const viewToComponentMap = {
-    city: ['div', [], { 'data-component': 'city-overview' }],
     docks: ['div', [], { 'data-component': 'docks' }],
     market: ['div', [], { 'data-component': 'market' }],
     sea: ['div', [], { 'data-component': 'sea' }],

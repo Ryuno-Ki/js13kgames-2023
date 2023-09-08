@@ -36,12 +36,14 @@
  */
 
 /**
- * @typedef {object} HistoryEntry
- * @todo Define properties
+ * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
  */
 
 /**
- * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
+ * @typedef {object} HistoryEntry
+ * @property {CityName} city
+ * @property {number} year
+ * @property {Month} month
  */
 
 /**
@@ -90,7 +92,7 @@
  */
 
 /**
- * @typedef {'city' | 'docks' | 'market' | 'sea' | 'story' | 'warehouse'} View
+ * @typedef {'docks' | 'market' | 'sea' | 'story' | 'warehouse'} View
  */
 
 /**
@@ -672,7 +674,6 @@ export const initialState = {
     city: 'Königsberg'
   }],
   showTutorial: {
-    city: false,
     docks: false,
     market: false,
     sea: false,

@@ -33,7 +33,6 @@ function getStoryByView (state) {
 
   /** @type {Record<import('../state/initial-state.js').View, string>} */
   const viewToStoryMap = {
-    city: '',
     docks: [
       "See this ship over there? It's yours now. The Marie. A beautiful ",
       'watercraft. You know, your father bought it. Next to another one, the ',
@@ -87,7 +86,6 @@ function getStoryByView (state) {
 
   /** @type {Record<import('../state/initial-state.js').View, Array<*>>} */
   const viewToButtonMap = {
-    city: ['span'],
     docks: ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse'],
     market: ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map'],
     sea: ['span'],

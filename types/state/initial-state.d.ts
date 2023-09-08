@@ -29,11 +29,13 @@
  * @property {Array<CitySupply>} supply
  */
 /**
- * @typedef {object} HistoryEntry
- * @todo Define properties
+ * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
  */
 /**
- * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
+ * @typedef {object} HistoryEntry
+ * @property {CityName} city
+ * @property {number} year
+ * @property {Month} month
  */
 /**
  * @typedef {'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section'} Scene
@@ -74,7 +76,7 @@
  * @property {ShipType} type
  */
 /**
- * @typedef {'city' | 'docks' | 'market' | 'sea' | 'story' | 'warehouse'} View
+ * @typedef {'docks' | 'market' | 'sea' | 'story' | 'warehouse'} View
  */
 /**
  * @typedef {object} State
@@ -114,8 +116,12 @@ export type City = {
     demand: Array<CityDemand>;
     supply: Array<CitySupply>;
 };
-export type HistoryEntry = object;
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
+export type HistoryEntry = {
+    city: CityName;
+    year: number;
+    month: Month;
+};
 export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
 export type SceneName = 'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World';
 export type Scenario = 'free-play' | 'tutorial';
@@ -140,7 +146,7 @@ export type Ship = {
     position: CityName | null;
     type: ShipType;
 };
-export type View = 'city' | 'docks' | 'market' | 'sea' | 'story' | 'warehouse';
+export type View = 'docks' | 'market' | 'sea' | 'story' | 'warehouse';
 export type State = {
     activeCity: CityName;
     activeColor: Color;

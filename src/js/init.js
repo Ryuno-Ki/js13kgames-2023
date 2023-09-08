@@ -1,4 +1,3 @@
-import { cityOverview } from './components/city-overview.js'
 import { docks } from './components/docks.js'
 import { market } from './components/market.js'
 import { monthMeter } from './components/month-meter.js'
@@ -25,7 +24,6 @@ import { add } from './registry.js'
  * triggering the render loop.
  */
 export async function init () {
-  add('city-overview', cityOverview)
   add('docks', docks)
   add('market', market)
   add('month-meter', monthMeter)
