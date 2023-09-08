@@ -26,7 +26,7 @@ describe('sea', function () {
     expect(seaComponent).to.have.descendant('[data-component="tutorial"]')
   })
 
-  it('should render a button for each city', function () {
+  it('should render each city with distance', function () {
     // Arrange
     const targetElement = document.createElement('div')
     const state = store.getState()
@@ -36,7 +36,7 @@ describe('sea', function () {
 
     // Assert
     expect(seaComponent).not.to.equal(targetElement)
-    expect(seaComponent).to.contain('button[type="button"][data-city="Wismar"]')
+    expect(seaComponent).to.contain.text('Wismar (2 months away)')
   })
 
   it('should render a list of moored ships', function () {

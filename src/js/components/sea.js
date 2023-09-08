@@ -11,7 +11,17 @@ export function sea (targetElement, state) {
   const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
   element.innerHTML = ''
 
-  const cities = state.cities.filter((city) => city.isFounded)
+  const city = state.cities.find((c) => c.name === state.activeCity)
+
+  if (!city) {
+    console.warn('Could not find city')
+    return element
+  }
+
+  const cities = state.cities
+    .filter((c) => c.isFounded)
+    .filter((c) => c.name !== state.activeCity)
+
   const mooredShips = state.ships.filter((ship) => ship.moored)
   const sailingShips = state.ships.filter((ship) => !ship.moored)
 
@@ -21,12 +31,13 @@ export function sea (targetElement, state) {
       ['div', ['side-by-side'], {}, '', [
         ['div', [], { 'data-component': 'sea-map' }],
         ['div', [], {}, '', [
-          ['div', [], {}, 'Where do you want to go?'],
+          ['div', [], {}, 'Plan your moves carefully'],
           ['ul', ['cities'], {}, '', [
-            ...cities.map((city) => [
-              'li', [], {}, '', [
-                ['button', [], { type: 'button', 'data-city': city.name }, city.name]
-              ]
+            ...cities.map((c) => [
+              'li',
+              [],
+              {},
+              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away)`
             ])
           ]]
         ]]
@@ -66,4 +77,21 @@ function mapSailingShipsToElement (ships) {
 
     return ['li', [], {}, `${ship.name} from ${ship.itinerary.from} to ${ship.itinerary.to}`]
   })
+}
+
+/**
+ * Helper function to handle plural case.
+ *
+ * @private
+ * @argument {string} singular
+ * @argument {string} plural
+ * @argument {number} amount
+ * @returns {string}
+ */
+function pluralise (singular, plural, amount) {
+  if (amount === 1) {
+    return `${amount} ${singular}`
+  }
+
+  return `${amount} ${plural}`
 }
