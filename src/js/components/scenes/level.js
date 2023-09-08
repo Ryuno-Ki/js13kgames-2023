@@ -35,10 +35,12 @@ export function sectionLevel (targetElement, state) {
  *
  * @private
  * @argument {import('../../state/initial-state.js').View} view
+ * @argument {import('../../state/initial-state.js').CityName} city
  * @returns {string}
  */
 function getHeadlineFromView (view, city) {
   const mapViewToHeadline = {
+    city: 'Level',
     docks: `Docks of ${city}`,
     market: `Market of ${city}`,
     sea: 'Baltic Sea',
