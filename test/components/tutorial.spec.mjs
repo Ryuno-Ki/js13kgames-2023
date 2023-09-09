@@ -49,7 +49,7 @@ describe('tutorial', function () {
     it('should explain the functionality', function () {
     // Arrange
       const targetElement = document.createElement('div')
-      const state = store.getState()
+      const state = Object.assign({}, store.getState(), { showTutorial: { story: true } })
 
       // Act
       const tutorialComponent = tutorial(targetElement, state)

@@ -693,7 +693,7 @@ export const initialState = {
     docks: false,
     market: false,
     sea: false,
-    story: true,
+    story: false,
     warehouse: false
   },
   playername: '',
