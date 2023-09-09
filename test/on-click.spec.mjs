@@ -4,6 +4,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
 import { onClick } from '../src/js/on-click.js'
+import { checkOnGameoverConditionAction } from '../src/js/state/actions/check-on-gameover-condition.js'
 import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
 import { deleteGameAction } from '../src/js/state/actions/delete-game.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
@@ -44,11 +45,13 @@ describe('onClick', function () {
     await onClick(event)
 
     // Assert
-    expect(store.dispatch).to.have.been.callCount(4)
+    expect(store.dispatch).to.have.been.callCount(5)
+    // TODO: Check the order! At the moment I can swap the win and gameover checks and tests still pass
     expect(store.dispatch).to.have.been.calledWith(forwardToNextMonthAction())
     expect(store.dispatch).to.have.been.calledWith(updateShipsAction())
     expect(store.dispatch).to.have.been.calledWith(saveGameAction())
     expect(store.dispatch).to.have.been.calledWith(checkOnWinConditionAction())
+    expect(store.dispatch).to.have.been.calledWith(checkOnGameoverConditionAction())
   })
 
   it('should dispatch to delete a game', function () {

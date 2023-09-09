@@ -1,4 +1,5 @@
 import store from './state/store.js'
+import { checkOnGameoverConditionAction } from './state/actions/check-on-gameover-condition.js'
 import { checkOnWinConditionAction } from './state/actions/check-on-win-condition.js'
 import { deleteGameAction } from './state/actions/delete-game.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
@@ -26,6 +27,7 @@ export async function onClick (event) {
     await store.dispatch(updateShipsAction())
     await store.dispatch(saveGameAction())
     await store.dispatch(checkOnWinConditionAction())
+    await store.dispatch(checkOnGameoverConditionAction())
     return
   }
 
