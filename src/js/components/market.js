@@ -23,16 +23,41 @@ export function market (targetElement, state) {
       ['legend', [], {}, 'Buy'],
       ['ul', [], {}, '', city.supply.map((ware) => [
         'li', [], {}, '', [
-          ['label', [], { for: ware.ware }, `${ware.ware}: ${ware.quantity}`],
+          ['label', [], { for: `market-${ware.ware}` }, ware.ware],
           ['span', [], {}, '0'],
-          ['input', [], { id: ware.ware, name: ware.ware, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-ware': ware.ware }],
+          ['input', [], {
+            id: `market-${ware.ware}`,
+            name: ware.ware,
+            type: 'range',
+            min: 0,
+            max: ware.quantity,
+            step: 1,
+            value: 0,
+            'data-ware': ware.ware
+          }],
           ['span', [], {}, ware.quantity]
         ]
       ])]
     ]],
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Sell'],
-      ['ul', [], {}, '']
+      ['ul', [], {}, '', city.warehouse.map((ware) => [
+        'li', [], {}, '', [
+          ['label', [], { for: `warehouse-${ware.ware}` }, ware.ware],
+          ['span', [], {}, '0'],
+          ['input', [], {
+            id: `warehouse-${ware.ware}`,
+            name: ware.ware,
+            type: 'range',
+            min: 0,
+            max: ware.quantity,
+            step: 1,
+            value: 0,
+            'data-ware': ware.ware
+          }],
+          ['span', [], {}, ware.quantity]
+        ]
+      ])]
     ]],
     ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
