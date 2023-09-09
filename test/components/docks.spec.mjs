@@ -143,6 +143,74 @@ describe('docks', function () {
     })
 
     describe('when destinations are available', function () {
+      it('should not display those that are not reachable', function () {
+        // Arrange
+        const cities = [{
+          name: 'India',
+          isFounded: true,
+          warehouse: []
+        }, {
+          name: 'Lübeck',
+          isFounded: true,
+          distances: {
+            India: 6
+          },
+          warehouse: []
+        }]
+
+        const ships = [{
+          name: 'Santa Maria',
+          cargo: [],
+          moored: true,
+          position: 'Lübeck'
+        }]
+
+        const targetElement = document.createElement('div')
+        const state = Object.assign({}, store.getState(), { activeMonth: '5', cities, ships })
+
+        // Act
+        const docksComponent = docks(targetElement, state)
+
+        // Assert
+        expect(docksComponent).not.to.equal(targetElement)
+        expect(docksComponent).not.to.contain.text(['India'])
+        expect(docksComponent).not.to.contain('option[value="India"]')
+      })
+
+      it('should not display those would be reached in the next year', function () {
+        // Arrange
+        const cities = [{
+          name: 'India',
+          isFounded: true,
+          warehouse: []
+        }, {
+          name: 'Lübeck',
+          isFounded: true,
+          distances: {
+            India: 8
+          },
+          warehouse: []
+        }]
+
+        const ships = [{
+          name: 'Santa Maria',
+          cargo: [],
+          moored: true,
+          position: 'Lübeck'
+        }]
+
+        const targetElement = document.createElement('div')
+        const state = Object.assign({}, store.getState(), { activeMonth: '7', cities, ships })
+
+        // Act
+        const docksComponent = docks(targetElement, state)
+
+        // Assert
+        expect(docksComponent).not.to.equal(targetElement)
+        expect(docksComponent).not.to.contain.text(['India'])
+        expect(docksComponent).not.to.contain('option[value="India"]')
+      })
+
       it('should display a select to choose one', function () {
         // Arrange
         const cities = [{
@@ -152,6 +220,9 @@ describe('docks', function () {
         }, {
           name: 'Lübeck',
           isFounded: true,
+          distances: {
+            India: 5
+          },
           warehouse: []
         }]
 

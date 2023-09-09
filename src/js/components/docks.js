@@ -40,6 +40,15 @@ function mapShipsToTree (state) {
   const destinations = cities
     .filter((c) => c.isFounded)
     .filter((c) => c.name !== activeCity)
+    .filter((c) => {
+      // Starting as of November (the 11th month) the sea is frozen and cannot be sailed.
+      // I limit the range of available month first by subtracting the active
+      // month. When I then subtract the distance to the city in question
+      const destinationMonth = 10 - Number(activeMonth) - city.distances[c.name]
+      // I can compare the number of months I would still have available in the
+      // active year.
+      return destinationMonth >= 0
+    })
 
   const mooredShipsInCity = ships
     .filter((ship) => ship.position === activeCity)
