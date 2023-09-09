@@ -6,6 +6,7 @@ import { onInput } from '../src/js/on-input.js'
 import { buyAction } from '../src/js/state/actions/buy.js'
 import { loadShipAction } from '../src/js/state/actions/load-ship.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
+import { sellAction } from '../src/js/state/actions/sell.js'
 import { setPlayernameAction } from '../src/js/state/actions/set-playername.js'
 import { unloadShipAction } from '../src/js/state/actions/unload-ship.js'
 import store from '../src/js/state/store.js'
@@ -63,6 +64,29 @@ describe('onInput', function () {
     // Assert
     expect(store.dispatch).to.have.been.calledOnce
     expect(store.dispatch).to.have.been.calledWith(buyAction({ city, ware, quantity }))
+  })
+
+  it('should dispatch to sell a good', function () {
+    // Arrange
+    const city = 'Costa Rica'
+    const quantity = 42
+    const ware = 'potatoes'
+
+    const event = new window.Event('input')
+    const target = document.createElement('input')
+    target.type = 'number'
+    target.value = '42'
+    target.setAttribute('data-sell', ware)
+    target.setAttribute('data-city', city)
+    target.addEventListener('input', onInput)
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    target.dispatchEvent(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledOnce
+    expect(store.dispatch).to.have.been.calledWith(sellAction({ city, ware, quantity }))
   })
 
   it('should dispatch to load a ship', function () {
