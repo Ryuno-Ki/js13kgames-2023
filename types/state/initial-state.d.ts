@@ -32,10 +32,25 @@
  * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
  */
 /**
- * @typedef {object} HistoryEntry
- * @property {CityName} city
- * @property {number} year
+ * @typedef {'cog' | 'nef'} ShipType
+ */
+/**
+ * @typedef {object} ShipTypeIntroduced
  * @property {Month} month
+ * @property {number} year
+ * @property {object} ship
+ * @property {ShipType} ship.type
+ * @property {number} ship.costs
+ * @property {number} ship.maxFreightWeight
+ */
+/**
+ * @typedef {object} CityFounded
+ * @property {Month} month
+ * @property {number} year
+ * @property {CityName} city
+ */
+/**
+ * @typedef {CityFounded | ShipTypeIntroduced} HistoryEntry
  */
 /**
  * @typedef {'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section'} Scene
@@ -59,10 +74,6 @@
  * @property {CityName} to
  * @property {Month} month
  * @property {number} year
- */
-/**
- * @typedef {'cog'} ShipType
- * @todo Define more ship types
  */
 /**
  * @typedef {object} Ship
@@ -117,11 +128,22 @@ export type City = {
     supply: Array<CitySupply>;
 };
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
-export type HistoryEntry = {
-    city: CityName;
-    year: number;
+export type ShipType = 'cog' | 'nef';
+export type ShipTypeIntroduced = {
     month: Month;
+    year: number;
+    ship: {
+        type: ShipType;
+        costs: number;
+        maxFreightWeight: number;
+    };
 };
+export type CityFounded = {
+    month: Month;
+    year: number;
+    city: CityName;
+};
+export type HistoryEntry = CityFounded | ShipTypeIntroduced;
 export type Scene = 'about-section' | 'game-over-section' | 'level-section' | 'load-game-section' | 'new-game-section' | 'settings-section' | 'title-section' | 'win-section' | 'world-section';
 export type SceneName = 'About' | 'GameOver' | 'Level' | 'NewGame' | 'Settings' | 'Title' | 'Win' | 'World';
 export type Scenario = 'free-play' | 'tutorial';
@@ -135,7 +157,6 @@ export type ShipItinerary = {
     month: Month;
     year: number;
 };
-export type ShipType = 'cog';
 export type Ship = {
     cargo: Array<ShipCargo>;
     costs: number;

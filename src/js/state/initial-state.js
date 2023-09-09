@@ -40,10 +40,28 @@
  */
 
 /**
- * @typedef {object} HistoryEntry
- * @property {CityName} city
- * @property {number} year
+ * @typedef {'cog' | 'nef'} ShipType
+ */
+
+/**
+ * @typedef {object} ShipTypeIntroduced
  * @property {Month} month
+ * @property {number} year
+ * @property {object} ship
+ * @property {ShipType} ship.type
+ * @property {number} ship.costs
+ * @property {number} ship.maxFreightWeight
+ */
+
+/**
+ * @typedef {object} CityFounded
+ * @property {Month} month
+ * @property {number} year
+ * @property {CityName} city
+ */
+
+/**
+ * @typedef {CityFounded | ShipTypeIntroduced} HistoryEntry
  */
 
 /**
@@ -72,11 +90,6 @@
  * @property {CityName} to
  * @property {Month} month
  * @property {number} year
- */
-
-/**
- * @typedef {'cog'} ShipType
- * @todo Define more ship types
  */
 
 /**
@@ -623,19 +636,14 @@ export const initialState = {
   }],
   ships: [{
     name: 'Marie',
-    type: 'cog',
+    type: 'nef',
     position: 'Lübeck',
     moored: true,
     itinerary: null,
-    costs: 5,
+    costs: 30,
     cargo: [],
-    // 80 - 200t
-    maxFreightWeight: 10
-    // speed: 3 - 6 kn = sea miles / hour.
-    // 1 sea mile = 1852 m
+    maxFreightWeight: 100
   }],
-  // Nef with 60 - 100t
-  // evtl. auch Knorr
   history: [{
     year: 1201,
     month: '6',
@@ -664,6 +672,14 @@ export const initialState = {
     year: 1241,
     month: '6',
     city: 'Greifswald'
+  }, {
+    year: 1251,
+    month: '8',
+    ship: {
+      type: 'cog',
+      costs: 50,
+      maxFreightWeight: 200
+    }
   }, {
     year: 1252,
     month: '3',
