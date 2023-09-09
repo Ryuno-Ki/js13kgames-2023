@@ -1,4 +1,5 @@
 import store from './state/store.js'
+import { buyAction } from './state/actions/buy.js'
 import { loadShipAction } from './state/actions/load-ship.js'
 import { setPlayernameAction } from './state/actions/set-playername.js'
 import { unloadShipAction } from './state/actions/unload-ship.js'
@@ -16,6 +17,13 @@ export async function onInput (event) {
 
   if (target.id === 'playername') {
     return store.dispatch(setPlayernameAction(target.value))
+  }
+
+  if (target.dataset.buy) {
+    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
+    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.buy)
+    const quantity = Number(target.value)
+    return store.dispatch(buyAction({ city, ware, quantity }))
   }
 
   if (target.dataset.load === 'load') {
