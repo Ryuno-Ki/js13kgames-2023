@@ -107,6 +107,7 @@
  * @property {Array<City>} cities
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
+ * @property {number} playermoney
  * @property {Record<View, boolean>} showTutorial
  * @property {Array<Ship>} ships
  * @property {string} title
@@ -190,6 +191,7 @@ export type State = {
     cities: Array<City>;
     history: Array<HistoryEntry>;
     playername: string;
+    playermoney: number;
     showTutorial: Record<View, boolean>;
     ships: Array<Ship>;
     title: string;

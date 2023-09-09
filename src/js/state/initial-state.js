@@ -127,6 +127,7 @@
  * @property {Array<City>} cities
  * @property {Array<HistoryEntry>} history
  * @property {string} playername
+ * @property {number} playermoney
  * @property {Record<View, boolean>} showTutorial
  * @property {Array<Ship>} ships
  * @property {string} title
@@ -722,6 +723,7 @@ export const initialState = {
     warehouse: false
   },
   playername: '',
+  playermoney: 100,
   title: '',
   volume: 0
 }
