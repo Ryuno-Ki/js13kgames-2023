@@ -95,10 +95,12 @@ describe('docks', function () {
         const cities = [{
           name: 'Lübeck',
           isFounded: true,
-          warehouse: [{
-            ware: 'met',
-            quantity: 42
-          }]
+          warehouse: {
+            stock: [{
+              ware: 'met',
+              quantity: 42
+            }]
+          }
         }]
 
         const targetElement = document.createElement('div')
@@ -148,14 +150,18 @@ describe('docks', function () {
         const cities = [{
           name: 'India',
           isFounded: true,
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }, {
           name: 'Lübeck',
           isFounded: true,
           distances: {
             India: 6
           },
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }]
 
         const ships = [{
@@ -182,14 +188,18 @@ describe('docks', function () {
         const cities = [{
           name: 'India',
           isFounded: true,
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }, {
           name: 'Lübeck',
           isFounded: true,
           distances: {
             India: 8
           },
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }]
 
         const ships = [{
@@ -216,14 +226,18 @@ describe('docks', function () {
         const cities = [{
           name: 'India',
           isFounded: true,
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }, {
           name: 'Lübeck',
           isFounded: true,
           distances: {
             India: 5
           },
-          warehouse: []
+          warehouse: {
+            stock: []
+          }
         }]
 
         const ships = [{

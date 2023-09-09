@@ -16,7 +16,7 @@ describe('sellReducer', function () {
   describe('if ware was not sold before', function () {
     it('should add it as a new supply', function () {
       // Arrange
-      const cities = [{ name: 'Lübeck', warehouse: [{ ware: 'grok', quantity: 42 }], supply: [] }]
+      const cities = [{ name: 'Lübeck', warehouse: { stock: [{ ware: 'grok', quantity: 42 }] }, supply: [] }]
       const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
@@ -41,7 +41,9 @@ describe('sellReducer', function () {
           cities: [{
             name: 'Lübeck',
             supply: [{ ware: 'grok', quantity: 2 }],
-            warehouse: [{ ware: 'grok', quantity: 42 }]
+            warehouse: {
+              stock: [{ ware: 'grok', quantity: 42 }]
+            }
           }]
         }
       )
@@ -53,7 +55,7 @@ describe('sellReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual([{ ware: 'grok', quantity: 40 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 40 }])
     })
   })
 

@@ -42,7 +42,7 @@ export function market (targetElement, state) {
     ]],
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Sell'],
-      ['ul', [], {}, '', city.warehouse.map((ware) => [
+      ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
         'li', [], {}, '', [
           ['label', [], { for: `warehouse-${ware.ware}` }, ware.ware],
           ['span', [], {}, '0'],

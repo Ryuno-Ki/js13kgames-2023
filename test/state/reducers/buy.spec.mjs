@@ -25,7 +25,7 @@ describe('buyReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
     })
   })
 
@@ -40,7 +40,9 @@ describe('buyReducer', function () {
           cities: [{
             name: 'Lübeck',
             supply: [{ ware: 'grok', quantity: 42 }],
-            warehouse: [{ ware: 'grok', quantity: 2 }]
+            warehouse: {
+              stock: [{ ware: 'grok', quantity: 2 }]
+            }
           }]
         }
       )
@@ -52,7 +54,7 @@ describe('buyReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual([{ ware: 'grok', quantity: 44 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 44 }])
     })
   })
 

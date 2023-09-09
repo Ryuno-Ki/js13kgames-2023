@@ -13,10 +13,10 @@ export function buyReducer (state, payload) {
       return city
     }
 
-    let warehouse = city.warehouse
-    const updatePreviousWarehouse = warehouse.find((w) => w.ware === payload.ware)
+    let stock = city.warehouse.stock
+    const updatePreviousWarehouse = stock.find((w) => w.ware === payload.ware)
     if (updatePreviousWarehouse) {
-      warehouse = warehouse.map((w) => {
+      stock = stock.map((w) => {
         if (w.ware !== payload.ware) {
           return w
         }
@@ -27,13 +27,13 @@ export function buyReducer (state, payload) {
         }
       })
     } else {
-      warehouse = warehouse.concat([{
+      stock = stock.concat([{
         ware: payload.ware,
         quantity: payload.quantity
       }])
     }
 
-    warehouse = warehouse.filter((w) => w.quantity > 0)
+    stock = stock.filter((w) => w.quantity > 0)
 
     return {
       ...city,
@@ -47,7 +47,10 @@ export function buyReducer (state, payload) {
           quantity: ware.quantity - payload.quantity
         }
       }),
-      warehouse
+      warehouse: {
+        ...city.warehouse,
+        stock
+      }
     }
   })
 

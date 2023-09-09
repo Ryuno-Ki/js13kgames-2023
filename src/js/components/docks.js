@@ -36,7 +36,7 @@ function mapShipsToTree (state) {
     return [['span']]
   }
 
-  const warehouse = city.warehouse
+  const stock = city.warehouse.stock
   const destinations = cities
     .filter((c) => c.isFounded)
     .filter((c) => c.name !== activeCity)
@@ -66,7 +66,7 @@ function mapShipsToTree (state) {
     'div', [], {}, ship.name, [
       ['div', [], {}, 'Load', [
         ['ul', [], {}, '', [
-          ...warehouse.map((ware) => [
+          ...stock.map((ware) => [
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
               ['span', [], {}, '0'],

@@ -25,6 +25,12 @@
  */
 
 /**
+ * @typedef {object} Warehouse
+ * @property {'1' | '2' | '3' | '4'} level
+ * @property {Array<WarehouseStock>} stock
+ */
+
+/**
  * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 
@@ -39,7 +45,7 @@
  * @property {boolean} isFounded
  * @property {Array<CityDemand>} demand
  * @property {Array<CitySupply>} supply
- * @property {Array<WarehouseStock>} warehouse
+ * @property {Warehouse} warehouse
  */
 
 /**
@@ -169,7 +175,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Elbing',
     distances: {
@@ -196,7 +205,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Greifswald',
     distances: {
@@ -223,7 +235,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Hamburg',
     distances: {
@@ -250,7 +265,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Kiel',
     distances: {
@@ -277,7 +295,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Königsberg',
     distances: {
@@ -304,7 +325,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Kopenhagen',
     distances: {
@@ -331,7 +355,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Lübeck',
     distances: {
@@ -376,7 +403,10 @@ export const initialState = {
       ware: 'wool',
       quantity: 10
     }],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Malmö',
     distances: {
@@ -403,7 +433,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Nowgorod',
     distances: {
@@ -430,7 +463,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Reval',
     distances: {
@@ -457,7 +493,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Riga',
     distances: {
@@ -484,7 +523,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Rostock',
     distances: {
@@ -511,7 +553,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Stockholm',
     distances: {
@@ -538,7 +583,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Stralsund',
     distances: {
@@ -565,7 +613,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Turku',
     distances: {
@@ -592,7 +643,10 @@ export const initialState = {
     isFounded: false,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Visby',
     distances: {
@@ -619,7 +673,10 @@ export const initialState = {
     isFounded: true,
     demand: [],
     supply: [],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }, {
     name: 'Wismar',
     distances: {
@@ -658,7 +715,10 @@ export const initialState = {
       ware: 'wool',
       quantity: 4
     }],
-    warehouse: []
+    warehouse: {
+      level: '1',
+      stock: []
+    }
   }],
   ships: [{
     name: 'Marie',

@@ -55,16 +55,19 @@ export function loadShipReducer (state, payload) {
 
       return {
         ...city,
-        warehouse: city.warehouse.map((ware) => {
-          if (ware.ware !== payload.ware) {
-            return ware
-          }
+        warehouse: {
+          ...city.warehouse,
+          stock: city.warehouse.stock.map((ware) => {
+            if (ware.ware !== payload.ware) {
+              return ware
+            }
 
-          return {
-            ...ware,
-            quantity: ware.quantity - payload.quantity
-          }
-        })
+            return {
+              ...ware,
+              quantity: ware.quantity - payload.quantity
+            }
+          })
+        }
       }
     })
   }

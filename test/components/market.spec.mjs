@@ -48,7 +48,9 @@ describe('market', function () {
         ware: 'met',
         quantity: 42
       }],
-      warehouse: []
+      warehouse: {
+        stock: []
+      }
     }]
     const targetElement = document.createElement('div')
     const state = Object.assign({}, store.getState(), { activeCity, cities })
