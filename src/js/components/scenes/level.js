@@ -20,10 +20,7 @@ export function sectionLevel (targetElement, state) {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, getHeadlineFromView(state.activeView, state.activeCity)],
       view,
-      ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'game-over-section' }, 'GameOver']
-      ]]
+      ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }]
     ]))
   }
 
