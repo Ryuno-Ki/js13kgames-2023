@@ -33,7 +33,7 @@ export function market (targetElement, state) {
             max: ware.quantity,
             step: 1,
             value: 0,
-            'data-ware': ware.ware
+            'data-buy': ware.ware
           }],
           ['span', [], {}, ware.quantity]
         ]
