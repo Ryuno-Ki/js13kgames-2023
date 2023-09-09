@@ -50,14 +50,14 @@ export function unloadShipReducer (state, payload) {
 
       return {
         ...city,
-        supply: city.supply.map((ware) => {
+        warehouse: city.warehouse.map((ware) => {
           if (ware.ware !== payload.ware) {
             return ware
           }
 
           return {
             ...ware,
-            quantity: Number(ware.quantity) + Number(payload.quantity)
+            quantity: ware.quantity + payload.quantity
           }
         })
       }
