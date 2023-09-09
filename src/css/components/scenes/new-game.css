@@ -22,15 +22,3 @@
 [data-component="new-game-section"] button {
 	font-size: 2em;
 }
-
-
-[data-component="new-game-section"] [data-scene="title-section"]::before {
-	display: inline;
-	content: "🪢";
-}
-
-
-[data-component="new-game-section"] [data-scene="world-section"]::before {
-	display: inline;
-	content: "🗺️";
-}

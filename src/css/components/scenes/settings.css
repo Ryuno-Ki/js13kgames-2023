@@ -18,8 +18,3 @@
 [data-component="settings-section"] button {
 	font-size: 2em;
 }
-
-[data-component="settings-section"] button::before {
-	display: inline;
-	content: "🪢";
-}

@@ -20,8 +20,3 @@
 	display: inline;
 	content: "🗑️";
 }
-
-[data-component="load-game-section"] button::before {
-	display: inline;
-	content: "🪢";
-}

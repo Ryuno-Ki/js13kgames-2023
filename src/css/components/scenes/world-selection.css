@@ -18,8 +18,3 @@
 [data-component="world-section"] button {
 	font-size: 2em;
 }
-
-[data-component="world-section"] button::before {
-	display: inline;
-	content: "⛵";
-}

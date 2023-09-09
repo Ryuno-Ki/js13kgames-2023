@@ -31,6 +31,55 @@ button {
 	cursor: pointer;
 }
 
+button[data-scene]::before,
+button[data-view]::before {
+	display: inline;
+}
+
+button[data-scene="about-section"]::before {
+	content: "🤔";
+}
+
+button[data-scene="level-section"]::before {
+	content: "⛵";
+}
+
+button[data-scene="load-game-section"]::before {
+	content: "📂";
+}
+
+button[data-scene="new-game-section"]::before {
+	content: "🆕";
+}
+
+button[data-scene="settings-section"]::before {
+	content: "⚙️";
+}
+
+button[data-scene="title-section"]::before {
+	content: "🪢";
+}
+
+button[data-scene="world-section"]::before {
+	content: "🗺️";
+}
+
+button[data-view="docks"]::before {
+	content: "🛟";
+}
+
+button[data-view="market"]::before {
+	content: "💱";
+}
+
+button[data-view="sea"]::before {
+	content: "🗺️";
+}
+
+button[data-view="warehouse"]::before {
+	content: "📦";
+}
+
 body {
 	background-color: var(--background-color);
 	color: var(--color);
