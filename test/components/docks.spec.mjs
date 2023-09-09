@@ -95,7 +95,7 @@ describe('docks', function () {
         const cities = [{
           name: 'Lübeck',
           isFounded: true,
-          supply: [{
+          warehouse: [{
             ware: 'met',
             quantity: 42
           }]
@@ -148,11 +148,11 @@ describe('docks', function () {
         const cities = [{
           name: 'India',
           isFounded: true,
-          supply: []
+          warehouse: []
         }, {
           name: 'Lübeck',
           isFounded: true,
-          supply: []
+          warehouse: []
         }]
 
         const ships = [{
