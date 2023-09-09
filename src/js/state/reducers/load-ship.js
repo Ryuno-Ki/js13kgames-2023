@@ -4,7 +4,6 @@
  * @argument {import('../initial-state.js').State} state
  * @argument {import('../actions/load-ship.js').LOAD_SHIP_ACTION['payload']} payload
  * @returns {import('../initial-state.js').State}
- * @todo Think about check on payload.ware in city.supply before loading
  */
 export function loadShipReducer (state, payload) {
   let cities = state.cities
@@ -31,7 +30,7 @@ export function loadShipReducer (state, payload) {
 
           return {
             ware: payload.ware,
-            quantity: Number(w.quantity) + Number(payload.quantity)
+            quantity: w.quantity + payload.quantity
           }
         })
       } else {
@@ -56,7 +55,7 @@ export function loadShipReducer (state, payload) {
 
       return {
         ...city,
-        supply: city.supply.map((ware) => {
+        warehouse: city.warehouse.map((ware) => {
           if (ware.ware !== payload.ware) {
             return ware
           }
