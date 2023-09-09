@@ -11,6 +11,7 @@ import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-nex
 import { resetAction } from '../src/js/state/actions/reset.js'
 import { loadGameAction } from '../src/js/state/actions/load-game.js'
 import { saveGameAction } from '../src/js/state/actions/save-game.js'
+import { setTutorialAction } from '../src/js/state/actions/set-tutorial.js'
 import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../src/js/state/actions/switch-to-view.js'
@@ -30,7 +31,7 @@ describe('onClick', function () {
     sinon.restore()
   })
 
-  it('should work', async function () {
+  it('should dispatch several actions on forward to next month', async function () {
     // Arrange
     const event = {
       target: {
@@ -142,6 +143,26 @@ describe('onClick', function () {
     // Assert
     expect(store.dispatch).to.have.been.calledOnce
     expect(store.dispatch).to.have.been.calledWith(switchToSceneAction('Game Over'))
+  })
+
+  it('should dispatch several actions on switch to scene', async function () {
+    // Arrange
+    const event = {
+      target: {
+        dataset: {
+          scene: 'level-scene'
+        }
+      }
+    }
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    await onClick(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.callCount(2)
+    expect(store.dispatch).to.have.been.calledWith(switchToSceneAction('level-scene'))
+    expect(store.dispatch).to.have.been.calledWith(setTutorialAction('level-scene'))
   })
 
   it('should dispatch to switch to a view', function () {

@@ -5,6 +5,7 @@ import { deleteGameAction } from './state/actions/delete-game.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { loadGameAction } from './state/actions/load-game.js'
 import { saveGameAction } from './state/actions/save-game.js'
+import { setTutorialAction } from './state/actions/set-tutorial.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
@@ -43,7 +44,9 @@ export async function onClick (event) {
 
   if (target.dataset.scene) {
     const scene = /** @type {import('./state/initial-state.js').Scene} */(target.dataset.scene)
-    return store.dispatch(switchToSceneAction(scene))
+    await store.dispatch(switchToSceneAction(scene))
+    await store.dispatch(setTutorialAction(scene))
+    return
   }
 
   if (target.dataset.state) {
