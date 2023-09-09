@@ -12,12 +12,15 @@ export function setTutorialReducer (state, payload) {
     return Object.assign({}, state)
   }
 
-  const { showTutorial } = state
+  const { activeScenario, showTutorial } = state
+  const activeView = activeScenario === 'tutorial' ? 'story' : 'warehouse'
+  const tutorialFlag = activeScenario === 'tutorial'
+
   Object.keys(showTutorial).forEach((view) => {
     // I failed to tell TypeScript here that view is of type View instead of string
     // @ts-ignore
-    showTutorial[view] = true
+    showTutorial[view] = tutorialFlag
   })
 
-  return Object.assign({}, state, { showTutorial })
+  return Object.assign({}, state, { activeView, showTutorial })
 }
