@@ -15,6 +15,11 @@
  * @property {number} quantity
  */
 /**
+ * @typedef {object} WarehouseStock
+ * @property {Ware} ware
+ * @property {number} quantity
+ */
+/**
  * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 /**
@@ -27,6 +32,7 @@
  * @property {boolean} isFounded
  * @property {Array<CityDemand>} demand
  * @property {Array<CitySupply>} supply
+ * @property {Array<WarehouseStock>} warehouse
  */
 /**
  * @typedef { '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' } Month
@@ -118,6 +124,10 @@ export type CitySupply = {
     ware: Ware;
     quantity: number;
 };
+export type WarehouseStock = {
+    ware: Ware;
+    quantity: number;
+};
 export type CityName = 'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar';
 export type CityDistance = Record<CityName, number>;
 export type City = {
@@ -126,6 +136,7 @@ export type City = {
     isFounded: boolean;
     demand: Array<CityDemand>;
     supply: Array<CitySupply>;
+    warehouse: Array<WarehouseStock>;
 };
 export type Month = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type ShipType = 'cog' | 'nef';

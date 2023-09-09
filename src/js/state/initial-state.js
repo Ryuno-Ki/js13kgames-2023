@@ -19,6 +19,12 @@
  */
 
 /**
+ * @typedef {object} WarehouseStock
+ * @property {Ware} ware
+ * @property {number} quantity
+ */
+
+/**
  * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 
@@ -33,6 +39,7 @@
  * @property {boolean} isFounded
  * @property {Array<CityDemand>} demand
  * @property {Array<CitySupply>} supply
+ * @property {Array<WarehouseStock>} warehouse
  */
 
 /**
@@ -160,7 +167,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Elbing',
     distances: {
@@ -186,7 +194,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Greifswald',
     distances: {
@@ -212,7 +221,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Hamburg',
     distances: {
@@ -238,7 +248,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Kiel',
     distances: {
@@ -264,7 +275,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Königsberg',
     distances: {
@@ -290,7 +302,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Kopenhagen',
     distances: {
@@ -316,7 +329,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Lübeck',
     distances: {
@@ -360,7 +374,8 @@ export const initialState = {
     }, {
       ware: 'wool',
       quantity: 10
-    }]
+    }],
+    warehouse: []
   }, {
     name: 'Malmö',
     distances: {
@@ -386,7 +401,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Nowgorod',
     distances: {
@@ -412,7 +428,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Reval',
     distances: {
@@ -438,7 +455,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Riga',
     distances: {
@@ -464,7 +482,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Rostock',
     distances: {
@@ -490,7 +509,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Stockholm',
     distances: {
@@ -516,7 +536,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Stralsund',
     distances: {
@@ -542,7 +563,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Turku',
     distances: {
@@ -568,7 +590,8 @@ export const initialState = {
     },
     isFounded: false,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Visby',
     distances: {
@@ -594,7 +617,8 @@ export const initialState = {
     },
     isFounded: true,
     demand: [],
-    supply: []
+    supply: [],
+    warehouse: []
   }, {
     name: 'Wismar',
     distances: {
@@ -632,7 +656,8 @@ export const initialState = {
     }, {
       ware: 'wool',
       quantity: 4
-    }]
+    }],
+    warehouse: []
   }],
   ships: [{
     name: 'Marie',
