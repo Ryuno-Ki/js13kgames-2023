@@ -44,8 +44,9 @@ describe('market', function () {
     const activeCity = 'Lübeck'
     const cities = [{
       name: 'Lübeck',
+      demand: [],
       supply: [{
-        ware: 'met',
+        ware: 'wool',
         quantity: 42
       }],
       warehouse: {
@@ -61,7 +62,7 @@ describe('market', function () {
     // Assert
     expect(marketComponent).not.to.equal(targetElement)
     expect(marketComponent).to.contain.text(['Buy'])
-    expect(marketComponent).to.contain.text(['met'])
+    expect(marketComponent).to.contain.text(['wool'])
     expect(marketComponent).to.contain.text(['42'])
   })
 })

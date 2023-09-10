@@ -37,7 +37,8 @@ export function market (targetElement, state) {
               'data-buy': ware.ware,
               'data-city': city.name
             }],
-            ['span', [], {}, ware.quantity]
+            ['span', [], {}, ware.quantity],
+            ['span', [], {}, ` (${computeSKU(state, ware.ware)} 💰 each)`]
           ]]
         ]
       ])]
@@ -60,7 +61,8 @@ export function market (targetElement, state) {
               'data-sell': ware.ware,
               'data-city': city.name
             }],
-            ['span', [], {}, ware.quantity]
+            ['span', [], {}, ware.quantity],
+            ['span', [], {}, ` (${computeSKU(state, ware.ware)} 💰 each)`]
           ]]
         ]
       ])]
@@ -69,4 +71,29 @@ export function market (targetElement, state) {
   ]))
 
   return element
+}
+
+/**
+ * Helper function to compute the price for a ware.
+ *
+ * @private
+ * @argument {import('../state/initial-state.js').State} state
+ * @argument {import('../state/initial-state.js').Ware} ware
+ * @returns {number}
+ */
+function computeSKU (state, ware) {
+  const city = state.cities.find((city) => city.name === state.activeCity)
+
+  if (!city) {
+    console.warn('Could not find city')
+    return -1
+  }
+
+  const cityDemandForWare = city.demand.find((w) => w.ware === ware)
+  const demandQuantity = cityDemandForWare ? cityDemandForWare.quantity : 0
+  const citySupplyForWare = city.supply.find((w) => w.ware === ware)
+  const supplyQuantity = citySupplyForWare ? citySupplyForWare.quantity : 1
+  const basePriceForWare = state.wares[ware]
+
+  return basePriceForWare * (demandQuantity / supplyQuantity) || -1
 }
