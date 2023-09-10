@@ -1,0 +1,6 @@
+[data-component="month-meter"] .status {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1em;
+}
