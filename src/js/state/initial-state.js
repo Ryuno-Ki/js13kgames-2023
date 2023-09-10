@@ -136,6 +136,7 @@
  * @property {number} playermoney
  * @property {Record<View, boolean>} showTutorial
  * @property {Array<Ship>} ships
+ * @property {Record<Ware, number>} wares
  * @property {string} title
  * @property {number} volume
 */
@@ -720,6 +721,11 @@ export const initialState = {
       stock: []
     }
   }],
+  wares: {
+    honey: 50,
+    salt: 30,
+    wool: 5
+  },
   ships: [{
     name: 'Marie',
     type: 'nef',

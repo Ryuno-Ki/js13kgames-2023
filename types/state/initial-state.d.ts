@@ -115,6 +115,7 @@
  * @property {number} playermoney
  * @property {Record<View, boolean>} showTutorial
  * @property {Array<Ship>} ships
+ * @property {Record<Ware, number>} wares
  * @property {string} title
  * @property {number} volume
 */
@@ -203,6 +204,7 @@ export type State = {
     playermoney: number;
     showTutorial: Record<View, boolean>;
     ships: Array<Ship>;
+    wares: Record<Ware, number>;
     title: string;
     volume: number;
 };
