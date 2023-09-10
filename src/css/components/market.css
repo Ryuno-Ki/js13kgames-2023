@@ -1,0 +1,13 @@
+[data-component="market"] ul {
+	padding: 0;
+}
+
+[data-component="market"] li {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 1em;
+}
+
+[data-component="market"] label {
+	text-align: end;
+}

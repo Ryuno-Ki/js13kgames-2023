@@ -24,19 +24,21 @@ export function market (targetElement, state) {
       ['ul', [], {}, '', city.supply.map((ware) => [
         'li', [], {}, '', [
           ['label', [], { for: `market-${ware.ware}` }, ware.ware],
-          ['span', [], {}, '0'],
-          ['input', [], {
-            id: `market-${ware.ware}`,
-            name: ware.ware,
-            type: 'range',
-            min: 0,
-            max: ware.quantity,
-            step: 1,
-            value: 0,
-            'data-buy': ware.ware,
-            'data-city': city.name
-          }],
-          ['span', [], {}, ware.quantity]
+          ['span', [], {}, '', [
+            ['span', [], {}, '0'],
+            ['input', [], {
+              id: `market-${ware.ware}`,
+              name: ware.ware,
+              type: 'range',
+              min: 0,
+              max: ware.quantity,
+              step: 1,
+              value: 0,
+              'data-buy': ware.ware,
+              'data-city': city.name
+            }],
+            ['span', [], {}, ware.quantity]
+          ]]
         ]
       ])]
     ]],
@@ -45,19 +47,21 @@ export function market (targetElement, state) {
       ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
         'li', [], {}, '', [
           ['label', [], { for: `warehouse-${ware.ware}` }, ware.ware],
-          ['span', [], {}, '0'],
-          ['input', [], {
-            id: `warehouse-${ware.ware}`,
-            name: ware.ware,
-            type: 'range',
-            min: 0,
-            max: ware.quantity,
-            step: 1,
-            value: 0,
-            'data-sell': ware.ware,
-            'data-city': city.name
-          }],
-          ['span', [], {}, ware.quantity]
+          ['span', [], {}, '', [
+            ['span', [], {}, '0'],
+            ['input', [], {
+              id: `warehouse-${ware.ware}`,
+              name: ware.ware,
+              type: 'range',
+              min: 0,
+              max: ware.quantity,
+              step: 1,
+              value: 0,
+              'data-sell': ware.ware,
+              'data-city': city.name
+            }],
+            ['span', [], {}, ware.quantity]
+          ]]
         ]
       ])]
     ]],
