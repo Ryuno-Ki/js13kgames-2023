@@ -13,10 +13,82 @@ describe('buyReducer', function () {
     await store.dispatch(resetAction())
   })
 
+  describe('when there is enough money', function () {
+    it("should deduct it from the player's money", function () {
+      // Arrange
+      const activeCity = 'Lübeck'
+      const playermoney = 100
+      const wares = {
+        grok: 1
+      }
+      const cities = [{
+        name: 'Lübeck',
+        supply: [{
+          ware: 'grok',
+          quantity: 100
+        }],
+        demand: [{
+          ware: 'grok',
+          quantity: 50
+        }],
+        warehouse: {
+          stock: []
+        }
+      }]
+      const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
+      const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
+      const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
+
+      // Act
+      const newState = buyReducer(state, payload)
+
+      // Assert
+      expect(newState).not.to.equal(state)
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
+      expect(newState.playermoney).to.be.below(state.playermoney)
+    })
+  })
+
+  describe('when there is not enough money', function () {
+    it('should negate the order', function () {
+      // Arrange
+      const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+      const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
+      const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
+
+      // Act
+      const newState = buyReducer(state, payload)
+
+      // Assert
+      expect(newState).not.to.equal(state)
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([])
+      expect(newState.playermoney).to.equal(state.playermoney)
+    })
+  })
+
   describe('if ware was not bought before', function () {
     it('should add it as a new warehouse stock', function () {
       // Arrange
-      const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
+      const activeCity = 'Lübeck'
+      const playermoney = 100
+      const wares = {
+        grok: 1
+      }
+      const cities = [{
+        name: 'Lübeck',
+        supply: [{
+          ware: 'grok',
+          quantity: 100
+        }],
+        demand: [{
+          ware: 'grok',
+          quantity: 50
+        }],
+        warehouse: {
+          stock: []
+        }
+      }]
+      const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
@@ -40,10 +112,15 @@ describe('buyReducer', function () {
           cities: [{
             name: 'Lübeck',
             supply: [{ ware: 'grok', quantity: 42 }],
+            demand: [{ ware: 'grok', quantity: 50 }],
             warehouse: {
               stock: [{ ware: 'grok', quantity: 2 }]
             }
-          }]
+          }],
+          wares: {
+            grok: 1
+          },
+          playermoney: 100
         }
       )
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
