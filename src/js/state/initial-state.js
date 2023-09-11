@@ -27,6 +27,7 @@
 /**
  * @typedef {object} Warehouse
  * @property {'1' | '2' | '3' | '4'} level
+ * @property {boolean} hasScribe
  * @property {Array<WarehouseStock>} stock
  */
 
@@ -177,6 +178,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -207,6 +209,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -237,6 +240,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -267,6 +271,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -297,6 +302,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -327,6 +333,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -357,6 +364,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -405,6 +413,7 @@ export const initialState = {
       quantity: 10
     }],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -435,6 +444,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -465,6 +475,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -495,6 +506,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -525,6 +537,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -555,6 +568,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -585,6 +599,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -615,6 +630,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -645,6 +661,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -675,6 +692,7 @@ export const initialState = {
     demand: [],
     supply: [],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
@@ -717,6 +735,7 @@ export const initialState = {
       quantity: 4
     }],
     warehouse: {
+      hasScribe: false,
       level: '1',
       stock: []
     }
