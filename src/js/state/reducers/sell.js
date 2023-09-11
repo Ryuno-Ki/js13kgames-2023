@@ -7,6 +7,8 @@
  */
 export function sellReducer (state, payload) {
   let cities = state.cities
+  const price = payload.quantity * computeSKU(state, payload.ware)
+  const playermoney = state.playermoney + price
 
   cities = state.cities.map((city) => {
     if (city.name !== payload.city) {
@@ -39,20 +41,47 @@ export function sellReducer (state, payload) {
       ...city,
       warehouse: {
         ...city.warehouse,
-        stock: city.warehouse.stock.map((ware) => {
-          if (ware.ware !== payload.ware) {
-            return ware
-          }
+        stock: city.warehouse.stock
+          .map((ware) => {
+            if (ware.ware !== payload.ware) {
+              return ware
+            }
 
-          return {
-            ...ware,
-            quantity: ware.quantity - payload.quantity
-          }
-        })
+            return {
+              ...ware,
+              quantity: ware.quantity - payload.quantity
+            }
+          })
+          .filter((ware) => ware.quantity > 0)
       },
       supply
     }
   })
 
-  return Object.assign({}, state, { cities })
+  return Object.assign({}, state, { cities, playermoney })
+}
+
+/**
+ * Helper function to compute the price for a ware.
+ *
+ * @private
+ * @argument {import('../initial-state.js').State} state
+ * @argument {import('../initial-state.js').Ware} ware
+ * @returns {number}
+ */
+function computeSKU (state, ware) {
+  const city = state.cities.find((city) => city.name === state.activeCity)
+
+  if (!city) {
+    console.warn('Could not find city')
+    return -1
+  }
+
+  const cityDemandForWare = city.demand.find((w) => w.ware === ware)
+  const demandQuantity = cityDemandForWare ? cityDemandForWare.quantity : 0
+  const citySupplyForWare = city.supply.find((w) => w.ware === ware)
+  const supplyQuantity = citySupplyForWare ? citySupplyForWare.quantity : 1
+  const basePriceForWare = state.wares[ware]
+
+  return basePriceForWare * (demandQuantity / supplyQuantity) || -1
 }

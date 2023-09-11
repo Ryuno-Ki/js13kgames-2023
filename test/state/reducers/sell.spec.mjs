@@ -13,11 +13,65 @@ describe('sellReducer', function () {
     await store.dispatch(resetAction())
   })
 
+  it("should add to the player's money", function () {
+    // Arrange
+    const activeCity = 'Lübeck'
+    const playermoney = 100
+    const wares = {
+      grok: 1
+    }
+    const cities = [{
+      name: 'Lübeck',
+      supply: [{
+        ware: 'grok',
+        quantity: 100
+      }],
+      demand: [{
+        ware: 'grok',
+        quantity: 50
+      }],
+      warehouse: {
+        stock: [{
+          ware: 'grok',
+          quantity: 42
+        }]
+      }
+    }]
+    const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
+    const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
+    const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
+
+    // Act
+    const newState = sellReducer(state, payload)
+
+    // Assert
+    expect(newState).not.to.equal(state)
+    expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([])
+    expect(newState.playermoney).to.be.above(state.playermoney)
+  })
+
   describe('if ware was not sold before', function () {
     it('should add it as a new supply', function () {
       // Arrange
-      const cities = [{ name: 'Lübeck', warehouse: { stock: [{ ware: 'grok', quantity: 42 }] }, supply: [] }]
-      const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
+      const playermoney = 100
+      const wares = {
+        grok: 1
+      }
+      const cities = [{
+        name: 'Lübeck',
+        supply: [],
+        demand: [{
+          ware: 'grok',
+          quantity: 50
+        }],
+        warehouse: {
+          stock: [{
+            ware: 'grok',
+            quantity: 42
+          }]
+        }
+      }]
+      const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities, playermoney, wares })
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
@@ -40,6 +94,7 @@ describe('sellReducer', function () {
           activeCity: 'Lübeck',
           cities: [{
             name: 'Lübeck',
+            demand: [{ ware: 'grok', quantity: 50 }],
             supply: [{ ware: 'grok', quantity: 2 }],
             warehouse: {
               stock: [{ ware: 'grok', quantity: 42 }]
