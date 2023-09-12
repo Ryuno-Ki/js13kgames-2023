@@ -1,5 +1,7 @@
 import {
+  BUY_SHIP_ACTION,
   BUY_WARE_ACTION,
+  BUY_WAREHOUSE_LEVEL_ACTION,
   CHECK_ON_GAMEOVER_CONDITION_ACTION,
   CHECK_ON_WIN_CONDITION_ACTION,
   FORWARD_TO_NEXT_MONTH_ACTION,
@@ -21,7 +23,9 @@ import {
   UPDATE_SHIPS_ACTION
 } from '../../constants.js'
 import { initialState } from '../initial-state.js'
+import { buyShipReducer } from './buy-ship.js'
 import { buyWareReducer } from './buy-ware.js'
+import { buyWarehouseLevelReducer } from './buy-warehouse-level.js'
 import { checkOnGameoverConditionReducer } from './check-on-gameover-condition.js'
 import { checkOnWinConditionReducer } from './check-on-win-condition.js'
 import { forwardToNextMonthReducer } from './forward-to-next-month.js'
@@ -55,10 +59,22 @@ export function reducer (state, action) {
 
   const { payload, type } = action
 
+  if (type === BUY_SHIP_ACTION) {
+    return buyShipReducer(
+      state,
+      /** @type {import('../actions/buy-ship.js').BUY_SHIP_ACTION['payload']} */(payload)
+    )
+  }
   if (type === BUY_WARE_ACTION) {
     return buyWareReducer(
       state,
       /** @type {import('../actions/buy-ware.js').BUY_WARE_ACTION['payload']} */(payload)
+    )
+  }
+  if (type === BUY_WAREHOUSE_LEVEL_ACTION) {
+    return buyWarehouseLevelReducer(
+      state,
+      /** @type {import('../actions/buy-warehouse-level.js').BUY_WAREHOUSE_LEVEL_ACTION['payload']} */(payload)
     )
   }
 
