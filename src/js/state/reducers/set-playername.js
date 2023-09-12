@@ -1,4 +1,5 @@
 import { copy } from '../../helpers/copy.js'
+import { sanitise } from '../../helpers/sanitise.js'
 
 /**
  * Reducer to set the name of the player (sanitised).
@@ -8,22 +9,7 @@ import { copy } from '../../helpers/copy.js'
  * @returns {import('../initial-state.js').State}
  */
 export function setPlayernameReducer (state, payload) {
-  const playername = payload.playername
-    .replace(/</g, '')
-    .replace(/>/g, '')
-    .replace(/{/g, '')
-    .replace(/}/g, '')
-    .replace(/\(/g, '')
-    .replace(/\)/g, '')
-    .replace(/"/g, '')
-    .replace(/'/g, '')
-    .replace(/%/g, '')
-    .replace(/&/g, '')
-    .replace(/=/g, '')
-    .replace(/\$/g, '')
-    .replace(/\//g, '')
-    .replace(/\\/g, '')
-    .replace(/\s+/, ' ')
+  const playername = sanitise(payload.playername)
 
   return copy(state, { playername })
 }
