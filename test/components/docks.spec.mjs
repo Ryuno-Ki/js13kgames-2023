@@ -27,6 +27,37 @@ describe('docks', function () {
     expect(docksComponent).to.have.descendant('[data-component="tutorial"]')
   })
 
+  it('should allow for buying a new ship', function () {
+    // Arrange
+    const ships = []
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { ships })
+
+    // Act
+    const docksComponent = docks(targetElement, state)
+
+    // Assert
+    expect(docksComponent).not.to.equal(targetElement)
+    expect(docksComponent).to.have.descendant('input#shipName')
+  })
+
+  it('should only allow from known ship types', function () {
+    // Arrange
+    const ships = []
+    const targetElement = document.createElement('div')
+    const state = Object.assign({}, store.getState(), { ships })
+
+    // Act
+    const docksComponent = docks(targetElement, state)
+
+    // Assert
+    expect(docksComponent).not.to.equal(targetElement)
+    expect(docksComponent).to.have.descendant('select#shipType')
+    expect(docksComponent).to.have.descendant('option[value="nef"]')
+    expect(docksComponent).not.to.have.descendant('option[value="cog"]')
+    expect(docksComponent).to.have.descendant('button[type="button"][data-acquire]')
+  })
+
   describe('when ships are not available', function () {
     it('should inform that there is nothing to do', function () {
       // Arrange
@@ -69,7 +100,8 @@ describe('docks', function () {
         name: 'Santa Maria',
         cargo: [],
         moored: true,
-        position: 'Lübeck'
+        position: 'Lübeck',
+        type: 'nef'
       }]
       const targetElement = document.createElement('div')
       const state = Object.assign({}, store.getState(), { activeMonth: '5', ships })
@@ -127,7 +159,8 @@ describe('docks', function () {
             quantity: 2
           }],
           moored: true,
-          position: 'Lübeck'
+          position: 'Lübeck',
+          type: 'nef'
         }]
 
         const targetElement = document.createElement('div')
@@ -244,7 +277,8 @@ describe('docks', function () {
           name: 'Santa Maria',
           cargo: [],
           moored: true,
-          position: 'Lübeck'
+          position: 'Lübeck',
+          type: 'nef'
         }]
 
         const targetElement = document.createElement('div')

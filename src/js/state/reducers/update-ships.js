@@ -38,7 +38,7 @@ export function updateShipsReducer (state, payload) {
     }
 
     // Pay the crew on arrival for every month on sea
-    playermoney = Math.max(playermoney - ship.upkeep * distance, 0)
+    playermoney = Math.max(playermoney - state.shipTypes[ship.type].upkeep * distance, 0)
 
     return {
       ...ship,

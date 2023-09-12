@@ -16,15 +16,25 @@
  */
 
 /**
- * @typedef {object} Ship
- * @property {Array<ShipCargo>} cargo
- * @property {number} upkeep
- * @property {ShipItinerary | null} itinerary
+ * @typedef {object} ShipCharacteristics
+ * @property {boolean} isKnown
  * @property {number} maxFreightWeight
- * @property {boolean} moored
+ * @property {number} price
+ * @property {number} upkeep
+ */
+
+/**
+ * @typedef {Record<ShipType, ShipCharacteristics>} ShipTypes
+ */
+
+/**
+ * @typedef {object} Ship
  * @property {string} name
- * @property {import('./cities.js').CityName | null} position
  * @property {ShipType} type
+ * @property {Array<ShipCargo>} cargo
+ * @property {ShipItinerary | null} itinerary
+ * @property {boolean} moored
+ * @property {import('./cities.js').CityName | null} position
  */
 
 /**
@@ -38,7 +48,21 @@ export const ships = [{
   position: 'Lübeck',
   moored: true,
   itinerary: null,
-  upkeep: 30,
-  cargo: [],
-  maxFreightWeight: 100
+  cargo: []
 }]
+
+/** @type {ShipTypes} */
+export const shipTypes = {
+  nef: {
+    isKnown: true,
+    maxFreightWeight: 100,
+    price: 5000,
+    upkeep: 30
+  },
+  cog: {
+    isKnown: false,
+    maxFreightWeight: 200,
+    price: 10000,
+    upkeep: 50
+  }
+}

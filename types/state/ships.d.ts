@@ -13,21 +13,31 @@
  * @typedef {'cog' | 'nef'} ShipType
  */
 /**
- * @typedef {object} Ship
- * @property {Array<ShipCargo>} cargo
- * @property {number} upkeep
- * @property {ShipItinerary | null} itinerary
+ * @typedef {object} ShipCharacteristics
+ * @property {boolean} isKnown
  * @property {number} maxFreightWeight
- * @property {boolean} moored
+ * @property {number} price
+ * @property {number} upkeep
+ */
+/**
+ * @typedef {Record<ShipType, ShipCharacteristics>} ShipTypes
+ */
+/**
+ * @typedef {object} Ship
  * @property {string} name
- * @property {import('./cities.js').CityName | null} position
  * @property {ShipType} type
+ * @property {Array<ShipCargo>} cargo
+ * @property {ShipItinerary | null} itinerary
+ * @property {boolean} moored
+ * @property {import('./cities.js').CityName | null} position
  */
 /**
  * @typedef {Array<Ship>} Ships
  */
 /** @type {Ships} */
 export const ships: Ships;
+/** @type {ShipTypes} */
+export const shipTypes: ShipTypes;
 export type ShipCargo = {
     ware: import('./wares.js').Ware;
     quantity: number;
@@ -38,14 +48,19 @@ export type ShipItinerary = {
     month: import('./months.js').Month;
 };
 export type ShipType = 'cog' | 'nef';
-export type Ship = {
-    cargo: Array<ShipCargo>;
-    upkeep: number;
-    itinerary: ShipItinerary | null;
+export type ShipCharacteristics = {
+    isKnown: boolean;
     maxFreightWeight: number;
-    moored: boolean;
+    price: number;
+    upkeep: number;
+};
+export type ShipTypes = Record<ShipType, ShipCharacteristics>;
+export type Ship = {
     name: string;
-    position: import('./cities.js').CityName | null;
     type: ShipType;
+    cargo: Array<ShipCargo>;
+    itinerary: ShipItinerary | null;
+    moored: boolean;
+    position: import('./cities.js').CityName | null;
 };
 export type Ships = Array<Ship>;

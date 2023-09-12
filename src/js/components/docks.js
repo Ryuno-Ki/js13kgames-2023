@@ -12,9 +12,44 @@ import { el } from './el.js'
 export function docks (targetElement, state) {
   const element = clone(targetElement)
 
+  const city = state.cities.find((c) => c.name === state.activeCity)
+
+  if (!city) {
+    console.warn(NO_CITY)
+    return element
+  }
+
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ...mapShipsToTree(state),
+    ...mapShipsToTree(state, city),
+    ['fieldset', [], {}, '', [
+      ['legend', [], {}, 'Buy'],
+      ['div', [], {}, '', [
+        ['label', [], { for: 'shipName' }, 'Name of your new ship?'],
+        ['input', [], {
+          id: 'shipName',
+          name: 'shipName',
+          type: 'text',
+          'data-city': city.name
+        }]
+      ]],
+      ['div', [], {}, '', [
+        ['label', [], { for: 'shipType' }, 'What type of ship do you want?'],
+        ['select', [], { id: 'shipType', 'data-city': city.name }, '', [
+          ['option', [], { value: '' }, 'Please choose'],
+          ...Object.entries(state.shipTypes)
+            .filter((shipTypes) => {
+              return shipTypes[1].isKnown
+            })
+            .map((shipTypes) => {
+              const [type] = shipTypes
+
+              return ['option', [], { value: type }, type]
+            })
+        ]],
+        ['button', [], { type: 'button', 'data-acquire': 'ship' }, `Buy for ${state.shipTypes.nef.price} 💰`]
+      ]]
+    ]],
     ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
 
@@ -26,18 +61,13 @@ export function docks (targetElement, state) {
  *
  * @private
  * @argument {import('../state/initial-state.js').State} state
+ * @argument {import('../state/cities.js').City} city
  * @returns {Array<*>}
  */
-function mapShipsToTree (state) {
+function mapShipsToTree (state, city) {
   const { activeCity, activeMonth, cities, ships } = state
-  const city = cities.find((c) => c.name === activeCity)
 
-  if (!city) {
-    console.warn(NO_CITY)
-    return [['span']]
-  }
-
-  const stock = city.warehouse.stock
+  const { stock } = city.warehouse
   const destinations = cities
     .filter((c) => c.isFounded)
     .filter((c) => c.name !== activeCity)
@@ -119,7 +149,10 @@ function mapShipsToTree (state) {
           ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
           ],
           ...destinations.map((destination) => [
-            'option', [], { value: destination.name }, `to  ${destination.name} (for ${ship.upkeep * city.distances[destination.name]} 💰)`
+            'option',
+            [],
+            { value: destination.name },
+            `to  ${destination.name} (for ${state.shipTypes[ship.type].upkeep * city.distances[destination.name]} 💰)`
           ])
         ]]
       ]]

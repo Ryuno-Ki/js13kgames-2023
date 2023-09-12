@@ -1,6 +1,6 @@
 import { cities } from './cities.js'
 import { history } from './history.js'
-import { ships } from './ships.js'
+import { ships, shipTypes } from './ships.js'
 import { showTutorial } from './show-tutorial.js'
 import { wares } from './wares.js'
 
@@ -37,6 +37,7 @@ import { wares } from './wares.js'
  * @property {number} playermoney
  * @property {import('./show-tutorial.js').ShowTutorial} showTutorial
  * @property {import('./ships.js').Ships} ships
+ * @property {import('./ships.js').ShipTypes} shipTypes
  * @property {import('./wares.js').Wares} wares
  * @property {string} title
  * @property {number} volume
@@ -54,6 +55,7 @@ export const initialState = {
   cities,
   wares,
   ships,
+  shipTypes,
   history,
   showTutorial,
   playername: '',
