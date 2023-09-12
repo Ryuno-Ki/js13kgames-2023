@@ -1,5 +1,5 @@
 /**
- * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Turku' | 'Visby' | 'Wismar'} CityName
+ * @typedef {'Danzig' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 
 /**
@@ -51,7 +51,6 @@ export const cities = [{
   distances: {
     // Hooray to TypeScript!
     Danzig: 0,
-    Elbing: 1, // against current
     Greifswald: 2, // with current
     Hamburg: -1,
     Kiel: 2, // with current
@@ -77,40 +76,9 @@ export const cities = [{
     stock: []
   }
 }, {
-  name: 'Elbing',
-  distances: {
-    Danzig: 1, // with current
-    // Hooray to TypeScript!
-    Elbing: 0,
-    Greifswald: 2, // with current
-    Hamburg: -1,
-    Kiel: 2, // with current
-    Königsberg: 1, // with current
-    Kopenhagen: 2, // with current
-    Lübeck: 2, // with current
-    Malmö: 2, // with current
-    Nowgorod: 6, // against current
-    Reval: 4, // against current
-    Riga: 4, // against current
-    Rostock: 2, // with current
-    Stockholm: 4, // against current
-    Turku: 4, // against current
-    Visby: 3, // with current
-    Wismar: 4 // with current
-  },
-  isFounded: false,
-  demand: [],
-  supply: [],
-  warehouse: {
-    hasScribe: false,
-    level: '1',
-    stock: []
-  }
-}, {
   name: 'Greifswald',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     // Hooray to TypeScript!
     Greifswald: 0,
     Hamburg: -1,
@@ -130,7 +98,10 @@ export const cities = [{
   },
   isFounded: false,
   demand: [],
-  supply: [],
+  supply: [{
+    ware: 'wood',
+    quantity: 80
+  }],
   warehouse: {
     hasScribe: false,
     level: '1',
@@ -140,7 +111,6 @@ export const cities = [{
   name: 'Hamburg',
   distances: {
     Danzig: -1,
-    Elbing: -1,
     Greifswald: -1,
     // Hooray to TypeScript!
     Hamburg: 0,
@@ -160,7 +130,10 @@ export const cities = [{
   },
   isFounded: true,
   demand: [],
-  supply: [],
+  supply: [{
+    ware: 'crop',
+    quantity: 100
+  }],
   warehouse: {
     hasScribe: false,
     level: '1',
@@ -170,7 +143,6 @@ export const cities = [{
   name: 'Kiel',
   distances: {
     Danzig: 4, // againt current
-    Elbing: 4, // against current
     Greifswald: 2, // against current
     Hamburg: -1,
     // Hooray to TypeScript!
@@ -200,7 +172,6 @@ export const cities = [{
   name: 'Königsberg',
   distances: {
     Danzig: 1, // with current
-    Elbing: 1, // against current
     Greifswald: 2, // with current
     Hamburg: -1,
     Kiel: 2, // with current
@@ -230,7 +201,6 @@ export const cities = [{
   name: 'Kopenhagen',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     Greifswald: 2, // against current
     Hamburg: -1,
     Königsberg: 4, // against current
@@ -260,7 +230,6 @@ export const cities = [{
   name: 'Lübeck',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     Greifswald: 2, // against current
     Hamburg: 1, // land only
     Kiel: 1, // with current
@@ -308,7 +277,6 @@ export const cities = [{
   name: 'Malmö',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     Greifswald: 2, // against current
     Hamburg: -1,
     Kiel: 2, // against current
@@ -344,7 +312,6 @@ export const cities = [{
   name: 'Nowgorod',
   distances: {
     Danzig: 3, // with current
-    Elbing: 3, // with current
     Greifswald: 4, // with current
     Hamburg: -1,
     Kiel: 4, // with current
@@ -374,7 +341,6 @@ export const cities = [{
   name: 'Reval',
   distances: {
     Danzig: 2, // with current
-    Elbing: 2, // with current
     Greifswald: 4, // with current
     Hamburg: -1,
     Kiel: 4, // with current
@@ -404,7 +370,6 @@ export const cities = [{
   name: 'Riga',
   distances: {
     Danzig: 2, // with current
-    Elbing: 2, // with current
     Greifswald: 3, // with current
     Hamburg: -1,
     Kiel: 3, // with current
@@ -434,7 +399,6 @@ export const cities = [{
   name: 'Rostock',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     Greifswald: 1, // against current
     Hamburg: -1,
     Kiel: 1, // with current
@@ -467,7 +431,6 @@ export const cities = [{
   name: 'Stockholm',
   distances: {
     Danzig: 2, // with current
-    Elbing: 2, // with current
     Greifswald: 3, // with current
     Hamburg: -1,
     Kiel: 3, // with current
@@ -497,7 +460,6 @@ export const cities = [{
   name: 'Turku',
   distances: {
     Danzig: 2, // with current
-    Elbing: 2, // with current
     Greifswald: 3, // with current
     Hamburg: -1,
     Kiel: 4, // with current
@@ -527,7 +489,6 @@ export const cities = [{
   name: 'Visby',
   distances: {
     Danzig: 6, // against current
-    Elbing: 6, // against current
     Greifswald: 3, // with current
     Hamburg: -1,
     Kiel: 3, // with current
@@ -557,7 +518,6 @@ export const cities = [{
   name: 'Wismar',
   distances: {
     Danzig: 4, // against current
-    Elbing: 4, // against current
     Greifswald: 1, // against current
     Hamburg: -1,
     Kiel: 1, // with current

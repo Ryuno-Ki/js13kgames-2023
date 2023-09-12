@@ -41,10 +41,6 @@ export const history = [{
   month: '4',
   city: 'Kiel'
 }, {
-  year: 1237,
-  month: '5',
-  city: 'Elbing'
-}, {
   year: 1241,
   month: '6',
   city: 'Greifswald'
