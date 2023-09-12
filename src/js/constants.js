@@ -36,6 +36,8 @@ export const SET_COLOR_PREFERENCE_ACTION = 'SET_COLOR_PREFERENCE_ACTION'
 export const SET_LEVEL_SCENARIO_ACTION = 'SET_LEVEL_SCENARIO_ACTION'
 /** Action type to set the chosen player name */
 export const SET_PLAYERNAME_ACTION = 'SET_PLAYERNAME_ACTION'
+/** Action type to set ship name of new ship */
+export const SET_SHIP_NAME_ACTION = 'SET_SHIP_NAME_ACTION'
 /** Action type to set ship type of new ship */
 export const SET_SHIP_TYPE_ACTION = 'SET_SHIP_TYPE_ACTION'
 /** Action type to set tutorial flags */
