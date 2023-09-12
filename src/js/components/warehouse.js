@@ -21,9 +21,7 @@ export function warehouse (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     informOnHistoricEvents(state),
-    ['ul', [], {}, '', Object.entries(city.warehouse.stock).map((stockItem) => [
-      'li', [], {}, `${stockItem[0]} (${stockItem[1]})`
-    ])],
+    renderStock(city.warehouse.stock),
     ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
     ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market'],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map']
@@ -64,4 +62,24 @@ function informOnHistoricEvents (state) {
   }
 
   return ['p', [], {}, 'This is your warehouse. Organise your activities here.']
+}
+
+/**
+ * Helper function to conditionally render the stock.
+ *
+ * @private
+ * @argument {Record<import('../state/wares.js').Ware, number>} stock
+ * @returns {Array<*>}
+ */
+function renderStock (stock) {
+  const stockItems = Object.entries(stock).filter((stockItem) => stockItem[1] > 0)
+
+  if (stockItems.length === 0) {
+    return ['p', [], {}, 'It appears you have nothing in stock here. Go visit the market.']
+  }
+
+  return ['ul', [], {}, '', stockItems.map((stockItem) => [
+    'li', [], {}, `${stockItem[0]} (${stockItem[1]})`
+  ])
+  ]
 }
