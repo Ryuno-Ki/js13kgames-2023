@@ -38,7 +38,7 @@ export function sea (targetElement, state) {
               'li',
               [],
               {},
-              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, demands ${Object.keys(c.demand).join(', ')})`
+              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, ${formatDemands(c)}})`
             ])
           ]]
         ]]
@@ -95,4 +95,20 @@ function pluralise (singular, plural, amount) {
   }
 
   return `${amount} ${plural}`
+}
+
+/**
+ * Helper function to format the demands.
+ *
+ * @private
+ * @argument {import('../state/cities.js').City} city
+ * @returns {string}
+ */
+function formatDemands (city) {
+  const demandedItems = Object
+    .entries(city.demand)
+    .filter((item) => item[1] > 0)
+    .map((item) => item[0])
+
+  return `demands ${demandedItems.join(', ')})`
 }
