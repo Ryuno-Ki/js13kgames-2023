@@ -88,12 +88,13 @@ describe('updateShipsReducer', function () {
         // Assert
         expect(newState).not.to.equal(state)
         expect(newState.ships).to.shallowDeepEqual(ships)
+        expect(newState.activeCity).to.equal('Lübeck')
       })
     })
 
     describe('when it arrived', function () {
       it('should update its status', function () {
-      // Arrange
+        // Arrange
         const activeMonth = '3'
         const ships = [{
           name: 'Marie',
@@ -128,6 +129,35 @@ describe('updateShipsReducer', function () {
           cargo: [],
           maxFreightWeight: 10
         }])
+      })
+
+      it('should switch the view to the new city', function () {
+        // Arrange
+        const activeMonth = '3'
+        const ships = [{
+          name: 'Marie',
+          type: 'cog',
+          position: null,
+          moored: false,
+          itinerary: {
+            from: 'Lübeck',
+            to: 'Wismar',
+            month: '1',
+            year: 1250
+          },
+          costs: 5,
+          cargo: [],
+          maxFreightWeight: 10
+        }]
+        const state = Object.assign({}, store.getState(), { activeMonth, ships })
+        const payload = {}
+
+        // Act
+        const newState = updateShipsReducer(state, payload)
+
+        // Assert
+        expect(newState).not.to.equal(state)
+        expect(newState.activeCity).to.equal('Wismar')
       })
     })
   })

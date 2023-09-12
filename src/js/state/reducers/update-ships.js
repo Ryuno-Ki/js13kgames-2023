@@ -9,7 +9,7 @@ import { NO_CITY } from '../../constants.js'
  * @returns {import('../initial-state.js').State}
  */
 export function updateShipsReducer (state, payload) {
-  let playermoney = state.playermoney
+  let { activeCity, playermoney } = state
 
   const ships = state.ships.map((ship) => {
     const { itinerary, moored } = ship
@@ -40,6 +40,9 @@ export function updateShipsReducer (state, payload) {
     // Pay the crew on arrival for every month on sea
     playermoney = Math.max(playermoney - state.shipTypes[ship.type].upkeep * distance, 0)
 
+    // You arrived in another city!
+    activeCity = itinerary.to
+
     return {
       ...ship,
       itinerary: null,
@@ -48,5 +51,5 @@ export function updateShipsReducer (state, payload) {
     }
   })
 
-  return copy(state, { playermoney, ships })
+  return copy(state, { activeCity, playermoney, ships })
 }
