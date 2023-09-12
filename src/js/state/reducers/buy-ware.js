@@ -1,4 +1,4 @@
-import { NO_CITY } from '../../constants.js'
+import { computeUnitPrice } from '../../helpers/compute-unit-price.js'
 import { copy } from '../../helpers/copy.js'
 
 /**
@@ -11,7 +11,7 @@ import { copy } from '../../helpers/copy.js'
 export function buyWareReducer (state, payload) {
   let cities = state.cities
   let playermoney = state.playermoney
-  const price = payload.quantity * computeSKU(state, payload.ware)
+  const price = payload.quantity * computeUnitPrice(state, payload.ware)
 
   if (price >= 0 && price <= playermoney) {
     playermoney = playermoney - price
@@ -64,29 +64,4 @@ export function buyWareReducer (state, payload) {
   }
 
   return copy(state, { cities, playermoney })
-}
-
-/**
- * Helper function to compute the price for a ware.
- *
- * @private
- * @argument {import('../initial-state.js').State} state
- * @argument {import('../wares.js').Ware} ware
- * @returns {number}
- */
-function computeSKU (state, ware) {
-  const city = state.cities.find((city) => city.name === state.activeCity)
-
-  if (!city) {
-    console.warn(NO_CITY)
-    return -1
-  }
-
-  const cityDemandForWare = city.demand.find((w) => w.ware === ware)
-  const demandQuantity = cityDemandForWare ? cityDemandForWare.quantity : 0
-  const citySupplyForWare = city.supply.find((w) => w.ware === ware)
-  const supplyQuantity = citySupplyForWare ? citySupplyForWare.quantity : 1
-  const basePriceForWare = state.wares[ware]
-
-  return basePriceForWare * (demandQuantity / supplyQuantity) || -1
 }
