@@ -22,39 +22,7 @@ export function docks (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     ...mapShipsToTree(state, city),
-    ['fieldset', [], {}, '', [
-      ['legend', [], {}, 'Buy'],
-      ['div', [], {}, '', [
-        ['label', [], { for: 'shipName' }, 'Name of your new ship?'],
-        ['input', [], {
-          id: 'shipName',
-          name: 'shipName',
-          type: 'text',
-          'data-city': city.name
-        }]
-      ]],
-      ['div', [], {}, '', [
-        ['label', [], { for: 'shipType' }, 'What type of ship do you want?'],
-        ['select', [], { id: 'shipType', 'data-city': city.name }, '', [
-          ['option', [], { value: '' }, 'Please choose'],
-          ...Object.entries(state.shipTypes)
-            .filter((shipTypes) => {
-              return shipTypes[1].isKnown
-            })
-            .map((shipTypes) => {
-              const [type] = shipTypes
-
-              return ['option', [], { value: type }, type]
-            })
-        ]],
-        [
-          'button',
-          [],
-          { type: 'button', 'data-acquire': 'ship' },
-          state.newShipType ? `Buy for ${state.shipTypes[state.newShipType].price} 💰` : 'Decide on your ship type first.'
-        ]
-      ]]
-    ]],
+    renderBuyShip(state, city),
     ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
   ]))
 
@@ -163,4 +131,52 @@ function mapShipsToTree (state, city) {
       ]]
     ]
   ])
+}
+
+/**
+ * Helper function to conditionally render the form to buy a ship.
+ *
+ * @private
+ * @argument {import('../state/initial-state.js').State} state
+ * @argument {import('../state/cities.js').City} city
+ * @returns {Array<*>}
+ */
+function renderBuyShip (state, city) {
+  if (state.showTutorial.docks) {
+    return ['div']
+  }
+
+  return ['fieldset', [], {}, '', [
+    ['legend', [], {}, 'Buy'],
+    ['div', [], {}, '', [
+      ['label', [], { for: 'shipName' }, 'Name of your new ship?'],
+      ['input', [], {
+        id: 'shipName',
+        name: 'shipName',
+        type: 'text',
+        'data-city': city.name
+      }]
+    ]],
+    ['div', [], {}, '', [
+      ['label', [], { for: 'shipType' }, 'What type of ship do you want?'],
+      ['select', [], { id: 'shipType', 'data-city': city.name }, '', [
+        ['option', [], { value: '' }, 'Please choose'],
+        ...Object.entries(state.shipTypes)
+          .filter((shipTypes) => {
+            return shipTypes[1].isKnown
+          })
+          .map((shipTypes) => {
+            const [type] = shipTypes
+
+            return ['option', [], { value: type }, type]
+          })
+      ]],
+      [
+        'button',
+        [],
+        { type: 'button', 'data-acquire': 'ship' },
+        state.newShipType ? `Buy for ${state.shipTypes[state.newShipType].price} 💰` : 'Decide on your ship type first.'
+      ]
+    ]]
+  ]]
 }
