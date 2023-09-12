@@ -8,9 +8,9 @@
 
 /** @type {Wares} */
 export const wares = {
-  beer: 30,
+  beer: 20,
   crop: 10,
-  salt: 30,
+  salt: 80,
   sprats: 40,
   wax: 100,
   wood: 5

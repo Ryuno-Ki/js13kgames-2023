@@ -55,20 +55,20 @@ export const cities = [{
   },
   isFounded: true,
   demand: {
-    beer: 500,
-    crop: 10000,
-    salt: 0,
+    beer: 2000,
+    crop: 0,
+    salt: 200,
     sprats: 1000,
-    wax: 0,
-    wood: 0
+    wax: 50,
+    wood: 10000
   },
   supply: {
     beer: 0,
-    crop: 0,
+    crop: 1500,
     salt: 0,
     sprats: 0,
     wax: 0,
-    wood: 600
+    wood: 0
   },
   warehouse: {
     level: '1',
@@ -101,20 +101,20 @@ export const cities = [{
   },
   isFounded: false,
   demand: {
-    beer: 200,
-    crop: 100,
-    salt: 1000,
-    sprats: 5000,
-    wax: 300,
+    beer: 0,
+    crop: 0,
+    salt: 150,
+    sprats: 250,
+    wax: 100,
     wood: 0
   },
   supply: {
-    beer: 0,
-    crop: 0,
+    beer: 1000,
+    crop: 2500,
     salt: 0,
     sprats: 0,
     wax: 0,
-    wood: 80
+    wood: 3500
   },
   warehouse: {
     level: '1',
@@ -150,17 +150,17 @@ export const cities = [{
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
+    sprats: 1000,
+    wax: 400,
     wood: 0
   },
   supply: {
-    beer: 0,
-    crop: 100,
-    salt: 0,
+    beer: 1000,
+    crop: 1500,
+    salt: 700,
     sprats: 0,
     wax: 0,
-    wood: 0
+    wood: 3500
   },
   warehouse: {
     level: '1',
@@ -195,18 +195,18 @@ export const cities = [{
   demand: {
     beer: 0,
     crop: 0,
-    salt: 0,
+    salt: 500,
     sprats: 0,
-    wax: 0,
+    wax: 100,
     wood: 0
   },
   supply: {
-    beer: 0,
-    crop: 0,
+    beer: 1000,
+    crop: 500,
     salt: 0,
-    sprats: 0,
+    sprats: 150,
     wax: 0,
-    wood: 0
+    wood: 3500
   },
   warehouse: {
     level: '1',
@@ -241,15 +241,15 @@ export const cities = [{
   demand: {
     beer: 0,
     crop: 0,
-    salt: 5,
-    sprats: 0,
-    wax: 0,
-    wood: 0
+    salt: 0,
+    sprats: 1000,
+    wax: 375,
+    wood: 10000
   },
   supply: {
-    beer: 0,
-    crop: 0,
-    salt: 2,
+    beer: 1000,
+    crop: 1500,
+    salt: 700,
     sprats: 0,
     wax: 0,
     wood: 0
@@ -285,20 +285,20 @@ export const cities = [{
   },
   isFounded: true,
   demand: {
-    beer: 0,
-    crop: 0,
+    beer: 1000,
+    crop: 1000,
     salt: 100,
     sprats: 0,
-    wax: 0,
+    wax: 50,
     wood: 0
   },
   supply: {
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 50,
+    sprats: 1000,
     wax: 0,
-    wood: 0
+    wood: 2500
   },
   warehouse: {
     level: '1',
@@ -331,9 +331,9 @@ export const cities = [{
   },
   isFounded: true,
   demand: {
-    beer: 0,
-    crop: 0,
-    salt: 0,
+    beer: 500,
+    crop: 5000,
+    salt: 125,
     sprats: 0,
     wax: 0,
     wood: 0
@@ -342,9 +342,9 @@ export const cities = [{
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
-    wood: 0
+    sprats: 100,
+    wax: 500,
+    wood: 2500
   },
   warehouse: {
     level: '1',
@@ -377,9 +377,9 @@ export const cities = [{
   },
   isFounded: false,
   demand: {
-    beer: 0,
-    crop: 0,
-    salt: 0,
+    beer: 1000,
+    crop: 1500,
+    salt: 100,
     sprats: 0,
     wax: 0,
     wood: 0
@@ -388,9 +388,9 @@ export const cities = [{
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
-    wood: 0
+    sprats: 200,
+    wax: 500,
+    wood: 2500
   },
   warehouse: {
     level: '1',
@@ -423,19 +423,19 @@ export const cities = [{
   },
   isFounded: false,
   demand: {
-    beer: 0,
-    crop: 0,
-    salt: 0,
+    beer: 1000,
+    crop: 2000,
+    salt: 100,
     sprats: 0,
     wax: 0,
-    wood: 0
+    wood: 2000
   },
   supply: {
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
+    sprats: 500,
+    wax: 150,
     wood: 0
   },
   warehouse: {
@@ -472,14 +472,14 @@ export const cities = [{
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
-    wood: 0
+    sprats: 250,
+    wax: 125,
+    wood: 1000
   },
   supply: {
-    beer: 50,
-    crop: 0,
-    salt: 0,
+    beer: 1000,
+    crop: 2000,
+    salt: 475,
     sprats: 0,
     wax: 0,
     wood: 0
@@ -515,19 +515,19 @@ export const cities = [{
   },
   isFounded: false,
   demand: {
-    beer: 0,
-    crop: 0,
-    salt: 0,
+    beer: 500,
+    crop: 2000,
+    salt: 200,
     sprats: 0,
     wax: 0,
-    wood: 0
+    wood: 3000
   },
   supply: {
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
-    wax: 0,
+    sprats: 600,
+    wax: 150,
     wood: 0
   },
   warehouse: {
@@ -561,9 +561,9 @@ export const cities = [{
   },
   isFounded: true,
   demand: {
-    beer: 0,
-    crop: 0,
-    salt: 0,
+    beer: 500,
+    crop: 1500,
+    salt: 300,
     sprats: 0,
     wax: 0,
     wood: 0
@@ -572,9 +572,9 @@ export const cities = [{
     beer: 0,
     crop: 0,
     salt: 0,
-    sprats: 0,
+    sprats: 1200,
     wax: 0,
-    wood: 0
+    wood: 5000
   },
   warehouse: {
     level: '1',
@@ -609,18 +609,18 @@ export const cities = [{
   demand: {
     beer: 0,
     crop: 0,
-    salt: 5,
-    sprats: 0,
-    wax: 0,
+    salt: 100,
+    sprats: 250,
+    wax: 100,
     wood: 0
   },
   supply: {
-    beer: 0,
-    crop: 0,
-    salt: 8,
+    beer: 1500,
+    crop: 3500,
+    salt: 0,
     sprats: 0,
     wax: 0,
-    wood: 0
+    wood: 3000
   },
   warehouse: {
     level: '1',
