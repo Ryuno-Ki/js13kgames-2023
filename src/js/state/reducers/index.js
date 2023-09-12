@@ -14,6 +14,7 @@ import {
   SET_COLOR_PREFERENCE_ACTION,
   SET_LEVEL_SCENARIO_ACTION,
   SET_PLAYERNAME_ACTION,
+  SET_SHIP_TYPE_ACTION,
   SET_TUTORIAL_ACTION,
   SWITCH_TO_SCENE_ACTION,
   SWITCH_TO_VIEW_ACTION,
@@ -36,6 +37,7 @@ import { sendShipReducer } from './send-ship.js'
 import { setColorPreferenceReducer } from './set-color-preference.js'
 import { setLevelScenarioReducer } from './set-level-scenario.js'
 import { setPlayernameReducer } from './set-playername.js'
+import { setShipTypeReducer } from './set-ship-type.js'
 import { setTutorialReducer } from './set-tutorial.js'
 import { switchToSceneReducer } from './switch-to-scene.js'
 import { switchToViewReducer } from './switch-to-view.js'
@@ -155,6 +157,13 @@ export function reducer (state, action) {
     return setPlayernameReducer(
       state,
       /** @type {import('../actions/set-playername.js').SET_PLAYERNAME_ACTION['payload']} */(payload)
+    )
+  }
+
+  if (type === SET_SHIP_TYPE_ACTION) {
+    return setShipTypeReducer(
+      state,
+      /** @type {import('../actions/set-ship-type.js').SET_SHIP_TYPE_ACTION['payload']} */(payload)
     )
   }
 
