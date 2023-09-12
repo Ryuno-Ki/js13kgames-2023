@@ -1,24 +1,3 @@
-[data-component="new-game-section"] {
-	margin-inline: 1em;
-}
-
-[data-component="new-game-section"] h1 {
-	font-size: 4em;
-	text-align: center;
-}
-
-[data-component="new-game-section"] fieldset {
-	font-size: 1.5em;
-}
-
 [data-component="new-game-section"] input {
 	width: 100%;
-}
-
-[data-component="new-game-section"] p {
-	font-size: 1.5em;
-}
-
-[data-component="new-game-section"] button {
-	font-size: 2em;
 }

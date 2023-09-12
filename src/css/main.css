@@ -19,8 +19,24 @@ section:empty {
 	display: none;
 }
 
+[data-component$="-section"] {
+	margin-inline: 1em;
+}
+
+a {
+	color: inherit;
+}
+
 p {
 	margin: 0 0 1em 0;
+}
+
+ul {
+	padding: 0;
+}
+
+select {
+	width: 100%;
 }
 
 button {
