@@ -38,8 +38,6 @@ export const SET_LEVEL_SCENARIO_ACTION: "SET_LEVEL_SCENARIO_ACTION";
 export const SET_PLAYERNAME_ACTION: "SET_PLAYERNAME_ACTION";
 /** Action type to set tutorial flags */
 export const SET_TUTORIAL_ACTION: "SET_TUTORIAL_ACTION";
-/** Action type to switch to another city */
-export const SWITCH_TO_CITY_ACTION: "SWITCH_TO_CITY_ACTION";
 /** Action type to switch to another scene */
 export const SWITCH_TO_SCENE_ACTION: "SWITCH_TO_SCENE_ACTION";
 /** Action type to switch to another view within level scene */

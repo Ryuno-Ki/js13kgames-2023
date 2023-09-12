@@ -37,4 +37,35 @@ describe('forwardToNextMonthReducer', function () {
     expect(newState.activeMonth).to.be.equal('1')
     expect(Number(newState.activeYear)).to.be.above(Number(state.activeYear))
   })
+
+  it('should fast forward if ships are in transition', function () {
+    // Arrange
+    const ships = [{
+      name: 'Marie',
+      itinerary: {
+        from: 'Lübeck',
+        to: 'Wismar',
+        month: '3'
+      }
+    }, {
+      name: 'Santa Maria',
+      itinerary: {
+        from: 'Lübeck',
+        to: 'Wismar',
+        month: '4'
+      }
+    }, {
+      name: 'Joseph',
+      itinerary: null
+    }]
+    const state = Object.assign({}, store.getState(), { activeMonth: '3', ships })
+    const payload = {}
+
+    // Act
+    const newState = forwardToNextMonthReducer(state, payload)
+
+    // Assert
+    expect(newState).not.to.equal(state)
+    expect(newState.activeMonth).to.be.equal('5')
+  })
 })
