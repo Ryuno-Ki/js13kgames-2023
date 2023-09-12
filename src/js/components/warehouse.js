@@ -20,7 +20,7 @@ export function warehouse (targetElement, state) {
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ['p', [], {}, 'This is your warehouse. Organise your activities here.'],
+    informOnHistoricEvents(state),
     ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
       'li', [], {}, `${ware.ware} (${ware.quantity})`
     ])],
@@ -30,4 +30,39 @@ export function warehouse (targetElement, state) {
   ]))
 
   return element
+}
+
+/**
+ * Helper function to inform on new historic events.
+ *
+ * @private
+ * @argument {import('../state/initial-state.js').State} state
+ * @returns {Array<*>}
+ */
+function informOnHistoricEvents (state) {
+  const { activeMonth, activeYear, history } = state
+
+  const maybeHistoricEvent = history.find((historicEvent) => {
+    const { month, year } = historicEvent
+
+    return year === activeYear && month === activeMonth
+  })
+
+  if (maybeHistoricEvent) {
+    if (/** @type {import('../state/history.js').CityFounded} */(maybeHistoricEvent).city) {
+      const city = /** @type {import('../state/history.js').CityFounded} */(maybeHistoricEvent).city
+
+      return ['p', [], {}, `${city} was founded!`]
+    }
+
+    if (
+    /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship &&
+      /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship.type) {
+      const shipType = /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship.type
+
+      return ['p', [], {}, `You can now buy ${shipType}s!`]
+    }
+  }
+
+  return ['p', [], {}, 'This is your warehouse. Organise your activities here.']
 }
