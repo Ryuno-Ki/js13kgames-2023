@@ -4,6 +4,7 @@ import store from './state/store.js'
 import { sendShipAction } from './state/actions/send-ship.js'
 import { setColorPreferenceAction } from './state/actions/set-color-preference.js'
 import { setLevelScenarioAction } from './state/actions/set-level-scenario.js'
+import { setShipTypeAction } from './state/actions/set-ship-type.js'
 
 /**
  * Event listener on change events.
@@ -33,5 +34,10 @@ export async function onChange (event) {
   if (target.id === 'level-scenario') {
     const scenario = /** @type {import('./state/initial-state.js').Scenario} */(target.value)
     return store.dispatch(setLevelScenarioAction(scenario))
+  }
+
+  if (target.id === 'shipType') {
+    const shipType = /** @type {import('./state/ships.js').ShipType} */(target.value)
+    return store.dispatch(setShipTypeAction(shipType))
   }
 }
