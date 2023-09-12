@@ -88,6 +88,18 @@ describe('sectionAbout', function () {
       expect(aboutScene).to.have.descendant('a[href$="/boeticher/"]')
     })
 
+    it('should link to the PayPal for donations', function () {
+      // Arrange
+      const targetElement = document.createElement('section')
+      const state = Object.assign({}, store.getState(), { activeScene: 'about-section' })
+
+      // Act
+      const aboutScene = sectionAbout(targetElement, state)
+
+      // Assert
+      expect(aboutScene).to.have.descendant('a[href^="https://www.paypal.com/donate/"]')
+    })
+
     it('should link to the title scene', function () {
       // Arrange
       const targetElement = document.createElement('section')

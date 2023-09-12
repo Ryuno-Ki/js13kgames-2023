@@ -33,6 +33,9 @@ export function sectionAbout (targetElement, state) {
       ['p', [], {}, 'Map of the baltic sea is derived from ', [
         ['a', [], { href: 'https://nrv.de/reviere' }, 'North German regatta club']
       ]],
+      ['p', [], {}, 'If you want to support the further development of this game, consider a donation via PayPal: ', [
+        ['a', [], { href: 'https://www.paypal.com/donate/?hosted_button_id=UHBGQXAL4VQUN' }, 'Donate for js13kgames „The Baltic League”']
+      ]],
       ['div', ['actions'], {}, '', [
         ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
       ]]
