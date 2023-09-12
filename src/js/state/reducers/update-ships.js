@@ -9,6 +9,8 @@ import { NO_CITY } from '../../constants.js'
  * @returns {import('../initial-state.js').State}
  */
 export function updateShipsReducer (state, payload) {
+  let playermoney = state.playermoney
+
   const ships = state.ships.map((ship) => {
     const { itinerary, moored } = ship
     if (moored) {
@@ -27,18 +29,16 @@ export function updateShipsReducer (state, payload) {
       return copy(state, {})
     }
 
-    const { activeMonth } = state
     const distance = departure.distances[itinerary.to]
-    let monthOfArrival = Number(itinerary.month) + distance
+    const monthOfArrival = Number(itinerary.month) + distance
 
-    if (monthOfArrival + distance > 12) {
-      monthOfArrival = monthOfArrival - 12
-    }
-
-    if (monthOfArrival > Number(activeMonth)) {
+    if (monthOfArrival > Number(state.activeMonth)) {
       // Still sailing
       return ship
     }
+
+    // Pay the crew on arrival for every month on sea
+    playermoney = Math.max(playermoney - ship.upkeep * distance, 0)
 
     return {
       ...ship,
@@ -48,5 +48,5 @@ export function updateShipsReducer (state, payload) {
     }
   })
 
-  return copy(state, { ships })
+  return copy(state, { playermoney, ships })
 }
