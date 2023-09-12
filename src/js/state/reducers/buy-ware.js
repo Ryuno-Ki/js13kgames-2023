@@ -5,10 +5,10 @@ import { copy } from '../../helpers/copy.js'
  * Reducer to buy a ware from the market and stock it in the warehouse.
  *
  * @argument {import('../initial-state.js').State} state
- * @argument {import('../actions/buy.js').BUY_ACTION['payload']} payload
+ * @argument {import('../actions/buy-ware.js').BUY_WARE_ACTION['payload']} payload
  * @returns {import('../initial-state.js').State}
  */
-export function buyReducer (state, payload) {
+export function buyWareReducer (state, payload) {
   let cities = state.cities
   let playermoney = state.playermoney
   const price = payload.quantity * computeSKU(state, payload.ware)

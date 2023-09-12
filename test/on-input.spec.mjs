@@ -3,7 +3,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
 import { onInput } from '../src/js/on-input.js'
-import { buyAction } from '../src/js/state/actions/buy.js'
+import { buyWareAction } from '../src/js/state/actions/buy-ware.js'
 import { loadShipAction } from '../src/js/state/actions/load-ship.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
 import { sellAction } from '../src/js/state/actions/sell.js'
@@ -63,7 +63,7 @@ describe('onInput', function () {
 
     // Assert
     expect(store.dispatch).to.have.been.calledOnce
-    expect(store.dispatch).to.have.been.calledWith(buyAction({ city, ware, quantity }))
+    expect(store.dispatch).to.have.been.calledWith(buyWareAction({ city, ware, quantity }))
   })
 
   it('should dispatch to sell a good', function () {

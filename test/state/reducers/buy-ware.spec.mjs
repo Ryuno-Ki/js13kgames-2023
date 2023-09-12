@@ -3,12 +3,12 @@ import chaiDeepEqual from 'chai-better-shallow-deep-equal'
 
 import { resetAction } from '../../../src/js/state/actions/reset.js'
 import store from '../../../src/js/state/store.js'
-import { buyReducer } from '../../../src/js/state/reducers/buy.js'
+import { buyWareReducer } from '../../../src/js/state/reducers/buy-ware.js'
 
 chai.use(chaiDeepEqual)
 const { expect } = chai
 
-describe('buyReducer', function () {
+describe('buyWareReducer', function () {
   beforeEach(async function () {
     await store.dispatch(resetAction())
   })
@@ -40,7 +40,7 @@ describe('buyReducer', function () {
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
       // Act
-      const newState = buyReducer(state, payload)
+      const newState = buyWareReducer(state, payload)
 
       // Assert
       expect(newState).not.to.equal(state)
@@ -57,7 +57,7 @@ describe('buyReducer', function () {
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
       // Act
-      const newState = buyReducer(state, payload)
+      const newState = buyWareReducer(state, payload)
 
       // Assert
       expect(newState).not.to.equal(state)
@@ -93,7 +93,7 @@ describe('buyReducer', function () {
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
       // Act
-      const newState = buyReducer(state, payload)
+      const newState = buyWareReducer(state, payload)
 
       // Assert
       expect(newState).not.to.equal(state)
@@ -127,7 +127,7 @@ describe('buyReducer', function () {
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
       // Act
-      const newState = buyReducer(state, payload)
+      const newState = buyWareReducer(state, payload)
 
       // Assert
       expect(newState).not.to.equal(state)
@@ -142,7 +142,7 @@ describe('buyReducer', function () {
     const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
     // Act
-    const newState = buyReducer(state, payload)
+    const newState = buyWareReducer(state, payload)
 
     // Assert
     expect(newState).not.to.equal(state)

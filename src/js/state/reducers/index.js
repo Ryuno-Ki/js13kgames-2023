@@ -1,5 +1,5 @@
 import {
-  BUY_ACTION,
+  BUY_WARE_ACTION,
   CHECK_ON_GAMEOVER_CONDITION_ACTION,
   CHECK_ON_WIN_CONDITION_ACTION,
   FORWARD_TO_NEXT_MONTH_ACTION,
@@ -21,7 +21,7 @@ import {
   UPDATE_SHIPS_ACTION
 } from '../../constants.js'
 import { initialState } from '../initial-state.js'
-import { buyReducer } from './buy.js'
+import { buyWareReducer } from './buy-ware.js'
 import { checkOnGameoverConditionReducer } from './check-on-gameover-condition.js'
 import { checkOnWinConditionReducer } from './check-on-win-condition.js'
 import { forwardToNextMonthReducer } from './forward-to-next-month.js'
@@ -55,10 +55,10 @@ export function reducer (state, action) {
 
   const { payload, type } = action
 
-  if (type === BUY_ACTION) {
-    return buyReducer(
+  if (type === BUY_WARE_ACTION) {
+    return buyWareReducer(
       state,
-      /** @type {import('../actions/buy.js').BUY_ACTION['payload']} */(payload)
+      /** @type {import('../actions/buy-ware.js').BUY_WARE_ACTION['payload']} */(payload)
     )
   }
 

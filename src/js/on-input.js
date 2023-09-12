@@ -1,7 +1,7 @@
 import { FALLBACK_SHIP_NAME } from './constants.js'
 import { attr } from './helpers/attr.js'
 import store from './state/store.js'
-import { buyAction } from './state/actions/buy.js'
+import { buyWareAction } from './state/actions/buy-ware.js'
 import { loadShipAction } from './state/actions/load-ship.js'
 import { sellAction } from './state/actions/sell.js'
 import { setPlayernameAction } from './state/actions/set-playername.js'
@@ -26,7 +26,7 @@ export async function onInput (event) {
     const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
     const ware = /** @type {import('./state/wares.js').Ware} */(attr(target, 'buy'))
     const quantity = Number(target.value)
-    return store.dispatch(buyAction({ city, ware, quantity }))
+    return store.dispatch(buyWareAction({ city, ware, quantity }))
   }
 
   if (attr(target, 'sell')) {
