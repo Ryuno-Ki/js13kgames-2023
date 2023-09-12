@@ -27,4 +27,17 @@ describe('unveilHistoryReducer', function () {
     expect(riga).not.to.be.undefined
     expect(riga.isFounded).to.be.true
   })
+
+  it('should unlock new introduced ship types', function () {
+    // Arrange
+    const state = Object.assign({}, store.getState(), { activeMonth: '8', activeYear: 1251 })
+    const payload = {}
+
+    // Act
+    const newState = unveilHistoryReducer(state, payload)
+
+    // Assert
+    expect(newState).not.to.equal(state)
+    expect(newState.shipTypes.cog.isKnown).to.be.true
+  })
 })

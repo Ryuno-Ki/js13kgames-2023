@@ -56,9 +56,8 @@ function informOnHistoricEvents (state) {
     }
 
     if (
-    /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship &&
-      /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship.type) {
-      const shipType = /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).ship.type
+      /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).shipType) {
+      const shipType = /** @type {import('../state/history.js').ShipTypeIntroduced} */(maybeHistoricEvent).shipType
 
       return ['p', [], {}, `You can now buy ${shipType}s!`]
     }

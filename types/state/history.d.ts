@@ -8,10 +8,7 @@
  * @typedef {object} ShipTypeIntroduced
  * @property {import('./months.js').Month} month
  * @property {number} year
- * @property {object} ship
- * @property {import('./ships.js').ShipType} ship.type
- * @property {number} ship.costs
- * @property {number} ship.maxFreightWeight
+ * @property {import('./ships.js').ShipType} shipType
  */
 /**
  * @typedef {CityFounded | ShipTypeIntroduced} HistoryEntry
@@ -29,11 +26,7 @@ export type CityFounded = {
 export type ShipTypeIntroduced = {
     month: import('./months.js').Month;
     year: number;
-    ship: {
-        type: import('./ships.js').ShipType;
-        costs: number;
-        maxFreightWeight: number;
-    };
+    shipType: import('./ships.js').ShipType;
 };
 export type HistoryEntry = CityFounded | ShipTypeIntroduced;
 export type HistoryEntries = Array<HistoryEntry>;

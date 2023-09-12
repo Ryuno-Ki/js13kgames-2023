@@ -10,14 +10,21 @@ import { copy } from '../../helpers/copy.js'
 export function unveilHistoryReducer (state, payload) {
   const { activeMonth, activeYear, history } = state
 
-  const pastCityFoundedEvents = history
+  const pastEvents = history
     .filter((historicEvent) => {
       const { month, year } = historicEvent
 
       return year <= activeYear && Number(month) <= Number(activeMonth)
     })
+
+  const pastCityFoundedEvents = pastEvents
     .filter((historicEvent) => {
       return Boolean(/** @type {import('../history.js').CityFounded} */(historicEvent).city)
+    })
+
+  const pastShipTypeIntroducedEvents = pastEvents
+    .filter((historicEvent) => {
+      return Boolean(/** @type {import('../history.js').ShipTypeIntroduced} */(historicEvent).shipType)
     })
 
   const cities = state.cities.map((city) => {
@@ -33,5 +40,17 @@ export function unveilHistoryReducer (state, payload) {
     }
   })
 
-  return copy(state, { cities })
+  const shipTypes = {
+    ...state.shipTypes
+  }
+
+  pastShipTypeIntroducedEvents.forEach((historicEvent) => {
+    const shipType = /** @type {import('../history.js').ShipTypeIntroduced} */(historicEvent).shipType
+    shipTypes[shipType] = {
+      ...state.shipTypes[shipType],
+      isKnown: true
+    }
+  })
+
+  return copy(state, { cities, shipTypes })
 }

@@ -9,10 +9,7 @@
  * @typedef {object} ShipTypeIntroduced
  * @property {import('./months.js').Month} month
  * @property {number} year
- * @property {object} ship
- * @property {import('./ships.js').ShipType} ship.type
- * @property {number} ship.costs
- * @property {number} ship.maxFreightWeight
+ * @property {import('./ships.js').ShipType} shipType
  */
 
 /**
@@ -47,11 +44,7 @@ export const history = [{
 }, {
   year: 1251,
   month: '8',
-  ship: {
-    type: 'cog',
-    costs: 50,
-    maxFreightWeight: 200
-  }
+  shipType: 'cog'
 }, {
   year: 1252,
   month: '3',
