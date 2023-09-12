@@ -9,7 +9,6 @@
  * @property {import('./cities.js').CityName} from
  * @property {import('./cities.js').CityName} to
  * @property {import('./months.js').Month} month
- * @property {number} year
  */
 
 /**
@@ -19,7 +18,7 @@
 /**
  * @typedef {object} Ship
  * @property {Array<ShipCargo>} cargo
- * @property {number} costs
+ * @property {number} upkeep
  * @property {ShipItinerary | null} itinerary
  * @property {number} maxFreightWeight
  * @property {boolean} moored
@@ -39,7 +38,7 @@ export const ships = [{
   position: 'Lübeck',
   moored: true,
   itinerary: null,
-  costs: 30,
+  upkeep: 30,
   cargo: [],
   maxFreightWeight: 100
 }]

@@ -59,7 +59,6 @@ describe('sendShipReducer', function () {
         from: 'Lübeck',
         to: 'Wismar',
         month: state.activeMonth,
-        year: state.activeYear
       })
     })
   })

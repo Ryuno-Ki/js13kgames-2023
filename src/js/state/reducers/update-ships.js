@@ -27,21 +27,17 @@ export function updateShipsReducer (state, payload) {
       return copy(state, {})
     }
 
-    const { activeMonth, activeYear } = state
+    const { activeMonth } = state
     const distance = departure.distances[itinerary.to]
     let monthOfArrival = Number(itinerary.month) + distance
-    let yearOfArrival = itinerary.year
 
     if (monthOfArrival + distance > 12) {
       monthOfArrival = monthOfArrival - 12
-      yearOfArrival = yearOfArrival + 1
     }
 
-    if (activeYear === yearOfArrival) {
-      if (monthOfArrival > Number(activeMonth)) {
-        // Still sailing
-        return ship
-      }
+    if (monthOfArrival > Number(activeMonth)) {
+      // Still sailing
+      return ship
     }
 
     return {

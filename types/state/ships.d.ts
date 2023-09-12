@@ -8,7 +8,6 @@
  * @property {import('./cities.js').CityName} from
  * @property {import('./cities.js').CityName} to
  * @property {import('./months.js').Month} month
- * @property {number} year
  */
 /**
  * @typedef {'cog' | 'nef'} ShipType
@@ -16,7 +15,7 @@
 /**
  * @typedef {object} Ship
  * @property {Array<ShipCargo>} cargo
- * @property {number} costs
+ * @property {number} upkeep
  * @property {ShipItinerary | null} itinerary
  * @property {number} maxFreightWeight
  * @property {boolean} moored
@@ -37,12 +36,11 @@ export type ShipItinerary = {
     from: import('./cities.js').CityName;
     to: import('./cities.js').CityName;
     month: import('./months.js').Month;
-    year: number;
 };
 export type ShipType = 'cog' | 'nef';
 export type Ship = {
     cargo: Array<ShipCargo>;
-    costs: number;
+    upkeep: number;
     itinerary: ShipItinerary | null;
     maxFreightWeight: number;
     moored: boolean;
