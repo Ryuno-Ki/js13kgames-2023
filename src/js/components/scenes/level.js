@@ -1,3 +1,4 @@
+import { clone } from '../../helpers/clone.js'
 import { el } from '../el.js'
 
 /**
@@ -8,7 +9,7 @@ import { el } from '../el.js'
  * @returns {HTMLElement}
  */
 export function sectionLevel (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
+  const element = clone(targetElement)
   element.innerHTML = ''
 
   if (state.activeScene === 'level-section') {
@@ -34,12 +35,12 @@ export function sectionLevel (targetElement, state) {
  * Helper functiom to map active view to headline.
  *
  * @private
- * @argument {import('../../state/initial-state.js').View} view
- * @argument {import('../../state/initial-state.js').CityName} city
+ * @argument {import('../../state/views.js').View} view
+ * @argument {import('../../state/cities.js').CityName} city
  * @returns {string}
  */
 function getHeadlineFromView (view, city) {
-  /** @type {Record<import('../../state/initial-state.js').View, string>} */
+  /** @type {Record<import('../../state/views.js').View, string>} */
   const mapViewToHeadline = {
     docks: `Docks of ${city}`,
     market: `Market of ${city}`,
@@ -59,7 +60,7 @@ function getHeadlineFromView (view, city) {
  * @returns {Array<*>}
  */
 function getViewFromState (state) {
-  /** @type {Record<import('../../state/initial-state.js').View, Array<*>>} */
+  /** @type {Record<import('../../state/views.js').View, Array<*>>} */
   const viewToComponentMap = {
     docks: ['div', [], { 'data-component': 'docks' }],
     market: ['div', [], { 'data-component': 'market' }],
