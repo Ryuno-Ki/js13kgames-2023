@@ -10,6 +10,7 @@ import { setTutorialAction } from './state/actions/set-tutorial.js'
 import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
+import { unveilHistoryAction } from './state/actions/unveil-history.js'
 import { updateShipsAction } from './state/actions/update-ships.js'
 
 /**
@@ -27,6 +28,7 @@ export async function onClick (event) {
   if (attr(target, 'action')) {
     await store.dispatch(forwardToNextMonthAction())
     await store.dispatch(updateShipsAction())
+    await store.dispatch(unveilHistoryAction())
     await store.dispatch(saveGameAction())
     await store.dispatch(checkOnWinConditionAction())
     await store.dispatch(checkOnGameoverConditionAction())
