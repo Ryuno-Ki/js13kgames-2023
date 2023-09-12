@@ -26,43 +26,70 @@ describe('market', function () {
     expect(marketComponent).to.have.descendant('[data-component="tutorial"]')
   })
 
-  it('should render an empty list in case passed data is empty', function () {
+  describe('when the player has no money', function () {
+    it('should render an information that nothing can be bought for free', function () {
     // Arrange
-    const targetElement = document.createElement('div')
-    const state = store.getState()
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { playermoney: 0 })
 
-    // Act
-    const marketComponent = market(targetElement, state)
+      // Act
+      const marketComponent = market(targetElement, state)
 
-    // Assert
-    expect(marketComponent).not.to.equal(targetElement)
-    expect(marketComponent).to.contain.text(['Buy'])
+      // Assert
+      expect(marketComponent).not.to.equal(targetElement)
+      expect(marketComponent).to.contain.text(['You cannot buy without 💰'])
+    })
   })
 
-  it('should render a list item for each ware', function () {
+  describe("when the city's supply ran out", function () {
+    it('should render an information that there is nothing to buy', function () {
     // Arrange
-    const activeCity = 'Lübeck'
-    const cities = [{
-      name: 'Lübeck',
-      demand: [],
-      supply: [{
-        ware: 'wool',
-        quantity: 42
-      }],
-      warehouse: {
-        stock: []
-      }
-    }]
-    const targetElement = document.createElement('div')
-    const state = Object.assign({}, store.getState(), { activeCity, cities })
+      const cities = [{
+        name: 'Lübeck',
+        supply: [],
+        demand: [],
+        warehouse: {
+          stock: []
+        }
+      }]
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
 
-    // Act
-    const marketComponent = market(targetElement, state)
+      // Act
+      const marketComponent = market(targetElement, state)
 
-    // Assert
-    expect(marketComponent).not.to.equal(targetElement)
-    expect(marketComponent).to.contain.text(['Buy'])
-    expect(marketComponent).to.contain.text(['wool'])
-    expect(marketComponent).to.contain.text(['42'])
+      // Assert
+      expect(marketComponent).not.to.equal(targetElement)
+      expect(marketComponent).to.contain.text(["I'm afraid there is nothing to buy right now."])
+    })
+  })
+
+  describe('when the city has supply', function () {
+    it('should render a list item for each ware', function () {
+    // Arrange
+      const activeCity = 'Lübeck'
+      const cities = [{
+        name: 'Lübeck',
+        demand: [],
+        supply: [{
+          ware: 'wool',
+          quantity: 42
+        }],
+        warehouse: {
+          stock: []
+        }
+      }]
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { activeCity, cities })
+
+      // Act
+      const marketComponent = market(targetElement, state)
+
+      // Assert
+      expect(marketComponent).not.to.equal(targetElement)
+      expect(marketComponent).to.contain.text(['Buy'])
+      expect(marketComponent).to.contain.text(['wool'])
+      expect(marketComponent).to.contain.text(['42'])
+    })
   })
 })

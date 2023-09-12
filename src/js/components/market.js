@@ -1,3 +1,5 @@
+import { NO_CITY } from '../constants.js'
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,41 +10,17 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function market (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   const city = state.cities.find((city) => city.name === state.activeCity)
   if (!city) {
-    console.warn('Could not find city')
+    console.warn(NO_CITY)
     return element
   }
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
-    ['fieldset', [], {}, '', [
-      ['legend', [], {}, 'Buy'],
-      ['ul', [], {}, '', city.supply.map((ware) => [
-        'li', [], {}, '', [
-          ['label', [], { for: `market-${ware.ware}` }, ware.ware],
-          ['span', [], {}, '', [
-            ['span', [], {}, '0'],
-            ['input', [], {
-              id: `market-${ware.ware}`,
-              name: ware.ware,
-              type: 'range',
-              min: 0,
-              max: ware.quantity,
-              step: 1,
-              value: 0,
-              'data-buy': ware.ware,
-              'data-city': city.name
-            }],
-            ['span', [], {}, ware.quantity],
-            ['span', [], {}, ` (${computeSKU(state, ware.ware)} 💰 each)`]
-          ]]
-        ]
-      ])]
-    ]],
+    showBuyForm(state, city),
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Sell'],
       ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
@@ -74,18 +52,61 @@ export function market (targetElement, state) {
 }
 
 /**
+ * Helper function to handle the case of lack of money.
+ *
+ * @private
+ * @argument {import('../state/initial-state.js').State} state
+ * @argument {import('../state/cities.js').City} city
+ * @returns {Array<*>}
+ */
+function showBuyForm (state, city) {
+  if (state.playermoney <= 1) {
+    return ['p', [], {}, 'You cannot buy without 💰']
+  }
+
+  if (city.supply.length === 0) {
+    return ['p', [], {}, "I'm afraid there is nothing to buy right now."]
+  }
+
+  return ['fieldset', [], {}, '', [
+    ['legend', [], {}, 'Buy'],
+    ['ul', [], {}, '', city.supply.map((ware) => [
+      'li', [], {}, '', [
+        ['label', [], { for: `market-${ware.ware}` }, ware.ware],
+        ['span', [], {}, '', [
+          ['span', [], {}, '0'],
+          ['input', [], {
+            id: `market-${ware.ware}`,
+            name: ware.ware,
+            type: 'range',
+            min: 0,
+            max: ware.quantity,
+            step: 1,
+            value: 0,
+            'data-buy': ware.ware,
+            'data-city': city.name
+          }],
+          ['span', [], {}, ware.quantity],
+          ['span', [], {}, ` (${computeSKU(state, ware.ware)} 💰 each)`]
+        ]]
+      ]
+    ])]
+  ]]
+}
+
+/**
  * Helper function to compute the price for a ware.
  *
  * @private
  * @argument {import('../state/initial-state.js').State} state
- * @argument {import('../state/initial-state.js').Ware} ware
+ * @argument {import('../state/wares.js').Ware} ware
  * @returns {number}
  */
 function computeSKU (state, ware) {
   const city = state.cities.find((city) => city.name === state.activeCity)
 
   if (!city) {
-    console.warn('Could not find city')
+    console.warn(NO_CITY)
     return -1
   }
 
