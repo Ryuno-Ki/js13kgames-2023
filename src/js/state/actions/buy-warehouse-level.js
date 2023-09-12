@@ -2,7 +2,7 @@ import { BUY_WAREHOUSE_LEVEL_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} BUY_WAREHOUSE_LEVEL_ACTION
- * @property {'BUY_WAREHOUSE_LEVEL_ACTION'} BUY_WAREHOUSE_LEVEL_ACTION.type
+ * @property {import('../../constants.js').BUY_WAREHOUSE_LEVEL_ACTION} BUY_WAREHOUSE_LEVEL_ACTION.type
  * @property {object} BUY_WAREHOUSE_LEVEL_ACTION.payload
  * @property {import('../cities.js').CityName} BUY_WAREHOUSE_LEVEL_ACTION.payload.city
  */

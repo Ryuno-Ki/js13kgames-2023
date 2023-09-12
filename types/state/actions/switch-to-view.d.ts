@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SWITCH_TO_VIEW_ACTION
- * @property {'SWITCH_TO_VIEW_ACTION'} SWITCH_TO_VIEW_ACTION.type
+ * @property {import('../../constants.js').SWITCH_TO_VIEW_ACTION} SWITCH_TO_VIEW_ACTION.type
  * @property {object} SWITCH_TO_VIEW_ACTION.payload
  * @property {import('../views.js').View} SWITCH_TO_VIEW_ACTION.payload.view
  */
@@ -12,7 +12,7 @@
  */
 export function switchToViewAction(view: import('../views.js').View): SWITCH_TO_VIEW_ACTION;
 export type SWITCH_TO_VIEW_ACTION = {
-    type: 'SWITCH_TO_VIEW_ACTION';
+    type: "U";
     payload: {
         view: import('../views.js').View;
     };

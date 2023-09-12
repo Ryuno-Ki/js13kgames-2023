@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SET_TUTORIAL_ACTION
- * @property {'SET_TUTORIAL_ACTION'} SET_TUTORIAL_ACTION.type
+ * @property {import('../../constants.js').SET_TUTORIAL_ACTION} SET_TUTORIAL_ACTION.type
  * @property {object} SET_TUTORIAL_ACTION.payload
  * @property {import('../initial-state.js').Scene} SET_TUTORIAL_ACTION.payload.scene
  */
@@ -12,7 +12,7 @@
  */
 export function setTutorialAction(scene: import('../initial-state.js').Scene): SET_TUTORIAL_ACTION;
 export type SET_TUTORIAL_ACTION = {
-    type: 'SET_TUTORIAL_ACTION';
+    type: "S";
     payload: {
         scene: import('../initial-state.js').Scene;
     };

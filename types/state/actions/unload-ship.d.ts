@@ -1,6 +1,6 @@
 /**
  * @typedef {object} UNLOAD_SHIP_ACTION
- * @property {'UNLOAD_SHIP_ACTION'} UNLOAD_SHIP_ACTION.type
+ * @property {import('../../constants.js').UNLOAD_SHIP_ACTION} UNLOAD_SHIP_ACTION.type
  * @property {object} UNLOAD_SHIP_ACTION.payload
  * @property {import('../cities.js').CityName} UNLOAD_SHIP_ACTION.payload.city
  * @property {string} UNLOAD_SHIP_ACTION.payload.ship
@@ -24,7 +24,7 @@ export function unloadShipAction({ city, ship, ware, quantity }: {
     quantity: number;
 }): UNLOAD_SHIP_ACTION;
 export type UNLOAD_SHIP_ACTION = {
-    type: 'UNLOAD_SHIP_ACTION';
+    type: "V";
     payload: {
         city: import('../cities.js').CityName;
         ship: string;

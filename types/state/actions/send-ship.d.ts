@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SEND_SHIP_ACTION
- * @property {'SEND_SHIP_ACTION'} SEND_SHIP_ACTION.type
+ * @property {import('../../constants.js').SEND_SHIP_ACTION} SEND_SHIP_ACTION.type
  * @property {object} SEND_SHIP_ACTION.payload
  * @property {import('../cities.js').CityName} SEND_SHIP_ACTION.payload.from
  * @property {string} SEND_SHIP_ACTION.payload.ship
@@ -21,7 +21,7 @@ export function sendShipAction({ ship, from, to }: {
     to: import('../cities.js').CityName;
 }): SEND_SHIP_ACTION;
 export type SEND_SHIP_ACTION = {
-    type: 'SEND_SHIP_ACTION';
+    type: "M";
     payload: {
         from: import('../cities.js').CityName;
         ship: string;

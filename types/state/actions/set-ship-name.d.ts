@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SET_SHIP_NAME_ACTION
- * @property {'SET_SHIP_NAME_ACTION'} SET_SHIP_NAME_ACTION.type
+ * @property {import('../../constants.js').SET_SHIP_NAME_ACTION} SET_SHIP_NAME_ACTION.type
  * @property {object} SET_SHIP_NAME_ACTION.payload
  * @property {string} SET_SHIP_NAME_ACTION.payload.shipName
  */
@@ -12,7 +12,7 @@
  */
 export function setShipNameAction(shipName: string): SET_SHIP_NAME_ACTION;
 export type SET_SHIP_NAME_ACTION = {
-    type: 'SET_SHIP_NAME_ACTION';
+    type: "Q";
     payload: {
         shipName: string;
     };

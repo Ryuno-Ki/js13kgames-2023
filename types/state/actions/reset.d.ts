@@ -1,6 +1,6 @@
 /**
  * @typedef {object} RESET_ACTION
- * @property {'RESET_ACTION'} RESET_ACTION.type
+ * @property {import('../../constants.js').RESET_ACTION} RESET_ACTION.type
  * @property {object} RESET_ACTION.payload
  */
 /**
@@ -10,7 +10,7 @@
  */
 export function resetAction(): RESET_ACTION;
 export type RESET_ACTION = {
-    type: 'RESET_ACTION';
+    type: "J";
     payload: object;
 };
 import { RESET_ACTION } from '../../constants.js';

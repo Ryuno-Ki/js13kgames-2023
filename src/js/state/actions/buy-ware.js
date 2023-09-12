@@ -2,7 +2,7 @@ import { BUY_WARE_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} BUY_WARE_ACTION
- * @property {'BUY_WARE_ACTION'} BUY_WARE_ACTION.type
+ * @property {import('../../constants.js').BUY_WARE_ACTION} BUY_WARE_ACTION.type
  * @property {object} BUY_WARE_ACTION.payload
  * @property {import('../cities.js').CityName} BUY_WARE_ACTION.payload.city
  * @property {import('../wares.js').Ware} BUY_WARE_ACTION.payload.ware

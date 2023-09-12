@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SET_COLOR_PREFERENCE_ACTION
- * @property {'SET_COLOR_PREFERENCE_ACTION'} SET_COLOR_PREFERENCE_ACTION.type
+ * @property {import('../../constants.js').SET_COLOR_PREFERENCE_ACTION} SET_COLOR_PREFERENCE_ACTION.type
  * @property {object} SET_COLOR_PREFERENCE_ACTION.payload
  * @property {import('../initial-state.js').Color} SET_COLOR_PREFERENCE_ACTION.payload.color
  */
@@ -12,7 +12,7 @@
  */
 export function setColorPreferenceAction(color: import('../initial-state.js').Color): SET_COLOR_PREFERENCE_ACTION;
 export type SET_COLOR_PREFERENCE_ACTION = {
-    type: 'SET_COLOR_PREFERENCE_ACTION';
+    type: "N";
     payload: {
         color: import('../initial-state.js').Color;
     };

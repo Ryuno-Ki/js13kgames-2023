@@ -1,6 +1,6 @@
 /**
  * @typedef {object} LOAD_SHIP_ACTION
- * @property {'LOAD_SHIP_ACTION'} LOAD_SHIP_ACTION.type
+ * @property {import('../../constants.js').LOAD_SHIP_ACTION} LOAD_SHIP_ACTION.type
  * @property {object} LOAD_SHIP_ACTION.payload
  * @property {import('../cities.js').CityName} LOAD_SHIP_ACTION.payload.city
  * @property {string} LOAD_SHIP_ACTION.payload.ship
@@ -24,7 +24,7 @@ export function loadShipAction({ city, ship, ware, quantity }: {
     quantity: number;
 }): LOAD_SHIP_ACTION;
 export type LOAD_SHIP_ACTION = {
-    type: 'LOAD_SHIP_ACTION';
+    type: "I";
     payload: {
         city: import('../cities.js').CityName;
         ship: string;

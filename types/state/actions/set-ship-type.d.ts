@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SET_SHIP_TYPE_ACTION
- * @property {'SET_SHIP_TYPE_ACTION'} SET_SHIP_TYPE_ACTION.type
+ * @property {import('../../constants.js').SET_SHIP_TYPE_ACTION} SET_SHIP_TYPE_ACTION.type
  * @property {object} SET_SHIP_TYPE_ACTION.payload
  * @property {import('../ships.js').ShipType} SET_SHIP_TYPE_ACTION.payload.shipType
  */
@@ -12,7 +12,7 @@
  */
 export function setShipTypeAction(shipType: import('../ships.js').ShipType): SET_SHIP_TYPE_ACTION;
 export type SET_SHIP_TYPE_ACTION = {
-    type: 'SET_SHIP_TYPE_ACTION';
+    type: "R";
     payload: {
         shipType: import('../ships.js').ShipType;
     };

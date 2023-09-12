@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SET_LEVEL_SCENARIO_ACTION
- * @property {'SET_LEVEL_SCENARIO_ACTION'} SET_LEVEL_SCENARIO_ACTION.type
+ * @property {import('../../constants.js').SET_LEVEL_SCENARIO_ACTION} SET_LEVEL_SCENARIO_ACTION.type
  * @property {object} SET_LEVEL_SCENARIO_ACTION.payload
  * @property {import('../initial-state.js').Scenario} SET_LEVEL_SCENARIO_ACTION.payload.scenario
  */
@@ -12,7 +12,7 @@
  */
 export function setLevelScenarioAction(scenario: import('../initial-state.js').Scenario): SET_LEVEL_SCENARIO_ACTION;
 export type SET_LEVEL_SCENARIO_ACTION = {
-    type: 'SET_LEVEL_SCENARIO_ACTION';
+    type: "O";
     payload: {
         scenario: import('../initial-state.js').Scenario;
     };

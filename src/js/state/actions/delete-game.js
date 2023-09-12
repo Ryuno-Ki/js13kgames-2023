@@ -2,7 +2,7 @@ import { DELETE_GAME_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} DELETE_GAME_ACTION
- * @property {'DELETE_GAME_ACTION'} DELETE_GAME_ACTION.type
+ * @property {import('../../constants.js').DELETE_GAME_ACTION} DELETE_GAME_ACTION.type
  * @property {object} DELETE_GAME_ACTION.payload
  * @property {string} DELETE_GAME_ACTION.payload.playername
  */

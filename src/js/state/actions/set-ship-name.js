@@ -2,7 +2,7 @@ import { SET_SHIP_NAME_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} SET_SHIP_NAME_ACTION
- * @property {'SET_SHIP_NAME_ACTION'} SET_SHIP_NAME_ACTION.type
+ * @property {import('../../constants.js').SET_SHIP_NAME_ACTION} SET_SHIP_NAME_ACTION.type
  * @property {object} SET_SHIP_NAME_ACTION.payload
  * @property {string} SET_SHIP_NAME_ACTION.payload.shipName
  */

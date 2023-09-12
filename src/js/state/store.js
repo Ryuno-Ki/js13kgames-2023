@@ -1,4 +1,11 @@
-import { LOCAL_STORAGE_KEY } from '../constants.js'
+import {
+  DELETE_GAME_ACTION,
+  LOCAL_STORAGE_KEY,
+  SAVE_GAME_ACTION,
+  SET_COLOR_PREFERENCE_ACTION,
+  SWITCH_TO_SCENE_ACTION,
+  SWITCH_TO_VIEW_ACTION
+} from '../constants.js'
 import { resetAction } from './actions/reset.js'
 import { reducer } from './reducers/index.js'
 
@@ -39,23 +46,23 @@ class Store {
    * @argument {import('./actions/index.js').ACTION} action
    */
   _applySideEffects (action) {
-    if (action.type === 'DELETE_GAME_ACTION') {
+    if (action.type === DELETE_GAME_ACTION) {
       this._deleteSnapshot(action.payload.playername)
     }
 
-    if (action.type === 'SAVE_GAME_ACTION') {
+    if (action.type === SAVE_GAME_ACTION) {
       this._saveSnapshot()
     }
 
-    if (action.type === 'SET_COLOR_PREFERENCE_ACTION') {
+    if (action.type === SET_COLOR_PREFERENCE_ACTION) {
       this._applyColorTheme(action.payload.color)
     }
 
-    if (action.type === 'SWITCH_TO_SCENE_ACTION') {
+    if (action.type === SWITCH_TO_SCENE_ACTION) {
       this._setDocumentTitle()
     }
 
-    if (action.type === 'SWITCH_TO_VIEW_ACTION') {
+    if (action.type === SWITCH_TO_VIEW_ACTION) {
       this._setDocumentTitle()
     }
   }

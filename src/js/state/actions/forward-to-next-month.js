@@ -2,7 +2,7 @@ import { FORWARD_TO_NEXT_MONTH_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} FORWARD_TO_NEXT_MONTH_ACTION
- * @property {'FORWARD_TO_NEXT_MONTH_ACTION'} FORWARD_TO_NEXT_MONTH_ACTION.type
+ * @property {import('../../constants.js').FORWARD_TO_NEXT_MONTH_ACTION} FORWARD_TO_NEXT_MONTH_ACTION.type
  * @property {object} FORWARD_TO_NEXT_MONTH_ACTION.payload
  */
 

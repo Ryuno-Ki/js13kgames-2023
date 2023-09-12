@@ -1,6 +1,6 @@
 /**
  * @typedef {object} SWITCH_TO_SCENE_ACTION
- * @property {'SWITCH_TO_SCENE_ACTION'} SWITCH_TO_SCENE_ACTION.type
+ * @property {import('../../constants.js').SWITCH_TO_SCENE_ACTION} SWITCH_TO_SCENE_ACTION.type
  * @property {object} SWITCH_TO_SCENE_ACTION.payload
  * @property {import('../initial-state.js').Scene} SWITCH_TO_SCENE_ACTION.payload.scene
  */
@@ -12,7 +12,7 @@
  */
 export function switchToSceneAction(scene: import('../initial-state.js').Scene): SWITCH_TO_SCENE_ACTION;
 export type SWITCH_TO_SCENE_ACTION = {
-    type: 'SWITCH_TO_SCENE_ACTION';
+    type: "T";
     payload: {
         scene: import('../initial-state.js').Scene;
     };

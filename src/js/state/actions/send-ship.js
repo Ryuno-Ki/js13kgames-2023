@@ -1,7 +1,7 @@
 import { SEND_SHIP_ACTION } from '../../constants.js'
 /**
  * @typedef {object} SEND_SHIP_ACTION
- * @property {'SEND_SHIP_ACTION'} SEND_SHIP_ACTION.type
+ * @property {import('../../constants.js').SEND_SHIP_ACTION} SEND_SHIP_ACTION.type
  * @property {object} SEND_SHIP_ACTION.payload
  * @property {import('../cities.js').CityName} SEND_SHIP_ACTION.payload.from
  * @property {string} SEND_SHIP_ACTION.payload.ship

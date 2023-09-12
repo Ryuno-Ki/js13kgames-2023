@@ -1,7 +1,7 @@
 import { SET_COLOR_PREFERENCE_ACTION } from '../../constants.js'
 /**
  * @typedef {object} SET_COLOR_PREFERENCE_ACTION
- * @property {'SET_COLOR_PREFERENCE_ACTION'} SET_COLOR_PREFERENCE_ACTION.type
+ * @property {import('../../constants.js').SET_COLOR_PREFERENCE_ACTION} SET_COLOR_PREFERENCE_ACTION.type
  * @property {object} SET_COLOR_PREFERENCE_ACTION.payload
  * @property {import('../initial-state.js').Color} SET_COLOR_PREFERENCE_ACTION.payload.color
  */

@@ -2,7 +2,7 @@ import { SWITCH_TO_SCENE_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} SWITCH_TO_SCENE_ACTION
- * @property {'SWITCH_TO_SCENE_ACTION'} SWITCH_TO_SCENE_ACTION.type
+ * @property {import('../../constants.js').SWITCH_TO_SCENE_ACTION} SWITCH_TO_SCENE_ACTION.type
  * @property {object} SWITCH_TO_SCENE_ACTION.payload
  * @property {import('../initial-state.js').Scene} SWITCH_TO_SCENE_ACTION.payload.scene
  */

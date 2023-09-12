@@ -2,7 +2,7 @@ import { UNVEIL_HISTORY_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} UNVEIL_HISTORY_ACTION
- * @property {'UNVEIL_HISTORY_ACTION'} UNVEIL_HISTORY_ACTION.type
+ * @property {import('../../constants.js').UNVEIL_HISTORY_ACTION} UNVEIL_HISTORY_ACTION.type
  * @property {object} UNVEIL_HISTORY_ACTION.payload
  */
 

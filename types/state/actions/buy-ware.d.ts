@@ -1,6 +1,6 @@
 /**
  * @typedef {object} BUY_WARE_ACTION
- * @property {'BUY_WARE_ACTION'} BUY_WARE_ACTION.type
+ * @property {import('../../constants.js').BUY_WARE_ACTION} BUY_WARE_ACTION.type
  * @property {object} BUY_WARE_ACTION.payload
  * @property {import('../cities.js').CityName} BUY_WARE_ACTION.payload.city
  * @property {import('../wares.js').Ware} BUY_WARE_ACTION.payload.ware
@@ -21,7 +21,7 @@ export function buyWareAction({ city, ware, quantity }: {
     quantity: number;
 }): BUY_WARE_ACTION;
 export type BUY_WARE_ACTION = {
-    type: 'BUY_WARE_ACTION';
+    type: "B";
     payload: {
         city: import('../cities.js').CityName;
         ware: import('../wares.js').Ware;

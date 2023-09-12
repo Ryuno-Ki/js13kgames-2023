@@ -2,7 +2,7 @@ import { LOAD_GAME_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} LOAD_GAME_ACTION
- * @property {'LOAD_GAME_ACTION'} LOAD_GAME_ACTION.type
+ * @property {import('../../constants.js').LOAD_GAME_ACTION} LOAD_GAME_ACTION.type
  * @property {object} LOAD_GAME_ACTION.payload
  * @property {import('../initial-state.js').State} LOAD_GAME_ACTION.payload.state
  */

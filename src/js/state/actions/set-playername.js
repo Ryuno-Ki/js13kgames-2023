@@ -2,7 +2,7 @@ import { SET_PLAYERNAME_ACTION } from '../../constants.js'
 
 /**
  * @typedef {object} SET_PLAYERNAME_ACTION
- * @property {'SET_PLAYERNAME_ACTION'} SET_PLAYERNAME_ACTION.type
+ * @property {import('../../constants.js').SET_PLAYERNAME_ACTION} SET_PLAYERNAME_ACTION.type
  * @property {object} SET_PLAYERNAME_ACTION.payload
  * @property {string} SET_PLAYERNAME_ACTION.payload.playername
  */
