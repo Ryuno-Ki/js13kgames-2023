@@ -1,5 +1,7 @@
 /** Action type for buying a good */
 export const BUY_ACTION: "BUY_ACTION";
+/** Action type for buying a ship */
+export const BUY_SHIP_ACTION: "BUY_SHIP_ACTION";
 /** Action type to check whether conditions for navigating to game over are met */
 export const CHECK_ON_GAMEOVER_CONDITION_ACTION: "CHECK_ON_GAMEOVER_CONDITION_ACTION";
 /** Action type to check whether conditions for navigating to win are met */
