@@ -7,7 +7,6 @@ import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.
 import { loadGameAction } from './state/actions/load-game.js'
 import { saveGameAction } from './state/actions/save-game.js'
 import { setTutorialAction } from './state/actions/set-tutorial.js'
-import { switchToCityAction } from './state/actions/switch-to-city.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
 import { switchToViewAction } from './state/actions/switch-to-view.js'
 import { unveilHistoryAction } from './state/actions/unveil-history.js'
@@ -35,11 +34,6 @@ export async function onClick (event) {
       checkOnGameoverConditionAction()
     ].map((action) => store.dispatch(action)))
     return
-  }
-
-  if (attr(target, 'position')) {
-    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'position'))
-    return store.dispatch(switchToCityAction(city))
   }
 
   if (attr(target, 'playername')) {

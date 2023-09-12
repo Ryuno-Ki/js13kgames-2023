@@ -15,7 +15,6 @@ import {
   SET_LEVEL_SCENARIO_ACTION,
   SET_PLAYERNAME_ACTION,
   SET_TUTORIAL_ACTION,
-  SWITCH_TO_CITY_ACTION,
   SWITCH_TO_SCENE_ACTION,
   SWITCH_TO_VIEW_ACTION,
   UNLOAD_SHIP_ACTION,
@@ -38,7 +37,6 @@ import { setColorPreferenceReducer } from './set-color-preference.js'
 import { setLevelScenarioReducer } from './set-level-scenario.js'
 import { setPlayernameReducer } from './set-playername.js'
 import { setTutorialReducer } from './set-tutorial.js'
-import { switchToCityReducer } from './switch-to-city.js'
 import { switchToSceneReducer } from './switch-to-scene.js'
 import { switchToViewReducer } from './switch-to-view.js'
 import { unloadShipReducer } from './unload-ship.js'
@@ -164,13 +162,6 @@ export function reducer (state, action) {
     return setTutorialReducer(
       state,
       /** @type {import('../actions/set-tutorial.js').SET_TUTORIAL_ACTION['payload']} */(payload)
-    )
-  }
-
-  if (type === SWITCH_TO_CITY_ACTION) {
-    return switchToCityReducer(
-      state,
-      /** @type {import('../actions/switch-to-city.js').SWITCH_TO_CITY_ACTION['payload']} */(payload)
     )
   }
 

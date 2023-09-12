@@ -12,7 +12,6 @@ import { resetAction } from '../src/js/state/actions/reset.js'
 import { loadGameAction } from '../src/js/state/actions/load-game.js'
 import { saveGameAction } from '../src/js/state/actions/save-game.js'
 import { setTutorialAction } from '../src/js/state/actions/set-tutorial.js'
-import { switchToCityAction } from '../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../src/js/state/actions/switch-to-view.js'
 import { unveilHistoryAction } from '../src/js/state/actions/unveil-history.js'
@@ -109,23 +108,6 @@ describe('onClick', function () {
     // Assert
     expect(store.dispatch).to.have.been.calledOnce
     expect(store.dispatch).to.have.been.calledWith(loadGameAction(state))
-  })
-
-  it('should dispatch to switch to a city', function () {
-    // Arrange
-    const event = new window.Event('click')
-    const target = document.createElement('button')
-    target.type = 'button'
-    target.setAttribute('data-position', 'Munich')
-    target.addEventListener('click', onClick)
-    sinon.spy(store, 'dispatch')
-
-    // Act
-    target.dispatchEvent(event)
-
-    // Assert
-    expect(store.dispatch).to.have.been.calledOnce
-    expect(store.dispatch).to.have.been.calledWith(switchToCityAction('Munich'))
   })
 
   it('should dispatch to switch to a scene', function () {

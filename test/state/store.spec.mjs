@@ -5,7 +5,6 @@ import { deleteGameAction } from '../../src/js/state/actions/delete-game.js'
 import { saveGameAction } from '../../src/js/state/actions/save-game.js'
 import { setColorPreferenceAction } from '../../src/js/state/actions/set-color-preference.js'
 import { setPlayernameAction } from '../../src/js/state/actions/set-playername.js'
-import { switchToCityAction } from '../../src/js/state/actions/switch-to-city.js'
 import { switchToSceneAction } from '../../src/js/state/actions/switch-to-scene.js'
 import { switchToViewAction } from '../../src/js/state/actions/switch-to-view.js'
 import store from '../../src/js/state/store.js'
@@ -168,7 +167,6 @@ describe('store', function () {
         // Nothing to prepare
 
           // Act
-          await store.dispatch(switchToCityAction('Lübeck'))
           await store.dispatch(switchToSceneAction('level-section'))
           await store.dispatch(switchToViewAction('docks'))
 
@@ -183,7 +181,6 @@ describe('store', function () {
         // Nothing to prepare
 
           // Act
-          await store.dispatch(switchToCityAction('Lübeck'))
           await store.dispatch(switchToSceneAction('level-section'))
           await store.dispatch(switchToViewAction('warehouse'))
 
@@ -198,7 +195,6 @@ describe('store', function () {
         // Nothing to prepare
 
           // Act
-          await store.dispatch(switchToCityAction('Lübeck'))
           await store.dispatch(switchToSceneAction('level-section'))
           await store.dispatch(switchToViewAction('market'))
 
@@ -218,21 +214,6 @@ describe('store', function () {
 
           // Assert
           expect(document.title).to.equal('Baltic Sea | The Baltic League | js13kgames-2023')
-        })
-      })
-
-      describe('when the view is city', function () {
-        it('should include the city name in the title', async function () {
-        // Arrange
-        // Nothing to prepare
-
-          // Act
-          await store.dispatch(switchToSceneAction('level-section'))
-          await store.dispatch(switchToCityAction('Wismar'))
-          await store.dispatch(switchToViewAction('city'))
-
-          // Assert
-          expect(document.title).to.equal('Wismar | The Baltic League | js13kgames-2023')
         })
       })
     })
