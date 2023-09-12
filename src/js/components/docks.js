@@ -47,7 +47,12 @@ export function docks (targetElement, state) {
               return ['option', [], { value: type }, type]
             })
         ]],
-        ['button', [], { type: 'button', 'data-acquire': 'ship' }, `Buy for ${state.shipTypes.nef.price} 💰`]
+        [
+          'button',
+          [],
+          { type: 'button', 'data-acquire': 'ship' },
+          state.newShipType ? `Buy for ${state.shipTypes[state.newShipType].price} 💰` : 'Decide on your ship type first.'
+        ]
       ]]
     ]],
     ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']

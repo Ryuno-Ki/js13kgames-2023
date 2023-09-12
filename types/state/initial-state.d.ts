@@ -26,6 +26,8 @@
  * @property {string} playername
  * @property {number} playermoney
  * @property {import('./show-tutorial.js').ShowTutorial} showTutorial
+ * @property {string} newShipName
+ * @property {import('./ships.js').ShipType | null} newShipType
  * @property {import('./ships.js').Ships} ships
  * @property {import('./ships.js').ShipTypes} shipTypes
  * @property {import('./wares.js').Wares} wares
@@ -49,6 +51,8 @@ export type State = {
     playername: string;
     playermoney: number;
     showTutorial: import('./show-tutorial.js').ShowTutorial;
+    newShipName: string;
+    newShipType: import('./ships.js').ShipType | null;
     ships: import('./ships.js').Ships;
     shipTypes: import('./ships.js').ShipTypes;
     wares: import('./wares.js').Wares;
