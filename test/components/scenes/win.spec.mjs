@@ -37,7 +37,7 @@ describe('sectionWin', function () {
       const winScene = sectionWin(targetElement, state)
 
       // Assert
-      expect(winScene).to.have.descendant('button.action[data-scene="title-section"]')
+      expect(winScene).to.have.descendant('[data-scene="title-section"]')
     })
   })
 })

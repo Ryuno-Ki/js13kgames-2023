@@ -49,7 +49,7 @@ describe('sectionGameOver', function () {
       const gameOverScene = sectionGameOver(targetElement, state)
 
       // Assert
-      expect(gameOverScene).to.have.descendant('button.action[data-scene="title-section"]')
+      expect(gameOverScene).to.have.descendant('[data-scene="title-section"]')
     })
   })
 })

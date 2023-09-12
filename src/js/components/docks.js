@@ -59,11 +59,11 @@ function mapShipsToTree (state, city) {
     .filter((ship) => ship.moored)
 
   if (ships.length === 0) {
-    return [['p', ['no-ships'], {}, 'No ships here. Perhaps they are sailing?']]
+    return [['p', [], {}, 'No ships here. Perhaps they are sailing?']]
   }
 
   if (['1', '2', '11', '12'].includes(activeMonth)) {
-    return [['p', ['frozen-sea'], {}, 'No ships can depart as long as the sea is frozen.']]
+    return [['p', [], {}, 'No ships can depart as long as the sea is frozen.']]
   }
 
   return mooredShipsInCity.map((ship) => [

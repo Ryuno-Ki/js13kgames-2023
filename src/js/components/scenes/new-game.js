@@ -25,7 +25,7 @@ export function sectionNewgame (targetElement, state) {
         ]]
       ]],
       ['p', [], {}, greetPlayer(state)],
-      ['div', ['actions'], {}, '', showActionButtons(state)]
+      ['div', [], {}, '', showActionButtons(state)]
     ]))
   }
 

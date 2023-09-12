@@ -72,7 +72,7 @@ describe('docks', function () {
       expect(docksComponent).not.to.equal(targetElement)
       expect(docksComponent).not.to.contain.text(['Load'])
       expect(docksComponent).not.to.contain.text(['Unload'])
-      expect(docksComponent).to.have.descendant('p.no-ships')
+      expect(docksComponent).to.contain.text('No ships here.')
     })
   })
 
@@ -90,7 +90,7 @@ describe('docks', function () {
         expect(docksComponent).not.to.equal(targetElement)
         expect(docksComponent).not.to.contain.text(['Load'])
         expect(docksComponent).not.to.contain.text(['Unload'])
-        expect(docksComponent).to.have.descendant('p.frozen-sea')
+        expect(docksComponent).to.contain.text('as long as the sea is frozen')
       })
     })
 

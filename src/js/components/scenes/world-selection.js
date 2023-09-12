@@ -29,7 +29,7 @@ export function sectionWorldselection (targetElement, state) {
         ]]
       ]],
       showContentWarning(state),
-      ['div', ['actions'], {}, '', showActionButtons(state)]
+      ['div', [], {}, '', showActionButtons(state)]
     ]))
   }
 
@@ -46,7 +46,7 @@ export function sectionWorldselection (targetElement, state) {
 function showActionButtons (state) {
   if (state.activeScenario) {
     return [
-      ['button', ['action'], { 'data-scene': 'level-section' }, 'Level']
+      ['button', [], { 'data-scene': 'level-section' }, 'Level']
     ]
   }
 
@@ -62,7 +62,7 @@ function showActionButtons (state) {
  */
 function showContentWarning (state) {
   if (state.activeScenario === 'tutorial') {
-    return ['p', ['content-warning'], {}, 'Content Warning: Death mention.']
+    return ['p', [], {}, 'Content Warning: Death mention.']
   }
 
   return ['span']

@@ -109,7 +109,7 @@ describe('sectionAbout', function () {
       const aboutScene = sectionAbout(targetElement, state)
 
       // Assert
-      expect(aboutScene).to.have.descendant('button.action[data-scene="title-section"]')
+      expect(aboutScene).to.have.descendant('[data-scene="title-section"]')
     })
   })
 })

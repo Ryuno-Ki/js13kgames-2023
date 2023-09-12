@@ -15,8 +15,8 @@ export function sectionGameOver (targetElement, state) {
   if (state.activeScene === 'game-over-section') {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'Game Over'],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Title']
+      ['div', [], {}, '', [
+        ['button', [], { 'data-scene': 'title-section' }, 'Title']
       ]]
     ]))
   }

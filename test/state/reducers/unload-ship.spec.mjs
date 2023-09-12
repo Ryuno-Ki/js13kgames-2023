@@ -41,7 +41,7 @@ describe('unloadShipReducer', function () {
 
         // Assert
         expect(newState).not.to.equal(state)
-				expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({wax: 0})
+        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({ wax: 0 })
       })
     })
 

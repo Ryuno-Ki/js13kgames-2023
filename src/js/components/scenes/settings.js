@@ -28,8 +28,8 @@ export function sectionSettings (targetElement, state) {
           ]]
         ]]
       ]],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Back to Title']
+      ['div', [], {}, '', [
+        ['button', [], { 'data-scene': 'title-section' }, 'Back to Title']
       ]]
     ]))
   }

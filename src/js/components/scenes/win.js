@@ -15,8 +15,8 @@ export function sectionWin (targetElement, state) {
   if (state.activeScene === 'win-section') {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, 'Win'],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'title-section' }, 'Title']
+      ['div', [], {}, '', [
+        ['button', [], { 'data-scene': 'title-section' }, 'Title']
       ]]
     ]))
   }

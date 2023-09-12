@@ -52,7 +52,7 @@ describe('sectionWorldselection', function () {
       const worldSelectionScene = sectionWorldselection(targetElement, state)
 
       // Assert
-      expect(worldSelectionScene).not.to.have.descendant('button.action[data-scene="level-section"]')
+      expect(worldSelectionScene).not.to.have.descendant('[data-scene="level-section"]')
     })
 
     describe('when a choice was made', function () {
@@ -65,7 +65,7 @@ describe('sectionWorldselection', function () {
         const worldSelectionScene = sectionWorldselection(targetElement, state)
 
         // Assert
-        expect(worldSelectionScene).to.have.descendant('button.action[data-scene="level-section"]')
+        expect(worldSelectionScene).to.have.descendant('[data-scene="level-section"]')
       })
 
       describe('when picking tutorial', function () {
@@ -78,7 +78,7 @@ describe('sectionWorldselection', function () {
           const worldSelectionScene = sectionWorldselection(targetElement, state)
 
           // Assert
-          expect(worldSelectionScene).to.have.descendant('p.content-warning')
+          expect(worldSelectionScene).to.contain.text('Content Warning:')
         })
       })
     })
