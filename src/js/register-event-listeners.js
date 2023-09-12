@@ -3,6 +3,12 @@ import { onClick } from './on-click.js'
 import { onInput } from './on-input.js'
 
 /**
+ * @typedef {*} EventListener
+ * @todo Frigging TypeScript is not able to detect document.body event listeners
+ * with an union of window event listeners.
+ */
+
+/**
  * Catch-all error handler to aid with debugging on mobile.
  *
  * @private
@@ -16,9 +22,20 @@ function onError (event) {
  * Registers event listeners.
  */
 export function registerEventListeners () {
-  document.body.addEventListener('change', onChange)
-  document.body.addEventListener('click', onClick)
-  document.body.addEventListener('input', onInput)
+  on(/** @type {HTMLBodyElement} */(document.body), 'change', onChange)
+  on(/** @type {HTMLBodyElement} */(document.body), 'click', onClick)
+  on(/** @type {HTMLBodyElement} */(document.body), 'input', onInput)
+  on(window, 'error', onError)
+}
 
-  window.addEventListener('error', onError)
+/**
+ * Helper function to reduce file size.
+ *
+ * @private
+ * @argument {HTMLBodyElement | Window} el
+ * @argument {'change' | 'click' | 'error' | 'input'} eventType
+ * @argument {EventListener} eventListener
+ */
+function on (el, eventType, eventListener) {
+  el.addEventListener(eventType, eventListener)
 }
