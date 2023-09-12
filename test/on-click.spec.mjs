@@ -4,6 +4,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
 import { onClick } from '../src/js/on-click.js'
+import { buyShipAction } from '../src/js/state/actions/buy-ship.js'
 import { checkOnGameoverConditionAction } from '../src/js/state/actions/check-on-gameover-condition.js'
 import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-condition.js'
 import { deleteGameAction } from '../src/js/state/actions/delete-game.js'
@@ -52,6 +53,25 @@ describe('onClick', function () {
     expect(store.dispatch).to.have.been.calledWith(saveGameAction())
     expect(store.dispatch).to.have.been.calledWith(checkOnWinConditionAction())
     expect(store.dispatch).to.have.been.calledWith(checkOnGameoverConditionAction())
+  })
+
+  it('should dispatch to buy a ship', function () {
+    // Arrange
+    const city = 'Lübeck'
+    const event = new window.Event('click')
+    const target = document.createElement('button')
+    target.type = 'button'
+    target.setAttribute('data-acquire', 'ship')
+    target.setAttribute('data-city', city)
+    target.addEventListener('click', onClick)
+    sinon.spy(store, 'dispatch')
+
+    // Act
+    target.dispatchEvent(event)
+
+    // Assert
+    expect(store.dispatch).to.have.been.calledOnce
+    expect(store.dispatch).to.have.been.calledWith(buyShipAction(city))
   })
 
   it('should dispatch to delete a game', function () {
