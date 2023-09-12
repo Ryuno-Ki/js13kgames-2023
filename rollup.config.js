@@ -1,9 +1,4 @@
-import json from '@rollup/plugin-json';
 import terser from '@rollup/plugin-terser';
-
-import fonts from 'rollup-plugin-bundle-fonts';
-import htmlTemplate from 'rollup-plugin-generate-html-template';
-import importAssertions from 'rollup-plugin-import-assertions';
 import license from 'rollup-plugin-license';
 import sizes from 'rollup-plugin-sizes';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -26,17 +21,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.`;
 
 const plugins = process.env.NODE_ENV === 'development'
 	? [
-		importAssertions(),
-		json({ namedExports: false }),
-		fonts({ fontTargetDir: ['./public'], cssBundleDir: ['./public'] }),
-		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
 		sizes({ details: true }),
 		visualizer(),
 	] : [
-		importAssertions(),
-		json({ namedExports: false }),
-		fonts({ fontTargetDir: ['./public'], cssBundleDir: ['./public'] }),
-		htmlTemplate({ template: './src/single.html', target: './public/index.html' }),
 		terser(),
 		license({ banner: LICENSE_HEADER }),
 		sizes({ details: true }),
