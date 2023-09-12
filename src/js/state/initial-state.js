@@ -39,8 +39,6 @@ import { wares } from './wares.js'
  * @property {import('./ships.js').Ships} ships
  * @property {import('./ships.js').ShipTypes} shipTypes
  * @property {import('./wares.js').Wares} wares
- * @property {string} title
- * @property {number} volume
 */
 
 /** @type {State} */
@@ -59,7 +57,5 @@ export const initialState = {
   history,
   showTutorial,
   playername: '',
-  playermoney: 100,
-  title: '',
-  volume: 0
+  playermoney: 100
 }

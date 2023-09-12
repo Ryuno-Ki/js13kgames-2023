@@ -9,7 +9,7 @@ import { copy } from '../../helpers/copy.js'
  */
 export function loadGameReducer (state, payload) {
   const loadedState = payload.state
-  const { activeColor, playername, volume } = state
+  const { activeColor, playername } = state
 
-  return copy(state, loadedState, { activeColor, playername, volume })
+  return copy(state, loadedState, { activeColor, playername })
 }
