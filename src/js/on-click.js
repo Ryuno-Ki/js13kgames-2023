@@ -34,7 +34,7 @@ export async function onClick (event) {
       checkOnWinConditionAction(),
       checkOnGameoverConditionAction()
     ].map((action) => store.dispatch(action)))
-		return
+    return
   }
 
   if (attr(target, 'city')) {
