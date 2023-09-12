@@ -137,8 +137,14 @@ describe('buyWareReducer', function () {
 
   it('should update the market of that city', function () {
     // Arrange
-    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
-    const payload = { city: 'Lübeck', ware: 'wool', quantity: 2 }
+    const cities = [{
+      name: 'Lübeck',
+      demand: [{ ware: 'wax', quantity: 100 }],
+      supply: [{ ware: 'salt', quantity: 2 }, { ware: 'wax', quantity: 10 }],
+      warehouse: { stock: [] }
+    }]
+    const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities, playermoney: 1000000 })
+    const payload = { city: 'Lübeck', ware: 'wax', quantity: 2 }
     const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
     // Act
@@ -147,9 +153,8 @@ describe('buyWareReducer', function () {
     // Assert
     expect(newState).not.to.equal(state)
     expect(newState.cities[cityIndex].supply).to.shallowDeepEqual([
-      { ware: 'honey', quantity: 5 },
       { ware: 'salt', quantity: 2 },
-      { ware: 'wool', quantity: 8 }
+      { ware: 'wax', quantity: 8 }
     ])
   })
 })
