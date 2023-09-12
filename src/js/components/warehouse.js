@@ -22,6 +22,7 @@ export function warehouse (targetElement, state) {
     ['div', [], { 'data-component': 'tutorial' }],
     informOnHistoricEvents(state),
     renderStock(city.warehouse.stock),
+    ['button', [], { type: 'button', 'data-acquire': 'warehouse-level', 'data-city': city.name }, 'Buy another level'],
     ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
     ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market'],
     ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map']

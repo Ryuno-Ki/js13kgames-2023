@@ -15,7 +15,7 @@ describe('buyWarehouseLevelAction', function () {
     const city = 'Lübeck'
 
     // Act
-    const action = buyWarehouseLevelAction({ city })
+    const action = buyWarehouseLevelAction(city)
 
     // Assert
     expect(action).to.be.an.FSA

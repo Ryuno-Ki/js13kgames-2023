@@ -7,13 +7,10 @@
 /**
  * Action creator to buy another level of the warehouse in a city.
  *
- * @argument {object} payload
- * @argument {import('../cities.js').CityName} payload.city
+ * @argument {import('../cities.js').CityName} city
  * @returns {BUY_WAREHOUSE_LEVEL_ACTION}
  */
-export function buyWarehouseLevelAction({ city }: {
-    city: import('../cities.js').CityName;
-}): BUY_WAREHOUSE_LEVEL_ACTION;
+export function buyWarehouseLevelAction(city: import('../cities.js').CityName): BUY_WAREHOUSE_LEVEL_ACTION;
 export type BUY_WAREHOUSE_LEVEL_ACTION = {
     type: "C";
     payload: {
