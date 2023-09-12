@@ -42,5 +42,7 @@ export const SWITCH_TO_SCENE_ACTION = 'SWITCH_TO_SCENE_ACTION'
 export const SWITCH_TO_VIEW_ACTION = 'SWITCH_TO_VIEW_ACTION'
 /** Action type to unload a ship into a warehouse in that city */
 export const UNLOAD_SHIP_ACTION = 'UNLOAD_SHIP_ACTION'
+/** Action type to unlock historic events */
+export const UNVEIL_HISTORY_ACTION = 'UNVEIL_HISTORY_ACTION'
 /** Action type to update the position of all ships */
 export const UPDATE_SHIPS_ACTION = 'UPDATE_SHIPS_ACTION'
