@@ -71,7 +71,19 @@ function mapShipsToTree (state) {
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
               ['span', [], {}, '0'],
-              ['input', [], { id: `${ship.name}-load-${ware.ware}`, name: `${ship.name}-load-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'load', 'data-ship': ship.name, 'data-ware': ware.ware }],
+              ['input', [], {
+                id: `${ship.name}-load-${ware.ware}`,
+                name: `${ship.name}-load-${ware.ware}`,
+                type: 'range',
+                min: 0,
+                max: ware.quantity,
+                step: 1,
+                value: 0,
+                'data-city': city.name,
+                'data-load': 'load',
+                'data-ship': ship.name,
+                'data-ware': ware.ware
+              }],
               ['span', [], {}, ware.quantity]
             ]
           ])
@@ -83,7 +95,19 @@ function mapShipsToTree (state) {
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-unload-${ware.ware}` }, ware.ware],
               ['span', [], {}, '0'],
-              ['input', [], { id: `${ship.name}-unload-${ware.ware}`, name: `${ship.name}-unload-${ware.ware}`, type: 'range', min: 0, max: ware.quantity, step: 1, value: 0, 'data-city': city, 'data-load': 'unload', 'data-ship': ship.name, 'data-ware': ware.ware }],
+              ['input', [], {
+                id: `${ship.name}-unload-${ware.ware}`,
+                name: `${ship.name}-unload-${ware.ware}`,
+                type: 'range',
+                min: 0,
+                max: ware.quantity,
+                step: 1,
+                value: 0,
+                'data-city': city.name,
+                'data-load': 'unload',
+                'data-ship': ship.name,
+                'data-ware': ware.ware
+              }],
               ['span', [], {}, ware.quantity]
             ]
           ])
@@ -95,7 +119,7 @@ function mapShipsToTree (state) {
           ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'
           ],
           ...destinations.map((destination) => [
-            'option', [], { value: destination.name }, `to  ${destination.name}`
+            'option', [], { value: destination.name }, `to  ${destination.name} (for ${ship.upkeep * city.distances[destination.name]} 💰)`
           ])
         ]]
       ]]
