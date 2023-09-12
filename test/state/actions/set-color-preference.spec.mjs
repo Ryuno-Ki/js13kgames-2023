@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { SET_COLOR_PREFERENCE_ACTION } from '../../../src/js/constants.js'
 import { setColorPreferenceAction } from '../../../src/js/state/actions/set-color-preference.js'
 
 chai.use(chaiFlux)
@@ -9,7 +10,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('setColorPreferenceAction', function () {
-  it('should create a SET_COLOR_PREFERENCE_ACTION', function () {
+  it(`should create a ${SET_COLOR_PREFERENCE_ACTION}`, function () {
     // Arrange
     const color = 'dark'
 
@@ -24,7 +25,7 @@ describe('setColorPreferenceAction', function () {
         color: String
       }
     })
-    expect(action.type).to.equal('SET_COLOR_PREFERENCE_ACTION')
+    expect(action.type).to.equal(SET_COLOR_PREFERENCE_ACTION)
     expect(action.payload.color).to.equal(color)
   })
 })

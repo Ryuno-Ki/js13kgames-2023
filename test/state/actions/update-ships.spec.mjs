@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { UPDATE_SHIPS_ACTION } from '../../../src/js/constants.js'
 import { updateShipsAction } from '../../../src/js/state/actions/update-ships.js'
 
 chai.use(chaiFlux)
@@ -9,7 +10,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('updateShipsAction', function () {
-  it('should create a UPDATE_SHIPS_ACTION', function () {
+  it(`should create a ${UPDATE_SHIPS_ACTION}`, function () {
     // Arrange
     // Nothing to prepare
 
@@ -22,6 +23,6 @@ describe('updateShipsAction', function () {
       type: String,
       payload: {}
     })
-    expect(action.type).to.equal('UPDATE_SHIPS_ACTION')
+    expect(action.type).to.equal(UPDATE_SHIPS_ACTION)
   })
 })

@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { SET_TUTORIAL_ACTION } from '../../../src/js/constants.js'
 import { setTutorialAction } from '../../../src/js/state/actions/set-tutorial.js'
 
 chai.use(chaiFlux)
@@ -9,7 +10,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('setTutorialAction', function () {
-  it('should create a SET_TUTORIAL_ACTION', function () {
+  it(`should create a ${SET_TUTORIAL_ACTION}`, function () {
     // Arrange
     const scene = 'about-section'
 
@@ -24,7 +25,7 @@ describe('setTutorialAction', function () {
         scene: String
       }
     })
-    expect(action.type).to.equal('SET_TUTORIAL_ACTION')
+    expect(action.type).to.equal(SET_TUTORIAL_ACTION)
     expect(action.payload.scene).to.equal(scene)
   })
 })

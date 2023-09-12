@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { SET_LEVEL_SCENARIO_ACTION } from '../../../src/js/constants.js'
 import { setLevelScenarioAction } from '../../../src/js/state/actions/set-level-scenario.js'
 
 chai.use(chaiFlux)
@@ -9,7 +10,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('setLevelScenarioAction', function () {
-  it('should create a SET_LEVEL_SCENARIO_ACTION', function () {
+  it(`should create a ${SET_LEVEL_SCENARIO_ACTION}`, function () {
     // Arrange
     const scenario = 'free-play'
 
@@ -24,7 +25,7 @@ describe('setLevelScenarioAction', function () {
         scenario: String
       }
     })
-    expect(action.type).to.equal('SET_LEVEL_SCENARIO_ACTION')
+    expect(action.type).to.equal(SET_LEVEL_SCENARIO_ACTION)
     expect(action.payload.scenario).to.equal(scenario)
   })
 })

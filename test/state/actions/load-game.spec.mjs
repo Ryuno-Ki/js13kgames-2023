@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { LOAD_GAME_ACTION } from '../../../src/js/constants.js'
 import { initialState } from '../../../src/js/state/initial-state.js'
 import { loadGameAction } from '../../../src/js/state/actions/load-game.js'
 
@@ -10,7 +11,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('loadGameAction', function () {
-  it('should create a LOAD_GAME_ACTION', function () {
+  it(`should create a ${LOAD_GAME_ACTION}`, function () {
     // Arrange
     const state = Object.assign({}, initialState, { playername: 'Kolumbus' })
 
@@ -25,7 +26,7 @@ describe('loadGameAction', function () {
         state: Object
       }
     })
-    expect(action.type).to.equal('LOAD_GAME_ACTION')
+    expect(action.type).to.equal(LOAD_GAME_ACTION)
     expect(action.payload.state).to.equal(state)
   })
 })

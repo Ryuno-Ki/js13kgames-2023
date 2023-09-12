@@ -2,6 +2,7 @@ import chai from 'chai'
 import chaiFlux from 'chai-flux'
 import chaiInterface from 'chai-interface'
 
+import { SWITCH_TO_SCENE_ACTION } from '../../../src/js/constants.js'
 import { switchToSceneAction } from '../../../src/js/state/actions/switch-to-scene.js'
 
 chai.use(chaiFlux)
@@ -9,7 +10,7 @@ chai.use(chaiInterface)
 const { expect } = chai
 
 describe('switchToSceneAction', function () {
-  it('should create a SWITCH_TO_SCENE_ACTION', function () {
+  it(`should create a ${SWITCH_TO_SCENE_ACTION}`, function () {
     // Arrange
     const scene = 'about-section'
 
@@ -24,7 +25,7 @@ describe('switchToSceneAction', function () {
         scene: String
       }
     })
-    expect(action.type).to.equal('SWITCH_TO_SCENE_ACTION')
+    expect(action.type).to.equal(SWITCH_TO_SCENE_ACTION)
     expect(action.payload.scene).to.equal(scene)
   })
 })
