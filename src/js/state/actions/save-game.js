@@ -1,3 +1,5 @@
+import { SAVE_GAME_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} SAVE_GAME_ACTION
  * @property {'SAVE_GAME_ACTION'} SAVE_GAME_ACTION.type
@@ -11,7 +13,7 @@
  */
 export function saveGameAction () {
   return {
-    type: 'SAVE_GAME_ACTION',
+    type: SAVE_GAME_ACTION,
     payload: {}
   }
 }

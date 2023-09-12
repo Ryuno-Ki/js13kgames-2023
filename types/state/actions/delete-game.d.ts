@@ -17,3 +17,4 @@ export type DELETE_GAME_ACTION = {
         playername: string;
     };
 };
+import { DELETE_GAME_ACTION } from '../../constants.js';

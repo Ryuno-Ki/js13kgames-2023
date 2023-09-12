@@ -1,10 +1,12 @@
+import { UNLOAD_SHIP_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} UNLOAD_SHIP_ACTION
  * @property {'UNLOAD_SHIP_ACTION'} UNLOAD_SHIP_ACTION.type
  * @property {object} UNLOAD_SHIP_ACTION.payload
- * @property {import('../initial-state.js').CityName} UNLOAD_SHIP_ACTION.payload.city
+ * @property {import('../cities.js').CityName} UNLOAD_SHIP_ACTION.payload.city
  * @property {string} UNLOAD_SHIP_ACTION.payload.ship
- * @property {import('../initial-state.js').Ware} UNLOAD_SHIP_ACTION.payload.ware
+ * @property {import('../wares.js').Ware} UNLOAD_SHIP_ACTION.payload.ware
  * @property {number} UNLOAD_SHIP_ACTION.payload.quantity
  */
 
@@ -12,15 +14,15 @@
  * Action creator to unload the cargo of a ship in a city.
  *
  * @argument {object} payload
- * @argument {import('../initial-state.js').CityName} payload.city
+ * @argument {import('../cities.js').CityName} payload.city
  * @argument {string} payload.ship
- * @argument {import('../initial-state.js').Ware} payload.ware
+ * @argument {import('../wares.js').Ware} payload.ware
  * @argument {number} payload.quantity
  * @returns {UNLOAD_SHIP_ACTION}
  */
 export function unloadShipAction ({ city, ship, ware, quantity }) {
   return {
-    type: 'UNLOAD_SHIP_ACTION',
+    type: UNLOAD_SHIP_ACTION,
     payload: {
       city,
       ship,

@@ -13,3 +13,4 @@ export type UPDATE_SHIPS_ACTION = {
     type: 'UPDATE_SHIPS_ACTION';
     payload: object;
 };
+import { UPDATE_SHIPS_ACTION } from '../../constants.js';

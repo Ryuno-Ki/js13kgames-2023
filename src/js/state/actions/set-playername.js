@@ -1,3 +1,5 @@
+import { SET_PLAYERNAME_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} SET_PLAYERNAME_ACTION
  * @property {'SET_PLAYERNAME_ACTION'} SET_PLAYERNAME_ACTION.type
@@ -13,7 +15,7 @@
  */
 export function setPlayernameAction (playername) {
   return {
-    type: 'SET_PLAYERNAME_ACTION',
+    type: SET_PLAYERNAME_ACTION,
     payload: {
       playername
     }

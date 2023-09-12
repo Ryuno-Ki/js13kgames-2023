@@ -1,3 +1,5 @@
+import { SET_TUTORIAL_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} SET_TUTORIAL_ACTION
  * @property {'SET_TUTORIAL_ACTION'} SET_TUTORIAL_ACTION.type
@@ -13,7 +15,7 @@
  */
 export function setTutorialAction (scene) {
   return {
-    type: 'SET_TUTORIAL_ACTION',
+    type: SET_TUTORIAL_ACTION,
     payload: {
       scene
     }

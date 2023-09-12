@@ -17,3 +17,4 @@ export type SWITCH_TO_SCENE_ACTION = {
         scene: import('../initial-state.js').Scene;
     };
 };
+import { SWITCH_TO_SCENE_ACTION } from '../../constants.js';

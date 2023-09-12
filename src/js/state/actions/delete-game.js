@@ -1,3 +1,5 @@
+import { DELETE_GAME_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} DELETE_GAME_ACTION
  * @property {'DELETE_GAME_ACTION'} DELETE_GAME_ACTION.type
@@ -13,7 +15,7 @@
  */
 export function deleteGameAction (playername) {
   return {
-    type: 'DELETE_GAME_ACTION',
+    type: DELETE_GAME_ACTION,
     payload: {
       playername
     }

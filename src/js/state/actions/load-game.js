@@ -1,3 +1,5 @@
+import { LOAD_GAME_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} LOAD_GAME_ACTION
  * @property {'LOAD_GAME_ACTION'} LOAD_GAME_ACTION.type
@@ -13,7 +15,7 @@
  */
 export function loadGameAction (state) {
   return {
-    type: 'LOAD_GAME_ACTION',
+    type: LOAD_GAME_ACTION,
     payload: {
       state
     }

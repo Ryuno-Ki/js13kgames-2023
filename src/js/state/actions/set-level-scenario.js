@@ -1,3 +1,5 @@
+import { SET_LEVEL_SCENARIO_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} SET_LEVEL_SCENARIO_ACTION
  * @property {'SET_LEVEL_SCENARIO_ACTION'} SET_LEVEL_SCENARIO_ACTION.type
@@ -13,7 +15,7 @@
  */
 export function setLevelScenarioAction (scenario) {
   return {
-    type: 'SET_LEVEL_SCENARIO_ACTION',
+    type: SET_LEVEL_SCENARIO_ACTION,
     payload: {
       scenario
     }

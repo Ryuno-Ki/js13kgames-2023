@@ -17,3 +17,4 @@ export type SET_COLOR_PREFERENCE_ACTION = {
         color: import('../initial-state.js').Color;
     };
 };
+import { SET_COLOR_PREFERENCE_ACTION } from '../../constants.js';

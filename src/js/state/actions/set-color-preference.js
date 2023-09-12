@@ -1,3 +1,4 @@
+import { SET_COLOR_PREFERENCE_ACTION } from '../../constants.js'
 /**
  * @typedef {object} SET_COLOR_PREFERENCE_ACTION
  * @property {'SET_COLOR_PREFERENCE_ACTION'} SET_COLOR_PREFERENCE_ACTION.type
@@ -13,7 +14,7 @@
  */
 export function setColorPreferenceAction (color) {
   return {
-    type: 'SET_COLOR_PREFERENCE_ACTION',
+    type: SET_COLOR_PREFERENCE_ACTION,
     payload: {
       color
     }

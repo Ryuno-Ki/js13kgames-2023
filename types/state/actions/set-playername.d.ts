@@ -17,3 +17,4 @@ export type SET_PLAYERNAME_ACTION = {
         playername: string;
     };
 };
+import { SET_PLAYERNAME_ACTION } from '../../constants.js';

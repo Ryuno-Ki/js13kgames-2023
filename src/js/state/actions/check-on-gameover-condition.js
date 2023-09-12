@@ -1,3 +1,5 @@
+import { CHECK_ON_GAMEOVER_CONDITION_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} CHECK_ON_GAMEOVER_CONDITION_ACTION
  * @property {'CHECK_ON_GAMEOVER_CONDITION_ACTION'} CHECK_ON_GAMEOVER_CONDITION_ACTION.type
@@ -11,7 +13,7 @@
  */
 export function checkOnGameoverConditionAction () {
   return {
-    type: 'CHECK_ON_GAMEOVER_CONDITION_ACTION',
+    type: CHECK_ON_GAMEOVER_CONDITION_ACTION,
     payload: {}
   }
 }

@@ -1,3 +1,5 @@
+import { UPDATE_SHIPS_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} UPDATE_SHIPS_ACTION
  * @property {'UPDATE_SHIPS_ACTION'} UPDATE_SHIPS_ACTION.type
@@ -11,7 +13,7 @@
  */
 export function updateShipsAction () {
   return {
-    type: 'UPDATE_SHIPS_ACTION',
+    type: UPDATE_SHIPS_ACTION,
     payload: {}
   }
 }

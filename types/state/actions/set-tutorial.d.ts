@@ -17,3 +17,4 @@ export type SET_TUTORIAL_ACTION = {
         scene: import('../initial-state.js').Scene;
     };
 };
+import { SET_TUTORIAL_ACTION } from '../../constants.js';

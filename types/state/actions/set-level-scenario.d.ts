@@ -17,3 +17,4 @@ export type SET_LEVEL_SCENARIO_ACTION = {
         scenario: import('../initial-state.js').Scenario;
     };
 };
+import { SET_LEVEL_SCENARIO_ACTION } from '../../constants.js';

@@ -13,3 +13,4 @@ export type CHECK_ON_GAMEOVER_CONDITION_ACTION = {
     type: 'CHECK_ON_GAMEOVER_CONDITION_ACTION';
     payload: object;
 };
+import { CHECK_ON_GAMEOVER_CONDITION_ACTION } from '../../constants.js';

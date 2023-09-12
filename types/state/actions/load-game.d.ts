@@ -17,3 +17,4 @@ export type LOAD_GAME_ACTION = {
         state: import('../initial-state.js').State;
     };
 };
+import { LOAD_GAME_ACTION } from '../../constants.js';

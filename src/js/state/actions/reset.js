@@ -1,3 +1,5 @@
+import { RESET_ACTION } from '../../constants.js'
+
 /**
  * @typedef {object} RESET_ACTION
  * @property {'RESET_ACTION'} RESET_ACTION.type
@@ -11,7 +13,7 @@
  */
 export function resetAction () {
   return {
-    type: 'RESET_ACTION',
+    type: RESET_ACTION,
     payload: {}
   }
 }
