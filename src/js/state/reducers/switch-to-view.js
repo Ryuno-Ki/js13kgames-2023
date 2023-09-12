@@ -9,6 +9,10 @@ import { copy } from '../../helpers/copy.js'
  */
 export function switchToViewReducer (state, payload) {
   const activeView = payload.view
+  const showTutorial = {
+    ...state.showTutorial
+  }
+  showTutorial[state.activeView] = false
 
-  return copy(state, { activeView })
+  return copy(state, { activeView, showTutorial })
 }
