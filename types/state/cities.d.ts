@@ -31,7 +31,6 @@
 /**
  * @typedef {object} Warehouse
  * @property {'1' | '2' | '3' | '4'} level
- * @property {boolean} hasScribe
  * @property {Array<WarehouseStock>} stock
  */
 /**
@@ -63,7 +62,6 @@ export type WarehouseStock = {
 };
 export type Warehouse = {
     level: '1' | '2' | '3' | '4';
-    hasScribe: boolean;
     stock: Array<WarehouseStock>;
 };
 export type Cities = Array<City>;

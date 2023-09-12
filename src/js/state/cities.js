@@ -37,7 +37,6 @@
 /**
  * @typedef {object} Warehouse
  * @property {'1' | '2' | '3' | '4'} level
- * @property {boolean} hasScribe
  * @property {Array<WarehouseStock>} stock
  */
 
@@ -71,7 +70,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -103,7 +101,6 @@ export const cities = [{
     quantity: 80
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -135,7 +132,6 @@ export const cities = [{
     quantity: 100
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -164,7 +160,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -193,7 +188,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -222,7 +216,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -269,7 +262,6 @@ export const cities = [{
     quantity: 10
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -304,7 +296,6 @@ export const cities = [{
     quantity: 50
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -333,7 +324,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -362,7 +352,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -391,7 +380,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -423,7 +411,6 @@ export const cities = [{
     quantity: 50
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -452,7 +439,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -481,7 +467,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -510,7 +495,6 @@ export const cities = [{
   demand: [],
   supply: [],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
@@ -551,7 +535,6 @@ export const cities = [{
     quantity: 4
   }],
   warehouse: {
-    hasScribe: false,
     level: '1',
     stock: []
   }
