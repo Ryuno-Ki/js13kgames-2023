@@ -8,29 +8,36 @@ import { copy } from '../../helpers/copy.js'
  * @returns {import('../initial-state.js').State}
  */
 export function buyShipReducer (state, payload) {
-  const { activeCity } = state
-  const newShipName = ''
-  const newShipType = null
+  const { activeCity, newShipName, newShipType } = state
 
-  const { city, shipName, shipType } = payload
-  const { price } = state.shipTypes[shipType]
-
-  let { playermoney, ships } = state
+  const { city } = payload
 
   if (activeCity !== city) {
-    return copy(state, { playermoney, ships })
+    return copy(state, {})
   }
 
-  if (ships.find((ship) => ship.name === shipName)) {
-    return copy(state, { playermoney, ships })
+  if (!newShipName) {
+    return copy(state, {})
   }
+
+  if (!newShipType) {
+    return copy(state, {})
+  }
+
+  if (state.ships.find((ship) => ship.name === newShipName)) {
+    return copy(state, {})
+  }
+
+  const { price } = state.shipTypes[newShipType]
+
+  let { playermoney, ships } = state
 
   if (price <= playermoney) {
     playermoney = playermoney - price
 
     ships = state.ships.concat({
-      name: shipName,
-      type: shipType,
+      name: newShipName,
+      type: newShipType,
       position: city,
       moored: true,
       itinerary: null,
@@ -45,5 +52,5 @@ export function buyShipReducer (state, payload) {
     })
   }
 
-  return copy(state, { newShipName, newShipType, playermoney, ships })
+  return copy(state, { newShipName: '', newShipType: null, playermoney, ships })
 }

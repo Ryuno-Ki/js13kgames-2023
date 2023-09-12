@@ -42,8 +42,18 @@ describe('buyShipReducer', function () {
       const activeCity = 'Lübeck'
       const playermoney = 1000000
       const ships = []
-      const state = Object.assign({}, store.getState(), { activeCity, playermoney, ships })
-      const payload = { city: 'Lübeck', shipName: 'Santa Maria', shipType: 'nef' }
+      const state = Object.assign(
+        {},
+        store.getState(),
+        {
+          activeCity,
+          newShipName: 'Santa Maria',
+          newShipType: 'nef',
+          playermoney,
+          ships
+        }
+      )
+      const payload = { city: 'Lübeck' }
 
       // Act
       const newState = buyShipReducer(state, payload)
@@ -51,8 +61,8 @@ describe('buyShipReducer', function () {
       // Assert
       expect(newState).not.to.equal(state)
       expect(newState.ships).to.shallowDeepEqual([{
-        name: payload.shipName,
-        type: payload.shipType,
+        name: 'Santa Maria',
+        type: 'nef',
         position: payload.city,
         moored: true,
         itinerary: null,
