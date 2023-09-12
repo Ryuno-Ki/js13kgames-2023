@@ -1,60 +1,44 @@
-[data-component="sea"] .side-by-side {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-[data-component="sea"] .side-by-side > * {
+.side-by-side > * {
 	flex-grow: 1;
 }
 
-
-[data-component="sea"] .cities {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 1em;
-	list-style: none;
-	padding: 0;
-}
-
-[data-component="sea"] .duchy,
-[data-component="sea"] .empire,
-[data-component="sea"] .kingdom,
-[data-component="sea"] .order,
-[data-component="sea"] .republic {
+.duchy,
+.empire,
+.kingdom,
+.order,
+.republic {
 	stroke: #000000;
 	stroke-width: 0.5;
 }
 
-[data-component="sea"] .denmark {
+.denmark {
 	fill: yellow;
 }
 
-[data-component="sea"] .lithuania {
+.lithuania {
 	fill: #a149a1;
 }
 
-[data-component="sea"] .norway {
+.norway {
 	fill: #ff8f64;
 }
 
-[data-component="sea"] .nowgorod {
+.nowgorod {
 	fill: #e5e571;
 }
 
-[data-component="sea"] .order {
+.order {
 	fill: #81bccf;
 }
 
-[data-component="sea"] .pskow {
+.pskow {
 	fill: #e5b041;
 }
 
-[data-component="sea"] .roman {
+.roman {
 	fill: #61e561;
 }
 
-[data-component="sea"] .sweden {
+.sweden {
 	fill: #d9511f;
 }

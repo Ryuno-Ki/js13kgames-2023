@@ -1,9 +1,9 @@
-[data-component="load-game-section"] [data-state]::before {
+[data-state]::before {
 	display: inline;
 	content: "📂";
 }
 
-[data-component="load-game-section"] [data-playername]::before {
+[data-playername]::before {
 	display: inline;
 	content: "🗑️";
 }

@@ -10,9 +10,3 @@
 	font-size: 4em;
 	text-align: center;
 }
-
-[data-component="title-section"] .actions {
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-}

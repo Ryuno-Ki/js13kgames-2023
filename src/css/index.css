@@ -1,9 +1,6 @@
 @import './main.css';
 @import './components/market.css';
-@import './components/month-meter.css';
 @import './components/sea.css';
-@import './components/scenes/level.css';
 @import './components/scenes/load-game.css';
-@import './components/scenes/new-game.css';
 @import './components/scenes/title.css';
 

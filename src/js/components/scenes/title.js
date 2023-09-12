@@ -16,11 +16,11 @@ export function sectionTitle (targetElement, state) {
     element.appendChild(el('div', [], {}, '', [
       // The glyphs are messed up in boeticher. Workaround …
       ['h1', [], {}, 'thE BALtiC LEAGuE'],
-      ['div', ['actions'], {}, '', [
-        ['button', ['action'], { 'data-scene': 'new-game-section' }, 'New Game'],
-        ['button', ['action'], { 'data-scene': 'load-game-section' }, 'Load Game'],
-        ['button', ['action'], { 'data-scene': 'settings-section' }, 'Settings'],
-        ['button', ['action'], { 'data-scene': 'about-section' }, 'About']
+      ['div', ['f', 'fc', 'g'], {}, '', [
+        ['button', [], { 'data-scene': 'new-game-section' }, 'New Game'],
+        ['button', [], { 'data-scene': 'load-game-section' }, 'Load Game'],
+        ['button', [], { 'data-scene': 'settings-section' }, 'Settings'],
+        ['button', [], { 'data-scene': 'about-section' }, 'About']
       ]]
     ]))
   }

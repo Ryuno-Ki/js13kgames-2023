@@ -29,11 +29,11 @@ export function sea (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     ['div', [], {}, '', [
-      ['div', ['side-by-side'], {}, '', [
+      ['div', ['f', 'fr'], {}, '', [
         ['div', [], { 'data-component': 'sea-map' }],
         ['div', [], {}, '', [
           ['div', [], {}, 'Plan your moves carefully'],
-          ['ul', ['cities'], {}, '', [
+          ['ul', ['f', 'fr', 'g'], {}, '', [
             ...cities.map((c) => [
               'li',
               [],

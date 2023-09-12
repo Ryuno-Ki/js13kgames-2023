@@ -36,6 +36,7 @@ p {
 }
 
 ul {
+	list-style: none;
 	padding: 0;
 }
 
@@ -47,6 +48,23 @@ select {
 	width: 100%;
 }
 
+.f {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.fr {
+	flex-direction: row;
+}
+
+.fc {
+	flex-direction: column;
+}
+
+.g {
+	gap: 1em;
+}
+
 button {
 	background: none;
 	border: none;
@@ -55,80 +73,80 @@ button {
 	cursor: pointer;
 }
 
-button[data-scene]::before,
-button[data-view]::before {
+[data-scene]::before,
+[data-view]::before {
 	display: inline;
 }
 
-button[data-scene="about-section"]::before {
+[data-scene="about-section"]::before {
 	content: "🤔";
 }
 
-button[data-scene="level-section"]::before {
+[data-scene="level-section"]::before {
 	content: "⛵";
 }
 
-button[data-scene="load-game-section"]::before {
+[data-scene="load-game-section"]::before {
 	content: "📂";
 }
 
-button[data-scene="new-game-section"]::before {
+[data-scene="new-game-section"]::before {
 	content: "🆕";
 }
 
-button[data-scene="settings-section"]::before {
+[data-scene="settings-section"]::before {
 	content: "⚙️";
 }
 
-button[data-scene="title-section"]::before {
+[data-scene="title-section"]::before {
 	content: "🪢";
 }
 
-button[data-scene="world-section"]::before {
+[data-scene="world-section"]::before {
 	content: "🗺️";
 }
 
-button[data-view="docks"]::before {
+[data-view="docks"]::before {
 	content: "🛟";
 }
 
-button[data-view="market"]::before {
+[data-view="market"]::before {
 	content: "💱";
 }
 
-button[data-view="sea"]::before {
+[data-view="sea"]::before {
 	content: "🗺️";
 }
 
-button[data-view="warehouse"]::before {
+[data-view="warehouse"]::before {
 	content: "📦";
 }
 
 body {
-	background-color: var(--background-color);
-	color: var(--color);
+	background: var(--bg);
+	color: var(--c);
 }
 
 body.theme-light {
-	--background-color: #eee;
-	--color: #222;
+	--bg: #eee;
+	--c: #222;
 }
 
 body.theme-dark {
-	--background-color: #222;
-	--color: #eee;
+	--bg: #222;
+	--c: #eee;
 }
 
-@media only screen and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
 	:root {
-		--background-color: #eee;
-		--color: #222;
+		--bg: #eee;
+		--c: #222;
 	}
 }
 
-@media only screen and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
-		--background-color: #222;
-		--color: #eee;
+		--bg: #222;
+		--c: #eee;
 	}
 }
