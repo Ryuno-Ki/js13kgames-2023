@@ -26,13 +26,15 @@ export async function onClick (event) {
   }
 
   if (attr(target, 'action')) {
-    await store.dispatch(forwardToNextMonthAction())
-    await store.dispatch(updateShipsAction())
-    await store.dispatch(unveilHistoryAction())
-    await store.dispatch(saveGameAction())
-    await store.dispatch(checkOnWinConditionAction())
-    await store.dispatch(checkOnGameoverConditionAction())
-    return
+    await Promise.all([
+      forwardToNextMonthAction(),
+      updateShipsAction(),
+      unveilHistoryAction(),
+      saveGameAction(),
+      checkOnWinConditionAction(),
+      checkOnGameoverConditionAction()
+    ].map((action) => store.dispatch(action)))
+		return
   }
 
   if (attr(target, 'city')) {
