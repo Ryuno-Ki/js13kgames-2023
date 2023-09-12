@@ -116,7 +116,7 @@ describe('onClick', function () {
     const event = new window.Event('click')
     const target = document.createElement('button')
     target.type = 'button'
-    target.setAttribute('data-city', 'Munich')
+    target.setAttribute('data-position', 'Munich')
     target.addEventListener('click', onClick)
     sinon.spy(store, 'dispatch')
 

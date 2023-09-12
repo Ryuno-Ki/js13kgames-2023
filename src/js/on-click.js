@@ -37,8 +37,8 @@ export async function onClick (event) {
     return
   }
 
-  if (attr(target, 'city')) {
-    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
+  if (attr(target, 'position')) {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'position'))
     return store.dispatch(switchToCityAction(city))
   }
 
