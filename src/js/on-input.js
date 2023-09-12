@@ -1,3 +1,5 @@
+import { FALLBACK_SHIP_NAME } from './constants.js'
+import { attr } from './helpers/attr.js'
 import store from './state/store.js'
 import { buyAction } from './state/actions/buy.js'
 import { loadShipAction } from './state/actions/load-ship.js'
@@ -20,32 +22,32 @@ export async function onInput (event) {
     return store.dispatch(setPlayernameAction(target.value))
   }
 
-  if (target.dataset.buy) {
-    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
-    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.buy)
+  if (attr(target, 'buy')) {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
+    const ware = /** @type {import('./state/wares.js').Ware} */(attr(target, 'buy'))
     const quantity = Number(target.value)
     return store.dispatch(buyAction({ city, ware, quantity }))
   }
 
-  if (target.dataset.sell) {
-    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
-    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.sell)
+  if (attr(target, 'sell')) {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
+    const ware = /** @type {import('./state/wares.js').Ware} */(attr(target, 'sell'))
     const quantity = Number(target.value)
     return store.dispatch(sellAction({ city, ware, quantity }))
   }
 
-  if (target.dataset.load === 'load') {
-    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
-    const ship = target.dataset.ship || 'The Flying Dutchman'
-    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.ware)
+  if (attr(target, 'load') === 'load') {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
+    const ship = attr(target, 'ship') || FALLBACK_SHIP_NAME
+    const ware = /** @type {import('./state/wares.js').Ware} */(attr(target, 'ware'))
     const quantity = Number(target.value)
     return store.dispatch(loadShipAction({ city, ship, ware, quantity }))
   }
 
-  if (target.dataset.load === 'unload') {
-    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
-    const ship = target.dataset.ship || 'The Flying Dutchman'
-    const ware = /** @type {import('./state/initial-state.js').Ware} */(target.dataset.ware)
+  if (attr(target, 'load') === 'unload') {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
+    const ship = attr(target, 'ship') || FALLBACK_SHIP_NAME
+    const ware = /** @type {import('./state/wares.js').Ware} */(attr(target, 'ware'))
     const quantity = Number(target.value)
 
     return store.dispatch(unloadShipAction({ city, ship, ware, quantity }))

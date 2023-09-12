@@ -1,3 +1,4 @@
+import { attr } from '../helpers/attr.js'
 import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
@@ -11,8 +12,8 @@ import { el } from './el.js'
 export function monthMeter (targetElement, state) {
   const element = clone(targetElement)
 
-  const month = /** @type {import('../state/months.js').Month} */(element.getAttribute('data-month'))
-  const activeMonth = /** @type {import('../state/months.js').Month} */(element.getAttribute('data-active-month'))
+  const month = /** @type {import('../state/months.js').Month} */(attr(element, 'month'))
+  const activeMonth = /** @type {import('../state/months.js').Month} */(attr(element, 'active-month'))
 
   element.appendChild(el('div', ['status'], {}, '', [
     ['meter', [], { min: 0, max: 11, value: activeMonth }],

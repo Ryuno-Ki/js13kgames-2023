@@ -35,9 +35,7 @@ describe('onClick', function () {
     // Arrange
     const event = {
       target: {
-        dataset: {
-          action: 'next-month'
-        }
+        getAttribute: () => 'next-month'
       }
     }
     sinon.spy(store, 'dispatch')
@@ -149,8 +147,11 @@ describe('onClick', function () {
     // Arrange
     const event = {
       target: {
-        dataset: {
-          scene: 'level-scene'
+        getAttribute: (attr) => {
+          if (attr === 'data-scene') {
+            return 'level-scene'
+          }
+          return ''
         }
       }
     }

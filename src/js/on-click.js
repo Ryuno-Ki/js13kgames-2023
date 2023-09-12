@@ -1,3 +1,4 @@
+import { attr } from './helpers/attr.js'
 import store from './state/store.js'
 import { checkOnGameoverConditionAction } from './state/actions/check-on-gameover-condition.js'
 import { checkOnWinConditionAction } from './state/actions/check-on-win-condition.js'
@@ -23,7 +24,7 @@ export async function onClick (event) {
     return
   }
 
-  if (target.dataset.action) {
+  if (attr(target, 'action')) {
     await store.dispatch(forwardToNextMonthAction())
     await store.dispatch(updateShipsAction())
     await store.dispatch(saveGameAction())
@@ -32,31 +33,31 @@ export async function onClick (event) {
     return
   }
 
-  if (target.dataset.city) {
-    const city = /** @type {import('./state/initial-state.js').CityName} */(target.dataset.city)
+  if (attr(target, 'city')) {
+    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
     return store.dispatch(switchToCityAction(city))
   }
 
-  if (target.dataset.playername) {
-    const playername = target.dataset.playername
+  if (attr(target, 'playername')) {
+    const playername = attr(target, 'playername')
     return store.dispatch(deleteGameAction(playername))
   }
 
-  if (target.dataset.scene) {
-    const scene = /** @type {import('./state/initial-state.js').Scene} */(target.dataset.scene)
+  if (attr(target, 'scene')) {
+    const scene = /** @type {import('./state/initial-state.js').Scene} */(attr(target, 'scene'))
     await store.dispatch(switchToSceneAction(scene))
     await store.dispatch(setTutorialAction(scene))
     return
   }
 
-  if (target.dataset.state) {
-    const savedGameState = target.dataset.state || '{}'
+  if (attr(target, 'state')) {
+    const savedGameState = attr(target, 'state') || '{}'
     const state = /** @type {import('./state/initial-state.js').State} */(JSON.parse(savedGameState))
     return store.dispatch(loadGameAction(state))
   }
 
-  if (target.dataset.view) {
-    const view = /** @type {import('./state/initial-state.js').View} */(target.dataset.view)
+  if (attr(target, 'view')) {
+    const view = /** @type {import('./state/views.js').View} */(attr(target, 'view'))
     return store.dispatch(switchToViewAction(view))
   }
 }
