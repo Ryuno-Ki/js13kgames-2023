@@ -17,6 +17,7 @@ import {
   SWITCH_TO_SCENE_ACTION,
   SWITCH_TO_VIEW_ACTION,
   UNLOAD_SHIP_ACTION,
+  UNVEIL_HISTORY_ACTION,
   UPDATE_SHIPS_ACTION
 } from '../../constants.js'
 import { initialState } from '../initial-state.js'
@@ -37,13 +38,14 @@ import { switchToCityReducer } from './switch-to-city.js'
 import { switchToSceneReducer } from './switch-to-scene.js'
 import { switchToViewReducer } from './switch-to-view.js'
 import { unloadShipReducer } from './unload-ship.js'
+import { unveilHistoryReducer } from './unveil-history.js'
 import { updateShipsReducer } from './update-ships.js'
 
 /**
  * Combined reducer.
  *
  * @argument {import('../initial-state.js').State | undefined} state
- * @argument {import('../actions/buy.js').BUY_ACTION | import('../actions/check-on-gameover-condition.js').CHECK_ON_GAMEOVER_CONDITION_ACTION | import('../actions/check-on-win-condition.js').CHECK_ON_WIN_CONDITION_ACTION | import('../actions/delete-game.js').DELETE_GAME_ACTION | import('../actions/forward-to-next-month.js').FORWARD_TO_NEXT_MONTH_ACTION | import('../actions/load-game.js').LOAD_GAME_ACTION | import('../actions/load-ship.js').LOAD_SHIP_ACTION | import('../actions/reset.js').RESET_ACTION | import('../actions/save-game.js').SAVE_GAME_ACTION | import('../actions/sell.js').SELL_ACTION | import('../actions/send-ship.js').SEND_SHIP_ACTION | import('../actions/set-color-preference.js').SET_COLOR_PREFERENCE_ACTION | import('../actions/set-level-scenario.js').SET_LEVEL_SCENARIO_ACTION | import('../actions/set-playername.js').SET_PLAYERNAME_ACTION | import('../actions/set-tutorial.js').SET_TUTORIAL_ACTION | import('../actions/switch-to-city.js').SWITCH_TO_CITY_ACTION | import('../actions/switch-to-scene.js').SWITCH_TO_SCENE_ACTION | import('../actions/switch-to-view.js').SWITCH_TO_VIEW_ACTION | import('../actions/unload-ship.js').UNLOAD_SHIP_ACTION | import('../actions/update-ships.js').UPDATE_SHIPS_ACTION} action
+ * @argument {import('../actions/index.js').ACTION} action
  * @returns {import('../initial-state.js').State}
  */
 export function reducer (state, action) {
@@ -174,6 +176,13 @@ export function reducer (state, action) {
     return unloadShipReducer(
       state,
       /** @type {import('../actions/unload-ship.js').UNLOAD_SHIP_ACTION['payload']} */(payload)
+    )
+  }
+
+  if (type === UNVEIL_HISTORY_ACTION) {
+    return unveilHistoryReducer(
+      state,
+      /** @type {import('../actions/unveil-history.js').UNVEIL_HISTORY_ACTION['payload']} */(payload)
     )
   }
 
