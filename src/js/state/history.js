@@ -41,10 +41,6 @@ export const history = [{
   month: '4',
   city: 'Kiel'
 }, {
-  year: 1234,
-  month: '3',
-  city: 'Stralsund'
-}, {
   year: 1237,
   month: '5',
   city: 'Elbing'
@@ -69,3 +65,6 @@ export const history = [{
   month: '10',
   city: 'Königsberg'
 }]
+
+// 1282: Everyone knows the German merchants as Hanseatic League now
+// Source: https://geschichte-s-h.de/sh-von-a-bis-z/h/hanse/

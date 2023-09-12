@@ -1,5 +1,5 @@
 /**
- * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Stralsund' | 'Turku' | 'Visby' | 'Wismar'} CityName
+ * @typedef {'Danzig' | 'Elbing' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 
 /**
@@ -64,7 +64,6 @@ export const cities = [{
     Riga: 4, // against current
     Rostock: 2, // with current
     Stockholm: 4, // against current
-    Stralsund: 2, // with current
     Turku: 4, // against current
     Visby: 3, // with current
     Wismar: 2 // with current
@@ -95,7 +94,6 @@ export const cities = [{
     Riga: 4, // against current
     Rostock: 2, // with current
     Stockholm: 4, // against current
-    Stralsund: 2, // with current
     Turku: 4, // against current
     Visby: 3, // with current
     Wismar: 4 // with current
@@ -126,7 +124,6 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 1, // with current
     Stockholm: 6, // against current
-    Stralsund: 1, // with current
     Turku: 6, // against current
     Visby: 6, // against current
     Wismar: 1 // with current
@@ -157,7 +154,6 @@ export const cities = [{
     Riga: -1,
     Rostock: -1,
     Stockholm: -1,
-    Stralsund: -1,
     Turku: -1,
     Visby: -1,
     Wismar: -1
@@ -188,7 +184,6 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 1, // against current
     Stockholm: 6, // against current
-    Stralsund: 1, // against current
     Turku: 8, // against current
     Visby: 6, // against current
     Wismar: 1 // against current
@@ -219,7 +214,6 @@ export const cities = [{
     Riga: 4, // against current
     Rostock: 2, // with current
     Stockholm: 4, // against current
-    Stralsund: 2, // with current
     Turku: 4, // against current
     Visby: 3, // with current
     Wismar: 2 // with current
@@ -250,7 +244,6 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 2, // against current
     Stockholm: 6, // against current
-    Stralsund: 2, // against current
     Turku: 8, // against current
     Visby: 6, // against current
     Wismar: 2 // against current
@@ -281,7 +274,6 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 2, // against current
     Stockholm: 6, // against current
-    Stralsund: 2, // against current
     Turku: 8, // against current
     Visby: 6, // against current
     Wismar: 2 // against current
@@ -330,14 +322,19 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 2, // against current
     Stockholm: 6, // against current
-    Stralsund: 2, // against current
     Turku: 8, // against current
     Visby: 6, // against current
     Wismar: 2 // against current
   },
   isFounded: true,
-  demand: [],
-  supply: [],
+  demand: [{
+    ware: 'salt',
+    quantity: 100
+  }],
+  supply: [{
+    ware: 'sprats',
+    quantity: 50
+  }],
   warehouse: {
     hasScribe: false,
     level: '1',
@@ -361,7 +358,6 @@ export const cities = [{
     Riga: 2, // with current
     Rostock: 4, // with current
     Stockholm: 2, // with current
-    Stralsund: 4, // with current
     Turku: 1, // with current
     Visby: 2, // with current
     Wismar: 4 // with current
@@ -392,7 +388,6 @@ export const cities = [{
     Riga: 1, // with current
     Rostock: 4, // with current
     Stockholm: 1, // with current
-    Stralsund: 4, // with current
     Turku: 1, // with current
     Visby: 1, // with current
     Wismar: 4 // with current
@@ -423,7 +418,6 @@ export const cities = [{
     Riga: 0,
     Rostock: 3, // with current
     Stockholm: 2, // with current
-    Stralsund: 3, // with current
     Turku: 2, // against current
     Visby: 1, // with current
     Wismar: 3 // with current
@@ -454,14 +448,16 @@ export const cities = [{
     // Hooray to TypeScript!
     Rostock: 0,
     Stockholm: 6, // against current
-    Stralsund: 1, // against current
     Turku: 8, // against current
     Visby: 6, // against current
     Wismar: 2 // against current
   },
   isFounded: true,
   demand: [],
-  supply: [],
+  supply: [{
+    ware: 'beer',
+    quantity: 50
+  }],
   warehouse: {
     hasScribe: false,
     level: '1',
@@ -485,41 +481,9 @@ export const cities = [{
     Rostock: 3, // with current
     // Hooray to TypeScript!
     Stockholm: 0,
-    Stralsund: 3, // with current
     Turku: 2, // against current
     Visby: 1, // with current
     Wismar: 3 // with current
-  },
-  isFounded: false,
-  demand: [],
-  supply: [],
-  warehouse: {
-    hasScribe: false,
-    level: '1',
-    stock: []
-  }
-}, {
-  name: 'Stralsund',
-  distances: {
-    Danzig: 4, // against current
-    Elbing: 4, // against current
-    Greifswald: 1, // against current
-    Hamburg: -1,
-    Kiel: 1, // with current
-    Königsberg: 4, // against current
-    Kopenhagen: 1, // with current
-    Lübeck: 1, // with current
-    Malmö: 1, // with current
-    Nowgorod: 8, // against current
-    Reval: 8, // against current
-    Riga: 6, // against current
-    Rostock: 1, // with current
-    Stockholm: 6, // against current
-    // Hooray to TypeScript!
-    Stralsund: 0,
-    Turku: 8, // against current
-    Visby: 6, // against current
-    Wismar: 1 // with current
   },
   isFounded: false,
   demand: [],
@@ -546,7 +510,6 @@ export const cities = [{
     Riga: 1, // with current
     Rostock: 4, // with current
     Stockholm: 1, // with current
-    Stralsund: 4, // with current
     // Hooray to TypeScript!
     Turku: 0,
     Visby: 1, // with current
@@ -577,7 +540,6 @@ export const cities = [{
     Riga: 2, // against current
     Rostock: 3, // with current
     Stockholm: 6, // against current
-    Stralsund: 3, // with current
     Turku: 2, // against current
     // Hooray to TypeScript!
     Visby: 0,
@@ -608,7 +570,6 @@ export const cities = [{
     Riga: 6, // against current
     Rostock: 1, // with current
     Stockholm: 6, // against current
-    Stralsund: 1, // against current
     Turku: 6, // against current
     Visby: 6, // against current
     // Hooray to TypeScript!
