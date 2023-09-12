@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE_KEY } from '../../constants.js'
 import { clone } from '../../helpers/clone.js'
 import { el } from '../el.js'
 
@@ -41,7 +42,7 @@ export function sectionLoadgame (targetElement, state) {
  * @returns {Array<import('../../state/initial-state.js').State>}
  */
 function getSavedGames () {
-  const savedGames = window.localStorage.getItem('THE_BALTIC_LEAGUE') || '[]'
+  const savedGames = window.localStorage.getItem(LOCAL_STORAGE_KEY) || '[]'
 
   return JSON.parse(savedGames)
 }
