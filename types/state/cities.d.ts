@@ -1,5 +1,5 @@
 /**
- * @typedef {'Danzig' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Turku' | 'Visby' | 'Wismar'} CityName
+ * @typedef {'Danzig' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Turku' | 'Visby' | 'Wismar'} CityName
  */
 /**
  * @typedef {Record<CityName, number>} CityDistance
@@ -38,7 +38,7 @@
  */
 /** @type {Cities} */
 export const cities: Cities;
-export type CityName = 'Danzig' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Königsberg' | 'Kopenhagen' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Stockholm' | 'Turku' | 'Visby' | 'Wismar';
+export type CityName = 'Danzig' | 'Greifswald' | 'Hamburg' | 'Kiel' | 'Lübeck' | 'Malmö' | 'Nowgorod' | 'Reval' | 'Riga' | 'Rostock' | 'Turku' | 'Visby' | 'Wismar';
 export type CityDistance = Record<CityName, number>;
 export type CityDemand = {
     ware: import('./wares.js').Ware;

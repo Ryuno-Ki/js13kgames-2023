@@ -45,14 +45,6 @@ export const history = [{
   year: 1251,
   month: '8',
   shipType: 'cog'
-}, {
-  year: 1252,
-  month: '3',
-  city: 'Stockholm'
-}, {
-  year: 1283,
-  month: '10',
-  city: 'Königsberg'
 }]
 
 // 1282: Everyone knows the German merchants as Hanseatic League now
