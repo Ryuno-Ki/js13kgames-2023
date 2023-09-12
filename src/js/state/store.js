@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE_KEY } from '../constants.js'
 import { resetAction } from './actions/reset.js'
 import { reducer } from './reducers/index.js'
 
@@ -66,9 +67,9 @@ class Store {
    * @argument {import('./initial-state.js').Color} color
    */
   _applyColorTheme (color) {
-    document.body.classList.remove('theme-system')
-    document.body.classList.remove('theme-light')
-    document.body.classList.remove('theme-dark')
+    ['system', 'light', 'dark'].forEach((theme) => {
+      document.body.classList.remove(`theme-${theme}`)
+    })
     document.body.classList.add(`theme-${color}`)
   }
 
@@ -79,10 +80,10 @@ class Store {
    * @argument {string} playername
    */
   _deleteSnapshot (playername) {
-    const serialisedStorage = window.localStorage.getItem('THE_BALTIC_LEAGUE') || '[]'
+    const serialisedStorage = window.localStorage.getItem(LOCAL_STORAGE_KEY) || '[]'
     const storage = /** @type {Array<import('./initial-state.js').State>} */(JSON.parse(serialisedStorage))
     const snapshot = storage.filter((entry) => entry.playername !== playername)
-    window.localStorage.setItem('THE_BALTIC_LEAGUE', JSON.stringify(snapshot))
+    window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(snapshot))
   }
 
   /**
@@ -93,7 +94,7 @@ class Store {
   _saveSnapshot () {
     const state = this.getState()
     const playername = state.playername
-    const serialisedStorage = window.localStorage.getItem('THE_BALTIC_LEAGUE') || '[]'
+    const serialisedStorage = window.localStorage.getItem(LOCAL_STORAGE_KEY) || '[]'
     const storage = /** @type {Array<import('./initial-state.js').State>} */(JSON.parse(serialisedStorage))
     let snapshot = []
 
@@ -116,7 +117,7 @@ class Store {
       snapshot = [state]
     }
 
-    window.localStorage.setItem('THE_BALTIC_LEAGUE', JSON.stringify(snapshot))
+    window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(snapshot))
   }
 
   /**
