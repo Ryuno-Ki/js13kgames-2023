@@ -70,13 +70,10 @@ describe('market', function () {
       const activeCity = 'Lübeck'
       const cities = [{
         name: 'Lübeck',
-        demand: [],
-        supply: [{
-          ware: 'wool',
-          quantity: 42
-        }],
+        demand: {},
+        supply: { wool: 42 },
         warehouse: {
-          stock: []
+          stock: {}
         }
       }]
       const targetElement = document.createElement('div')

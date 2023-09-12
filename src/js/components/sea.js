@@ -38,7 +38,7 @@ export function sea (targetElement, state) {
               'li',
               [],
               {},
-              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, demands ${c.demand.map((ware) => ware.ware).join(', ')})`
+              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, demands ${Object.keys(c.demand).join(', ')})`
             ])
           ]]
         ]]

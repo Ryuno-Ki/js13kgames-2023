@@ -24,24 +24,29 @@ export function market (targetElement, state) {
     showBuyForm(state, city),
     ['fieldset', [], {}, '', [
       ['legend', [], {}, 'Sell'],
-      ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
+      ['ul', [], {}, '', Object.entries(city.warehouse.stock).map((stockItem) => [
         'li', [], {}, '', [
-          ['label', [], { for: `warehouse-${ware.ware}` }, ware.ware],
+          ['label', [], { for: `warehouse-${stockItem[0]}` }, stockItem[0]],
           ['span', [], {}, '', [
             ['span', [], {}, '0'],
             ['input', [], {
-              id: `warehouse-${ware.ware}`,
-              name: ware.ware,
+              id: `warehouse-${stockItem[0]}`,
+              name: stockItem[0],
               type: 'range',
               min: 0,
-              max: ware.quantity,
+              max: stockItem[1],
               step: 1,
               value: 0,
-              'data-sell': ware.ware,
+              'data-sell': stockItem[0],
               'data-city': city.name
             }],
-            ['span', [], {}, ware.quantity],
-            ['span', [], {}, ` (${computeUnitPrice(state, ware.ware)} 💰 each)`]
+            ['span', [], {}, stockItem[1]],
+            [
+              'span',
+              [],
+              {},
+              ` (${computeUnitPrice(state, /** @type {import('../state/wares.js').Ware} */(stockItem[0]))} 💰 each)`
+            ]
           ]]
         ]
       ])]
@@ -65,30 +70,35 @@ function showBuyForm (state, city) {
     return ['p', [], {}, 'You cannot buy without 💰']
   }
 
-  if (city.supply.length === 0) {
+  if (Object.values(city.supply).every((quantity) => quantity === 0)) {
     return ['p', [], {}, "I'm afraid there is nothing to buy right now."]
   }
 
   return ['fieldset', [], {}, '', [
     ['legend', [], {}, 'Buy'],
-    ['ul', [], {}, '', city.supply.map((ware) => [
+    ['ul', [], {}, '', Object.entries(city.supply).map((item) => [
       'li', [], {}, '', [
-        ['label', [], { for: `market-${ware.ware}` }, ware.ware],
+        ['label', [], { for: `market-${item[0]}` }, item[0]],
         ['span', [], {}, '', [
           ['span', [], {}, '0'],
           ['input', [], {
-            id: `market-${ware.ware}`,
-            name: ware.ware,
+            id: `market-${item[0]}`,
+            name: item[0],
             type: 'range',
             min: 0,
-            max: ware.quantity,
+            max: item[1],
             step: 1,
             value: 0,
-            'data-buy': ware.ware,
+            'data-buy': item[0],
             'data-city': city.name
           }],
-          ['span', [], {}, ware.quantity],
-          ['span', [], {}, ` (${computeUnitPrice(state, ware.ware)} 💰 each)`]
+          ['span', [], {}, item[1]],
+          [
+            'span',
+            [],
+            {},
+            ` (${computeUnitPrice(state, /** @type {import('../state/wares.js').Ware} */(item[0]))} 💰 each)`
+          ]
         ]]
       ]
     ])]

@@ -34,7 +34,14 @@ export function buyShipReducer (state, payload) {
       position: city,
       moored: true,
       itinerary: null,
-      cargo: []
+      cargo: {
+        beer: 0,
+        crop: 0,
+        salt: 0,
+        sprats: 0,
+        wax: 0,
+        wood: 0
+      }
     })
   }
 

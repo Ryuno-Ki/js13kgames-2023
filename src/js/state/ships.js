@@ -1,7 +1,5 @@
 /**
- * @typedef {object} ShipCargo
- * @property {import('./wares.js').Ware} ware
- * @property {number} quantity
+ * @typedef {Record<import('./wares.js').Ware, number>} ShipCargo
  */
 
 /**
@@ -31,7 +29,7 @@
  * @typedef {object} Ship
  * @property {string} name
  * @property {ShipType} type
- * @property {Array<ShipCargo>} cargo
+ * @property {ShipCargo} cargo
  * @property {ShipItinerary | null} itinerary
  * @property {boolean} moored
  * @property {import('./cities.js').CityName | null} position
@@ -48,7 +46,14 @@ export const ships = [{
   position: 'Lübeck',
   moored: true,
   itinerary: null,
-  cargo: []
+  cargo: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  }
 }]
 
 /** @type {ShipTypes} */

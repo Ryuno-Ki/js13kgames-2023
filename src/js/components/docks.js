@@ -102,48 +102,48 @@ function mapShipsToTree (state, city) {
     'div', [], {}, ship.name, [
       ['div', [], {}, 'Load', [
         ['ul', [], {}, '', [
-          ...stock.map((ware) => [
+          ...Object.entries(stock).map((stockItem) => [
             'li', [], {}, '', [
-              ['label', [], { for: `${ship.name}-load-${ware.ware}` }, ware.ware],
+              ['label', [], { for: `${ship.name}-load-${stockItem[0]}` }, stockItem[0]],
               ['span', [], {}, '0'],
               ['input', [], {
-                id: `${ship.name}-load-${ware.ware}`,
-                name: `${ship.name}-load-${ware.ware}`,
+                id: `${ship.name}-load-${stockItem[0]}`,
+                name: `${ship.name}-load-${stockItem[0]}`,
                 type: 'range',
                 min: 0,
-                max: ware.quantity,
+                max: stockItem[1],
                 step: 1,
                 value: 0,
                 'data-city': city.name,
                 'data-load': 'load',
                 'data-ship': ship.name,
-                'data-ware': ware.ware
+                'data-ware': stockItem[0]
               }],
-              ['span', [], {}, ware.quantity]
+              ['span', [], {}, stockItem[1]]
             ]
           ])
         ]]
       ]],
       ['div', [], {}, 'Unload', [
         ['ul', [], {}, '', [
-          ...ship.cargo.map((ware) => [
+          ...Object.entries(ship.cargo).map((item) => [
             'li', [], {}, '', [
-              ['label', [], { for: `${ship.name}-unload-${ware.ware}` }, ware.ware],
+              ['label', [], { for: `${ship.name}-unload-${item[0]}` }, item[0]],
               ['span', [], {}, '0'],
               ['input', [], {
-                id: `${ship.name}-unload-${ware.ware}`,
-                name: `${ship.name}-unload-${ware.ware}`,
+                id: `${ship.name}-unload-${item[0]}`,
+                name: `${ship.name}-unload-${item[0]}`,
                 type: 'range',
                 min: 0,
-                max: ware.quantity,
+                max: item[1],
                 step: 1,
                 value: 0,
                 'data-city': city.name,
                 'data-load': 'unload',
                 'data-ship': ship.name,
-                'data-ware': ware.ware
+                'data-ware': item[0]
               }],
-              ['span', [], {}, ware.quantity]
+              ['span', [], {}, item[1]]
             ]
           ])
         ]]

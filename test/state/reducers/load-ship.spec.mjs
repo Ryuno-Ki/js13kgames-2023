@@ -33,7 +33,7 @@ describe('loadShipReducer', function () {
       it('should add it as a new cargo', function () {
         // Arrange
         const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
-        const payload = { ship: 'Marie', ware: 'grok', quantity: 42 }
+        const payload = { ship: 'Marie', ware: 'wax', quantity: 42 }
         const shipIndex = state.ships.findIndex((s) => s.name === payload.ship)
 
         // Act
@@ -41,7 +41,14 @@ describe('loadShipReducer', function () {
 
         // Assert
         expect(newState).not.to.equal(state)
-        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
+        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({
+          beer: 0,
+          crop: 0,
+          salt: 0,
+          sprats: 0,
+          wax: 42,
+          wood: 0
+        })
       })
     })
 
@@ -57,7 +64,7 @@ describe('loadShipReducer', function () {
               name: 'Marie',
               moored: true,
               position: 'Lübeck',
-              cargo: [{ ware: 'grok', quantity: 2 }]
+              cargo: { grok: 2 }
             }]
           }
         )
@@ -69,13 +76,13 @@ describe('loadShipReducer', function () {
 
         // Assert
         expect(newState).not.to.equal(state)
-        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual([{ ware: 'grok', quantity: 44 }])
+        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({ grok: 44 })
       })
     })
 
     it('should update the warehouse of that city', function () {
       // Arrange
-      const cities = [{ name: 'Lübeck', warehouse: { stock: [{ ware: 'wool', quantity: 10 }] } }]
+      const cities = [{ name: 'Lübeck', warehouse: { stock: { wool: 10 } } }]
       const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
       const payload = { city: 'Lübeck', ship: 'Marie', ware: 'wool', quantity: 2 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
@@ -85,9 +92,7 @@ describe('loadShipReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([
-        { ware: 'wool', quantity: 8 }
-      ])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ wool: 8 })
     })
   })
 })

@@ -23,16 +23,10 @@ describe('buyWareReducer', function () {
       }
       const cities = [{
         name: 'Lübeck',
-        supply: [{
-          ware: 'grok',
-          quantity: 100
-        }],
-        demand: [{
-          ware: 'grok',
-          quantity: 50
-        }],
+        supply: { grok: 100 },
+        demand: { grok: 50 },
         warehouse: {
-          stock: []
+          stock: { grok: 0 }
         }
       }]
       const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
@@ -44,7 +38,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 42 })
       expect(newState.playermoney).to.be.below(state.playermoney)
     })
   })
@@ -61,7 +55,15 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({
+        beer: 0,
+        crop: 0,
+        salt: 0,
+        sprats: 0,
+        wax: 0,
+        wood: 0
+      }
+      )
       expect(newState.playermoney).to.equal(state.playermoney)
     })
   })
@@ -76,16 +78,10 @@ describe('buyWareReducer', function () {
       }
       const cities = [{
         name: 'Lübeck',
-        supply: [{
-          ware: 'grok',
-          quantity: 100
-        }],
-        demand: [{
-          ware: 'grok',
-          quantity: 50
-        }],
+        supply: { grok: 100 },
+        demand: { grok: 50 },
         warehouse: {
-          stock: []
+          stock: { grok: 0 }
         }
       }]
       const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
@@ -97,7 +93,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 42 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 42 })
     })
   })
 
@@ -111,10 +107,10 @@ describe('buyWareReducer', function () {
           activeCity: 'Lübeck',
           cities: [{
             name: 'Lübeck',
-            supply: [{ ware: 'grok', quantity: 42 }],
-            demand: [{ ware: 'grok', quantity: 50 }],
+            supply: { grok: 42 },
+            demand: { grok: 50 },
             warehouse: {
-              stock: [{ ware: 'grok', quantity: 2 }]
+              stock: { grok: 2 }
             }
           }],
           wares: {
@@ -131,7 +127,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([{ ware: 'grok', quantity: 44 }])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 44 })
     })
   })
 
@@ -139,9 +135,9 @@ describe('buyWareReducer', function () {
     // Arrange
     const cities = [{
       name: 'Lübeck',
-      demand: [{ ware: 'wax', quantity: 100 }],
-      supply: [{ ware: 'salt', quantity: 2 }, { ware: 'wax', quantity: 10 }],
-      warehouse: { stock: [] }
+      demand: { wax: 100 },
+      supply: { salt: 2, wax: 10 },
+      warehouse: { stock: {} }
     }]
     const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities, playermoney: 1000000 })
     const payload = { city: 'Lübeck', ware: 'wax', quantity: 2 }
@@ -152,9 +148,8 @@ describe('buyWareReducer', function () {
 
     // Assert
     expect(newState).not.to.equal(state)
-    expect(newState.cities[cityIndex].supply).to.shallowDeepEqual([
-      { ware: 'salt', quantity: 2 },
-      { ware: 'wax', quantity: 8 }
-    ])
+    expect(newState.cities[cityIndex].supply).to.shallowDeepEqual(
+      { salt: 2, wax: 8 }
+    )
   })
 })

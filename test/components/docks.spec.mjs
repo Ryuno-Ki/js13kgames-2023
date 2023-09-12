@@ -120,7 +120,7 @@ describe('docks', function () {
         // Arrange
         const ships = [{
           name: 'Santa Maria',
-          cargo: [],
+          cargo: {},
           moored: true,
           position: 'Lübeck'
         }]
@@ -128,10 +128,9 @@ describe('docks', function () {
           name: 'Lübeck',
           isFounded: true,
           warehouse: {
-            stock: [{
-              ware: 'met',
-              quantity: 42
-            }]
+            stock: {
+              met: 42
+            }
           }
         }]
 
@@ -154,10 +153,7 @@ describe('docks', function () {
         // Arrange
         const ships = [{
           name: 'Santa Maria',
-          cargo: [{
-            ware: 'met',
-            quantity: 2
-          }],
+          cargo: { met: 2 },
           moored: true,
           position: 'Lübeck',
           type: 'nef'

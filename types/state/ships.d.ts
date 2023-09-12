@@ -1,7 +1,5 @@
 /**
- * @typedef {object} ShipCargo
- * @property {import('./wares.js').Ware} ware
- * @property {number} quantity
+ * @typedef {Record<import('./wares.js').Ware, number>} ShipCargo
  */
 /**
  * @typedef {object} ShipItinerary
@@ -26,7 +24,7 @@
  * @typedef {object} Ship
  * @property {string} name
  * @property {ShipType} type
- * @property {Array<ShipCargo>} cargo
+ * @property {ShipCargo} cargo
  * @property {ShipItinerary | null} itinerary
  * @property {boolean} moored
  * @property {import('./cities.js').CityName | null} position
@@ -38,10 +36,7 @@
 export const ships: Ships;
 /** @type {ShipTypes} */
 export const shipTypes: ShipTypes;
-export type ShipCargo = {
-    ware: import('./wares.js').Ware;
-    quantity: number;
-};
+export type ShipCargo = Record<import('./wares.js').Ware, number>;
 export type ShipItinerary = {
     from: import('./cities.js').CityName;
     to: import('./cities.js').CityName;
@@ -58,7 +53,7 @@ export type ShipTypes = Record<ShipType, ShipCharacteristics>;
 export type Ship = {
     name: string;
     type: ShipType;
-    cargo: Array<ShipCargo>;
+    cargo: ShipCargo;
     itinerary: ShipItinerary | null;
     moored: boolean;
     position: import('./cities.js').CityName | null;

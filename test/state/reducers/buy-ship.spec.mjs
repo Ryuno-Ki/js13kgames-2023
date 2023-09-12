@@ -56,7 +56,14 @@ describe('buyShipReducer', function () {
         position: payload.city,
         moored: true,
         itinerary: null,
-        cargo: []
+        cargo: {
+          beer: 0,
+          crop: 0,
+          salt: 0,
+          sprats: 0,
+          wax: 0,
+          wood: 0
+        }
       }])
       expect(newState.playermoney).to.be.below(state.playermoney)
     })

@@ -33,7 +33,7 @@ describe('unloadShipReducer', function () {
       it('should not remove it', function () {
         // Arrange
         const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck' })
-        const payload = { ship: 'Marie', ware: 'grok', quantity: 42 }
+        const payload = { ship: 'Marie', ware: 'wax', quantity: 42 }
         const shipIndex = state.ships.findIndex((s) => s.name === payload.ship)
 
         // Act
@@ -41,7 +41,7 @@ describe('unloadShipReducer', function () {
 
         // Assert
         expect(newState).not.to.equal(state)
-        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual([])
+				expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({wax: 0})
       })
     })
 
@@ -57,7 +57,7 @@ describe('unloadShipReducer', function () {
               name: 'Marie',
               moored: true,
               position: 'Lübeck',
-              cargo: [{ ware: 'grok', quantity: 42 }, { ware: 'wool', quantity: 2 }]
+              cargo: { grok: 42, wood: 2 }
             }]
           }
         )
@@ -69,18 +69,23 @@ describe('unloadShipReducer', function () {
 
         // Assert
         expect(newState).not.to.equal(state)
-        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual([
-          { ware: 'grok', quantity: 40 },
-          { ware: 'wool', quantity: 2 }
-        ])
+        expect(newState.ships[shipIndex].cargo).to.shallowDeepEqual({
+          grok: 40,
+          wood: 2
+        })
       })
     })
 
     it('should update the warehouse of that city', function () {
       // Arrange
-      const cities = [{ name: 'Lübeck', warehouse: { stock: [{ ware: 'wool', quantity: 10 }] } }]
+      const cities = [{
+        name: 'Lübeck',
+        warehouse: {
+          stock: { wood: 10 }
+        }
+      }]
       const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
-      const payload = { city: 'Lübeck', ship: 'Marie', ware: 'wool', quantity: 2 }
+      const payload = { city: 'Lübeck', ship: 'Marie', ware: 'wood', quantity: 2 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
 
       // Act
@@ -88,9 +93,7 @@ describe('unloadShipReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual([
-        { ware: 'wool', quantity: 12 }
-      ])
+      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ wood: 12 })
     })
   })
 })

@@ -7,9 +7,17 @@
  */
 
 /**
- * @typedef {object} CityDemand
- * @property {import('./wares.js').Ware} ware
- * @property {number} quantity
+ * @typedef {Record<import('./wares.js').Ware, number>} CityDemand
+ */
+
+/**
+ * @typedef {Record<import('./wares.js').Ware, number>} CitySupply
+ */
+
+/**
+ * @typedef {object} Warehouse
+ * @property {'1' | '2' | '3' | '4'} level
+ * @property {Record<import('./wares.js').Ware, number>} stock
  */
 
 /**
@@ -17,27 +25,9 @@
  * @property {CityName} name
  * @property {CityDistance} distances
  * @property {boolean} isFounded
- * @property {Array<CityDemand>} demand
- * @property {Array<CitySupply>} supply
+ * @property {CityDemand} demand
+ * @property {CitySupply} supply
  * @property {Warehouse} warehouse
- */
-
-/**
- * @typedef {object} CitySupply
- * @property {import('./wares.js').Ware} ware
- * @property {number} quantity
- */
-
-/**
- * @typedef {object} WarehouseStock
- * @property {import('./wares.js').Ware} ware
- * @property {number} quantity
- */
-
-/**
- * @typedef {object} Warehouse
- * @property {'1' | '2' | '3' | '4'} level
- * @property {Array<WarehouseStock>} stock
  */
 
 /**
@@ -64,11 +54,32 @@ export const cities = [{
     Wismar: 2 // with current
   },
   isFounded: true,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 500,
+    crop: 10000,
+    salt: 0,
+    sprats: 1000,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 600
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Greifswald',
@@ -89,14 +100,32 @@ export const cities = [{
     Wismar: 1 // with current
   },
   isFounded: false,
-  demand: [],
-  supply: [{
-    ware: 'wood',
-    quantity: 80
-  }],
+  demand: {
+    beer: 200,
+    crop: 100,
+    salt: 1000,
+    sprats: 5000,
+    wax: 300,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 80
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Hamburg',
@@ -117,14 +146,32 @@ export const cities = [{
     Wismar: -1
   },
   isFounded: true,
-  demand: [],
-  supply: [{
-    ware: 'crop',
-    quantity: 100
-  }],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 100,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Kiel',
@@ -145,11 +192,32 @@ export const cities = [{
     Wismar: 1 // against current
   },
   isFounded: false,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Lübeck',
@@ -170,29 +238,32 @@ export const cities = [{
     Wismar: 2 // against current
   },
   isFounded: true,
-  demand: [{
-    ware: 'honey',
-    quantity: 10
-  }, {
-    ware: 'salt',
-    quantity: 5
-  }, {
-    ware: 'wool',
-    quantity: 3
-  }],
-  supply: [{
-    ware: 'honey',
-    quantity: 5
-  }, {
-    ware: 'salt',
-    quantity: 2
-  }, {
-    ware: 'wool',
-    quantity: 10
-  }],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 5,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 2,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Malmö',
@@ -213,17 +284,32 @@ export const cities = [{
     Wismar: 2 // against current
   },
   isFounded: true,
-  demand: [{
-    ware: 'salt',
-    quantity: 100
-  }],
-  supply: [{
-    ware: 'sprats',
-    quantity: 50
-  }],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 100,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 50,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Nowgorod',
@@ -244,11 +330,32 @@ export const cities = [{
     Wismar: 4 // with current
   },
   isFounded: true,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Reval',
@@ -269,11 +376,32 @@ export const cities = [{
     Wismar: 4 // with current
   },
   isFounded: false,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Riga',
@@ -294,11 +422,32 @@ export const cities = [{
     Wismar: 3 // with current
   },
   isFounded: false,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Rostock',
@@ -319,14 +468,32 @@ export const cities = [{
     Wismar: 2 // against current
   },
   isFounded: true,
-  demand: [],
-  supply: [{
-    ware: 'beer',
-    quantity: 50
-  }],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 50,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Turku',
@@ -347,11 +514,32 @@ export const cities = [{
     Wismar: 3 // with current
   },
   isFounded: false,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Visby',
@@ -372,11 +560,32 @@ export const cities = [{
     Wismar: 3 // with current
   },
   isFounded: true,
-  demand: [],
-  supply: [],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }, {
   name: 'Wismar',
@@ -397,22 +606,31 @@ export const cities = [{
     Wismar: 0
   },
   isFounded: true,
-  demand: [{
-    ware: 'honey',
-    quantity: 10
-  }, {
-    ware: 'salt',
-    quantity: 5
-  }],
-  supply: [{
-    ware: 'salt',
-    quantity: 8
-  }, {
-    ware: 'wool',
-    quantity: 4
-  }],
+  demand: {
+    beer: 0,
+    crop: 0,
+    salt: 5,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
+  supply: {
+    beer: 0,
+    crop: 0,
+    salt: 8,
+    sprats: 0,
+    wax: 0,
+    wood: 0
+  },
   warehouse: {
     level: '1',
-    stock: []
+    stock: {
+      beer: 0,
+      crop: 0,
+      salt: 0,
+      sprats: 0,
+      wax: 0,
+      wood: 0
+    }
   }
 }]

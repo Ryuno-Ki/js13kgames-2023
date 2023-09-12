@@ -8,36 +8,26 @@ import { copy } from '../../helpers/copy.js'
  * @returns {import('../initial-state.js').State}
  */
 export function unloadShipReducer (state, payload) {
+  const { city, quantity, ship, ware } = payload
+
   let cities = state.cities
   let ships = state.ships
 
-  const ship = state.ships
-    .filter((ship) => ship.moored)
-    .filter((ship) => ship.position === state.activeCity)
-    .find((ship) => ship.name === payload.ship)
+  const shipToUnload = state.ships
+    .filter((s) => s.moored)
+    .filter((s) => s.position === state.activeCity)
+    .find((s) => s.name === ship)
 
-  if (ship) {
+  if (shipToUnload) {
     ships = state.ships.map((s) => {
-      if (s.name !== payload.ship) {
+      if (s.name !== ship) {
         return s
       }
 
-      let cargo = s.cargo
-      const updatePreviousCargo = cargo.find((w) => w.ware === payload.ware)
-      if (updatePreviousCargo) {
-        cargo = cargo.map((w) => {
-          if (w.ware !== payload.ware) {
-            return w
-          }
-
-          return {
-            ware: payload.ware,
-            quantity: w.quantity - payload.quantity
-          }
-        })
+      const cargo = {
+        ...s.cargo
       }
-
-      cargo = cargo.filter((w) => w.quantity > 0)
+      cargo[ware] = Math.max(cargo[ware] - quantity, 0)
 
       return {
         ...s,
@@ -45,25 +35,21 @@ export function unloadShipReducer (state, payload) {
       }
     })
 
-    cities = state.cities.map((city) => {
-      if (city.name !== payload.city) {
-        return city
+    cities = state.cities.map((c) => {
+      if (c.name !== city) {
+        return c
       }
 
-      return {
-        ...city,
-        warehouse: {
-          ...city.warehouse,
-          stock: city.warehouse.stock.map((ware) => {
-            if (ware.ware !== payload.ware) {
-              return ware
-            }
+      const stock = {
+        ...c.warehouse.stock
+      }
+      stock[ware] = stock[ware] + quantity
 
-            return {
-              ...ware,
-              quantity: ware.quantity + payload.quantity
-            }
-          })
+      return {
+        ...c,
+        warehouse: {
+          ...c.warehouse,
+          stock
         }
       }
     })

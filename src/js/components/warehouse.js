@@ -21,8 +21,8 @@ export function warehouse (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     informOnHistoricEvents(state),
-    ['ul', [], {}, '', city.warehouse.stock.map((ware) => [
-      'li', [], {}, `${ware.ware} (${ware.quantity})`
+    ['ul', [], {}, '', Object.entries(city.warehouse.stock).map((stockItem) => [
+      'li', [], {}, `${stockItem[0]} (${stockItem[1]})`
     ])],
     ['button', [], { type: 'button', 'data-view': 'docks' }, 'To the docks'],
     ['button', [], { type: 'button', 'data-view': 'market' }, 'To the market'],

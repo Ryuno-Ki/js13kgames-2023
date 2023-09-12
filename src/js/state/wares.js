@@ -1,5 +1,5 @@
 /**
- * @typedef {'beer' | 'crop' | 'honey' | 'salt' | 'sprats' | 'wood' | 'wool'} Ware
+ * @typedef {'beer' | 'crop' | 'salt' | 'sprats' | 'wax' | 'wood'} Ware
  */
 
 /**
@@ -10,9 +10,8 @@
 export const wares = {
   beer: 30,
   crop: 10,
-  honey: 50,
   salt: 30,
   sprats: 40,
-  wood: 5,
-  wool: 10
+  wax: 100,
+  wood: 5
 }

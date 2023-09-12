@@ -15,10 +15,8 @@ export function computeUnitPrice (state, ware) {
     return -1
   }
 
-  const cityDemandForWare = city.demand.find((w) => w.ware === ware)
-  const demandQuantity = cityDemandForWare ? cityDemandForWare.quantity : 0
-  const citySupplyForWare = city.supply.find((w) => w.ware === ware)
-  const supplyQuantity = citySupplyForWare ? citySupplyForWare.quantity : 1
+  const demandQuantity = city.demand[ware]
+  const supplyQuantity = city.supply[ware]
   const basePriceForWare = state.wares[ware]
 
   return basePriceForWare * (demandQuantity / supplyQuantity) || -1

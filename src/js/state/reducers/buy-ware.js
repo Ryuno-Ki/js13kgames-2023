@@ -9,54 +9,35 @@ import { copy } from '../../helpers/copy.js'
  * @returns {import('../initial-state.js').State}
  */
 export function buyWareReducer (state, payload) {
+  const { city, quantity, ware } = payload
   let cities = state.cities
   let playermoney = state.playermoney
-  const price = payload.quantity * computeUnitPrice(state, payload.ware)
+
+  const price = quantity * computeUnitPrice(state, ware)
 
   if (price >= 0 && price <= playermoney) {
     playermoney = playermoney - price
 
-    cities = state.cities.map((city) => {
-      if (city.name !== payload.city) {
-        return city
+    cities = state.cities.map((c) => {
+      if (c.name !== city) {
+        return c
       }
 
-      let stock = city.warehouse.stock
-      const updatePreviousWarehouse = stock.find((w) => w.ware === payload.ware)
-      if (updatePreviousWarehouse) {
-        stock = stock.map((w) => {
-          if (w.ware !== payload.ware) {
-            return w
-          }
-
-          return {
-            ware: payload.ware,
-            quantity: w.quantity + payload.quantity
-          }
-        })
-      } else {
-        stock = stock.concat([{
-          ware: payload.ware,
-          quantity: payload.quantity
-        }])
+      const supply = {
+        ...c.supply
       }
+      supply[ware] = supply[ware] - quantity
 
-      stock = stock.filter((w) => w.quantity > 0)
+      const stock = {
+        ...c.warehouse.stock
+      }
+      stock[ware] = stock[ware] + quantity
 
       return {
-        ...city,
-        supply: city.supply.map((ware) => {
-          if (ware.ware !== payload.ware) {
-            return ware
-          }
-
-          return {
-            ...ware,
-            quantity: ware.quantity - payload.quantity
-          }
-        }),
+        ...c,
+        supply,
         warehouse: {
-          ...city.warehouse,
+          ...c.warehouse,
           stock
         }
       }
