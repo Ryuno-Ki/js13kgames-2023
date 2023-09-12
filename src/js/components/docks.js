@@ -1,3 +1,5 @@
+import { NO_CITY } from '../constants.js'
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,8 +10,7 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function docks (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
@@ -32,7 +33,7 @@ function mapShipsToTree (state) {
   const city = cities.find((c) => c.name === activeCity)
 
   if (!city) {
-    console.warn('Did not find city')
+    console.warn(NO_CITY)
     return [['span']]
   }
 

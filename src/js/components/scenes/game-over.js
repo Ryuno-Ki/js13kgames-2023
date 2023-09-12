@@ -1,3 +1,4 @@
+import { clone } from '../../helpers/clone.js'
 import { el } from '../el.js'
 
 /**
@@ -8,7 +9,7 @@ import { el } from '../el.js'
  * @returns {HTMLElement}
  */
 export function sectionGameOver (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
+  const element = clone(targetElement)
   element.innerHTML = ''
 
   if (state.activeScene === 'game-over-section') {

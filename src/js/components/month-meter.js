@@ -1,3 +1,4 @@
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,11 +9,10 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function monthMeter (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
-  const month = /** @type {import('../state/initial-state.js').Month} */(element.getAttribute('data-month'))
-  const activeMonth = /** @type {import('../state/initial-state.js').Month} */(element.getAttribute('data-active-month'))
+  const month = /** @type {import('../state/months.js').Month} */(element.getAttribute('data-month'))
+  const activeMonth = /** @type {import('../state/months.js').Month} */(element.getAttribute('data-active-month'))
 
   element.appendChild(el('div', ['status'], {}, '', [
     ['meter', [], { min: 0, max: 11, value: activeMonth }],
