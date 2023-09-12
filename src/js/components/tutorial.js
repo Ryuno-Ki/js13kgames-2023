@@ -1,3 +1,4 @@
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,8 +9,7 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function tutorial (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   element.appendChild(el('div', [], {}, '', getStoryByView(state)))
 
@@ -31,7 +31,7 @@ function getStoryByView (state) {
     return [['span']]
   }
 
-  /** @type {Record<import('../state/initial-state.js').View, string>} */
+  /** @type {Record<import('../state/views.js').View, string>} */
   const viewToStoryMap = {
     docks: [
       "See this ship over there? It's yours now. The Marie. A beautiful ",
@@ -84,7 +84,7 @@ function getStoryByView (state) {
     ].join('')
   }
 
-  /** @type {Record<import('../state/initial-state.js').View, Array<*>>} */
+  /** @type {Record<import('../state/views.js').View, Array<*>>} */
   const viewToButtonMap = {
     docks: ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse'],
     market: ['button', [], { type: 'button', 'data-view': 'sea' }, 'To the sea map'],

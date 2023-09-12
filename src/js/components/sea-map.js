@@ -1,3 +1,4 @@
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,8 +9,7 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function seaMap (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   element.appendChild(el('svg', [], { viewBox: '0 0 341 353', xmlns: 'http://www.w3.org/2000/svg' }, '', [
     ['polygon', ['kingdom', 'norway'], { points: getCoordinatesForBalticSeaMap('norway') }],

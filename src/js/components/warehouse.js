@@ -1,3 +1,5 @@
+import { NO_CITY } from '../constants.js'
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,12 +10,11 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function warehouse (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   const city = state.cities.find((city) => city.name === state.activeCity)
   if (!city) {
-    console.warn('Could not find city')
+    console.warn(NO_CITY)
     return element
   }
 

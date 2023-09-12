@@ -1,3 +1,5 @@
+import { NO_CITY } from '../constants.js'
+import { clone } from '../helpers/clone.js'
 import { el } from './el.js'
 
 /**
@@ -8,13 +10,12 @@ import { el } from './el.js'
  * @returns {HTMLElement}
  */
 export function sea (targetElement, state) {
-  const element = /** @type {HTMLElement} */(targetElement.cloneNode(true))
-  element.innerHTML = ''
+  const element = clone(targetElement)
 
   const city = state.cities.find((c) => c.name === state.activeCity)
 
   if (!city) {
-    console.warn('Could not find city')
+    console.warn(NO_CITY)
     return element
   }
 
@@ -65,7 +66,7 @@ export function sea (targetElement, state) {
  * Helper function because TypeScript.
  *
  * @private
- * @argument {Array<import('../state/initial-state.js').Ship>} ships
+ * @argument {Array<import('../state/ships.js').Ship>} ships
  * @returns {Array<*>}
  */
 function mapSailingShipsToElement (ships) {
