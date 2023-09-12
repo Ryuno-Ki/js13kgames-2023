@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the transition to another scene.
  *
@@ -8,7 +10,5 @@
 export function switchToSceneReducer (state, payload) {
   const activeScene = payload.scene
 
-  return Object.assign({}, state, {
-    activeScene
-  })
+  return copy(state, { activeScene })
 }

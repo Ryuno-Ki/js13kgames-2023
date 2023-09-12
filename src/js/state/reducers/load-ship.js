@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the cargo of a ship and update the city's warehouse.
  *
@@ -72,8 +74,5 @@ export function loadShipReducer (state, payload) {
     })
   }
 
-  return Object.assign({}, state, {
-    cities,
-    ships
-  })
+  return copy(state, { cities, ships })
 }

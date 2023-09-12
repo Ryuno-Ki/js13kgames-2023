@@ -1,3 +1,4 @@
+import { copy } from '../../helpers/copy.js'
 import { initialState } from '../initial-state.js'
 
 /**
@@ -8,5 +9,5 @@ import { initialState } from '../initial-state.js'
  * @returns {import('../initial-state.js').State}
  */
 export function resetReducer (state, payload) {
-  return Object.assign({}, initialState)
+  return copy(initialState, {})
 }

@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to set the tutorial flags.
  *
@@ -9,7 +11,7 @@ export function setTutorialReducer (state, payload) {
   const { scene } = payload
 
   if (scene !== 'level-section') {
-    return Object.assign({}, state)
+    return copy(state, {})
   }
 
   const { activeScenario, showTutorial } = state
@@ -22,5 +24,5 @@ export function setTutorialReducer (state, payload) {
     showTutorial[view] = tutorialFlag
   })
 
-  return Object.assign({}, state, { activeView, showTutorial })
+  return copy(state, { activeView, showTutorial })
 }

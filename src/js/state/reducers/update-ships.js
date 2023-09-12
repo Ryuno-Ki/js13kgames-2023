@@ -1,3 +1,6 @@
+import { copy } from '../../helpers/copy.js'
+import { NO_CITY } from '../../constants.js'
+
 /**
  * Reducer to compute the positions of all ships.
  *
@@ -20,8 +23,8 @@ export function updateShipsReducer (state, payload) {
     const departure = state.cities.find((city) => city.name === itinerary.from)
 
     if (!departure) {
-      console.warn('Could not find city')
-      return Object.assign({}, state)
+      console.warn(NO_CITY)
+      return copy(state, {})
     }
 
     const { activeMonth, activeYear } = state
@@ -49,7 +52,5 @@ export function updateShipsReducer (state, payload) {
     }
   })
 
-  return Object.assign({}, state, {
-    ships
-  })
+  return copy(state, { ships })
 }

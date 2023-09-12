@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to check on gameover condition based on scenario.
  *
@@ -23,5 +25,5 @@ export function checkOnGameoverConditionReducer (state, payload) {
     }
   }
 
-  return Object.assign({}, state, { activeScene })
+  return copy(state, { activeScene })
 }

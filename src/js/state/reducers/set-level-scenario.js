@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to set the chosen level scenario.
  *
@@ -6,8 +8,7 @@
  * @returns {import('../initial-state.js').State}
  */
 export function setLevelScenarioReducer (state, payload) {
-  const { scenario } = payload
-  const activeScenario = scenario || null
+  const activeScenario = payload.scenario || null
 
-  return Object.assign({}, state, { activeScenario })
+  return copy(state, { activeScenario })
 }

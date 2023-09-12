@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to set the name of the player (sanitised).
  *
@@ -23,5 +25,5 @@ export function setPlayernameReducer (state, payload) {
     .replace(/\\/g, '')
     .replace(/\s+/, ' ')
 
-  return Object.assign({}, state, { playername })
+  return copy(state, { playername })
 }

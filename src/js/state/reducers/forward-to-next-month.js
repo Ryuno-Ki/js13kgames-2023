@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the next month and year.
  *
@@ -14,8 +16,5 @@ export function forwardToNextMonthReducer (state, payload) {
     activeYear = activeYear + 1
   }
 
-  return Object.assign({}, state, {
-    activeMonth: String(activeMonth),
-    activeYear
-  })
+  return copy(state, { activeMonth: String(activeMonth), activeYear })
 }

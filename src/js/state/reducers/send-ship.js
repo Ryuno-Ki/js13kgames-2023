@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the transition of a ship from one city to another
  *
@@ -33,7 +35,5 @@ export function sendShipReducer (state, payload) {
     })
   }
 
-  return Object.assign({}, state, {
-    ships
-  })
+  return copy(state, { ships })
 }

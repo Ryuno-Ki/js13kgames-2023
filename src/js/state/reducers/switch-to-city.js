@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the transition to another city.
  *
@@ -10,8 +12,5 @@ export function switchToCityReducer (state, payload) {
   // TODO: Validate for eligible city once flag is introduced
   const activeCity = payload.city
 
-  return Object.assign({}, state, {
-    activeCity,
-    activeView
-  })
+  return copy(state, { activeCity, activeView })
 }

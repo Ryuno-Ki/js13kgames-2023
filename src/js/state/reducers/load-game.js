@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to replace most of the current state with a loaded one.
  *
@@ -9,9 +11,5 @@ export function loadGameReducer (state, payload) {
   const loadedState = payload.state
   const { activeColor, playername, volume } = state
 
-  return Object.assign({}, state, loadedState, {
-    activeColor,
-    playername,
-    volume
-  })
+  return copy(state, loadedState, { activeColor, playername, volume })
 }

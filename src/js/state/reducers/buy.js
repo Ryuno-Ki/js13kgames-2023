@@ -1,3 +1,6 @@
+import { NO_CITY } from '../../constants.js'
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to buy a ware from the market and stock it in the warehouse.
  *
@@ -60,7 +63,7 @@ export function buyReducer (state, payload) {
     })
   }
 
-  return Object.assign({}, state, { cities, playermoney })
+  return copy(state, { cities, playermoney })
 }
 
 /**
@@ -68,14 +71,14 @@ export function buyReducer (state, payload) {
  *
  * @private
  * @argument {import('../initial-state.js').State} state
- * @argument {import('../initial-state.js').Ware} ware
+ * @argument {import('../wares.js').Ware} ware
  * @returns {number}
  */
 function computeSKU (state, ware) {
   const city = state.cities.find((city) => city.name === state.activeCity)
 
   if (!city) {
-    console.warn('Could not find city')
+    console.warn(NO_CITY)
     return -1
   }
 

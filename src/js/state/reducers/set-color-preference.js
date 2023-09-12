@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to set the color preference.
  *
@@ -6,9 +8,5 @@
  * @returns {import('../initial-state.js').State}
  */
 export function setColorPreferenceReducer (state, payload) {
-  const { color } = payload
-
-  return Object.assign({}, state, {
-    activeColor: color
-  })
+  return copy(state, { activeColor: payload.color })
 }

@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the stock of a warehouse and update the cargo of a ship.
  *
@@ -67,8 +69,5 @@ export function unloadShipReducer (state, payload) {
     })
   }
 
-  return Object.assign({}, state, {
-    cities,
-    ships
-  })
+  return copy(state, { cities, ships })
 }

@@ -1,3 +1,5 @@
+import { copy } from '../../helpers/copy.js'
+
 /**
  * Reducer to compute the transition to another view within level scene.
  *
@@ -8,7 +10,5 @@
 export function switchToViewReducer (state, payload) {
   const activeView = payload.view
 
-  return Object.assign({}, state, {
-    activeView
-  })
+  return copy(state, { activeView })
 }
