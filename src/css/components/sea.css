@@ -2,6 +2,11 @@
 	flex-grow: 1;
 }
 
+.cities {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 .duchy,
 .empire,
 .kingdom,

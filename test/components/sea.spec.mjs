@@ -36,7 +36,7 @@ describe('sea', function () {
 
     // Assert
     expect(seaComponent).not.to.equal(targetElement)
-    expect(seaComponent).to.contain.text('Wismar (2 months away)')
+    expect(seaComponent).to.contain.text('Wismar (2 months away')
   })
 
   it('should render a list of moored ships', function () {

@@ -33,12 +33,12 @@ export function sea (targetElement, state) {
         ['div', [], { 'data-component': 'sea-map' }],
         ['div', [], {}, '', [
           ['div', [], {}, 'Plan your moves carefully'],
-          ['ul', ['f', 'fr', 'g'], {}, '', [
+          ['ul', ['cities'], {}, '', [
             ...cities.map((c) => [
               'li',
               [],
               {},
-              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away)`
+              `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, demands ${c.demand.map((ware) => ware.ware).join(', ')})`
             ])
           ]]
         ]]
