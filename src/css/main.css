@@ -73,6 +73,7 @@ button {
 	cursor: pointer;
 }
 
+[data-action="next-month"]::before,
 [data-scene]::before,
 [data-view]::before {
 	display: inline;
@@ -120,6 +121,10 @@ button {
 
 [data-view="warehouse"]::before {
 	content: "📦";
+}
+
+[data-action="next-month"]::before {
+	content: "📆";
 }
 
 body {
