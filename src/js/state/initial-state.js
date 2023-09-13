@@ -61,5 +61,5 @@ export const initialState = {
   history,
   showTutorial,
   playername: '',
-  playermoney: 100
+  playermoney: 1000
 }
