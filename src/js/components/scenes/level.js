@@ -21,7 +21,7 @@ export function sectionLevel (targetElement, state) {
     element.appendChild(el('div', [], {}, '', [
       ['h1', [], {}, getHeadlineFromView(state.activeView, state.activeCity)],
       view,
-      ['div', ['f', 'fr'], {}, '', [
+      ['div', ['f'], {}, '', [
         ['div', [], {}, `${state.playermoney} 💰`],
         ['div', [], { 'data-component': 'month-meter', 'data-month': month, 'data-active-month': activeMonth }]
       ]]

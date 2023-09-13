@@ -15,7 +15,7 @@ export function monthMeter (targetElement, state) {
   const month = /** @type {import('../state/months.js').Month} */(attr(element, 'month'))
   const activeMonth = /** @type {import('../state/months.js').Month} */(attr(element, 'active-month'))
 
-  element.appendChild(el('div', ['f', 'fr', 'g'], {}, '', [
+  element.appendChild(el('div', ['f', 'g'], {}, '', [
     ['meter', [], { min: 0, max: 11, value: activeMonth }],
     ['div', [], {}, month, [
       ['button', [], { type: 'button', 'data-action': 'next-month' }, 'Next month']

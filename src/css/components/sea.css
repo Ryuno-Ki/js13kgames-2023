@@ -10,7 +10,7 @@ svg {
 	width: 100%;
 }
 
-.cities {
+.c {
 	display: grid;
 	gap: 0.5em;
 	grid-template-columns: 1fr 1fr;

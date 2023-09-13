@@ -4,7 +4,7 @@ body {
 	padding: 0;
 }
 
-main {
+body {
 	display: grid;
 	min-height: 95vh;
 	place-items: center;
@@ -53,10 +53,6 @@ select {
 	flex-wrap: wrap;
 }
 
-.fr {
-	flex-direction: row;
-}
-
 .fc {
 	flex-direction: column;
 }
@@ -75,7 +71,7 @@ button {
 }
 
 [data-acquire]::before,
-[data-action="next-month"]::before,
+[data-action]::before,
 [data-scene]::before,
 [data-view]::before {
 	display: inline;
@@ -125,11 +121,11 @@ button {
 	content: "📦";
 }
 
-[data-acquire="ship"]::before {
+[data-acquire]::before {
 	content: "⛵";
 }
 
-[data-action="next-month"]::before {
+[data-action]::before {
 	content: "📆";
 }
 

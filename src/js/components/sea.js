@@ -29,31 +29,27 @@ export function sea (targetElement, state) {
   element.appendChild(el('div', [], {}, '', [
     ['div', [], { 'data-component': 'tutorial' }],
     ['div', [], {}, '', [
-      ['div', ['f', 'fr'], {}, '', [
+      ['div', ['f'], {}, '', [
         ['div', [], { 'data-component': 'sea-map' }],
         ['div', [], {}, '', [
           ['div', [], {}, 'Plan your moves carefully'],
-          ['ul', ['cities'], {}, '', [
-            ...cities.map((c) => [
-              'li',
-              [],
-              {},
+          ['ul', ['c'], {}, '', cities.map((c) => [
+            'li',
+            [],
+            {},
               `${c.name} (${pluralise('month', 'months', city.distances[c.name])} away, ${formatDemands(c)})`
-            ])
-          ]]
+          ])
+          ]
         ]]
       ]],
-      ['div', [], {}, 'Ships', [
-        ['div', [], {}, 'moored in a port:', [
-          ['ul', [], {}, '', [
-            ...mooredShips.map((ship) => [
-              'li', [], {}, `${ship.name} in ${ship.position}`
-            ])
-          ]]
-        ]],
-        ['div', [], {}, 'sailing:', [
-          ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
-        ]]
+      ['div', [], {}, 'Ships moored in a port', [
+        ['ul', [], {}, '', mooredShips.map((ship) => [
+          'li', [], {}, `${ship.name} in ${ship.position}`
+        ])
+        ]
+      ]],
+      ['div', [], {}, 'Sailing ships:', [
+        ['ul', [], {}, '', [...mapSailingShipsToElement(sailingShips)]]
       ]],
       ['button', [], { type: 'button', 'data-view': 'warehouse' }, 'To the warehouse']
     ]]
