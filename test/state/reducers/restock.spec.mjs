@@ -43,4 +43,18 @@ describe('restockReducer', function () {
     expect(newState).not.to.equal(state)
     expect(newState.cities).to.shallowDeepEqual(initialState.cities)
   })
+
+  it('should remove foreign wares', function () {
+    // Arrange
+		const cities = [{ name: 'Lübeck', demand: { grok: 42 }, supply: { wool: 5 }}]
+    const state = Object.assign({}, store.getState(), { cities })
+    const payload = {}
+
+    // Act
+    const newState = restockReducer(state, payload)
+
+    // Assert
+    expect(newState).not.to.equal(state)
+    expect(newState.cities[0].demand).not.to.have.key('grok')
+  })
 })
