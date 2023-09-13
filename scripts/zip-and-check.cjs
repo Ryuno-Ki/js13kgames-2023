@@ -14,7 +14,9 @@ function zipDirectory (directory, targetFile) {
 }
 
 function compressHarder (zipFile) {
-	return exec(`advzip -z -4 ${zipFile}`)
+	// 100 iterations have been manually determined to be the maximum I can use
+	// with an effect on the size
+	return exec(`advzip -z -4 -i 100 -p ${zipFile}`)
 }
 
 function getFileSizeInBytes (filepath) {
