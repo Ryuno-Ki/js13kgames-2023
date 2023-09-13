@@ -10,7 +10,7 @@
  */
 export function saveGameAction(): SAVE_GAME_ACTION;
 export type SAVE_GAME_ACTION = {
-    type: "J";
+    type: "K";
     payload: object;
 };
 import { SAVE_GAME_ACTION } from '../../constants.js';

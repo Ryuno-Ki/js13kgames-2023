@@ -24,7 +24,7 @@ export function unloadShipAction({ city, ship, ware, quantity }: {
     quantity: number;
 }): UNLOAD_SHIP_ACTION;
 export type UNLOAD_SHIP_ACTION = {
-    type: "U";
+    type: "V";
     payload: {
         city: import('../cities.js').CityName;
         ship: string;

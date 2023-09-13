@@ -12,7 +12,7 @@
  */
 export function setTutorialAction(scene: import('../initial-state.js').Scene): SET_TUTORIAL_ACTION;
 export type SET_TUTORIAL_ACTION = {
-    type: "R";
+    type: "S";
     payload: {
         scene: import('../initial-state.js').Scene;
     };

@@ -12,7 +12,7 @@
  */
 export function setShipTypeAction(shipType: import('../ships.js').ShipType): SET_SHIP_TYPE_ACTION;
 export type SET_SHIP_TYPE_ACTION = {
-    type: "Q";
+    type: "R";
     payload: {
         shipType: import('../ships.js').ShipType;
     };

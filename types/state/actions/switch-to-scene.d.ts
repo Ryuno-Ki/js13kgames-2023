@@ -12,7 +12,7 @@
  */
 export function switchToSceneAction(scene: import('../initial-state.js').Scene): SWITCH_TO_SCENE_ACTION;
 export type SWITCH_TO_SCENE_ACTION = {
-    type: "S";
+    type: "T";
     payload: {
         scene: import('../initial-state.js').Scene;
     };

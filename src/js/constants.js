@@ -22,31 +22,33 @@ export const LOCAL_STORAGE_KEY = 'THE_BALTIC_LEAGUE'
 export const NO_CITY = 'Could not find city'
 /** Action type to reset state to initial one */
 export const RESET_ACTION = 'I'
+/** Action type to refill the stock in cities each month */
+export const RESTOCK_ACTION = 'J'
 /** Action type to save a game into localStorage */
-export const SAVE_GAME_ACTION = 'J'
+export const SAVE_GAME_ACTION = 'K'
 /** Action type to sell a good on a market */
-export const SELL_ACTION = 'K'
+export const SELL_ACTION = 'L'
 /** Action type to send a ship to another city */
-export const SEND_SHIP_ACTION = 'L'
+export const SEND_SHIP_ACTION = 'M'
 /** Action type to switch color theme */
-export const SET_COLOR_PREFERENCE_ACTION = 'M'
+export const SET_COLOR_PREFERENCE_ACTION = 'N'
 /** Action type to select either free-play or tutorial */
-export const SET_LEVEL_SCENARIO_ACTION = 'N'
+export const SET_LEVEL_SCENARIO_ACTION = 'O'
 /** Action type to set the chosen player name */
-export const SET_PLAYERNAME_ACTION = 'O'
+export const SET_PLAYERNAME_ACTION = 'P'
 /** Action type to set ship name of new ship */
-export const SET_SHIP_NAME_ACTION = 'P'
+export const SET_SHIP_NAME_ACTION = 'Q'
 /** Action type to set ship type of new ship */
-export const SET_SHIP_TYPE_ACTION = 'Q'
+export const SET_SHIP_TYPE_ACTION = 'R'
 /** Action type to set tutorial flags */
-export const SET_TUTORIAL_ACTION = 'R'
+export const SET_TUTORIAL_ACTION = 'S'
 /** Action type to switch to another scene */
-export const SWITCH_TO_SCENE_ACTION = 'S'
+export const SWITCH_TO_SCENE_ACTION = 'T'
 /** Action type to switch to another view within level scene */
-export const SWITCH_TO_VIEW_ACTION = 'T'
+export const SWITCH_TO_VIEW_ACTION = 'U'
 /** Action type to unload a ship into a warehouse in that city */
-export const UNLOAD_SHIP_ACTION = 'U'
+export const UNLOAD_SHIP_ACTION = 'V'
 /** Action type to unlock historic events */
-export const UNVEIL_HISTORY_ACTION = 'V'
+export const UNVEIL_HISTORY_ACTION = 'W'
 /** Action type to update the position of all ships */
-export const UPDATE_SHIPS_ACTION = 'W'
+export const UPDATE_SHIPS_ACTION = 'X'

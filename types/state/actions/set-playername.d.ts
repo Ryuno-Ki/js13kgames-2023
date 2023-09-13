@@ -12,7 +12,7 @@
  */
 export function setPlayernameAction(playername: string): SET_PLAYERNAME_ACTION;
 export type SET_PLAYERNAME_ACTION = {
-    type: "O";
+    type: "P";
     payload: {
         playername: string;
     };

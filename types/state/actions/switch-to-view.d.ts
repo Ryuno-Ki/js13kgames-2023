@@ -12,7 +12,7 @@
  */
 export function switchToViewAction(view: import('../views.js').View): SWITCH_TO_VIEW_ACTION;
 export type SWITCH_TO_VIEW_ACTION = {
-    type: "T";
+    type: "U";
     payload: {
         view: import('../views.js').View;
     };
