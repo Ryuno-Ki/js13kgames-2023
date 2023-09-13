@@ -120,6 +120,7 @@ describe('docks', function () {
         // Arrange
         const ships = [{
           name: 'Santa Maria',
+          type: 'nef',
           cargo: {},
           moored: true,
           position: 'Lübeck'

@@ -79,7 +79,12 @@ function mapShipsToTree (state, city) {
                 name: `${ship.name}-load-${stockItem[0]}`,
                 type: 'range',
                 min: 0,
-                max: stockItem[1],
+                max: Math.min(
+                  // Stock in warehouse
+                  stockItem[1],
+                  // Maximum the ship can still carry
+                  state.shipTypes[ship.type].maxFreightWeight - Object.values(ship.cargo).reduce((sum, summand) => sum + summand, 0)
+                ),
                 step: 1,
                 value: 0,
                 'data-city': city.name,
