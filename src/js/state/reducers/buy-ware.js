@@ -1,4 +1,3 @@
-import { computeUnitPrice } from '../../helpers/compute-unit-price.js'
 import { copy } from '../../helpers/copy.js'
 
 /**
@@ -13,7 +12,7 @@ export function buyWareReducer (state, payload) {
   let cities = state.cities
   let playermoney = state.playermoney
 
-  const price = quantity * computeUnitPrice(state, ware)
+  const price = quantity * state.wares[ware]
 
   if (price >= 0 && price <= playermoney) {
     playermoney = playermoney - price

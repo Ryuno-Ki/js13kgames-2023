@@ -1,5 +1,4 @@
 import { copy } from '../../helpers/copy.js'
-import { computeUnitPrice } from '../../helpers/compute-unit-price.js'
 
 /**
  * Reducer to sell a ware from the market and stock it in the warehouse.
@@ -12,7 +11,7 @@ export function sellReducer (state, payload) {
   const { city, quantity, ware } = payload
 
   let cities = state.cities
-  const price = quantity * computeUnitPrice(state, ware)
+  const price = quantity * state.wares[ware]
   const playermoney = state.playermoney + price
 
   cities = state.cities.map((c) => {
