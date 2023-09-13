@@ -11,45 +11,54 @@ import { el } from './el.js'
 export function seaMap (targetElement, state) {
   const element = clone(targetElement)
 
-  element.appendChild(el('svg', [], { viewBox: '0 0 341 353', xmlns: 'http://www.w3.org/2000/svg' }, '', [
-    ['polygon', ['kingdom', 'norway'], { points: getCoordinatesForBalticSeaMap('norway') }],
-    ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('sweden') }],
-    ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('finnland') }],
-    ['polygon', ['republic', 'nowgorod'], { points: getCoordinatesForBalticSeaMap('nowgorod') }],
-    ['polygon', ['republic', 'pskow'], { points: getCoordinatesForBalticSeaMap('pskow') }],
-    ['polygon', ['teutonic', 'order'], { points: getCoordinatesForBalticSeaMap('order') }],
-    ['polygon', ['grand', 'duchy', 'lithuania'], { points: getCoordinatesForBalticSeaMap('lithuania') }],
-    ['polygon', ['roman', 'empire'], { points: getCoordinatesForBalticSeaMap('roman') }],
-    // Sealand and Funen belong to kingdom of denmark
-    ['polygon', ['kingdom', 'denmark'], { points: getCoordinatesForBalticSeaMap('denmark') }],
-    ['text', [], { x: 35, y: 91 }, '', [
-      ['tspan', [], { x: 35, dy: '1em' }, 'Kingdom'],
-      ['tspan', [], { x: 35, dy: '1em' }, 'of Norway']
-    ]],
-    ['text', [], { x: 80, y: 151 }, '', [
-      ['tspan', [], { x: 80, dy: '1em' }, 'Kingdom'],
-      ['tspan', [], { x: 80, dy: '1em' }, 'of Sweden']
-    ]],
-    ['text', [], { x: 262, y: 26 }, '', [
-      ['tspan', [], { x: 262, dy: '1em' }, 'Republic of'],
-      ['tspan', [], { x: 262, dy: '1em' }, 'Nowgorod']
-    ]],
-    ['text', [], { x: 262, y: 166 }, '', [
-      ['tspan', [], { x: 262, dy: '1em' }, 'Republic'],
-      ['tspan', [], { x: 262, dy: '1em' }, 'of Pskow']
-    ]],
-    ['text', [], { x: 200, y: 293 }, '', [
-      ['tspan', [], { x: 200, dy: '1em' }, 'Teutonic'],
-      ['tspan', [], { x: 200, dy: '1em' }, 'Order']
-    ]],
-    ['text', [], { x: 255, y: 298 }, '', [
-      ['tspan', [], { x: 255, dy: '1em' }, 'Grand Duchy'],
-      ['tspan', [], { x: 255, dy: '1em' }, 'of Lithuania']
-    ]],
-    ['text', [], { x: 25, y: 298 }, '', [
-      ['tspan', [], { x: 25, dy: '1em' }, 'Holy Roman Empire']
-    ]]
-  ]))
+  element.appendChild(el(
+    'svg',
+    [],
+    {
+      'aria-role': 'presentation',
+      viewBox: '0 0 341 353',
+      xmlns: 'http://www.w3.org/2000/svg'
+    },
+    '',
+    [
+      ['polygon', ['kingdom', 'norway'], { points: getCoordinatesForBalticSeaMap('norway') }],
+      ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('sweden') }],
+      ['polygon', ['kingdom', 'sweden'], { points: getCoordinatesForBalticSeaMap('finnland') }],
+      ['polygon', ['republic', 'nowgorod'], { points: getCoordinatesForBalticSeaMap('nowgorod') }],
+      ['polygon', ['republic', 'pskow'], { points: getCoordinatesForBalticSeaMap('pskow') }],
+      ['polygon', ['teutonic', 'order'], { points: getCoordinatesForBalticSeaMap('order') }],
+      ['polygon', ['grand', 'duchy', 'lithuania'], { points: getCoordinatesForBalticSeaMap('lithuania') }],
+      ['polygon', ['roman', 'empire'], { points: getCoordinatesForBalticSeaMap('roman') }],
+      // Sealand and Funen belong to kingdom of denmark
+      ['polygon', ['kingdom', 'denmark'], { points: getCoordinatesForBalticSeaMap('denmark') }],
+      ['text', [], { x: 35, y: 91 }, '', [
+        ['tspan', [], { x: 35, dy: '1em' }, 'Kingdom'],
+        ['tspan', [], { x: 35, dy: '1em' }, 'of Norway']
+      ]],
+      ['text', [], { x: 80, y: 151 }, '', [
+        ['tspan', [], { x: 80, dy: '1em' }, 'Kingdom'],
+        ['tspan', [], { x: 80, dy: '1em' }, 'of Sweden']
+      ]],
+      ['text', [], { x: 262, y: 26 }, '', [
+        ['tspan', [], { x: 262, dy: '1em' }, 'Republic of'],
+        ['tspan', [], { x: 262, dy: '1em' }, 'Nowgorod']
+      ]],
+      ['text', [], { x: 262, y: 166 }, '', [
+        ['tspan', [], { x: 262, dy: '1em' }, 'Republic'],
+        ['tspan', [], { x: 262, dy: '1em' }, 'of Pskow']
+      ]],
+      ['text', [], { x: 200, y: 293 }, '', [
+        ['tspan', [], { x: 200, dy: '1em' }, 'Teutonic'],
+        ['tspan', [], { x: 200, dy: '1em' }, 'Order']
+      ]],
+      ['text', [], { x: 255, y: 298 }, '', [
+        ['tspan', [], { x: 255, dy: '1em' }, 'Grand Duchy'],
+        ['tspan', [], { x: 255, dy: '1em' }, 'of Lithuania']
+      ]],
+      ['text', [], { x: 25, y: 298 }, '', [
+        ['tspan', [], { x: 25, dy: '1em' }, 'Holy Roman Empire']
+      ]]
+    ]))
 
   return element
 }

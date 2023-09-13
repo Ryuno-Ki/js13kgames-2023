@@ -2,8 +2,17 @@
 	flex-grow: 1;
 }
 
+svg {
+	display: block;
+	min-height: 341px;
+	min-width: 353px;
+	height: auto;
+	width: 100%;
+}
+
 .cities {
 	display: grid;
+	gap: 0.5em;
 	grid-template-columns: 1fr 1fr;
 }
 
