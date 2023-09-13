@@ -73,6 +73,7 @@ button {
 	cursor: pointer;
 }
 
+[data-acquire]::before,
 [data-action="next-month"]::before,
 [data-scene]::before,
 [data-view]::before {
@@ -121,6 +122,14 @@ button {
 
 [data-view="warehouse"]::before {
 	content: "📦";
+}
+
+[data-acquire="ship"]::before {
+	content: "⛵";
+}
+
+[data-acquire="warehouse-level"]::before {
+	content: "🏬";
 }
 
 [data-action="next-month"]::before {
