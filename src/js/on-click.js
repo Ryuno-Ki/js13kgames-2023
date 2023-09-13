@@ -6,6 +6,7 @@ import { checkOnWinConditionAction } from './state/actions/check-on-win-conditio
 import { deleteGameAction } from './state/actions/delete-game.js'
 import { forwardToNextMonthAction } from './state/actions/forward-to-next-month.js'
 import { loadGameAction } from './state/actions/load-game.js'
+import { restockAction } from './state/actions/restock.js'
 import { saveGameAction } from './state/actions/save-game.js'
 import { setTutorialAction } from './state/actions/set-tutorial.js'
 import { switchToSceneAction } from './state/actions/switch-to-scene.js'
@@ -28,6 +29,7 @@ export async function onClick (event) {
   if (attr(target, 'action')) {
     await Promise.all([
       forwardToNextMonthAction(),
+      restockAction(),
       updateShipsAction(),
       unveilHistoryAction(),
       saveGameAction(),

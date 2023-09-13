@@ -10,6 +10,7 @@ import { checkOnWinConditionAction } from '../src/js/state/actions/check-on-win-
 import { deleteGameAction } from '../src/js/state/actions/delete-game.js'
 import { forwardToNextMonthAction } from '../src/js/state/actions/forward-to-next-month.js'
 import { resetAction } from '../src/js/state/actions/reset.js'
+import { restockAction } from '../src/js/state/actions/restock.js'
 import { loadGameAction } from '../src/js/state/actions/load-game.js'
 import { saveGameAction } from '../src/js/state/actions/save-game.js'
 import { setTutorialAction } from '../src/js/state/actions/set-tutorial.js'
@@ -45,9 +46,10 @@ describe('onClick', function () {
     await onClick(event)
 
     // Assert
-    expect(store.dispatch).to.have.been.callCount(6)
+    expect(store.dispatch).to.have.been.callCount(7)
     // TODO: Check the order! At the moment I can swap the win and gameover checks and tests still pass
     expect(store.dispatch).to.have.been.calledWith(forwardToNextMonthAction())
+    expect(store.dispatch).to.have.been.calledWith(restockAction())
     expect(store.dispatch).to.have.been.calledWith(updateShipsAction())
     expect(store.dispatch).to.have.been.calledWith(unveilHistoryAction())
     expect(store.dispatch).to.have.been.calledWith(saveGameAction())
