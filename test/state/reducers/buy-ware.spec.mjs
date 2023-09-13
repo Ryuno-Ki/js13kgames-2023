@@ -25,9 +25,7 @@ describe('buyWareReducer', function () {
         name: 'Lübeck',
         supply: { grok: 100 },
         demand: { grok: 50 },
-        warehouse: {
-          stock: { grok: 0 }
-        }
+        warehouse: { grok: 0 }
       }]
       const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
@@ -38,7 +36,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 42 })
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({ grok: 42 })
       expect(newState.playermoney).to.be.below(state.playermoney)
     })
   })
@@ -55,7 +53,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({
         beer: 0,
         crop: 0,
         salt: 0,
@@ -80,9 +78,7 @@ describe('buyWareReducer', function () {
         name: 'Lübeck',
         supply: { grok: 100 },
         demand: { grok: 50 },
-        warehouse: {
-          stock: { grok: 0 }
-        }
+        warehouse: { grok: 0 }
       }]
       const state = Object.assign({}, store.getState(), { activeCity, cities, playermoney, wares })
       const payload = { city: 'Lübeck', ware: 'grok', quantity: 42 }
@@ -93,7 +89,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 42 })
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({ grok: 42 })
     })
   })
 
@@ -109,9 +105,7 @@ describe('buyWareReducer', function () {
             name: 'Lübeck',
             supply: { grok: 42 },
             demand: { grok: 50 },
-            warehouse: {
-              stock: { grok: 2 }
-            }
+            warehouse: { grok: 2 }
           }],
           wares: {
             grok: 1
@@ -127,7 +121,7 @@ describe('buyWareReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ grok: 44 })
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({ grok: 44 })
     })
   })
 
@@ -137,7 +131,7 @@ describe('buyWareReducer', function () {
       name: 'Lübeck',
       demand: { wax: 100 },
       supply: { salt: 2, wax: 10 },
-      warehouse: { stock: {} }
+      warehouse: {}
     }]
     const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities, playermoney: 1000000 })
     const payload = { city: 'Lübeck', ware: 'wax', quantity: 2 }

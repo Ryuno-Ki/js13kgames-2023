@@ -10,7 +10,7 @@
  */
 export function resetAction(): RESET_ACTION;
 export type RESET_ACTION = {
-    type: "J";
+    type: "I";
     payload: object;
 };
 import { RESET_ACTION } from '../../constants.js';

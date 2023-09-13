@@ -24,7 +24,7 @@ export function loadShipAction({ city, ship, ware, quantity }: {
     quantity: number;
 }): LOAD_SHIP_ACTION;
 export type LOAD_SHIP_ACTION = {
-    type: "I";
+    type: "H";
     payload: {
         city: import('../cities.js').CityName;
         ship: string;

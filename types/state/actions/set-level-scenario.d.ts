@@ -12,7 +12,7 @@
  */
 export function setLevelScenarioAction(scenario: import('../initial-state.js').Scenario): SET_LEVEL_SCENARIO_ACTION;
 export type SET_LEVEL_SCENARIO_ACTION = {
-    type: "O";
+    type: "N";
     payload: {
         scenario: import('../initial-state.js').Scenario;
     };

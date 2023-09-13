@@ -80,9 +80,7 @@ describe('unloadShipReducer', function () {
       // Arrange
       const cities = [{
         name: 'Lübeck',
-        warehouse: {
-          stock: { wood: 10 }
-        }
+        warehouse: { wood: 10 }
       }]
       const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
       const payload = { city: 'Lübeck', ship: 'Marie', ware: 'wood', quantity: 2 }
@@ -93,7 +91,7 @@ describe('unloadShipReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ wood: 12 })
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({ wood: 12 })
     })
   })
 })

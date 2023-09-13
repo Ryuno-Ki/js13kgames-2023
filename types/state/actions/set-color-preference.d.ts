@@ -12,7 +12,7 @@
  */
 export function setColorPreferenceAction(color: import('../initial-state.js').Color): SET_COLOR_PREFERENCE_ACTION;
 export type SET_COLOR_PREFERENCE_ACTION = {
-    type: "N";
+    type: "M";
     payload: {
         color: import('../initial-state.js').Color;
     };

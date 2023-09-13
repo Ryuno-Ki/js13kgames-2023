@@ -10,7 +10,7 @@
  */
 export function forwardToNextMonthAction(): FORWARD_TO_NEXT_MONTH_ACTION;
 export type FORWARD_TO_NEXT_MONTH_ACTION = {
-    type: "G";
+    type: "F";
     payload: object;
 };
 import { FORWARD_TO_NEXT_MONTH_ACTION } from '../../constants.js';

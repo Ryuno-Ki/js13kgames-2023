@@ -12,7 +12,7 @@
  */
 export function unveilHistoryAction(): UNVEIL_HISTORY_ACTION;
 export type UNVEIL_HISTORY_ACTION = {
-    type: "W";
+    type: "V";
     payload: object;
 };
 import { UNVEIL_HISTORY_ACTION } from '../../constants.js';

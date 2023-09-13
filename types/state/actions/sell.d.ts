@@ -21,7 +21,7 @@ export function sellAction({ city, ware, quantity }: {
     quantity: number;
 }): SELL_ACTION;
 export type SELL_ACTION = {
-    type: "L";
+    type: "K";
     payload: {
         city: import('../cities.js').CityName;
         ware: import('../wares.js').Ware;

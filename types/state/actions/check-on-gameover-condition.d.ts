@@ -10,7 +10,7 @@
  */
 export function checkOnGameoverConditionAction(): CHECK_ON_GAMEOVER_CONDITION_ACTION;
 export type CHECK_ON_GAMEOVER_CONDITION_ACTION = {
-    type: "D";
+    type: "C";
     payload: object;
 };
 import { CHECK_ON_GAMEOVER_CONDITION_ACTION } from '../../constants.js';

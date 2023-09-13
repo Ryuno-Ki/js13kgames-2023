@@ -10,7 +10,7 @@
  */
 export function updateShipsAction(): UPDATE_SHIPS_ACTION;
 export type UPDATE_SHIPS_ACTION = {
-    type: "X";
+    type: "W";
     payload: object;
 };
 import { UPDATE_SHIPS_ACTION } from '../../constants.js';

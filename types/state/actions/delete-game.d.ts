@@ -12,7 +12,7 @@
  */
 export function deleteGameAction(playername: string): DELETE_GAME_ACTION;
 export type DELETE_GAME_ACTION = {
-    type: "F";
+    type: "E";
     payload: {
         playername: string;
     };

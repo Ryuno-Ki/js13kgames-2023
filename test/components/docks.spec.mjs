@@ -128,9 +128,7 @@ describe('docks', function () {
           name: 'Lübeck',
           isFounded: true,
           warehouse: {
-            stock: {
-              met: 42
-            }
+            met: 42
           }
         }]
 
@@ -180,7 +178,6 @@ describe('docks', function () {
           name: 'India',
           isFounded: true,
           warehouse: {
-            stock: []
           }
         }, {
           name: 'Lübeck',
@@ -189,7 +186,6 @@ describe('docks', function () {
             India: 6
           },
           warehouse: {
-            stock: []
           }
         }]
 
@@ -218,7 +214,6 @@ describe('docks', function () {
           name: 'India',
           isFounded: true,
           warehouse: {
-            stock: []
           }
         }, {
           name: 'Lübeck',
@@ -227,7 +222,6 @@ describe('docks', function () {
             India: 8
           },
           warehouse: {
-            stock: []
           }
         }]
 
@@ -256,7 +250,6 @@ describe('docks', function () {
           name: 'India',
           isFounded: true,
           warehouse: {
-            stock: []
           }
         }, {
           name: 'Lübeck',
@@ -265,7 +258,6 @@ describe('docks', function () {
             India: 5
           },
           warehouse: {
-            stock: []
           }
         }]
 

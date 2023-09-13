@@ -12,7 +12,7 @@
  */
 export function setShipNameAction(shipName: string): SET_SHIP_NAME_ACTION;
 export type SET_SHIP_NAME_ACTION = {
-    type: "Q";
+    type: "P";
     payload: {
         shipName: string;
     };

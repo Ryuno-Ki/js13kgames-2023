@@ -40,7 +40,7 @@ export function docks (targetElement, state) {
 function mapShipsToTree (state, city) {
   const { activeCity, activeMonth, cities, ships } = state
 
-  const { stock } = city.warehouse
+  const { warehouse } = city
   const destinations = cities
     .filter((c) => c.isFounded)
     .filter((c) => c.name !== activeCity)
@@ -70,7 +70,7 @@ function mapShipsToTree (state, city) {
     'div', [], {}, ship.name, [
       ['div', [], {}, 'Load', [
         ['ul', [], {}, '', [
-          ...Object.entries(stock).map((stockItem) => [
+          ...Object.entries(warehouse).map((stockItem) => [
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-load-${stockItem[0]}` }, stockItem[0]],
               ['span', [], {}, '0'],

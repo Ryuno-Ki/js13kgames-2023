@@ -1,7 +1,6 @@
 import { attr } from './helpers/attr.js'
 import store from './state/store.js'
 import { buyShipAction } from './state/actions/buy-ship.js'
-import { buyWarehouseLevelAction } from './state/actions/buy-warehouse-level.js'
 import { checkOnGameoverConditionAction } from './state/actions/check-on-gameover-condition.js'
 import { checkOnWinConditionAction } from './state/actions/check-on-win-condition.js'
 import { deleteGameAction } from './state/actions/delete-game.js'
@@ -41,11 +40,6 @@ export async function onClick (event) {
   if (attr(target, 'acquire') === 'ship') {
     const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
     return store.dispatch(buyShipAction(city))
-  }
-
-  if (attr(target, 'acquire') === 'warehouse-level') {
-    const city = /** @type {import('./state/cities.js').CityName} */(attr(target, 'city'))
-    return store.dispatch(buyWarehouseLevelAction(city))
   }
 
   if (attr(target, 'playername')) {

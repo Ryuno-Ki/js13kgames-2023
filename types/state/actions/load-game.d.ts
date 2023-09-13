@@ -12,7 +12,7 @@
  */
 export function loadGameAction(state: import('../initial-state.js').State): LOAD_GAME_ACTION;
 export type LOAD_GAME_ACTION = {
-    type: "H";
+    type: "G";
     payload: {
         state: import('../initial-state.js').State;
     };

@@ -15,19 +15,13 @@
  */
 
 /**
- * @typedef {object} Warehouse
- * @property {'1' | '2' | '3' | '4'} level
- * @property {Record<import('./wares.js').Ware, number>} stock
- */
-
-/**
  * @typedef {object} City
  * @property {CityName} name
  * @property {CityDistance} distances
  * @property {boolean} isFounded
  * @property {CityDemand} demand
  * @property {CitySupply} supply
- * @property {Warehouse} warehouse
+ * @property {Record<import('./wares.js').Ware, number>} warehouse
  */
 
 /**
@@ -71,15 +65,12 @@ export const cities = [{
     wood: 0
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Greifswald',
@@ -117,15 +108,12 @@ export const cities = [{
     wood: 3500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Hamburg',
@@ -163,15 +151,12 @@ export const cities = [{
     wood: 3500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Kiel',
@@ -209,15 +194,12 @@ export const cities = [{
     wood: 3500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Lübeck',
@@ -255,15 +237,12 @@ export const cities = [{
     wood: 0
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Malmö',
@@ -301,15 +280,12 @@ export const cities = [{
     wood: 2500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Nowgorod',
@@ -347,15 +323,12 @@ export const cities = [{
     wood: 2500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Reval',
@@ -393,15 +366,12 @@ export const cities = [{
     wood: 2500
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Riga',
@@ -439,15 +409,12 @@ export const cities = [{
     wood: 0
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Rostock',
@@ -485,15 +452,12 @@ export const cities = [{
     wood: 0
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Turku',
@@ -531,15 +495,12 @@ export const cities = [{
     wood: 0
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Visby',
@@ -577,15 +538,12 @@ export const cities = [{
     wood: 5000
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }, {
   name: 'Wismar',
@@ -623,14 +581,11 @@ export const cities = [{
     wood: 3000
   },
   warehouse: {
-    level: '1',
-    stock: {
-      beer: 0,
-      crop: 0,
-      salt: 0,
-      sprats: 0,
-      wax: 0,
-      wood: 0
-    }
+    beer: 0,
+    crop: 0,
+    salt: 0,
+    sprats: 0,
+    wax: 0,
+    wood: 0
   }
 }]

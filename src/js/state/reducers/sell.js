@@ -24,18 +24,15 @@ export function sellReducer (state, payload) {
     }
     supply[ware] = supply[ware] + quantity
 
-    const stock = {
-      ...c.warehouse.stock
+    const warehouse = {
+      ...c.warehouse
     }
-    stock[ware] = stock[ware] - quantity
+    warehouse[ware] = warehouse[ware] - quantity
 
     return {
       ...c,
       supply,
-      warehouse: {
-        ...c.warehouse,
-        stock
-      }
+      warehouse
     }
   })
 

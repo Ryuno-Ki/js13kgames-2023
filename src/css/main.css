@@ -128,10 +128,6 @@ button {
 	content: "⛵";
 }
 
-[data-acquire="warehouse-level"]::before {
-	content: "🏬";
-}
-
 [data-action="next-month"]::before {
 	content: "📆";
 }

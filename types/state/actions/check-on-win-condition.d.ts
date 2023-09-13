@@ -10,7 +10,7 @@
  */
 export function checkOnWinConditionAction(): CHECK_ON_WIN_CONDITION_ACTION;
 export type CHECK_ON_WIN_CONDITION_ACTION = {
-    type: "E";
+    type: "D";
     payload: object;
 };
 import { CHECK_ON_WIN_CONDITION_ACTION } from '../../constants.js';

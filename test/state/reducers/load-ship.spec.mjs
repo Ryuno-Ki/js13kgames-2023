@@ -82,7 +82,7 @@ describe('loadShipReducer', function () {
 
     it('should update the warehouse of that city', function () {
       // Arrange
-      const cities = [{ name: 'Lübeck', warehouse: { stock: { wool: 10 } } }]
+      const cities = [{ name: 'Lübeck', warehouse: { wool: 10 } }]
       const state = Object.assign({}, store.getState(), { activeCity: 'Lübeck', cities })
       const payload = { city: 'Lübeck', ship: 'Marie', ware: 'wool', quantity: 2 }
       const cityIndex = state.cities.findIndex((c) => c.name === payload.city)
@@ -92,7 +92,7 @@ describe('loadShipReducer', function () {
 
       // Assert
       expect(newState).not.to.equal(state)
-      expect(newState.cities[cityIndex].warehouse.stock).to.shallowDeepEqual({ wool: 8 })
+      expect(newState.cities[cityIndex].warehouse).to.shallowDeepEqual({ wool: 8 })
     })
   })
 })

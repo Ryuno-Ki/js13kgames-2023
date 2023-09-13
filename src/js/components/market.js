@@ -88,7 +88,7 @@ function showBuyForm (state, city) {
  */
 function showSellForm (state, city) {
   const stockItems = Object
-    .entries(city.warehouse.stock)
+    .entries(city.warehouse)
     .filter((stockItem) => stockItem[1] > 0)
 
   if (stockItems.length === 0) {

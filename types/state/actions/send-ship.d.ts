@@ -21,7 +21,7 @@ export function sendShipAction({ ship, from, to }: {
     to: import('../cities.js').CityName;
 }): SEND_SHIP_ACTION;
 export type SEND_SHIP_ACTION = {
-    type: "M";
+    type: "L";
     payload: {
         from: import('../cities.js').CityName;
         ship: string;
