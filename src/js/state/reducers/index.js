@@ -7,6 +7,7 @@ import {
   LOAD_GAME_ACTION,
   LOAD_SHIP_ACTION,
   RESET_ACTION,
+  RESTOCK_ACTION,
   SAVE_GAME_ACTION,
   SELL_ACTION,
   SEND_SHIP_ACTION,
@@ -31,6 +32,7 @@ import { forwardToNextMonthReducer } from './forward-to-next-month.js'
 import { loadGameReducer } from './load-game.js'
 import { loadShipReducer } from './load-ship.js'
 import { resetReducer } from './reset.js'
+import { restockReducer } from './restock.js'
 import { sellReducer } from './sell.js'
 import { sendShipReducer } from './send-ship.js'
 import { setColorPreferenceReducer } from './set-color-preference.js'
@@ -111,6 +113,13 @@ export function reducer (state, action) {
     return resetReducer(
       state,
       /** @type {import('../actions/reset.js').RESET_ACTION['payload']} */(payload)
+    )
+  }
+
+  if (type === RESTOCK_ACTION) {
+    return restockReducer(
+      state,
+      /** @type {import('../actions/restock.js').RESTOCK_ACTION['payload']} */(payload)
     )
   }
 
