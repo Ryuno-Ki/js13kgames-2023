@@ -186,13 +186,13 @@ describe('docks', function () {
           distances: {
             India: 6
           },
-          warehouse: {
-          }
+          warehouse: {}
         }]
 
         const ships = [{
           name: 'Santa Maria',
-          cargo: [],
+          type: 'nef',
+          cargo: {},
           moored: true,
           position: 'Lübeck'
         }]
@@ -214,21 +214,20 @@ describe('docks', function () {
         const cities = [{
           name: 'India',
           isFounded: true,
-          warehouse: {
-          }
+          warehouse: {}
         }, {
           name: 'Lübeck',
           isFounded: true,
           distances: {
             India: 8
           },
-          warehouse: {
-          }
+          warehouse: {}
         }]
 
         const ships = [{
           name: 'Santa Maria',
-          cargo: [],
+          type: 'nef',
+          cargo: {},
           moored: true,
           position: 'Lübeck'
         }]

@@ -1,0 +1,9 @@
+[data-component="docks"] li {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+}
+
+[data-component="docks"] label {
+	text-align: end;
+}

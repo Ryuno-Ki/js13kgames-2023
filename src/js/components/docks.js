@@ -67,61 +67,72 @@ function mapShipsToTree (state, city) {
   }
 
   return mooredShipsInCity.map((ship) => [
-    'div', [], {}, ship.name, [
-      ['div', [], {}, 'Load', [
-        ['ul', [], {}, '', [
-          ...Object.entries(warehouse).map((stockItem) => [
+    'div', [], {}, `Cargo for ${ship.name} (up to ${state.shipTypes[ship.type].maxFreightWeight})`, [
+      ['fieldset', [], {}, '', [
+        ['legend', [], {}, 'Load'],
+        ['ul', [], {}, '', Object
+          .entries(warehouse)
+          .filter((stockItem) => stockItem[1] > 0)
+          .map((stockItem) => [
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-load-${stockItem[0]}` }, stockItem[0]],
-              ['span', [], {}, '0'],
-              ['input', [], {
-                id: `${ship.name}-load-${stockItem[0]}`,
-                name: `${ship.name}-load-${stockItem[0]}`,
-                type: 'range',
-                min: 0,
-                max: Math.min(
+              ['span', [], {}, '', [
+                ['span', [], {}, '0'],
+                ['input', [], {
+                  id: `${ship.name}-load-${stockItem[0]}`,
+                  name: `${ship.name}-load-${stockItem[0]}`,
+                  type: 'range',
+                  min: 0,
+                  max: Math.min(
                   // Stock in warehouse
-                  stockItem[1],
-                  // Maximum the ship can still carry
-                  state.shipTypes[ship.type].maxFreightWeight - Object.values(ship.cargo).reduce((sum, summand) => sum + summand, 0)
-                ),
-                step: 1,
-                value: 0,
-                'data-city': city.name,
-                'data-load': 'load',
-                'data-ship': ship.name,
-                'data-ware': stockItem[0]
-              }],
-              ['span', [], {}, stockItem[1]]
+                    stockItem[1],
+                    // Maximum the ship can still carry
+                    state.shipTypes[ship.type].maxFreightWeight - Object.values(ship.cargo).reduce((sum, summand) => sum + summand, 0)
+                  ),
+                  step: 1,
+                  value: 0,
+                  'data-city': city.name,
+                  'data-load': 'load',
+                  'data-ship': ship.name,
+                  'data-ware': stockItem[0]
+                }],
+                ['span', [], {}, stockItem[1]]
+              ]]
             ]
           ])
-        ]]
+        ]
       ]],
-      ['div', [], {}, 'Unload', [
-        ['ul', [], {}, '', [
-          ...Object.entries(ship.cargo).map((item) => [
+      ['fieldset', [], {}, '', [
+        ['legend', [], {}, 'Unload'],
+        ['ul', [], {}, '', Object
+          .entries(ship.cargo)
+          .filter((item) => item[1] > 0)
+          .map((item) => [
             'li', [], {}, '', [
               ['label', [], { for: `${ship.name}-unload-${item[0]}` }, item[0]],
-              ['span', [], {}, '0'],
-              ['input', [], {
-                id: `${ship.name}-unload-${item[0]}`,
-                name: `${ship.name}-unload-${item[0]}`,
-                type: 'range',
-                min: 0,
-                max: item[1],
-                step: 1,
-                value: 0,
-                'data-city': city.name,
-                'data-load': 'unload',
-                'data-ship': ship.name,
-                'data-ware': item[0]
-              }],
-              ['span', [], {}, item[1]]
+              ['span', [], {}, '', [
+                ['span', [], {}, '0'],
+                ['input', [], {
+                  id: `${ship.name}-unload-${item[0]}`,
+                  name: `${ship.name}-unload-${item[0]}`,
+                  type: 'range',
+                  min: 0,
+                  max: item[1],
+                  step: 1,
+                  value: 0,
+                  'data-city': city.name,
+                  'data-load': 'unload',
+                  'data-ship': ship.name,
+                  'data-ware': item[0]
+                }],
+                ['span', [], {}, item[1]]
+              ]]
             ]
           ])
-        ]]
+        ]
       ]],
-      ['div', [], {}, '', [
+      ['fieldset', [], {}, '', [
+        ['legend', [], {}, `Send ${ship.type} „${ship.name}”`],
         ['label', [], { for: 'destination' }],
         ['select', [], { id: 'destination', 'data-ship': ship.name }, '', [
           ['option', [], { selected: 'selected', value: '', 'data-ship': ship.name }, 'Please select'

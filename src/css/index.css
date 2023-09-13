@@ -1,4 +1,5 @@
 @import './main.css';
+@import './components/docks.css';
 @import './components/market.css';
 @import './components/sea.css';
 @import './components/scenes/load-game.css';
