@@ -25,7 +25,7 @@ describe('tutorial', function () {
       // Assert
       expect(tutorialComponent).not.to.equal(targetElement)
       expect(tutorialComponent).to.have.descendant('p.story')
-      expect(tutorialComponent).to.have.descendant('button[data-view="sea"]')
+      expect(tutorialComponent).not.to.have.descendant('[data-view]')
     })
   })
 
@@ -34,6 +34,22 @@ describe('tutorial', function () {
       // Arrange
       const targetElement = document.createElement('div')
       const state = Object.assign({}, store.getState(), { activeView: 'warehouse', showTutorial: { warehouse: true } })
+
+      // Act
+      const tutorialComponent = tutorial(targetElement, state)
+
+      // Assert
+      expect(tutorialComponent).not.to.equal(targetElement)
+      expect(tutorialComponent).to.have.descendant('p.story')
+      expect(tutorialComponent).to.have.descendant('button[data-view="sea"]')
+    })
+  })
+
+  describe('when active view is sea', function () {
+    it('should explain the functionality', function () {
+      // Arrange
+      const targetElement = document.createElement('div')
+      const state = Object.assign({}, store.getState(), { activeView: 'sea', showTutorial: { sea: true } })
 
       // Act
       const tutorialComponent = tutorial(targetElement, state)
