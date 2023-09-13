@@ -1,4 +1,5 @@
 import { copy } from '../../helpers/copy.js'
+import { initialState } from '../initial-state.js'
 
 /**
  * Reducer to check on win condition based on scenario.
@@ -9,13 +10,16 @@ import { copy } from '../../helpers/copy.js'
  */
 export function checkOnWinConditionReducer (state, payload) {
   let { activeScene } = state
-  const { activeMonth, activeScenario, activeYear } = state
+  const { activeMonth, activeScenario, activeYear, playermoney } = state
+  const aYearLater = initialState.activeYear + 1
+  const aMonthLater = Number(initialState.activeMonth) + 1
+  const initalPlayerMoney = initialState.playermoney
 
   if (activeScenario === 'tutorial') {
-    // TODO: Update if I decide to pick another start year
-    if (activeYear >= 1251 && Number(activeMonth) >= 2) {
-      // TODO: Check on balance. Should exceed the starting value.
-      activeScene = 'win-section'
+    if (activeYear >= aYearLater && Number(activeMonth) >= aMonthLater) {
+      if (playermoney > initalPlayerMoney) {
+        activeScene = 'win-section'
+      }
     }
   }
 
